@@ -1,9 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-    <meta name="google-site-verification" content="xxxxxxxxxxxxxxx">
-    <!-- rest of your head content -->
-</head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>PlateRun — Delivering Deliciousness in Lahore</title>
@@ -12,27 +9,65 @@
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+/* ── THEME VARIABLES ── */
 :root{
   --red:#E8340A;
   --orange:#F5600F;
-  --cream:#FDF7F0;
+  --font-h:'Syne',sans-serif;
+  --font-b:'Plus Jakarta Sans',sans-serif;
+}
+[data-theme="light"]{
+  --bg:#FDF7F0;
+  --bg2:#FFFFFF;
   --dark:#14100A;
   --ink:#241A10;
   --muted:#7C6C5A;
   --border:rgba(36,26,16,0.10);
-  --white:#FFFFFF;
-  --font-h:'Syne',sans-serif;
-  --font-b:'Plus Jakarta Sans',sans-serif;
+  --card:#FFFFFF;
+  --nav-bg:rgba(253,247,240,0.92);
   --sh:0 4px 32px rgba(20,16,10,0.10);
   --sh-lg:0 12px 56px rgba(20,16,10,0.16);
+  --strip:#14100A;
+  --strip-text:rgba(255,255,255,0.4);
+  --modal-bg:rgba(0,0,0,0.55);
+  --input-bg:#F8F3ED;
+  --dash-bg:#F4EDE4;
 }
+[data-theme="dark"]{
+  --bg:#0F0B07;
+  --bg2:#1A1410;
+  --dark:#F5EEE6;
+  --ink:#E8DDD0;
+  --muted:#9A8A78;
+  --border:rgba(255,220,180,0.10);
+  --card:#1E1810;
+  --nav-bg:rgba(15,11,7,0.92);
+  --sh:0 4px 32px rgba(0,0,0,0.40);
+  --sh-lg:0 12px 56px rgba(0,0,0,0.55);
+  --strip:#0A0806;
+  --strip-text:rgba(255,255,255,0.3);
+  --modal-bg:rgba(0,0,0,0.75);
+  --input-bg:#28201A;
+  --dash-bg:#1A1410;
+}
+
 html{scroll-behavior:smooth}
-body{font-family:var(--font-b);background:var(--cream);color:var(--ink);overflow-x:hidden}
+body{font-family:var(--font-b);background:var(--bg);color:var(--ink);overflow-x:hidden;transition:background .3s,color .3s}
+
+/* ── THEME TOGGLE ── */
+.theme-toggle{
+  position:fixed;bottom:28px;right:28px;z-index:500;
+  width:50px;height:50px;border-radius:50%;
+  background:var(--card);border:1.5px solid var(--border);
+  box-shadow:var(--sh-lg);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  font-size:20px;transition:all .25s;
+}
+.theme-toggle:hover{transform:scale(1.1);box-shadow:0 8px 32px rgba(232,52,10,0.25)}
 
 /* ── FLOATING FOOD BACKGROUND ── */
-.food-float-bg{
-  position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;
-}
+.food-float-bg{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
 .food-float-bg span{
   position:absolute;font-size:52px;
   animation:floatFood linear infinite;
@@ -41,10 +76,24 @@ body{font-family:var(--font-b);background:var(--cream);color:var(--ink);overflow
   user-select:none;
 }
 @keyframes floatFood{
-  0%  {transform:translateY(110vh) rotate(0deg);   opacity:0}
-  5%  {opacity:.18}
-  90% {opacity:.14}
-  100%{transform:translateY(-15vh) rotate(25deg);  opacity:0}
+  0%  {transform:translateY(110vh) rotate(0deg);opacity:0}
+  5%  {opacity:.12}
+  90% {opacity:.08}
+  100%{transform:translateY(-15vh) rotate(25deg);opacity:0}
+}
+/* Wobble items in background */
+.food-wobble{
+  position:fixed;pointer-events:none;z-index:0;
+  animation:wobble ease-in-out infinite;
+  font-size:64px;opacity:0.07;
+  filter:drop-shadow(0 8px 20px rgba(0,0,0,0.15));
+  user-select:none;
+}
+@keyframes wobble{
+  0%,100%{transform:rotate(-8deg) scale(1)}
+  25%{transform:rotate(6deg) scale(1.05)}
+  50%{transform:rotate(-4deg) scale(0.97)}
+  75%{transform:rotate(7deg) scale(1.03)}
 }
 
 /* ── NAV ── */
@@ -52,10 +101,10 @@ nav{
   position:fixed;top:0;left:0;right:0;z-index:200;
   height:70px;display:flex;align-items:center;justify-content:space-between;
   padding:0 52px;
-  background:rgba(253,247,240,0.92);
+  background:var(--nav-bg);
   backdrop-filter:blur(18px);
   border-bottom:1px solid var(--border);
-  transition:box-shadow .3s;
+  transition:box-shadow .3s,background .3s;
 }
 nav.scrolled{box-shadow:0 2px 28px rgba(20,16,10,0.09)}
 .nav-logo{
@@ -66,14 +115,31 @@ nav.scrolled{box-shadow:0 2px 28px rgba(20,16,10,0.09)}
 .nav-links{display:flex;gap:38px;list-style:none}
 .nav-links a{text-decoration:none;color:var(--muted);font-size:14px;font-weight:500;transition:color .2s}
 .nav-links a:hover{color:var(--dark)}
+.nav-right{display:flex;align-items:center;gap:14px}
 .nav-cta{
   background:var(--red);color:#fff;padding:11px 26px;
   border-radius:100px;font-size:14px;font-weight:600;
   text-decoration:none;
   box-shadow:0 4px 16px rgba(232,52,10,0.30);
   transition:background .2s,transform .15s,box-shadow .2s;
+  cursor:pointer;border:none;
 }
 .nav-cta:hover{background:var(--orange);transform:translateY(-1px);box-shadow:0 6px 24px rgba(232,52,10,0.38)}
+.nav-user-btn{
+  display:flex;align-items:center;gap:8px;
+  padding:8px 16px;border-radius:100px;
+  border:1.5px solid var(--border);
+  background:var(--card);color:var(--ink);
+  font-size:14px;font-weight:600;cursor:pointer;
+  transition:all .2s;text-decoration:none;
+}
+.nav-user-btn:hover{border-color:var(--red);color:var(--red)}
+.nav-avatar{
+  width:32px;height:32px;border-radius:50%;
+  background:linear-gradient(135deg,var(--red),var(--orange));
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:700;color:#fff;flex-shrink:0;
+}
 
 /* ── HERO ── */
 .hero{
@@ -96,8 +162,7 @@ nav.scrolled{box-shadow:0 2px 28px rgba(20,16,10,0.09)}
   border:1px solid rgba(232,52,10,0.18);
   border-radius:100px;padding:6px 16px;
   font-size:13px;font-weight:600;color:var(--red);
-  margin-bottom:28px;
-  animation:fadeUp .6s ease both;
+  margin-bottom:28px;animation:fadeUp .6s ease both;
 }
 .hero-badge .dot{
   width:7px;height:7px;border-radius:50%;
@@ -131,11 +196,10 @@ nav.scrolled{box-shadow:0 2px 28px rgba(20,16,10,0.09)}
 }
 .search-wrap{
   margin-top:36px;
-  display:flex;background:#fff;
+  display:flex;background:var(--card);
   border-radius:100px;border:1.5px solid var(--border);
   box-shadow:var(--sh);overflow:hidden;
-  max-width:490px;
-  animation:fadeUp .65s .3s ease both;
+  max-width:490px;animation:fadeUp .65s .3s ease both;
 }
 .search-wrap input{
   flex:1;border:none;outline:none;
@@ -147,8 +211,7 @@ nav.scrolled{box-shadow:0 2px 28px rgba(20,16,10,0.09)}
   background:var(--red);border:none;color:#fff;
   padding:12px 28px;margin:5px;border-radius:100px;
   font-family:var(--font-b);font-size:14px;font-weight:600;
-  cursor:pointer;transition:background .2s,transform .15s;
-  white-space:nowrap;
+  cursor:pointer;transition:background .2s,transform .15s;white-space:nowrap;
 }
 .search-wrap button:hover{background:var(--orange);transform:scale(1.02)}
 .hero-stats{
@@ -162,11 +225,7 @@ nav.scrolled{box-shadow:0 2px 28px rgba(20,16,10,0.09)}
 .stat-item .lbl{font-size:12px;color:var(--muted);margin-top:2px}
 
 /* ── HERO VISUAL ── */
-.hero-visual{
-  position:relative;height:520px;
-  animation:fadeUp .8s .15s ease both;
-}
-/* Floating food items in hero (emoji) */
+.hero-visual{position:relative;height:520px;animation:fadeUp .8s .15s ease both}
 .hero-food-item{
   position:absolute;font-size:88px;
   filter:drop-shadow(0 8px 24px rgba(0,0,0,0.12));
@@ -180,20 +239,17 @@ nav.scrolled{box-shadow:0 2px 28px rgba(20,16,10,0.09)}
 .hero-food-item:nth-child(1){top:30px;left:8%;animation-duration:3.8s}
 .hero-food-item:nth-child(2){top:180px;left:52%;animation-duration:4.4s;animation-delay:.8s;font-size:76px}
 .hero-food-item:nth-child(3){top:330px;left:18%;animation-duration:5s;animation-delay:1.4s;font-size:70px}
-/* Order card */
 .order-card{
   position:absolute;top:60px;left:6%;width:290px;
-  background:#fff;border-radius:22px;
+  background:var(--card);border-radius:22px;
   box-shadow:var(--sh-lg);overflow:hidden;
-  animation:cardFloat 4.2s ease-in-out infinite;
-  z-index:2;
+  animation:cardFloat 4.2s ease-in-out infinite;z-index:2;
 }
 @keyframes cardFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 .order-card-img{
   width:100%;height:160px;
   background:linear-gradient(135deg,#f6c49e,#e07840);
-  display:flex;align-items:center;justify-content:center;
-  font-size:60px;
+  display:flex;align-items:center;justify-content:center;font-size:60px;
 }
 .order-card-body{padding:16px 18px 18px}
 .order-card-name{font-family:var(--font-h);font-size:17px;font-weight:700;color:var(--dark)}
@@ -207,12 +263,10 @@ nav.scrolled{box-shadow:0 2px 28px rgba(20,16,10,0.09)}
   font-family:var(--font-b);transition:background .2s;
 }
 .order-card-btn:hover{background:var(--orange)}
-/* Floating pills */
 .pill-card{
-  position:absolute;background:#fff;
+  position:absolute;background:var(--card);
   border-radius:100px;box-shadow:var(--sh);
-  padding:10px 18px;display:flex;align-items:center;gap:10px;
-  z-index:3;
+  padding:10px 18px;display:flex;align-items:center;gap:10px;z-index:3;
 }
 .pill-card.delivery{top:18px;right:4%;animation:cardFloat 4.8s 1s ease-in-out infinite}
 .pill-card.rating{bottom:100px;right:2%;
@@ -229,7 +283,7 @@ nav.scrolled{box-shadow:0 2px 28px rgba(20,16,10,0.09)}
 
 /* ── FEATURE STRIP ── */
 .feature-strip{
-  background:var(--dark);padding:0 52px;
+  background:var(--strip);padding:0 52px;
   display:grid;grid-template-columns:repeat(4,1fr);
   position:relative;z-index:1;
 }
@@ -247,7 +301,7 @@ nav.scrolled{box-shadow:0 2px 28px rgba(20,16,10,0.09)}
   display:flex;align-items:center;justify-content:center;font-size:19px;
 }
 .feat-txt strong{display:block;font-size:13px;font-weight:700;color:var(--orange)}
-.feat-txt span{font-size:12px;color:rgba(255,255,255,.4)}
+.feat-txt span{font-size:12px;color:var(--strip-text)}
 
 /* ── SECTION COMMONS ── */
 .section{padding:88px 52px;position:relative;z-index:1}
@@ -256,21 +310,20 @@ nav.scrolled{box-shadow:0 2px 28px rgba(20,16,10,0.09)}
 .sec-sub{font-size:16px;color:var(--muted);max-width:480px;line-height:1.7}
 
 /* ── CATEGORIES ── */
-.cats{background:var(--white);padding:52px;position:relative;z-index:1}
+.cats{background:var(--bg2);padding:52px;position:relative;z-index:1}
 .cat-row{display:flex;gap:10px;margin-top:32px;overflow-x:auto;padding-bottom:4px}
 .cat-row::-webkit-scrollbar{display:none}
 .cat-pill{
   flex-shrink:0;display:flex;align-items:center;gap:9px;
   padding:12px 20px;border-radius:100px;
-  border:1.5px solid var(--border);background:var(--cream);
+  border:1.5px solid var(--border);background:var(--bg);
   cursor:pointer;text-decoration:none;
   font-size:14px;font-weight:600;color:var(--ink);
   transition:all .2s;
 }
 .cat-pill:hover,.cat-pill.active{
   background:var(--red);border-color:var(--red);color:#fff;
-  transform:translateY(-2px);
-  box-shadow:0 6px 20px rgba(232,52,10,0.26);
+  transform:translateY(-2px);box-shadow:0 6px 20px rgba(232,52,10,0.26);
 }
 
 /* ── RESTAURANTS ── */
@@ -282,12 +335,12 @@ nav.scrolled{box-shadow:0 2px 28px rgba(20,16,10,0.09)}
   padding:7px 16px;border-radius:100px;
   border:1.5px solid var(--border);
   font-size:13px;font-weight:600;color:var(--muted);
-  cursor:pointer;background:var(--white);transition:all .2s;
+  cursor:pointer;background:var(--bg2);transition:all .2s;
 }
-.ftab.active,.ftab:hover{background:var(--dark);border-color:var(--dark);color:#fff}
+.ftab.active,.ftab:hover{background:var(--dark);border-color:var(--dark);color:var(--bg)}
 .rest-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
 .rest-card{
-  background:var(--white);border-radius:20px;overflow:hidden;
+  background:var(--card);border-radius:20px;overflow:hidden;
   border:1px solid var(--border);box-shadow:var(--sh);
   cursor:pointer;text-decoration:none;color:inherit;display:block;
   transition:transform .22s,box-shadow .22s;
@@ -302,19 +355,14 @@ nav.scrolled{box-shadow:0 2px 28px rgba(20,16,10,0.09)}
   position:absolute;inset:0;
   background:linear-gradient(to top,rgba(0,0,0,.32) 0%,transparent 55%);
 }
-.rbadge{
-  position:absolute;top:14px;left:14px;
-  padding:4px 12px;border-radius:100px;
-  font-size:11px;font-weight:700;
-}
+.rbadge{position:absolute;top:14px;left:14px;padding:4px 12px;border-radius:100px;font-size:11px;font-weight:700}
 .rbadge-hot{background:var(--red);color:#fff}
-.rbadge-new{background:var(--dark);color:#fff}
-.rbadge-coming{background:rgba(20,16,10,.6);color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.15)}
+.rbadge-new{background:var(--dark);color:var(--bg)}
 .rtime{
   position:absolute;bottom:14px;right:14px;
   background:rgba(255,255,255,.95);
   border-radius:100px;padding:5px 12px;
-  font-size:12px;font-weight:700;color:var(--dark);
+  font-size:12px;font-weight:700;color:#14100A;
   display:flex;align-items:center;gap:4px;
 }
 .rest-body{padding:18px 20px 20px}
@@ -327,23 +375,114 @@ nav.scrolled{box-shadow:0 2px 28px rgba(20,16,10,0.09)}
 .rrating span{font-weight:400;color:var(--muted);font-size:12px}
 .rmeta{display:flex;gap:12px;font-size:12px;color:var(--muted)}
 .rfree{color:var(--red);font-weight:600}
-/* Coming soon overlay */
-.rest-card.coming-soon{opacity:.75}
-.cs-overlay{
-  position:absolute;inset:0;
-  background:rgba(20,16,10,.45);
-  display:flex;align-items:center;justify-content:center;
-  backdrop-filter:blur(2px);
-}
-.cs-badge{
-  background:#fff;color:var(--dark);
-  font-size:14px;font-weight:700;
-  padding:10px 24px;border-radius:100px;
-  box-shadow:0 4px 20px rgba(0,0,0,.2);
+/* New: Menu preview tags */
+.rest-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.rtag{
+  font-size:11px;padding:3px 10px;border-radius:100px;
+  background:rgba(232,52,10,.07);color:var(--red);font-weight:600;
 }
 
+/* ── LITTLE OLIVES MENU MODAL ── */
+.menu-modal-overlay{
+  position:fixed;inset:0;background:var(--modal-bg);
+  z-index:800;display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity .3s;
+  padding:20px;
+}
+.menu-modal-overlay.open{opacity:1;pointer-events:all}
+.menu-modal{
+  background:var(--card);border-radius:28px;
+  width:100%;max-width:860px;max-height:88vh;
+  overflow:hidden;display:flex;flex-direction:column;
+  box-shadow:0 24px 80px rgba(0,0,0,0.4);
+  transform:translateY(30px) scale(0.97);transition:transform .35s cubic-bezier(.22,1,.36,1);
+}
+.menu-modal-overlay.open .menu-modal{transform:none}
+.menu-modal-head{
+  padding:28px 32px 20px;border-bottom:1px solid var(--border);
+  display:flex;align-items:flex-start;justify-content:space-between;flex-shrink:0;
+}
+.menu-modal-head .rest-logo{
+  width:56px;height:56px;border-radius:16px;
+  background:linear-gradient(135deg,#2d6e4e,#1a4230);
+  display:flex;align-items:center;justify-content:center;font-size:26px;
+  margin-right:16px;flex-shrink:0;
+}
+.menu-modal-info{flex:1}
+.menu-modal-name{font-family:var(--font-h);font-size:24px;font-weight:800;color:var(--dark);letter-spacing:-.5px}
+.menu-modal-meta{font-size:13px;color:var(--muted);margin-top:4px}
+.modal-close{
+  width:36px;height:36px;border-radius:50%;
+  border:1.5px solid var(--border);background:transparent;
+  cursor:pointer;font-size:18px;color:var(--muted);
+  display:flex;align-items:center;justify-content:center;
+  transition:all .2s;flex-shrink:0;margin-left:12px;
+}
+.modal-close:hover{background:var(--red);border-color:var(--red);color:#fff}
+.menu-modal-tabs{
+  display:flex;gap:4px;padding:16px 32px;
+  border-bottom:1px solid var(--border);flex-shrink:0;overflow-x:auto;
+}
+.menu-modal-tabs::-webkit-scrollbar{display:none}
+.mtab{
+  padding:7px 16px;border-radius:100px;
+  font-size:13px;font-weight:600;color:var(--muted);
+  cursor:pointer;white-space:nowrap;transition:all .2s;
+  border:1.5px solid transparent;background:transparent;
+}
+.mtab.active,.mtab:hover{background:var(--red);color:#fff}
+.menu-body{overflow-y:auto;padding:24px 32px;flex:1}
+.menu-section{margin-bottom:32px}
+.menu-section-title{
+  font-family:var(--font-h);font-size:18px;font-weight:700;
+  color:var(--dark);margin-bottom:4px;
+}
+.menu-section-sub{font-size:12px;color:var(--muted);margin-bottom:16px}
+.menu-items{display:flex;flex-direction:column;gap:12px}
+.menu-item{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 18px;border-radius:14px;
+  border:1px solid var(--border);background:var(--bg);
+  gap:12px;transition:box-shadow .2s,border-color .2s;
+}
+.menu-item:hover{box-shadow:var(--sh);border-color:rgba(232,52,10,.2)}
+.menu-item-info{flex:1}
+.menu-item-name{font-size:14px;font-weight:700;color:var(--dark);margin-bottom:3px}
+.menu-item-desc{font-size:12px;color:var(--muted);line-height:1.5}
+.menu-item-sizes{display:flex;gap:8px;margin-top:6px;flex-wrap:wrap}
+.size-btn{
+  font-size:11px;padding:3px 10px;border-radius:100px;
+  border:1px solid var(--border);color:var(--muted);cursor:pointer;
+  transition:all .18s;background:transparent;
+}
+.size-btn:hover,.size-btn.picked{background:var(--red);border-color:var(--red);color:#fff}
+.menu-item-right{display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0}
+.menu-price{font-family:var(--font-h);font-size:16px;font-weight:700;color:var(--dark)}
+.add-btn{
+  width:32px;height:32px;border-radius:50%;
+  background:var(--red);border:none;color:#fff;
+  font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:background .2s,transform .15s;flex-shrink:0;
+}
+.add-btn:hover{background:var(--orange);transform:scale(1.12)}
+/* Cart badge in modal */
+.modal-cart{
+  flex-shrink:0;padding:20px 32px;border-top:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  background:var(--card);
+}
+.cart-summary{font-size:14px;color:var(--muted)}
+.cart-summary strong{color:var(--dark)}
+.cart-checkout{
+  background:var(--red);color:#fff;border:none;
+  padding:12px 28px;border-radius:100px;
+  font-size:14px;font-weight:600;cursor:pointer;
+  font-family:var(--font-b);transition:background .2s;
+}
+.cart-checkout:hover{background:var(--orange)}
+
 /* ── HOW IT WORKS ── */
-.how{background:var(--dark)}
+.how{background:var(--strip)}
 .how .sec-title{color:#fff}
 .how .sec-sub{color:rgba(255,255,255,.45)}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:56px}
@@ -351,8 +490,7 @@ nav.scrolled{box-shadow:0 2px 28px rgba(20,16,10,0.09)}
   padding:36px 32px;border-radius:20px;
   border:1px solid rgba(255,255,255,.08);
   background:rgba(255,255,255,.03);
-  position:relative;overflow:hidden;
-  transition:border-color .25s,background .25s;
+  position:relative;overflow:hidden;transition:border-color .25s,background .25s;
 }
 .step:hover{border-color:var(--red);background:rgba(232,52,10,.05)}
 .step-n{
@@ -372,8 +510,7 @@ nav.scrolled{box-shadow:0 2px 28px rgba(20,16,10,0.09)}
 }
 .partner-visual::after{content:'🍽️';font-size:190px;position:absolute;right:-28px;bottom:-28px;opacity:.10}
 .pv-row{
-  background:rgba(255,255,255,.12);
-  border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);
   border-radius:14px;padding:18px 22px;margin-bottom:12px;
 }
 .pv-row:last-child{margin-bottom:0}
@@ -381,7 +518,7 @@ nav.scrolled{box-shadow:0 2px 28px rgba(20,16,10,0.09)}
 .pv-bar-bg{height:5px;background:rgba(255,255,255,.18);border-radius:3px;margin-top:10px}
 .pv-bar{height:100%;border-radius:3px;background:#fff}
 .pstats{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:36px}
-.pstat{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:22px;transition:box-shadow .2s}
+.pstat{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:22px;transition:box-shadow .2s}
 .pstat:hover{box-shadow:var(--sh)}
 .pstat .n{font-family:var(--font-h);font-size:34px;font-weight:800;color:var(--red);letter-spacing:-1px}
 .pstat .l{font-size:13px;color:var(--muted);margin-top:3px}
@@ -391,14 +528,154 @@ nav.scrolled{box-shadow:0 2px 28px rgba(20,16,10,0.09)}
 .perk strong{display:block;font-weight:700;font-size:15px}
 .perk small{font-size:13px;color:var(--muted)}
 .btn-join{
-  display:inline-block;margin-top:34px;
-  background:var(--red);color:#fff;
-  padding:15px 34px;border-radius:100px;
-  font-size:15px;font-weight:600;text-decoration:none;
-  box-shadow:0 4px 18px rgba(232,52,10,.28);
-  transition:background .2s,transform .15s;
+  display:inline-block;margin-top:34px;background:var(--red);color:#fff;
+  padding:15px 34px;border-radius:100px;font-size:15px;font-weight:600;text-decoration:none;
+  box-shadow:0 4px 18px rgba(232,52,10,.28);transition:background .2s,transform .15s;
 }
 .btn-join:hover{background:var(--orange);transform:translateY(-2px)}
+
+/* ── AUTH MODAL ── */
+.auth-overlay{
+  position:fixed;inset:0;background:var(--modal-bg);
+  z-index:900;display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity .3s;padding:20px;
+}
+.auth-overlay.open{opacity:1;pointer-events:all}
+.auth-modal{
+  background:var(--card);border-radius:28px;
+  width:100%;max-width:420px;
+  padding:40px 36px;
+  box-shadow:0 24px 80px rgba(0,0,0,0.4);
+  transform:translateY(30px) scale(0.97);transition:transform .35s cubic-bezier(.22,1,.36,1);
+  position:relative;
+}
+.auth-overlay.open .auth-modal{transform:none}
+.auth-logo{font-family:var(--font-h);font-size:20px;font-weight:800;color:var(--dark);margin-bottom:6px}
+.auth-logo span{color:var(--red)}
+.auth-title{font-family:var(--font-h);font-size:26px;font-weight:800;color:var(--dark);letter-spacing:-.5px;margin-bottom:6px}
+.auth-sub{font-size:14px;color:var(--muted);margin-bottom:28px;line-height:1.5}
+.auth-divider{display:flex;align-items:center;gap:12px;margin:20px 0;color:var(--muted);font-size:13px}
+.auth-divider::before,.auth-divider::after{content:'';flex:1;height:1px;background:var(--border)}
+.auth-field{margin-bottom:14px}
+.auth-field label{display:block;font-size:12px;font-weight:700;color:var(--muted);margin-bottom:6px;letter-spacing:.5px;text-transform:uppercase}
+.auth-field input{
+  width:100%;padding:13px 16px;
+  border:1.5px solid var(--border);border-radius:12px;
+  background:var(--input-bg);color:var(--dark);
+  font-family:var(--font-b);font-size:15px;outline:none;
+  transition:border-color .2s;
+}
+.auth-field input:focus{border-color:var(--red)}
+.auth-submit{
+  width:100%;background:var(--red);color:#fff;border:none;
+  padding:15px;border-radius:100px;font-family:var(--font-b);
+  font-size:15px;font-weight:700;cursor:pointer;margin-top:8px;
+  transition:background .2s,transform .15s;
+  box-shadow:0 4px 20px rgba(232,52,10,.3);
+}
+.auth-submit:hover{background:var(--orange);transform:translateY(-1px)}
+.auth-switch{margin-top:20px;text-align:center;font-size:14px;color:var(--muted)}
+.auth-switch a{color:var(--red);font-weight:600;cursor:pointer;text-decoration:none}
+.auth-close{
+  position:absolute;top:16px;right:16px;
+  width:36px;height:36px;border-radius:50%;
+  border:1.5px solid var(--border);background:transparent;
+  cursor:pointer;font-size:16px;color:var(--muted);
+  display:flex;align-items:center;justify-content:center;transition:all .2s;
+}
+.auth-close:hover{background:var(--red);border-color:var(--red);color:#fff}
+/* Social login buttons */
+.social-btn{
+  width:100%;display:flex;align-items:center;justify-content:center;gap:10px;
+  padding:13px;border-radius:12px;border:1.5px solid var(--border);
+  background:var(--input-bg);color:var(--ink);
+  font-family:var(--font-b);font-size:14px;font-weight:600;
+  cursor:pointer;transition:all .2s;margin-bottom:10px;
+}
+.social-btn:hover{border-color:var(--red);background:rgba(232,52,10,.04)}
+.social-btn .s-icon{font-size:18px}
+
+/* ── DASHBOARD PANEL ── */
+.dash-overlay{
+  position:fixed;top:0;right:0;bottom:0;z-index:700;
+  width:420px;max-width:100vw;
+  background:var(--card);
+  box-shadow:-8px 0 56px rgba(0,0,0,.25);
+  transform:translateX(100%);transition:transform .38s cubic-bezier(.22,1,.36,1);
+  display:flex;flex-direction:column;
+  border-left:1px solid var(--border);
+}
+.dash-overlay.open{transform:none}
+.dash-head{
+  padding:28px 28px 20px;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:16px;
+}
+.dash-avatar{
+  width:56px;height:56px;border-radius:50%;
+  background:linear-gradient(135deg,var(--red),var(--orange));
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;font-weight:700;color:#fff;flex-shrink:0;
+}
+.dash-user-name{font-family:var(--font-h);font-size:18px;font-weight:700;color:var(--dark)}
+.dash-user-email{font-size:13px;color:var(--muted);margin-top:2px}
+.dash-close{
+  margin-left:auto;width:36px;height:36px;border-radius:50%;
+  border:1.5px solid var(--border);background:transparent;
+  cursor:pointer;font-size:16px;color:var(--muted);
+  display:flex;align-items:center;justify-content:center;transition:all .2s;
+}
+.dash-close:hover{background:var(--red);border-color:var(--red);color:#fff}
+.dash-body{overflow-y:auto;flex:1;padding:24px 28px}
+.dash-stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:28px}
+.dash-stat{
+  background:var(--dash-bg);border-radius:16px;padding:18px;
+  border:1px solid var(--border);
+}
+.dash-stat .ds-num{font-family:var(--font-h);font-size:26px;font-weight:800;color:var(--red);letter-spacing:-.5px}
+.dash-stat .ds-lbl{font-size:12px;color:var(--muted);margin-top:3px}
+.dash-section-title{
+  font-family:var(--font-h);font-size:16px;font-weight:700;
+  color:var(--dark);margin-bottom:14px;
+}
+.order-history{display:flex;flex-direction:column;gap:10px}
+.oh-item{
+  background:var(--dash-bg);border-radius:14px;
+  padding:14px 16px;border:1px solid var(--border);
+  display:flex;align-items:center;gap:12px;
+}
+.oh-icon{font-size:28px;flex-shrink:0}
+.oh-info{flex:1}
+.oh-name{font-size:14px;font-weight:600;color:var(--dark)}
+.oh-meta{font-size:12px;color:var(--muted);margin-top:2px}
+.oh-price{font-family:var(--font-h);font-size:15px;font-weight:700;color:var(--red);flex-shrink:0}
+.oh-status{
+  font-size:10px;font-weight:700;padding:3px 10px;border-radius:100px;
+  display:inline-block;margin-top:4px;
+}
+.oh-status.delivered{background:rgba(16,185,129,.12);color:#059669}
+.oh-status.pending{background:rgba(232,52,10,.1);color:var(--red)}
+.dash-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:8px 16px;border-radius:100px;
+  background:rgba(232,52,10,.08);border:1px solid rgba(232,52,10,.2);
+  font-size:13px;font-weight:600;color:var(--red);margin-bottom:24px;
+}
+.dash-logout{
+  margin-top:24px;width:100%;padding:13px;border-radius:12px;
+  border:1.5px solid var(--border);background:transparent;
+  font-family:var(--font-b);font-size:14px;font-weight:600;color:var(--muted);
+  cursor:pointer;transition:all .2s;
+}
+.dash-logout:hover{border-color:#ef4444;color:#ef4444;background:rgba(239,68,68,.05)}
+/* Streak */
+.streak-row{display:flex;gap:8px;margin-bottom:28px;flex-wrap:wrap}
+.streak-day{
+  width:38px;height:38px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;font-size:16px;
+  border:1.5px solid var(--border);background:var(--dash-bg);
+  transition:all .2s;
+}
+.streak-day.active{background:var(--red);border-color:var(--red)}
 
 /* ── FOOTER ── */
 footer{background:#0E0A06;padding:60px 52px 34px;position:relative;z-index:1}
@@ -413,6 +690,16 @@ footer{background:#0E0A06;padding:60px 52px 34px;position:relative;z-index:1}
 .footer-bot{border-top:1px solid rgba(255,255,255,.07);padding-top:26px;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:rgba(255,255,255,.26)}
 .footer-bot a{color:rgba(255,255,255,.26);text-decoration:none}
 .footer-bot a:hover{color:rgba(255,255,255,.55)}
+
+/* ── TOAST ── */
+.toast{
+  position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(20px);
+  background:var(--dark);color:var(--bg);
+  padding:12px 24px;border-radius:100px;font-size:14px;font-weight:600;
+  z-index:1000;opacity:0;transition:all .3s;pointer-events:none;white-space:nowrap;
+  box-shadow:0 8px 32px rgba(0,0,0,0.3);
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
 /* ── ANIMATIONS ── */
 @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
@@ -432,6 +719,12 @@ footer{background:#0E0A06;padding:60px 52px 34px;position:relative;z-index:1}
   .partner-inner{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr 1fr}
   footer{padding:44px 22px 26px}
+  .dash-overlay{width:100vw}
+  .menu-modal{max-height:95vh}
+  .menu-modal-head{padding:20px 20px 16px}
+  .menu-body{padding:16px 20px}
+  .menu-modal-tabs{padding:12px 20px}
+  .modal-cart{padding:16px 20px}
 }
 </style>
 </head>
@@ -439,6 +732,126 @@ footer{background:#0E0A06;padding:60px 52px 34px;position:relative;z-index:1}
 
 <!-- ── FLOATING FOOD BACKGROUND ── -->
 <div class="food-float-bg" id="foodBg"></div>
+<!-- Static wobble items -->
+<div class="food-wobble" style="top:18%;left:4%;animation-duration:5.2s;font-size:72px">🍕</div>
+<div class="food-wobble" style="top:42%;right:5%;animation-duration:6.1s;animation-delay:1.5s;font-size:80px">🍔</div>
+<div class="food-wobble" style="top:68%;left:7%;animation-duration:4.8s;animation-delay:2.8s;font-size:68px">🌯</div>
+<div class="food-wobble" style="top:28%;right:12%;animation-duration:7s;animation-delay:.8s;font-size:60px">🍛</div>
+
+<!-- ── AUTH MODAL ── -->
+<div class="auth-overlay" id="authOverlay">
+  <div class="auth-modal">
+    <button class="auth-close" onclick="closeAuth()">✕</button>
+    <div class="auth-logo">Plate<span>Run</span></div>
+    <div class="auth-title" id="authTitle">Welcome back 👋</div>
+    <div class="auth-sub" id="authSub">Sign in to track orders, reorder favourites & get exclusive deals.</div>
+
+    <button class="social-btn" onclick="quickSignIn('google')">
+      <span class="s-icon">🔵</span> Continue with Google
+    </button>
+    <button class="social-btn" onclick="quickSignIn('whatsapp')">
+      <span class="s-icon">💬</span> Continue with WhatsApp
+    </button>
+
+    <div class="auth-divider">or use email</div>
+
+    <div id="nameField" class="auth-field" style="display:none">
+      <label>Full name</label>
+      <input type="text" id="authName" placeholder="Your name"/>
+    </div>
+    <div class="auth-field">
+      <label>Email address</label>
+      <input type="email" id="authEmail" placeholder="you@example.com"/>
+    </div>
+    <div class="auth-field">
+      <label>Password</label>
+      <input type="password" id="authPass" placeholder="••••••••"/>
+    </div>
+
+    <button class="auth-submit" id="authBtn" onclick="doAuth()">Sign in →</button>
+    <div class="auth-switch" id="authSwitch">
+      New to PlateRun? <a onclick="toggleAuthMode()">Create account</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── DASHBOARD PANEL ── -->
+<div class="dash-overlay" id="dashPanel">
+  <div class="dash-head">
+    <div class="dash-avatar" id="dashAvatarLetter">A</div>
+    <div>
+      <div class="dash-user-name" id="dashName">Ahsan</div>
+      <div class="dash-user-email" id="dashEmail">ahsan@example.com</div>
+    </div>
+    <button class="dash-close" onclick="closeDash()">✕</button>
+  </div>
+  <div class="dash-body">
+    <div class="dash-badge">🔥 3-day streak — keep ordering!</div>
+    <div class="dash-stats-grid">
+      <div class="dash-stat">
+        <div class="ds-num" id="statOrders">0</div>
+        <div class="ds-lbl">Total orders</div>
+      </div>
+      <div class="dash-stat">
+        <div class="ds-num" id="statSpend">Rs.0</div>
+        <div class="ds-lbl">Total spent</div>
+      </div>
+      <div class="dash-stat">
+        <div class="ds-num" id="statFav">—</div>
+        <div class="ds-lbl">Favourite spot</div>
+      </div>
+      <div class="dash-stat">
+        <div class="ds-num" id="statSaved">Rs.0</div>
+        <div class="ds-lbl">Saved on deals</div>
+      </div>
+    </div>
+
+    <div class="dash-section-title">🗓 This week's activity</div>
+    <div class="streak-row" id="streakRow"></div>
+
+    <div class="dash-section-title">📦 Recent orders</div>
+    <div class="order-history" id="orderHistory">
+      <div style="font-size:14px;color:var(--muted);text-align:center;padding:20px 0">No orders yet — let's change that! 🍽️</div>
+    </div>
+
+    <button class="dash-logout" onclick="logOut()">Sign out</button>
+  </div>
+</div>
+
+<!-- ── LITTLE OLIVES MENU MODAL ── -->
+<div class="menu-modal-overlay" id="menuModal">
+  <div class="menu-modal">
+    <div class="menu-modal-head">
+      <div style="display:flex;align-items:flex-start;flex:1;gap:16px">
+        <div class="rest-logo">🫒</div>
+        <div class="menu-modal-info">
+          <div class="menu-modal-name">Little Olives</div>
+          <div class="menu-modal-meta">⭐ 4.8 · Italian & Pan Asian · Johar Town · ⏱ 30–45 min · Rs. 149 delivery</div>
+        </div>
+      </div>
+      <button class="modal-close" onclick="closeMenu()">✕</button>
+    </div>
+    <div class="menu-modal-tabs">
+      <div class="mtab active" onclick="switchMenuTab('appetizers',this)">🥟 Appetizers</div>
+      <div class="mtab" onclick="switchMenuTab('soups',this)">🍲 Soups</div>
+      <div class="mtab" onclick="switchMenuTab('pasta',this)">🍝 Pastas</div>
+      <div class="mtab" onclick="switchMenuTab('pizza',this)">🍕 Pizzas</div>
+      <div class="mtab" onclick="switchMenuTab('steaks',this)">🍗 Steaks</div>
+      <div class="mtab" onclick="switchMenuTab('udons',this)">🍜 Udons</div>
+      <div class="mtab" onclick="switchMenuTab('chinese',this)">🥡 Chinese</div>
+      <div class="mtab" onclick="switchMenuTab('fries',this)">🍟 Fries</div>
+      <div class="mtab" onclick="switchMenuTab('desserts',this)">🍮 Desserts</div>
+      <div class="mtab" onclick="switchMenuTab('drinks',this)">🥤 Drinks</div>
+    </div>
+    <div class="menu-body" id="menuBody">
+      <!-- Filled by JS -->
+    </div>
+    <div class="modal-cart" id="modalCart">
+      <div class="cart-summary">🛒 <strong id="cartCount">0 items</strong> &nbsp;·&nbsp; <strong id="cartTotal">Rs. 0</strong></div>
+      <button class="cart-checkout" onclick="handleCheckout()">Checkout →</button>
+    </div>
+  </div>
+</div>
 
 <!-- ── NAV ── -->
 <nav id="navbar">
@@ -448,7 +861,14 @@ footer{background:#0E0A06;padding:60px 52px 34px;position:relative;z-index:1}
     <li><a href="#how">How it works</a></li>
     <li><a href="#partners">For restaurants</a></li>
   </ul>
-  <a href="#restaurants" class="nav-cta">Order now</a>
+  <div class="nav-right">
+    <div id="navAuthArea">
+      <button class="nav-user-btn" onclick="openAuth()">
+        <span>👤</span> Sign in
+      </button>
+    </div>
+    <a href="#restaurants" class="nav-cta">Order now</a>
+  </div>
 </nav>
 
 <!-- ── HERO ── -->
@@ -463,35 +883,30 @@ footer{background:#0E0A06;padding:60px 52px 34px;position:relative;z-index:1}
     </div>
     <div class="hero-stats">
       <div class="stat-item"><div class="num">30<span style="font-size:18px;letter-spacing:0">min</span></div><div class="lbl">Avg delivery</div></div>
-      <div class="stat-item"><div class="num">4</div><div class="lbl">Live restaurants</div></div>
+      <div class="stat-item"><div class="num">5</div><div class="lbl">Live restaurants</div></div>
       <div class="stat-item"><div class="num">4.8★</div><div class="lbl">Customer rating</div></div>
     </div>
   </div>
-
   <div class="hero-visual">
-    <!-- Floating food emoji -->
     <div class="hero-food-item">🍕</div>
     <div class="hero-food-item">🍔</div>
     <div class="hero-food-item">🌯</div>
-    <!-- Order card -->
     <div class="order-card">
-      <div class="order-card-img">🍛</div>
+      <div class="order-card-img">🫒</div>
       <div class="order-card-body">
-        <div class="order-card-name">Chicken Karahi</div>
+        <div class="order-card-name">Chicken Schnitzel</div>
         <div class="order-card-meta">
           <span class="ocm-rating">★ 4.9</span>
-          <span class="ocm-time">⏱ 28 min</span>
+          <span class="ocm-time">⏱ 35 min</span>
           <span>Johar Town</span>
         </div>
-        <button class="order-card-btn">Add to cart — Rs. 950</button>
+        <button class="order-card-btn" onclick="openMenu()">Add to cart — Rs. 1,849</button>
       </div>
     </div>
-    <!-- Delivery pill -->
     <div class="pill-card delivery">
       <span class="p-icon">🛵</span>
       <div><div class="p-main">Rider on the way</div><div class="p-sub">Arriving in 9 minutes</div></div>
     </div>
-    <!-- Rating pill -->
     <div class="pill-card rating">
       <div class="p-big">4.8★</div>
       <div class="p-sm">1,200+ happy orders</div>
@@ -501,7 +916,7 @@ footer{background:#0E0A06;padding:60px 52px 34px;position:relative;z-index:1}
 
 <!-- ── FEATURE STRIP ── -->
 <div class="feature-strip">
-  <div class="feat"><div class="feat-icon">🛵</div><div class="feat-txt"><strong>Fast Delivery</strong><span>Average 25–35 minutes</span></div></div>
+  <div class="feat"><div class="feat-icon">🛵</div><div class="feat-txt"><strong>Fast Delivery</strong><span>Average 25–45 minutes</span></div></div>
   <div class="feat"><div class="feat-icon">🍽️</div><div class="feat-txt"><strong>Your Favourites</strong><span>Best spots in Johar Town</span></div></div>
   <div class="feat"><div class="feat-icon">🛡️</div><div class="feat-txt"><strong>Safe & Reliable</strong><span>Verified riders, sealed food</span></div></div>
   <div class="feat"><div class="feat-icon">💬</div><div class="feat-txt"><strong>WhatsApp Tracking</strong><span>Live order updates</span></div></div>
@@ -525,7 +940,7 @@ footer{background:#0E0A06;padding:60px 52px 34px;position:relative;z-index:1}
 </section>
 
 <!-- ── RESTAURANTS ── -->
-<section class="section" id="restaurants" style="background:var(--cream)">
+<section class="section" id="restaurants" style="background:var(--bg)">
   <div class="rest-hd reveal">
     <div>
       <div class="eyebrow">Johar Town, Lahore</div>
@@ -542,7 +957,36 @@ footer{background:#0E0A06;padding:60px 52px 34px;position:relative;z-index:1}
 
   <div class="rest-grid">
 
-    <!-- RESTAURANT 1: Al-Rehman Karahi -->
+    <!-- LITTLE OLIVES ★ FEATURED ★ -->
+    <a class="rest-card reveal" href="#" onclick="openMenu();return false;" style="grid-column:1/-1">
+      <div class="rest-thumb" style="background:linear-gradient(135deg,#2d6e4e,#1a4230);height:240px">
+        <span style="font-size:100px">🫒</span>
+        <div class="rest-thumb-ov"></div>
+        <span class="rbadge rbadge-hot">⭐ Featured Restaurant</span>
+        <div class="rtime">⏱ 30–45 min</div>
+      </div>
+      <div class="rest-body">
+        <div class="rest-name">Little Olives</div>
+        <div class="rest-area">📍 Johar Town, Lahore</div>
+        <div class="rest-tags">
+          <span class="rtag">Italian</span>
+          <span class="rtag">Pan Asian</span>
+          <span class="rtag">Pizzas</span>
+          <span class="rtag">Pastas</span>
+          <span class="rtag">Udons</span>
+          <span class="rtag">Chinese</span>
+          <span class="rtag">Steaks</span>
+          <span class="rtag">Momos</span>
+        </div>
+        <div class="rest-cuisine">Full-menu Italian & Pan Asian — from schnitzel to sushi-style udons 🍜🍕</div>
+        <div class="rest-foot">
+          <div class="rrating"><span class="rstar">★</span> 4.8 <span>(top-rated)</span></div>
+          <div class="rmeta"><span>Min Rs. 400</span><span>Rs. 149 delivery</span></div>
+        </div>
+      </div>
+    </a>
+
+    <!-- RESTAURANT 1 -->
     <a class="rest-card reveal" href="#">
       <div class="rest-thumb" style="background:linear-gradient(135deg,#F6C08C,#D96020)">
         🍛<div class="rest-thumb-ov"></div>
@@ -560,7 +1004,7 @@ footer{background:#0E0A06;padding:60px 52px 34px;position:relative;z-index:1}
       </div>
     </a>
 
-    <!-- RESTAURANT 2: Pizza Point -->
+    <!-- RESTAURANT 2 -->
     <a class="rest-card reveal" href="#">
       <div class="rest-thumb" style="background:linear-gradient(135deg,#FDEBC8,#E8A030)">
         🍕<div class="rest-thumb-ov"></div>
@@ -578,7 +1022,7 @@ footer{background:#0E0A06;padding:60px 52px 34px;position:relative;z-index:1}
       </div>
     </a>
 
-    <!-- RESTAURANT 3: Shawarma House -->
+    <!-- RESTAURANT 3 -->
     <a class="rest-card reveal" href="#">
       <div class="rest-thumb" style="background:linear-gradient(135deg,#FDDDB8,#C87828)">
         🌯<div class="rest-thumb-ov"></div>
@@ -596,7 +1040,7 @@ footer{background:#0E0A06;padding:60px 52px 34px;position:relative;z-index:1}
       </div>
     </a>
 
-    <!-- RESTAURANT 4: Burger Hub -->
+    <!-- RESTAURANT 4 -->
     <a class="rest-card reveal" href="#">
       <div class="rest-thumb" style="background:linear-gradient(135deg,#C8E8FF,#3890D8)">
         🍔<div class="rest-thumb-ov"></div>
@@ -616,8 +1060,7 @@ footer{background:#0E0A06;padding:60px 52px 34px;position:relative;z-index:1}
 
   </div>
 
-  <!-- More coming notice -->
-  <div class="reveal" style="margin-top:36px;background:var(--white);border-radius:18px;padding:28px 32px;border:1.5px dashed rgba(232,52,10,.25);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+  <div class="reveal" style="margin-top:36px;background:var(--bg2);border-radius:18px;padding:28px 32px;border:1.5px dashed rgba(232,52,10,.25);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
     <div>
       <div style="font-family:var(--font-h);font-size:17px;font-weight:700;color:var(--dark);margin-bottom:5px">More restaurants joining soon 🚀</div>
       <div style="font-size:14px;color:var(--muted)">We're onboarding more Johar Town restaurants this week. Menus & full details coming shortly.</div>
@@ -633,20 +1076,17 @@ footer{background:#0E0A06;padding:60px 52px 34px;position:relative;z-index:1}
   <div class="sec-sub">Three steps. No app needed. Works on any phone.</div>
   <div class="steps">
     <div class="step reveal">
-      <div class="step-n">01</div>
-      <div class="step-icon">📍</div>
+      <div class="step-n">01</div><div class="step-icon">📍</div>
       <h3>Enter your location</h3>
       <p>Type your area in Lahore — Johar Town, DHA, Gulberg, Model Town — and instantly see restaurants that deliver to you.</p>
     </div>
     <div class="step reveal">
-      <div class="step-n">02</div>
-      <div class="step-icon">🛒</div>
+      <div class="step-n">02</div><div class="step-icon">🛒</div>
       <h3>Choose & order</h3>
       <p>Browse menus, add items, checkout in seconds. Pay cash on delivery or via JazzCash/EasyPaisa. No card needed.</p>
     </div>
     <div class="step reveal">
-      <div class="step-n">03</div>
-      <div class="step-icon">🛵</div>
+      <div class="step-n">03</div><div class="step-icon">🛵</div>
       <h3>Track your ride</h3>
       <p>Get WhatsApp updates the moment your order is confirmed, prepared, and picked up by your rider. Hot food arrives.</p>
     </div>
@@ -654,7 +1094,7 @@ footer{background:#0E0A06;padding:60px 52px 34px;position:relative;z-index:1}
 </section>
 
 <!-- ── PARTNER ── -->
-<section class="section" id="partners" style="background:var(--cream)">
+<section class="section" id="partners" style="background:var(--bg)">
   <div class="partner-inner">
     <div>
       <div class="eyebrow reveal">Restaurant partners</div>
@@ -699,36 +1139,56 @@ footer{background:#0E0A06;padding:60px 52px 34px;position:relative;z-index:1}
   </div>
 </footer>
 
+<!-- ── THEME TOGGLE ── -->
+<button class="theme-toggle" onclick="toggleTheme()" id="themeBtn" title="Toggle dark/light mode">🌙</button>
+
+<!-- ── TOAST ── -->
+<div class="toast" id="toast"></div>
+
 <script>
-/* ── FLOATING FOOD BG ── */
+/* ════════════════════════════════════════════
+   THEME SYSTEM
+════════════════════════════════════════════ */
+let isDark = localStorage.getItem('pr_theme') === 'dark';
+function applyTheme(){
+  document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+  document.getElementById('themeBtn').textContent = isDark ? '☀️' : '🌙';
+}
+function toggleTheme(){
+  isDark = !isDark;
+  localStorage.setItem('pr_theme', isDark ? 'dark' : 'light');
+  applyTheme();
+}
+applyTheme();
+
+/* ════════════════════════════════════════════
+   FLOATING FOOD BG
+════════════════════════════════════════════ */
 const foods = ['🍕','🍔','🌯','🍛','🍜','🥗','🍦','🍟','🥪','🧆','🍖','🥙'];
 const bg = document.getElementById('foodBg');
 foods.forEach((f,i) => {
   const el = document.createElement('span');
   el.textContent = f;
-  el.style.cssText = `
-    left:${8 + (i * 8.2) % 88}%;
-    animation-duration:${14 + (i*3.7)%14}s;
-    animation-delay:${(i*2.3)%12}s;
-    font-size:${42 + (i*7)%32}px;
-  `;
+  el.style.cssText = `left:${8+(i*8.2)%88}%;animation-duration:${14+(i*3.7)%14}s;animation-delay:${(i*2.3)%12}s;font-size:${42+(i*7)%32}px;`;
   bg.appendChild(el);
 });
 
-/* ── NAV SCROLL ── */
+/* ════════════════════════════════════════════
+   NAV SCROLL
+════════════════════════════════════════════ */
 window.addEventListener('scroll', () => {
   document.getElementById('navbar').classList.toggle('scrolled', scrollY > 12);
 });
 
-/* ── CATEGORY PILL TOGGLE ── */
+/* ════════════════════════════════════════════
+   CATEGORY & FILTER TOGGLE
+════════════════════════════════════════════ */
 document.querySelectorAll('.cat-pill').forEach(p => {
   p.addEventListener('click', e => {
     document.querySelectorAll('.cat-pill').forEach(x => x.classList.remove('active'));
     p.classList.add('active');
   });
 });
-
-/* ── FILTER TAB TOGGLE ── */
 document.querySelectorAll('.ftab').forEach(t => {
   t.addEventListener('click', () => {
     document.querySelectorAll('.ftab').forEach(x => x.classList.remove('active'));
@@ -736,18 +1196,433 @@ document.querySelectorAll('.ftab').forEach(t => {
   });
 });
 
-/* ── SCROLL REVEAL ── */
+/* ════════════════════════════════════════════
+   SCROLL REVEAL
+════════════════════════════════════════════ */
 const obs = new IntersectionObserver((entries) => {
   entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
+    if(entry.isIntersecting){
       setTimeout(() => entry.target.classList.add('visible'), i * 65);
       obs.unobserve(entry.target);
     }
   });
-}, { threshold: 0.08 });
+},{threshold:0.08});
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+/* ════════════════════════════════════════════
+   TOAST
+════════════════════════════════════════════ */
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2800);
+}
+
+/* ════════════════════════════════════════════
+   AUTH SYSTEM
+════════════════════════════════════════════ */
+let authMode = 'signin'; // 'signin' | 'signup'
+
+function openAuth(){
+  document.getElementById('authOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeAuth(){
+  document.getElementById('authOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('authOverlay').addEventListener('click', e => {
+  if(e.target === document.getElementById('authOverlay')) closeAuth();
+});
+
+function toggleAuthMode(){
+  authMode = authMode === 'signin' ? 'signup' : 'signin';
+  const isSignup = authMode === 'signup';
+  document.getElementById('authTitle').textContent = isSignup ? 'Create account ✨' : 'Welcome back 👋';
+  document.getElementById('authSub').textContent = isSignup
+    ? 'Join PlateRun and start ordering from Lahore\'s best restaurants.'
+    : 'Sign in to track orders, reorder favourites & get exclusive deals.';
+  document.getElementById('authBtn').textContent = isSignup ? 'Create account →' : 'Sign in →';
+  document.getElementById('authSwitch').innerHTML = isSignup
+    ? 'Already have an account? <a onclick="toggleAuthMode()">Sign in</a>'
+    : 'New to PlateRun? <a onclick="toggleAuthMode()">Create account</a>';
+  document.getElementById('nameField').style.display = isSignup ? '' : 'none';
+}
+
+function quickSignIn(method){
+  // Simulate quick social auth
+  const names = {google:'Lahori Foodie', whatsapp:'PlateRun User'};
+  const emails = {google:'user@gmail.com', whatsapp:'user@whatsapp.com'};
+  signInUser(names[method], emails[method]);
+  closeAuth();
+}
+
+function doAuth(){
+  const email = document.getElementById('authEmail').value.trim();
+  const pass = document.getElementById('authPass').value;
+  const name = authMode === 'signup' ? document.getElementById('authName').value.trim() : '';
+
+  if(!email || !pass){ showToast('⚠️ Please fill in all fields'); return; }
+  if(!email.includes('@')){ showToast('⚠️ Enter a valid email'); return; }
+  if(pass.length < 6){ showToast('⚠️ Password too short (min 6 chars)'); return; }
+
+  const displayName = name || email.split('@')[0];
+  signInUser(displayName, email);
+  closeAuth();
+}
+
+function signInUser(name, email){
+  const user = {name, email, joinedAt: Date.now()};
+  localStorage.setItem('pr_user', JSON.stringify(user));
+  updateNavForUser(user);
+  showToast('🎉 Welcome, ' + name.split(' ')[0] + '!');
+  loadDashboard(user);
+}
+
+function logOut(){
+  localStorage.removeItem('pr_user');
+  closeDash();
+  renderNavGuest();
+  showToast('👋 Signed out successfully');
+}
+
+/* ════════════════════════════════════════════
+   NAV AUTH STATE
+════════════════════════════════════════════ */
+function renderNavGuest(){
+  document.getElementById('navAuthArea').innerHTML = `
+    <button class="nav-user-btn" onclick="openAuth()">
+      <span>👤</span> Sign in
+    </button>`;
+}
+
+function updateNavForUser(user){
+  const initial = user.name.charAt(0).toUpperCase();
+  document.getElementById('navAuthArea').innerHTML = `
+    <button class="nav-user-btn" onclick="openDash()" style="gap:10px">
+      <span style="width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--red),var(--orange));display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0">${initial}</span>
+      ${user.name.split(' ')[0]}
+    </button>`;
+}
+
+/* ════════════════════════════════════════════
+   DASHBOARD
+════════════════════════════════════════════ */
+function openDash(){
+  document.getElementById('dashPanel').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeDash(){
+  document.getElementById('dashPanel').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function loadDashboard(user){
+  document.getElementById('dashName').textContent = user.name;
+  document.getElementById('dashEmail').textContent = user.email;
+  document.getElementById('dashAvatarLetter').textContent = user.name.charAt(0).toUpperCase();
+
+  // Load order history from localStorage
+  const orders = JSON.parse(localStorage.getItem('pr_orders') || '[]');
+  const totalSpend = orders.reduce((s,o)=>s+o.total,0);
+  const favRestaurant = orders.length ? 'Little Olives' : '—';
+
+  document.getElementById('statOrders').textContent = orders.length;
+  document.getElementById('statSpend').textContent = orders.length ? 'Rs.'+(totalSpend.toLocaleString()) : 'Rs.0';
+  document.getElementById('statFav').textContent = favRestaurant;
+  document.getElementById('statSaved').textContent = orders.length ? 'Rs.'+(Math.floor(totalSpend*0.08)).toLocaleString() : 'Rs.0';
+
+  // Streak row
+  const days = ['M','T','W','T','F','S','S'];
+  const streakRow = document.getElementById('streakRow');
+  streakRow.innerHTML = days.map((d,i)=>`
+    <div class="streak-day ${i<3?'active':''}">
+      <span style="font-size:10px;display:block;color:${i<3?'rgba(255,255,255,.7)':'var(--muted)'};margin-bottom:1px">${d}</span>
+      ${i<3?'🔥':'·'}
+    </div>`).join('');
+
+  // Order history
+  const hist = document.getElementById('orderHistory');
+  if(orders.length === 0){
+    hist.innerHTML = `<div style="font-size:14px;color:var(--muted);text-align:center;padding:20px 0">No orders yet — let's change that! 🍽️</div>`;
+  } else {
+    hist.innerHTML = orders.slice(-6).reverse().map(o=>`
+      <div class="oh-item">
+        <div class="oh-icon">${o.icon||'🍽️'}</div>
+        <div class="oh-info">
+          <div class="oh-name">${o.name}</div>
+          <div class="oh-meta">${o.restaurant} · ${o.date}</div>
+          <span class="oh-status ${o.status}">${o.status==='delivered'?'✓ Delivered':'⏳ Pending'}</span>
+        </div>
+        <div class="oh-price">Rs.${o.total.toLocaleString()}</div>
+      </div>`).join('');
+  }
+}
+
+/* ════════════════════════════════════════════
+   AUTO LOGIN ON RETURN
+════════════════════════════════════════════ */
+window.addEventListener('DOMContentLoaded', ()=>{
+  const saved = localStorage.getItem('pr_user');
+  if(saved){
+    try{
+      const user = JSON.parse(saved);
+      updateNavForUser(user);
+      loadDashboard(user);
+    }catch(e){ localStorage.removeItem('pr_user'); }
+  }
+});
+
+/* ════════════════════════════════════════════
+   LITTLE OLIVES MENU DATA
+════════════════════════════════════════════ */
+const MENU = {
+  appetizers:{
+    title:'Appetizers',icon:'🥟',
+    items:[
+      {name:'Momos (Minced Chicken, Steamed)',desc:'Delicately steamed minced chicken dumplings',price:null,sizes:[{label:'6 pcs',price:499},{label:'12 pcs',price:799}]},
+      {name:'Dynamite Chicken Strips',desc:'Crispy chicken strips served with fries',price:null,sizes:[{label:'5 pcs',price:749}]},
+      {name:'Crispy Tacos',desc:'Crispy corn breads with baked chicken & combo sauces',price:null,sizes:[{label:'4 pcs',price:799}]},
+      {name:'Garlic Butter Balls',desc:'Soft bread balls topped with garlic, butter, cheese, baked to perfection',price:849},
+    ]
+  },
+  soups:{
+    title:'Soups',icon:'🍲',
+    items:[
+      {name:'Hot & Sour Soup',desc:'Classic Chinese-style hot and sour soup',price:449},
+      {name:'Sweet Corn Soup',desc:'Smooth and comforting sweet corn soup',price:449},
+      {name:'Cream of Mushroom',desc:'Rich creamy mushroom soup',price:599},
+      {name:'Cream of Chicken',desc:'Velvety chicken cream soup',price:599},
+    ]
+  },
+  pasta:{
+    title:'Pastas',icon:'🍝',
+    items:[
+      {name:'Alfredo Pasta',desc:'Penne pasta in creamy cheesy alfredo sauce with olives and mushrooms, served with garlic bread',price:849},
+      {name:'Penne Arrabiata',desc:'Penne pasta in spicy arrabiata sauce with olives, served with garlic bread',price:849},
+      {name:'Penne Alla Bolognese',desc:'Penne pasta in red sauce with minced chicken, olives, topped with cheese and red sauce, served with garlic bread',price:999,badge:'New'},
+      {name:'Parmesan Chicken Pasta',desc:'Penne cooked in red & white sauce fusion, topped with 2 crispy fried cheesy chicken steaks, served with garlic breads',price:1749},
+    ]
+  },
+  pizza:{
+    title:'Signature Pizzas',icon:'🍕',
+    sub:'All pizzas baked with special thin crust italiano dough',
+    items:[
+      {name:'Little Olive\'s Special',desc:'Chicken chunks topped with olives, mushrooms, sausages & cheese',price:null,sizes:[{label:'7"',price:799},{label:'10"',price:1499},{label:'14"',price:1999}]},
+      {name:'Alfredo Pizza',desc:'Chicken chunks, olives, mushrooms, chef\'s special alfredo sauce, american cheese',price:null,sizes:[{label:'7"',price:799},{label:'10"',price:1499},{label:'14"',price:1999}]},
+      {name:'Olive\'s Supreme',desc:'Chicken, Olives, Mushrooms, Bell peppers, tomatoes, onions, cheese',price:null,sizes:[{label:'7"',price:799},{label:'10"',price:1499},{label:'14"',price:1999}]},
+    ]
+  },
+  steaks:{
+    title:'Chicken Steaks & Stuffed Chicken',icon:'🍗',
+    items:[
+      {name:'White Mushroom Chicken',desc:'Tender chicken breast in white mushroom sauce, with sauteed veggies and mashed potatoes',price:1399},
+      {name:'Mexican Chicken',desc:'Chicken breast in spicy Mexican sauce, with sauteed veggies & mashed potatoes',price:1399},
+      {name:'Moroccan Chicken',desc:'Chicken breast in Moroccan sauce, served with sauteed veggies and mashed potatoes',price:1499},
+      {name:'Chicken Stroganoff',desc:'Chicken breast with black pepper & cream, sauteed veggies & mashed potatoes',price:1499},
+      {name:'Tarragon Chicken',desc:'Chicken breast with chef\'s special tarragon sauce, sauteed veggies and mashed potatoes',price:1499},
+      {name:'Tangy Chicken Schnitzel',desc:'Deep fried crispy chicken steaks with tangy zesty sauce, sauteed veggies, fries/mashed potatoes',price:1849},
+      {name:'Hawaiian Stuffed Chicken',desc:'Crispy fried chicken breast filled with cheese, marinated in special spices, served with fries/mashed potatoes, creamy spinach and chef\'s special pineapple sauce',price:1599},
+      {name:'Chimichurri Chicken',desc:'Chicken breast stuffed with cheese, marinated in herbs, topped with chimichurri sauce & butter, served with garlic/herbs rice and herb potatoes',price:1649},
+      {name:'Chicken Dijonnaise',desc:'Crispy fried chicken roulades filled with creamy cheesy spinach, topped with special mustard based dijonnaise sauce, veggies, mashed potatoes/fries and honey mustard sauce',price:1599},
+    ]
+  },
+  udons:{
+    title:'Udons — Japanese & Korean Fusion',icon:'🍜',
+    items:[
+      {name:'Kitsune Udon',desc:'Handmade noodles glazed with Korean spices, chicken chunks, boiled egg, zucchini, carrot',price:899},
+      {name:'Sanuki Udon',desc:'Noodles in chicken & mushroom broth, topped with chicken steak',price:899},
+      {name:'Kagawa Special Udon',desc:'Noodles in chicken broth, bologna slice, combo of crispy veg, boiled egg and chicken chunks',price:999},
+      {name:'Udon with Spicy Chicken',desc:'Noodles with tender spicy chicken, crispy veggies, boiled egg',price:999},
+      {name:'Udon with Dumplings',desc:'Handmade noodles in sweet n sour broth with chicken dumplings & crispy veggies',price:1049},
+      {name:'Kishimen Udon',desc:'Delicious noodles cooked in slightly spicy, soya based broth, topped with chicken, veggies, corns & boiled egg',price:1099},
+      {name:'Dry Pot Udon',desc:'Spicy glazy noodles, topped with crispy chicken chunks, boiled eggs, and crispy veggies',price:999},
+    ]
+  },
+  chinese:{
+    title:'Chinese (Served with Veg Fried Rice)',icon:'🥡',
+    items:[
+      {name:'Kung Pao Chicken',desc:'Stir fried chicken with perfect combination of salty, sweet & spicy flavours topped with peanuts',price:999},
+      {name:'Chicken Cashew Nuts',desc:'Stir fried chicken with crispy cashew nuts in sweet savory sauce with fresh veggies',price:1049},
+      {name:'Mongolian Chicken',desc:'Slices of chicken breast stir fried, cooked in a savory sauce with crisp green onions topped with sesame seeds',price:999},
+      {name:'Chicken Chilli Dry',desc:'Tender pieces of pan fried chicken coated in a savory sauce, tossed with green chillies topped with julian cut ginger',price:999},
+      {name:'Manchurian',desc:'Stir fried chicken in a sizzling red sauce',price:899},
+      {name:'Shashlik',desc:'Stir fried chicken, tomato sauce, crispy veggies',price:899},
+      {name:'General Tso\'s Chicken',desc:'Fried chicken pieces breaded and tossed in a tangy sauce served with garlic rice, topped with chives and sesame seeds',price:1349},
+      {name:'Veg Chowmein',desc:'Classic vegetable stir fried noodles',price:649},
+      {name:'Chicken Chowmein',desc:'Chicken stir fried noodles',price:799},
+    ]
+  },
+  fries:{
+    title:'Fries',icon:'🍟',
+    items:[
+      {name:'Plain Fries',desc:'Classic crispy golden fries',price:399},
+      {name:'Garlic Mayo Fries',desc:'Fries with garlic mayo dip',price:449},
+      {name:'Masala Fries',desc:'Spiced fries with masala seasoning',price:449},
+      {name:'Loaded Fries',desc:'Fries loaded with combo sauces, chicken chunks, olives, mushrooms',price:699},
+      {name:'Olive\'s Special Loaded Fries',desc:'Fries loaded with Olive special white sauce, chicken chunks, olives, mushrooms, cheese baked in oven',price:999,badge:'New'},
+    ]
+  },
+  desserts:{
+    title:'Desserts',icon:'🍮',
+    items:[
+      {name:'Brownie with Ice-Cream',desc:'Warm chocolate brownie served with a scoop of ice cream',price:499},
+      {name:'Molten Lava with Ice-Cream',desc:'Gooey molten lava cake with vanilla ice cream',price:599},
+    ]
+  },
+  drinks:{
+    title:'Drinks',icon:'🥤',
+    items:[
+      {name:'Cola Next / Pepsi',desc:'Chilled carbonated drink',price:199},
+      {name:'Fizzup / 7up',desc:'Chilled lemon carbonated drink',price:199},
+      {name:'Water 500ml',desc:'Mineral water',price:99},
+      {name:'Arancia Bevande',desc:'Signature orange Italian drink',price:449},
+      {name:'Menta Bevande',desc:'Signature mint Italian drink',price:399},
+      {name:'Rum Swizzle',desc:'Signature mocktail — tropical blend',price:420},
+    ]
+  }
+};
+
+/* ════════════════════════════════════════════
+   CART
+════════════════════════════════════════════ */
+let cart = [];
+let cartTotal = 0;
+
+function addToCart(name, price, icon='🍽️'){
+  if(!price || isNaN(price)){ showToast('👆 Pick a size first'); return; }
+  cart.push({name, price, icon});
+  cartTotal += price;
+  updateCartUI();
+  showToast(`✅ ${name.substring(0,22)} added!`);
+}
+
+function updateCartUI(){
+  document.getElementById('cartCount').textContent = cart.length + (cart.length===1?' item':' items');
+  document.getElementById('cartTotal').textContent = 'Rs. ' + cartTotal.toLocaleString();
+}
+
+function handleCheckout(){
+  const saved = localStorage.getItem('pr_user');
+  if(!saved){
+    closeMenu();
+    setTimeout(()=>openAuth(),300);
+    showToast('👤 Sign in first to checkout');
+    return;
+  }
+  if(cart.length===0){ showToast('🛒 Cart is empty'); return; }
+
+  // Save mock order
+  const orders = JSON.parse(localStorage.getItem('pr_orders')||'[]');
+  orders.push({
+    name: cart.map(c=>c.name).join(', ').substring(0,40) + (cart.length>1?'…':''),
+    restaurant:'Little Olives',
+    total: cartTotal,
+    date: new Date().toLocaleDateString('en-PK',{day:'numeric',month:'short'}),
+    status:'delivered',
+    icon:'🫒'
+  });
+  localStorage.setItem('pr_orders', JSON.stringify(orders));
+
+  cart = []; cartTotal = 0; updateCartUI();
+  closeMenu();
+  const user = JSON.parse(saved);
+  loadDashboard(user);
+  showToast('🎉 Order placed! Rider on the way 🛵');
+}
+
+/* ════════════════════════════════════════════
+   MENU MODAL
+════════════════════════════════════════════ */
+let activeTab = 'appetizers';
+
+function openMenu(){
+  document.getElementById('menuModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  renderMenuTab(activeTab);
+}
+function closeMenu(){
+  document.getElementById('menuModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('menuModal').addEventListener('click', e => {
+  if(e.target === document.getElementById('menuModal')) closeMenu();
+});
+
+function switchMenuTab(tab, el){
+  activeTab = tab;
+  document.querySelectorAll('.mtab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  renderMenuTab(tab);
+}
+
+function renderMenuTab(tab){
+  const sec = MENU[tab];
+  if(!sec) return;
+  const body = document.getElementById('menuBody');
+  body.innerHTML = `
+    <div class="menu-section">
+      <div class="menu-section-title">${sec.icon} ${sec.title}</div>
+      ${sec.sub ? `<div class="menu-section-sub">${sec.sub}</div>` : ''}
+      <div class="menu-items">
+        ${sec.items.map((item,idx) => renderMenuItem(item,idx,tab)).join('')}
+      </div>
+    </div>`;
+}
+
+function renderMenuItem(item, idx, tab){
+  const hasSizes = item.sizes && item.sizes.length;
+  const sizeHtml = hasSizes
+    ? `<div class="menu-item-sizes">${item.sizes.map(s=>`
+        <button class="size-btn" onclick="pickSize(this, '${item.name}', ${s.price}, event)" data-price="${s.price}">${s.label} — Rs.${s.price.toLocaleString()}</button>`).join('')}
+      </div>` : '';
+
+  const badgeHtml = item.badge ? `<span class="rtag" style="margin-left:6px">${item.badge}</span>` : '';
+
+  return `
+    <div class="menu-item">
+      <div class="menu-item-info">
+        <div class="menu-item-name">${item.name}${badgeHtml}</div>
+        <div class="menu-item-desc">${item.desc}</div>
+        ${sizeHtml}
+      </div>
+      <div class="menu-item-right">
+        ${item.price ? `<div class="menu-price">Rs.${item.price.toLocaleString()}</div>` : ''}
+        ${item.price
+          ? `<button class="add-btn" onclick="addToCart('${item.name.replace(/'/g,"\\'")}', ${item.price}, '${MENU[tab].icon}')">+</button>`
+          : `<button class="add-btn" id="addbtn_${tab}_${idx}" onclick="addPickedSize('${tab}','${idx}', '${item.name.replace(/'/g,"\\'")}', '${MENU[tab].icon}')">+</button>`
+        }
+      </div>
+    </div>`;
+}
+
+// Selected sizes temp store
+const pickedSizes = {};
+function pickSize(btn, name, price, e){
+  e.preventDefault();
+  const parent = btn.closest('.menu-item-sizes');
+  parent.querySelectorAll('.size-btn').forEach(b=>b.classList.remove('picked'));
+  btn.classList.add('picked');
+  pickedSizes[name] = price;
+}
+function addPickedSize(tab, idx, name, icon){
+  const price = pickedSizes[name];
+  if(!price){ showToast('👆 Pick a size first'); return; }
+  addToCart(name, price, icon);
+}
+
+/* ════════════════════════════════════════════
+   CLOSE OVERLAYS ON ESC
+════════════════════════════════════════════ */
+document.addEventListener('keydown', e => {
+  if(e.key === 'Escape'){
+    closeAuth(); closeMenu(); closeDash();
+    document.body.style.overflow = '';
+  }
+});
 </script>
-    <script defer src="/_vercel/speed-insights/script.js"></script>
-    <script defer src="/_vercel/insights/script.js"></script>
-  </body>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
 </html>
