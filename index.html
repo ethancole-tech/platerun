@@ -591,7 +591,7 @@ footer{background:#100601;padding:48px 28px 28px;position:relative;z-index:1;bor
     <button class="pay-btn" onclick="setPay(this,'JazzCash')">📱 JazzCash</button>
     <button class="pay-btn" onclick="setPay(this,'EasyPaisa')">🟢 EasyPaisa</button>
    </div>
-   <button class="place-btn" onclick="placeOrder()">Place order →</button>
+   <a id="placeBtn" class="place-btn" onclick="return placeOrder(this)" href="#" target="_blank" rel="noopener" style="display:block; text-align:center; text-decoration:none">Place order →</a>
   </div>
  </div>
 </div>
@@ -1179,17 +1179,14 @@ function updateQty(key, delta) {
 
 function goCheckout(){
   if(cart.length===0){toast('🛒 Your cart is empty!');return;}
-  closeOverlay('menuOv');
-  setTimeout(()=>{
-    renderCheckoutItems();
-    // pre-fill if user logged in
-    if(user){
-      document.getElementById('coName').value=user.name||'';
-      document.getElementById('coPhone').value=user.phone||'';
-      document.getElementById('coAddr').value=user.address||'';
-    }
-    openOverlay('coOv');
-  },350);
+  renderCheckoutItems();
+  if(user){
+    document.getElementById('coName').value=user.name||'';
+    document.getElementById('coPhone').value=user.phone||'';
+    document.getElementById('coAddr').value=user.address||'';
+  }
+  document.getElementById('menuOv').classList.remove('open');
+  openOverlay('coOv');
 }
 function setPay(btn,method){
   document.querySelectorAll('.pay-btn').forEach(b=>b.classList.remove('active'));
@@ -1198,7 +1195,7 @@ function setPay(btn,method){
 }
 
 // ═══ PLACE ORDER — REAL RECEIPT ═══
-function placeOrder(){
+function placeOrder(btn){
   const name=document.getElementById('coName').value.trim();
   const phone=document.getElementById('coPhone').value.trim();
   const addr=document.getElementById('coAddr').value.trim();
@@ -1210,7 +1207,7 @@ function placeOrder(){
   });
   if(!valid){
     alert("Please fill in: " + missing.join(", "));
-    return;
+    return false;
   }
 
   // Generate order
@@ -1254,26 +1251,17 @@ function placeOrder(){
 
   const encodedRest = encodeURIComponent(waRest);
 
+  // Dynamically set the link destination!
+  btn.href = `https://wa.me/${OWNER_WA}?text=${encodedMsg}`;
+
   // Save order
   const order={id:orderId,date:dateStr,time:timeStr,items:[...cart],subtotal,delivery:delFee,total,payment:payMethod,customer:{name,phone,addr}};
   orderHistory.unshift(order);
   localStorage.setItem('pr_orders',JSON.stringify(orderHistory));
   if(user){user.orders=(user.orders||0)+1;localStorage.setItem('pr_user',JSON.stringify(user));updateDashboard();}
 
-  closeOverlay('coOv');
-
-  // Auto-open WhatsApp (robust for mobile)
-  const waUrl = `https://wa.me/${OWNER_WA}?text=${encodedMsg}`;
-  if (window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-    window.location.href = waUrl;
-  } else {
-    try {
-      const w = window.open(waUrl, '_blank');
-      if(!w) window.location.href = waUrl;
-    } catch(e) {
-      window.location.href = waUrl;
-    }
-  }
+  document.getElementById('coOv').classList.remove('open');
+  document.body.style.overflow='';
 
   // Show receipt
   setTimeout(()=>{
@@ -1332,6 +1320,8 @@ function placeOrder(){
     cart=[];
     updateCart();
   },400);
+  
+  return true;
 }
 
 // ═══ CONFETTI ═══
@@ -1424,9 +1414,22 @@ function doLogout(){
 }
 
 // ═══ OVERLAYS ═══
-function openOverlay(id){document.getElementById(id).classList.add('open');document.body.style.overflow='hidden';}
-function closeOverlay(id){document.getElementById(id).classList.remove('open');document.body.style.overflow='';}
+function openOverlay(id){
+  document.getElementById(id).classList.add('open');
+  document.body.style.overflow='hidden';
+  history.pushState({overlay: id}, '');
+}
+function closeOverlay(id){
+  document.getElementById(id).classList.remove('open');
+  document.body.style.overflow='';
+}
 function overlayTap(e,id){if(e.target.classList.contains('overlay'))closeOverlay(id);}
+
+window.addEventListener('popstate', () => {
+  document.querySelectorAll('.overlay.open').forEach(el => el.classList.remove('open'));
+  document.getElementById('dashPanel').classList.remove('open');
+  document.body.style.overflow='';
+});
 
 // ═══ LEGAL ═══
 function showLegal(type){
