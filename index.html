@@ -1191,11 +1191,15 @@ function placeOrder(){
   const phone=document.getElementById('coPhone').value.trim();
   const addr=document.getElementById('coAddr').value.trim();
   let valid=true;
-  [['coName',name],['coPhone',phone],['coAddr',addr]].forEach(([id,v])=>{
+  let missing=[];
+  [['coName',name,'Name'],['coPhone',phone,'Phone'],['coAddr',addr,'Address']].forEach(([id,v,lbl])=>{
     const ff=document.getElementById(id).closest('.form-field');
-    if(!v){ff.classList.add('error');valid=false;}else ff.classList.remove('error');
+    if(!v){ff.classList.add('error');valid=false;missing.push(lbl);}else ff.classList.remove('error');
   });
-  if(!valid)return;
+  if(!valid){
+    alert("Please fill in: " + missing.join(", "));
+    return;
+  }
 
   // Generate order
   const orderId='PR-'+String(Math.floor(1000+Math.random()*9000));
@@ -1210,29 +1214,33 @@ function placeOrder(){
   let itemsHtml=cart.map(c=>`<div class="receipt-row"><span>${c.name} <span class="item-qty">× ${c.qty}</span></span><span>Rs. ${(c.price*c.qty).toLocaleString()}</span></div>`).join('');
 
   // WhatsApp message for OWNER
-  let waMsg=`🍽️ *NEW ORDER — PlateRun*%0A`;
-  waMsg+=`📋 Order ${orderId}%0A`;
-  waMsg+=`📅 ${dateStr}, ${timeStr}%0A%0A`;
-  waMsg+=`👤 *Customer:* ${name}%0A`;
-  waMsg+=`📞 ${phone}%0A`;
-  waMsg+=`🏠 ${addr}%0A%0A`;
-  waMsg+=`🛒 *Items:*%0A`;
-  cart.forEach(c=>{waMsg+=`• ${c.name} × ${c.qty} = Rs. ${(c.price*c.qty).toLocaleString()}%0A`;});
-  waMsg+=`%0A💰 Subtotal: Rs. ${subtotal.toLocaleString()}%0A`;
-  waMsg+=`🛵 Delivery: ${delFee===0?'FREE':'Rs. '+delFee}%0A`;
-  waMsg+=`✅ *TOTAL: Rs. ${total.toLocaleString()}*%0A%0A`;
-  waMsg+=`💵 Payment: ${payMethod}%0A`;
-  waMsg+=`🏪 Restaurant: Little Olives%0A`;
-  waMsg+=`📞 Restaurant: ${LITTLE_OLIVES.phone}%0A`;
+  let waMsg=`🍽️ *NEW ORDER — PlateRun*\n`;
+  waMsg+=`📋 Order ${orderId}\n`;
+  waMsg+=`📅 ${dateStr}, ${timeStr}\n\n`;
+  waMsg+=`👤 *Customer:* ${name}\n`;
+  waMsg+=`📞 ${phone}\n`;
+  waMsg+=`🏠 ${addr}\n\n`;
+  waMsg+=`🛒 *Items:*\n`;
+  cart.forEach(c=>{waMsg+=`• ${c.name} × ${c.qty} = Rs. ${(c.price*c.qty).toLocaleString()}\n`;});
+  waMsg+=`\n💰 Subtotal: Rs. ${subtotal.toLocaleString()}\n`;
+  waMsg+=`🛵 Delivery: ${delFee===0?'FREE':'Rs. '+delFee}\n`;
+  waMsg+=`✅ *TOTAL: Rs. ${total.toLocaleString()}*\n\n`;
+  waMsg+=`💵 Payment: ${payMethod}\n`;
+  waMsg+=`🏪 Restaurant: Little Olives\n`;
+  waMsg+=`📞 Restaurant: ${LITTLE_OLIVES.phone}\n`;
   waMsg+=`🏍️ Rider: 0328-624-2582`;
 
+  const encodedMsg = encodeURIComponent(waMsg);
+
   // WhatsApp message for RESTAURANT
-  let waRest=`📋 *NEW ORDER — ${orderId}*%0A`;
-  waRest+=`👤 ${name} · ${phone}%0A`;
-  waRest+=`🏠 ${addr}%0A%0A`;
-  cart.forEach(c=>{waRest+=`• ${c.name} × ${c.qty}%0A`;});
-  waRest+=`%0A✅ Total: Rs. ${total.toLocaleString()} (${payMethod})%0A`;
+  let waRest=`📋 *NEW ORDER — ${orderId}*\n`;
+  waRest+=`👤 ${name} · ${phone}\n`;
+  waRest+=`🏠 ${addr}\n\n`;
+  cart.forEach(c=>{waRest+=`• ${c.name} × ${c.qty}\n`;});
+  waRest+=`\n✅ Total: Rs. ${total.toLocaleString()} (${payMethod})\n`;
   waRest+=`🏍️ Rider will pickup shortly`;
+
+  const encodedRest = encodeURIComponent(waRest);
 
   // Save order
   const order={id:orderId,date:dateStr,time:timeStr,items:[...cart],subtotal,delivery:delFee,total,payment:payMethod,customer:{name,phone,addr}};
@@ -1243,7 +1251,12 @@ function placeOrder(){
   closeOverlay('coOv');
 
   // Auto-open WhatsApp
-  window.open(`https://wa.me/${OWNER_WA}?text=${waMsg}`, '_blank');
+  const waLink = document.createElement('a');
+  waLink.href = `https://wa.me/${OWNER_WA}?text=${encodedMsg}`;
+  waLink.target = '_blank';
+  document.body.appendChild(waLink);
+  waLink.click();
+  document.body.removeChild(waLink);
 
   // Show receipt
   setTimeout(()=>{
@@ -1277,10 +1290,10 @@ function placeOrder(){
       </div>
 
       <div class="receipt-actions">
-        <a class="wa-btn" href="https://wa.me/${OWNER_WA}?text=${waMsg}" target="_blank" rel="noopener">
+        <a class="wa-btn" href="https://wa.me/${OWNER_WA}?text=${encodedMsg}" target="_blank" rel="noopener">
           💬 Send order to PlateRun (WhatsApp)
         </a>
-        <a class="wa-btn-outline" href="https://wa.me/92${LITTLE_OLIVES.phone.substring(1)}?text=${waRest}" target="_blank" rel="noopener" style="border:1px solid #25D366;color:#25D366;border-radius:12px;padding:13px;text-align:center;font-weight:700;font-size:13px;text-decoration:none;display:block">
+        <a class="wa-btn-outline" href="https://wa.me/92${LITTLE_OLIVES.phone.substring(1)}?text=${encodedRest}" target="_blank" rel="noopener" style="border:1px solid #25D366;color:#25D366;border-radius:12px;padding:13px;text-align:center;font-weight:700;font-size:13px;text-decoration:none;display:block">
           🏪 Send to Restaurant (${LITTLE_OLIVES.phone})
         </a>
         <a class="wa-btn-outline" href="https://wa.me/${RIDER_WA}" target="_blank" rel="noopener" style="border:1px solid var(--border);color:var(--ink);border-radius:12px;padding:13px;text-align:center;font-weight:700;font-size:13px;text-decoration:none;display:block">
