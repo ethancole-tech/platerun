@@ -3,12 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
-<meta name="description" content="PlateRun — Lahore's fastest food delivery from Johar Town's best restaurants. Order biryani, pizza, burgers & more."/>
-<meta name="keywords" content="food delivery Lahore, Johar Town restaurants, PlateRun, order food online"/>
-<meta name="author" content="PlateRun"/>
-<meta property="og:title" content="PlateRun — Delivering Deliciousness in Lahore"/>
-<meta property="og:description" content="Lahore's fastest food delivery from Johar Town's best restaurants."/>
-<meta property="og:type" content="website"/>
+<meta name="description" content="PlateRun — Lahore's fastest food delivery from Johar Town's best restaurants."/>
 <title>PlateRun — Delivering Deliciousness in Lahore</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -20,8 +15,6 @@
   --font-h:'Playfair Display',serif;--font-b:'DM Sans',sans-serif;
   --radius:20px;--radius-sm:12px;
 }
-
-/* ═══ LIGHT MODE ═══ */
 [data-theme="light"]{
   --bg:#FBF5EC;--bg2:#F6EDE0;--bg3:#F0E3D0;
   --surface:#FFFFFF;--surface2:#FAF3E8;
@@ -41,8 +34,6 @@
   --faq-bg:#FFFFFF;
   --promo-bg:linear-gradient(135deg,#1C0A02 0%,#3A1208 100%);
 }
-
-/* ═══ DARK MODE ═══ */
 [data-theme="dark"]{
   --bg:#110804;--bg2:#180C05;--bg3:#1E1008;
   --surface:#1A0D06;--surface2:#231208;
@@ -62,53 +53,38 @@
   --faq-bg:#1C0E07;
   --promo-bg:linear-gradient(135deg,#0A0300 0%,#1A0805 100%);
 }
-
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{font-family:var(--font-b);background:var(--bg);color:var(--ink);overflow-x:hidden;transition:background .35s,color .35s;-webkit-font-smoothing:antialiased}
 
 /* ═══ ATMOSPHERIC BG ═══ */
 .bg-atmo{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
-[data-theme="light"] .bg-atmo::before{
-  content:'';position:absolute;inset:0;
-  background:
-    radial-gradient(ellipse 70% 55% at 8% 12%, rgba(255,160,80,0.16) 0%, transparent 60%),
-    radial-gradient(ellipse 55% 45% at 92% 82%, rgba(255,110,30,0.10) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 35% at 52% 52%, rgba(255,210,140,0.06) 0%, transparent 65%);
-}
-[data-theme="dark"] .bg-atmo::before{
-  content:'';position:absolute;inset:0;
-  background:
-    radial-gradient(ellipse 80% 60% at 15% 20%, rgba(150,40,5,0.18) 0%, transparent 65%),
-    radial-gradient(ellipse 60% 50% at 85% 75%, rgba(100,25,0,0.14) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 35% at 50% 50%, rgba(80,20,0,0.10) 0%, transparent 70%);
-}
+[data-theme="light"] .bg-atmo::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 8% 12%,rgba(255,160,80,0.16) 0%,transparent 60%),radial-gradient(ellipse 55% 45% at 92% 82%,rgba(255,110,30,0.10) 0%,transparent 60%),radial-gradient(ellipse 40% 35% at 52% 52%,rgba(255,210,140,0.06) 0%,transparent 65%)}
+[data-theme="dark"] .bg-atmo::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 15% 20%,rgba(150,40,5,0.18) 0%,transparent 65%),radial-gradient(ellipse 60% 50% at 85% 75%,rgba(100,25,0,0.14) 0%,transparent 60%),radial-gradient(ellipse 40% 35% at 50% 50%,rgba(80,20,0,0.10) 0%,transparent 70%)}
 .bg-atmo::after{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");opacity:0.025;mix-blend-mode:multiply}
-
 .bg-smoke{position:fixed;inset:0;z-index:0;pointer-events:none}
 .smoke-orb{position:absolute;border-radius:50%;filter:blur(80px);animation:smokeFloat ease-in-out infinite;pointer-events:none}
 [data-theme="light"] .smoke-orb{opacity:0.35}
 @keyframes smokeFloat{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-30px) scale(1.08)}}
 
-/* ═══ PROMO BANNER ═══ */
-.promo-banner{position:fixed;top:0;left:0;right:0;z-index:400;background:var(--promo-bg);padding:8px 20px;display:flex;align-items:center;justify-content:center;gap:14px;font-size:12px;color:#F5EAD8;transition:transform .4s cubic-bezier(.22,1,.36,1);border-bottom:1px solid rgba(232,52,10,0.3)}
+/* ═══ PROMO ═══ */
+.promo-banner{position:fixed;top:0;left:0;right:0;z-index:400;background:var(--promo-bg);padding:8px 20px;display:flex;align-items:center;justify-content:center;gap:14px;font-size:12px;color:#F5EAD8;transition:transform .4s;border-bottom:1px solid rgba(232,52,10,0.3)}
 .promo-banner.hidden{transform:translateY(-100%)}
 .promo-text{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center}
-.promo-text strong{color:#fff;font-weight:700}
+.promo-text strong{color:#fff}
 .promo-code{background:rgba(232,52,10,0.3);border:1px solid rgba(232,52,10,0.5);padding:3px 10px;border-radius:100px;font-weight:700;color:#FF8A60;letter-spacing:1px;font-size:11px;cursor:pointer;transition:all .2s}
 .promo-code:hover{background:var(--red);color:#fff}
 .promo-timer{display:flex;align-items:center;gap:4px;font-family:var(--font-h);font-weight:700;color:var(--red);font-size:13px}
 .promo-timer span{background:rgba(232,52,10,0.2);padding:2px 6px;border-radius:5px;min-width:24px;text-align:center;font-size:12px;color:#FF8A60}
-.promo-close{background:transparent;border:none;color:rgba(245,234,216,0.4);font-size:16px;cursor:pointer;padding:4px;transition:color .2s;flex-shrink:0;-webkit-tap-highlight-color:transparent}
+.promo-close{background:transparent;border:none;color:rgba(245,234,216,0.4);font-size:16px;cursor:pointer;padding:4px;transition:color .2s;flex-shrink:0}
 .promo-close:hover{color:#fff}
 
-/* ═══ THEME TOGGLE ═══ */
-.theme-toggle{position:fixed;bottom:80px;right:18px;z-index:499;width:44px;height:44px;border-radius:50%;background:var(--card);border:1px solid var(--border);box-shadow:var(--sh-lg);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;transition:all .25s;-webkit-tap-highlight-color:transparent}
+/* ═══ THEME ═══ */
+.theme-toggle{position:fixed;bottom:80px;right:18px;z-index:499;width:44px;height:44px;border-radius:50%;background:var(--card);border:1px solid var(--border);box-shadow:var(--sh-lg);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;transition:all .25s}
 .theme-toggle:hover{transform:scale(1.12);box-shadow:0 8px 28px rgba(232,52,10,0.28)}
-
-/* ═══ SCROLL TO TOP ═══ */
-.scroll-top{position:fixed;bottom:80px;left:18px;z-index:499;width:40px;height:40px;border-radius:50%;background:var(--card);border:1px solid var(--border);box-shadow:var(--sh);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .3s;-webkit-tap-highlight-color:transparent;opacity:0;transform:translateY(10px);pointer-events:none}
+.scroll-top{position:fixed;bottom:80px;left:18px;z-index:499;width:40px;height:40px;border-radius:50%;background:var(--card);border:1px solid var(--border);box-shadow:var(--sh);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .3s;opacity:0;transform:translateY(10px);pointer-events:none}
 .scroll-top.visible{opacity:1;transform:none;pointer-events:all}
 .scroll-top:hover{background:var(--red);border-color:var(--red);color:#fff;transform:translateY(-2px)}
+.scroll-progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--red),var(--orange));z-index:9999;width:0;border-radius:0 3px 3px 0}
 
 /* ═══ NAV ═══ */
 nav{position:fixed;top:36px;left:0;right:0;z-index:300;height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 32px;background:var(--nav-bg);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border);transition:box-shadow .3s,top .4s}
@@ -118,26 +94,26 @@ nav.promo-hidden{top:0}
 .nav-logo span{color:var(--red)}
 .nav-logo small{font-family:var(--font-b);font-size:9px;font-weight:500;color:var(--muted);display:block;letter-spacing:1px;text-transform:uppercase;margin-top:-2px}
 .nav-links{display:flex;gap:28px;list-style:none;align-items:center}
-.nav-links a{text-decoration:none;color:var(--muted);font-size:13px;font-weight:500;transition:color .2s;letter-spacing:.2px;position:relative}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:13px;font-weight:500;transition:color .2s;position:relative}
 .nav-links a:hover{color:var(--dark)}
 .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:2px;background:var(--red);border-radius:2px;transition:width .25s}
 .nav-links a:hover::after{width:100%}
 .nav-right{display:flex;align-items:center;gap:10px;flex-shrink:0}
-.btn-red{background:var(--red);color:#fff;padding:10px 22px;border-radius:100px;font-size:13px;font-weight:700;text-decoration:none;border:none;cursor:pointer;font-family:var(--font-b);box-shadow:0 4px 18px rgba(232,52,10,0.32);transition:all .2s;-webkit-tap-highlight-color:transparent;white-space:nowrap;letter-spacing:.2px;position:relative;overflow:hidden}
+.btn-red{background:var(--red);color:#fff;padding:10px 22px;border-radius:100px;font-size:13px;font-weight:700;text-decoration:none;border:none;cursor:pointer;font-family:var(--font-b);box-shadow:0 4px 18px rgba(232,52,10,0.32);transition:all .2s;white-space:nowrap;position:relative;overflow:hidden}
 .btn-red::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);transform:translateX(-100%);transition:none}
 .btn-red:hover{background:var(--orange);transform:translateY(-1px);box-shadow:0 6px 24px rgba(232,52,10,0.46)}
 .btn-red:hover::before{transform:translateX(100%);transition:transform .6s}
-.btn-ghost{display:flex;align-items:center;gap:8px;padding:9px 18px;border-radius:100px;border:1px solid var(--border);background:transparent;color:var(--ink);font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;font-family:var(--font-b);-webkit-tap-highlight-color:transparent;white-space:nowrap}
+.btn-ghost{display:flex;align-items:center;gap:8px;padding:9px 18px;border-radius:100px;border:1px solid var(--border);background:transparent;color:var(--ink);font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;font-family:var(--font-b);white-space:nowrap}
 .btn-ghost:hover{border-color:var(--red);color:var(--red);background:rgba(232,52,10,0.05)}
 .cart-badge{position:relative}
-.cart-badge .badge-count{position:absolute;top:-6px;right:-6px;background:var(--red);color:#fff;font-size:9px;font-weight:700;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid var(--card);transition:transform .3s;animation:none}
+.cart-badge .badge-count{position:absolute;top:-6px;right:-6px;background:var(--red);color:#fff;font-size:9px;font-weight:700;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid var(--card);animation:none}
 .cart-badge .badge-count.bump{animation:cartBump .4s ease}
 @keyframes cartBump{0%{transform:scale(1)}50%{transform:scale(1.4)}100%{transform:scale(1)}}
-.nav-ham{display:none;flex-direction:column;justify-content:center;gap:5px;cursor:pointer;padding:5px;border:none;background:transparent;-webkit-tap-highlight-color:transparent}
+.nav-ham{display:none;flex-direction:column;justify-content:center;gap:5px;cursor:pointer;padding:5px;border:none;background:transparent}
 .nav-ham span{display:block;width:20px;height:1.5px;background:var(--dark);border-radius:2px;transition:all .3s}
-.mob-drawer{position:fixed;top:98px;left:0;right:0;z-index:299;background:var(--nav-bg);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border);padding:8px 0 14px;transform:translateY(-110%);transition:transform .32s cubic-bezier(.22,1,.36,1);box-shadow:0 8px 32px rgba(0,0,0,.12)}
+.mob-drawer{position:fixed;top:98px;left:0;right:0;z-index:299;background:var(--nav-bg);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);padding:8px 0 14px;transform:translateY(-110%);transition:transform .32s cubic-bezier(.22,1,.36,1);box-shadow:0 8px 32px rgba(0,0,0,.12)}
 .mob-drawer.open{transform:none}
-.mob-drawer a,.mob-drawer button{display:flex;align-items:center;gap:10px;padding:13px 24px;font-size:15px;font-weight:500;color:var(--ink);text-decoration:none;border:none;background:none;width:100%;text-align:left;cursor:pointer;font-family:var(--font-b);transition:background .15s;-webkit-tap-highlight-color:transparent}
+.mob-drawer a,.mob-drawer button{display:flex;align-items:center;gap:10px;padding:13px 24px;font-size:15px;font-weight:500;color:var(--ink);text-decoration:none;border:none;background:none;width:100%;text-align:left;cursor:pointer;font-family:var(--font-b);transition:background .15s}
 .mob-drawer a:hover,.mob-drawer button:hover{background:rgba(232,52,10,0.05)}
 .mob-drawer hr{border:none;border-top:1px solid var(--border);margin:4px 24px}
 
@@ -160,10 +136,10 @@ nav.promo-hidden{top:0}
 .search-inner:focus-within{border-color:rgba(232,52,10,0.38);box-shadow:var(--sh),var(--sh-glow)}
 .search-inner input{flex:1;border:none;outline:none;padding:15px 18px;font-family:var(--font-b);font-size:15px;background:transparent;color:var(--dark);min-width:0}
 .search-inner input::placeholder{color:var(--light-muted)}
-.search-inner button{background:var(--red);border:none;color:#fff;padding:11px 22px;margin:5px;border-radius:10px;font-family:var(--font-b);font-size:13px;font-weight:700;cursor:pointer;transition:background .2s;flex-shrink:0;-webkit-tap-highlight-color:transparent;letter-spacing:.3px;position:relative;overflow:hidden}
+.search-inner button{background:var(--red);border:none;color:#fff;padding:11px 22px;margin:5px;border-radius:10px;font-family:var(--font-b);font-size:13px;font-weight:700;cursor:pointer;transition:background .2s;flex-shrink:0}
 .search-inner button:hover{background:var(--orange)}
 .search-chips{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
-.chip{font-size:12px;font-weight:500;padding:5px 12px;border-radius:100px;background:rgba(160,90,20,0.07);border:1px solid var(--border);color:var(--muted);cursor:pointer;transition:all .18s;-webkit-tap-highlight-color:transparent}
+.chip{font-size:12px;font-weight:500;padding:5px 12px;border-radius:100px;background:rgba(160,90,20,0.07);border:1px solid var(--border);color:var(--muted);cursor:pointer;transition:all .18s}
 [data-theme="dark"] .chip{background:rgba(245,166,35,0.05)}
 .chip:hover{background:var(--red);border-color:var(--red);color:#fff}
 .hero-stats{display:flex;gap:28px;margin-top:30px;animation:fadeUp .65s .34s ease both;flex-wrap:wrap}
@@ -172,7 +148,6 @@ nav.promo-hidden{top:0}
 .stat-lbl{font-size:10px;color:var(--muted);margin-top:4px;font-weight:500;text-transform:uppercase;letter-spacing:.8px}
 .stat-div{width:1px;background:var(--border);align-self:stretch}
 
-/* hero visual */
 .hero-visual{position:relative;height:500px;animation:fadeUp .8s .15s ease both}
 .hv-card{position:absolute;top:50px;left:5%;width:270px;background:var(--card);border-radius:20px;box-shadow:var(--sh-lg);overflow:hidden;animation:cardFloat 4.2s ease-in-out infinite;z-index:2;border:1px solid var(--border)}
 @keyframes cardFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
@@ -198,15 +173,7 @@ nav.promo-hidden{top:0}
 .hv-food:nth-child(2){top:190px;left:54%;animation-duration:4.5s;animation-delay:.9s;font-size:68px}
 .hv-food:nth-child(3){top:340px;left:18%;animation-duration:5.1s;animation-delay:1.5s;font-size:62px}
 
-/* ═══ TRUSTED BY ═══ */
-.trusted-strip{background:var(--surface2);position:relative;z-index:1;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:16px 0;overflow:hidden}
-.trusted-inner{display:flex;align-items:center;gap:32px;animation:marquee 25s linear infinite;width:max-content}
-@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.trusted-item{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:600;color:var(--muted);white-space:nowrap;flex-shrink:0}
-.trusted-item .ti-icon{font-size:20px}
-.trusted-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--light-muted);padding:0 20px;flex-shrink:0}
-
-/* ═══ FEAT STRIP ═══ */
+/* ═══ FEAT ═══ */
 .feat-strip{background:var(--strip);position:relative;z-index:1;border-top:1px solid var(--strip-border);border-bottom:1px solid var(--strip-border)}
 .feat-strip-inner{display:grid;grid-template-columns:repeat(4,1fr)}
 .feat-item{display:flex;align-items:center;gap:12px;padding:20px 18px;border-right:1px solid var(--strip-border);transition:background .2s}
@@ -223,81 +190,41 @@ nav.promo-hidden{top:0}
 .sec-h{font-family:var(--font-h);font-size:clamp(24px,3vw,42px);font-weight:900;color:var(--dark);letter-spacing:-.5px;line-height:1.05;margin-bottom:12px}
 .sec-p{font-size:14px;color:var(--muted);line-height:1.8;max-width:460px}
 
-/* ═══ POPULAR DISHES ═══ */
-.popular-section{background:var(--surface2);position:relative;z-index:1;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:52px 0 52px}
-.popular-header{padding:0 52px;margin-bottom:28px}
-.dishes-scroll{display:flex;gap:14px;overflow-x:auto;padding:0 52px 12px;-webkit-overflow-scrolling:touch;scrollbar-width:none;scroll-snap-type:x mandatory}
-.dishes-scroll::-webkit-scrollbar{display:none}
-.dish-card{flex-shrink:0;width:220px;background:var(--card);border-radius:18px;border:1px solid var(--border);box-shadow:var(--sh);overflow:hidden;cursor:pointer;transition:all .25s;-webkit-tap-highlight-color:transparent;scroll-snap-align:start}
-.dish-card:hover{transform:translateY(-6px) scale(1.02);box-shadow:var(--sh-lg);border-color:rgba(232,52,10,0.2)}
-.dish-img{height:140px;display:flex;align-items:center;justify-content:center;font-size:64px;position:relative;overflow:hidden}
-.dish-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.25),transparent 50%)}
-.dish-rank{position:absolute;top:8px;left:8px;width:28px;height:28px;border-radius:50%;background:var(--red);color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;z-index:2;box-shadow:0 2px 8px rgba(232,52,10,0.4)}
-.dish-fire{position:absolute;top:8px;right:8px;font-size:18px;z-index:2;animation:hfFloat 2s ease-in-out infinite}
-.dish-body{padding:12px 14px}
-.dish-name{font-family:var(--font-h);font-size:13px;font-weight:700;color:var(--dark);margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.dish-rest{font-size:10px;color:var(--muted);margin-bottom:8px;display:flex;align-items:center;gap:4px}
-.dish-foot{display:flex;align-items:center;justify-content:space-between}
-.dish-price{font-family:var(--font-h);font-size:14px;font-weight:800;color:var(--red)}
-.dish-add{width:30px;height:30px;border-radius:50%;background:var(--red);border:none;color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;-webkit-tap-highlight-color:transparent}
-.dish-add:hover{background:var(--orange);transform:scale(1.15)}
-.dish-orders{font-size:9px;color:var(--muted);margin-top:6px;display:flex;align-items:center;gap:3px}
-.dish-orders .bar{flex:1;height:3px;background:var(--border);border-radius:3px;overflow:hidden}
-.dish-orders .bar-fill{height:100%;background:linear-gradient(90deg,var(--red),var(--orange));border-radius:3px}
-
 /* ═══ CATEGORIES ═══ */
 .cats-section{background:var(--surface2);padding:40px 28px;position:relative;z-index:1;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.cat-scroll{display:flex;gap:7px;margin-top:20px;overflow-x:auto;padding-bottom:6px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.cat-scroll{display:flex;gap:7px;margin-top:20px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none}
 .cat-scroll::-webkit-scrollbar{display:none}
-.cat-pill{flex-shrink:0;display:flex;align-items:center;gap:7px;padding:9px 17px;border-radius:100px;border:1px solid var(--border);background:var(--card);cursor:pointer;text-decoration:none;font-size:12px;font-weight:600;color:var(--ink);transition:all .2s;-webkit-tap-highlight-color:transparent;white-space:nowrap}
+.cat-pill{flex-shrink:0;display:flex;align-items:center;gap:7px;padding:9px 17px;border-radius:100px;border:1px solid var(--border);background:var(--card);cursor:pointer;font-size:12px;font-weight:600;color:var(--ink);transition:all .2s;white-space:nowrap}
 .cat-pill:hover,.cat-pill.active{background:var(--red);border-color:var(--red);color:#fff;transform:translateY(-2px);box-shadow:0 6px 20px rgba(232,52,10,0.26)}
 
-/* ═══ RESTAURANT GRID ═══ */
+/* ═══ REST GRID ═══ */
 .rest-hd{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:28px;gap:12px;flex-wrap:wrap}
-.view-all{font-size:12px;font-weight:700;color:var(--red);text-decoration:none;display:flex;align-items:center;gap:4px;transition:gap .2s;letter-spacing:.5px;text-transform:uppercase}
-.view-all:hover{gap:8px}
 .filter-row{display:flex;gap:6px;margin-bottom:22px;flex-wrap:wrap}
-.ftab{padding:7px 15px;border-radius:100px;border:1px solid var(--border);font-size:11px;font-weight:600;color:var(--muted);cursor:pointer;background:var(--card);transition:all .2s;-webkit-tap-highlight-color:transparent;white-space:nowrap;letter-spacing:.3px}
+.ftab{padding:7px 15px;border-radius:100px;border:1px solid var(--border);font-size:11px;font-weight:600;color:var(--muted);cursor:pointer;background:var(--card);transition:all .2s;white-space:nowrap}
 .ftab.active,.ftab:hover{background:var(--dark);border-color:var(--dark);color:var(--bg)}
 .rest-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-.rest-card{background:var(--card);border-radius:18px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--sh);text-decoration:none;color:inherit;display:block;transition:transform .22s,box-shadow .22s,border-color .22s;-webkit-tap-highlight-color:transparent;position:relative}
-.rest-card:hover{transform:translateY(-4px);box-shadow:var(--sh-lg);border-color:rgba(232,52,10,0.20)}
-.rest-card .fav-btn{position:absolute;top:12px;right:12px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,0.9);backdrop-filter:blur(8px);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;z-index:2;transition:all .2s;-webkit-tap-highlight-color:transparent;opacity:0;transform:scale(0.8)}
-.rest-card:hover .fav-btn{opacity:1;transform:scale(1)}
-.fav-btn.liked{opacity:1;transform:scale(1);background:rgba(232,52,10,0.15)}
+.rest-card{background:var(--card);border-radius:18px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--sh);text-decoration:none;color:inherit;display:block;transition:transform .22s,box-shadow .22s;position:relative}
+.rest-card:hover{transform:translateY(-4px);box-shadow:var(--sh-lg)}
 .rc-thumb{height:185px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .rc-thumb-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.42) 0%,transparent 55%)}
 .rc-badge{position:absolute;top:12px;left:12px;padding:4px 11px;border-radius:100px;font-size:9px;font-weight:700;letter-spacing:.5px;text-transform:uppercase}
 .rc-badge-hot{background:var(--red);color:#fff}
-.rc-badge-new{background:rgba(245,166,35,0.95);color:#1A0F08}
+.rc-badge-soon{background:rgba(0,0,0,0.6);color:#fff;backdrop-filter:blur(8px)}
 .rc-time{position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,.70);border-radius:100px;padding:4px 10px;font-size:10px;font-weight:700;color:#fff;display:flex;align-items:center;gap:3px;backdrop-filter:blur(8px)}
 .rc-body{padding:14px 16px 16px}
 .rc-name{font-family:var(--font-h);font-size:16px;font-weight:700;color:var(--dark);letter-spacing:-.2px;margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.rc-area{font-size:10px;color:var(--muted);margin-bottom:5px;display:flex;align-items:center;gap:3px;letter-spacing:.2px}
+.rc-area{font-size:10px;color:var(--muted);margin-bottom:5px;display:flex;align-items:center;gap:3px}
 .rc-tags{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:9px}
-.rc-tag{font-size:9px;padding:3px 8px;border-radius:100px;background:var(--tag-bg);color:var(--tag-c);font-weight:600;white-space:nowrap;letter-spacing:.3px}
+.rc-tag{font-size:9px;padding:3px 8px;border-radius:100px;background:var(--tag-bg);color:var(--tag-c);font-weight:600;white-space:nowrap}
 .rc-foot{display:flex;align-items:center;justify-content:space-between;padding-top:10px;border-top:1px solid var(--border2)}
 .rc-rating{display:flex;align-items:center;gap:4px;font-size:11px;font-weight:700;color:var(--dark)}
 .rc-rating span{font-weight:400;color:var(--muted);font-size:10px}
-.rc-meta{display:flex;gap:8px;font-size:10px;color:var(--muted);flex-wrap:wrap}
+.rc-meta{display:flex;gap:8px;font-size:10px;color:var(--muted)}
 .rc-free{color:#C02808;font-weight:700}
 [data-theme="dark"] .rc-free{color:#FF7040}
+.coming-soon-ov{position:absolute;inset:0;background:rgba(0,0,0,0.08);display:flex;align-items:center;justify-content:center;z-index:2;pointer-events:none;border-radius:18px}
 
-/* ═══ TESTIMONIALS ═══ */
-.test-section{background:var(--strip);position:relative;z-index:1;overflow:hidden}
-.test-grid{display:flex;gap:14px;margin-top:36px;overflow-x:auto;padding-bottom:10px;-webkit-overflow-scrolling:touch;scrollbar-width:none;scroll-snap-type:x mandatory}
-.test-grid::-webkit-scrollbar{display:none}
-.test-card{flex-shrink:0;width:320px;background:var(--card);border-radius:16px;border:1px solid var(--border);padding:22px 20px;box-shadow:var(--sh);position:relative;scroll-snap-align:start;transition:transform .25s,box-shadow .25s}
-.test-card:hover{transform:translateY(-4px);box-shadow:var(--sh-lg)}
-.test-stars{font-size:14px;letter-spacing:1px;margin-bottom:10px}
-.test-quote{font-size:13px;color:var(--ink);line-height:1.75;margin-bottom:16px;font-style:italic}
-.test-author{display:flex;align-items:center;gap:10px;border-top:1px solid var(--border2);padding-top:14px}
-.test-av{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;flex-shrink:0}
-.test-name{font-size:12px;font-weight:700;color:var(--dark)}
-.test-meta{font-size:10px;color:var(--muted);margin-top:1px}
-.test-badge{position:absolute;top:14px;right:14px;font-size:9px;font-weight:700;padding:3px 9px;border-radius:100px;background:rgba(22,163,74,.09);color:#16a34a;text-transform:uppercase;letter-spacing:.5px}
-
-/* ═══ HOW IT WORKS ═══ */
+/* ═══ HOW ═══ */
 .how-section{background:var(--strip);position:relative;z-index:1}
 .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px}
 .step-card{padding:28px 24px;border-radius:16px;border:1px solid var(--strip-border);background:var(--card);position:relative;overflow:hidden;transition:border-color .25s,box-shadow .25s,transform .25s}
@@ -306,58 +233,19 @@ nav.promo-hidden{top:0}
 .step-icon{font-size:28px;margin-bottom:14px}
 .step-card h3{font-family:var(--font-h);font-size:17px;font-weight:700;color:var(--dark);margin-bottom:8px}
 .step-card p{font-size:12px;color:var(--muted);line-height:1.75}
-.step-connector{display:none}
-
-/* ═══ LIVE TRACKER ═══ */
-.tracker-section{background:var(--surface2);position:relative;z-index:1;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.tracker-demo{max-width:680px;margin:36px auto 0;background:var(--card);border-radius:18px;border:1px solid var(--border);box-shadow:var(--sh-lg);overflow:hidden}
-.tracker-header{background:linear-gradient(135deg,var(--red),var(--orange));padding:18px 24px;color:#fff;display:flex;align-items:center;justify-content:space-between}
-.tracker-header h4{font-family:var(--font-h);font-size:16px;font-weight:800}
-.tracker-header .order-id{font-size:11px;opacity:0.8}
-.tracker-steps{padding:28px 24px;display:flex;align-items:flex-start;gap:0;position:relative}
-.tracker-step{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;z-index:1}
-.tracker-step .ts-dot{width:36px;height:36px;border-radius:50%;background:var(--border);display:flex;align-items:center;justify-content:center;font-size:16px;transition:all .5s;margin-bottom:10px;position:relative}
-.tracker-step.active .ts-dot{background:var(--red);box-shadow:0 0 0 6px rgba(232,52,10,0.15);animation:trackerPulse 2s ease-in-out infinite}
-.tracker-step.done .ts-dot{background:var(--green)}
-@keyframes trackerPulse{0%,100%{box-shadow:0 0 0 6px rgba(232,52,10,0.15)}50%{box-shadow:0 0 0 12px rgba(232,52,10,0.05)}}
-.tracker-step .ts-label{font-size:10px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
-.tracker-step .ts-time{font-size:9px;color:var(--light-muted);margin-top:3px}
-.tracker-step.done .ts-label{color:var(--green)}
-.tracker-step.active .ts-label{color:var(--red);font-weight:700}
-.tracker-line{position:absolute;top:18px;left:10%;right:10%;height:3px;background:var(--border);border-radius:3px;z-index:0}
-.tracker-line-fill{height:100%;background:linear-gradient(90deg,var(--green),var(--red));border-radius:3px;transition:width 1s ease;width:0}
-.tracker-eta{padding:16px 24px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:rgba(232,52,10,0.03)}
-.tracker-eta .eta-txt{font-size:13px;font-weight:700;color:var(--dark)}
-.tracker-eta .eta-txt span{color:var(--red)}
-.tracker-eta .eta-rider{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted)}
-.tracker-eta .rider-dot{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 1.8s infinite}
 
 /* ═══ FAQs ═══ */
 .faq-section{background:var(--surface2);position:relative;z-index:1}
 .faq-grid{margin-top:36px;display:flex;flex-direction:column;gap:8px;max-width:760px;margin-left:auto;margin-right:auto}
-.faq-item{background:var(--faq-bg);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:box-shadow .2s,border-color .2s}
+.faq-item{background:var(--faq-bg);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:box-shadow .2s}
 .faq-item:hover{border-color:rgba(232,52,10,0.18);box-shadow:var(--sh)}
-.faq-q{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;cursor:pointer;-webkit-tap-highlight-color:transparent;gap:12px}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;cursor:pointer;gap:12px}
 .faq-q span{font-size:13px;font-weight:600;color:var(--dark);line-height:1.4}
 .faq-icon{width:26px;height:26px;border-radius:50%;background:rgba(232,52,10,0.07);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--red);flex-shrink:0;transition:all .25s;font-weight:700}
 .faq-item.open .faq-icon{background:var(--red);color:#fff;transform:rotate(45deg)}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
 .faq-a-inner{padding:0 20px 16px;font-size:13px;color:var(--muted);line-height:1.75}
 .faq-item.open .faq-a{max-height:300px}
-
-/* ═══ NEWSLETTER ═══ */
-.newsletter-section{position:relative;z-index:1;overflow:hidden}
-.newsletter-inner{max-width:640px;margin:0 auto;text-align:center;position:relative}
-.newsletter-inner .sec-h{margin-bottom:8px}
-.newsletter-inner .sec-p{max-width:420px;margin:0 auto 24px}
-.nl-form{display:flex;gap:8px;max-width:460px;margin:0 auto}
-.nl-form input{flex:1;padding:14px 18px;border:1px solid var(--border);border-radius:12px;background:var(--card);color:var(--dark);font-family:var(--font-b);font-size:14px;outline:none;transition:border-color .2s;min-width:0}
-.nl-form input:focus{border-color:rgba(232,52,10,0.4);box-shadow:var(--sh-glow)}
-.nl-form input::placeholder{color:var(--light-muted)}
-.nl-form button{background:var(--red);color:#fff;border:none;padding:14px 28px;border-radius:12px;font-family:var(--font-b);font-size:13px;font-weight:700;cursor:pointer;transition:all .2s;flex-shrink:0;white-space:nowrap;letter-spacing:.3px}
-.nl-form button:hover{background:var(--orange);transform:translateY(-1px)}
-.nl-trust{margin-top:14px;font-size:11px;color:var(--muted);display:flex;align-items:center;justify-content:center;gap:6px}
-.nl-decor{position:absolute;font-size:48px;opacity:0.06;pointer-events:none;user-select:none}
 
 /* ═══ PARTNER ═══ */
 .partner-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
@@ -366,12 +254,12 @@ nav.promo-hidden{top:0}
 .pv-row{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.16);border-radius:11px;padding:14px 16px;margin-bottom:10px}
 .pv-row:last-child{margin-bottom:0}
 .pv-label{font-size:11px;font-weight:700;color:#fff;margin-bottom:2px}
-.pv-sub{font-size:10px;color:rgba(255,255,255,.55);letter-spacing:.3px}
+.pv-sub{font-size:10px;color:rgba(255,255,255,.55)}
 .pv-bar-bg{height:3px;background:rgba(255,255,255,.18);border-radius:3px;margin-top:8px}
 .pv-bar{height:100%;border-radius:3px;background:linear-gradient(90deg,rgba(255,255,255,0.65),#fff)}
 .pstats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:26px}
 .pstat{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px}
-.pstat .n{font-family:var(--font-h);font-size:26px;font-weight:900;color:var(--red);letter-spacing:-.5px}
+.pstat .n{font-family:var(--font-h);font-size:26px;font-weight:900;color:var(--red)}
 .pstat .l{font-size:10px;color:var(--muted);margin-top:2px;text-transform:uppercase;letter-spacing:.8px}
 .perks{margin-top:22px;display:flex;flex-direction:column;gap:10px}
 .perk{display:flex;align-items:flex-start;gap:10px}
@@ -380,7 +268,7 @@ nav.promo-hidden{top:0}
 .perk small{font-size:11px;color:var(--muted);line-height:1.5}
 
 /* ═══ OVERLAYS ═══ */
-.overlay{position:fixed;inset:0;background:var(--modal-bg);z-index:800;display:flex;align-items:flex-end;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;padding:0}
+.overlay{position:fixed;inset:0;background:var(--modal-bg);z-index:800;display:flex;align-items:flex-end;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s}
 .overlay.open{opacity:1;pointer-events:all}
 .bottom-sheet{background:var(--card);border-radius:22px 22px 0 0;width:100%;max-width:900px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 -4px 48px rgba(0,0,0,.18);transform:translateY(60px);transition:transform .38s cubic-bezier(.22,1,.36,1);border-top:1px solid var(--border)}
 [data-theme="dark"] .bottom-sheet{box-shadow:0 -4px 48px rgba(0,0,0,.60)}
@@ -388,57 +276,58 @@ nav.promo-hidden{top:0}
 .drag-handle{width:36px;height:3px;border-radius:3px;background:var(--border);margin:12px auto 0;flex-shrink:0}
 .menu-head{padding:16px 24px 14px;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:14px;flex-shrink:0}
 .rest-logo-sm{width:48px;height:48px;border-radius:11px;background:linear-gradient(135deg,#2d6e4e,#1a4230);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
-.menu-rest-name{font-family:var(--font-h);font-size:17px;font-weight:800;color:var(--dark);letter-spacing:-.3px}
+.menu-rest-name{font-family:var(--font-h);font-size:17px;font-weight:800;color:var(--dark)}
 .menu-rest-meta{font-size:11px;color:var(--muted);margin-top:3px;line-height:1.5}
-.m-close{margin-left:auto;width:32px;height:32px;border-radius:50%;border:1px solid var(--border);background:transparent;cursor:pointer;color:var(--muted);display:flex;align-items:center;justify-content:center;font-size:13px;transition:all .2s;flex-shrink:0;-webkit-tap-highlight-color:transparent}
+.m-close{margin-left:auto;width:32px;height:32px;border-radius:50%;border:1px solid var(--border);background:transparent;cursor:pointer;color:var(--muted);display:flex;align-items:center;justify-content:center;font-size:13px;transition:all .2s;flex-shrink:0}
 .m-close:hover{background:var(--red);border-color:var(--red);color:#fff}
-.menu-tabs-row{display:flex;gap:3px;padding:10px 24px;border-bottom:1px solid var(--border);flex-shrink:0;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.menu-tabs-row{display:flex;gap:3px;padding:10px 24px;border-bottom:1px solid var(--border);flex-shrink:0;overflow-x:auto;scrollbar-width:none}
 .menu-tabs-row::-webkit-scrollbar{display:none}
-.mtab{padding:7px 13px;border-radius:100px;font-size:11px;font-weight:700;color:var(--muted);cursor:pointer;white-space:nowrap;transition:all .2s;border:none;background:transparent;-webkit-tap-highlight-color:transparent;font-family:var(--font-b);letter-spacing:.3px}
+.mtab{padding:7px 13px;border-radius:100px;font-size:11px;font-weight:700;color:var(--muted);cursor:pointer;white-space:nowrap;transition:all .2s;border:none;background:transparent;font-family:var(--font-b)}
 .mtab.active,.mtab:hover{background:var(--red);color:#fff}
-.menu-body{overflow-y:auto;padding:16px 24px;flex:1;max-height:55svh;-webkit-overflow-scrolling:touch}
+.menu-body{overflow-y:auto;padding:16px 24px;flex:1;max-height:55svh}
 .menu-sec-title{font-family:var(--font-h);font-size:15px;font-weight:700;color:var(--dark);margin-bottom:2px}
-.menu-sec-sub{font-size:10px;color:var(--muted);margin-bottom:10px;letter-spacing:.3px}
+.menu-sec-sub{font-size:10px;color:var(--muted);margin-bottom:10px}
 .menu-items{display:flex;flex-direction:column;gap:8px;margin-top:10px}
-.menu-item{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:var(--surface);transition:box-shadow .2s,border-color .2s}
-.menu-item:hover{box-shadow:var(--sh);border-color:rgba(232,52,10,.13)}
+.menu-item{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:var(--surface);transition:box-shadow .2s}
+.menu-item:hover{box-shadow:var(--sh)}
 .mi-info{flex:1;min-width:0}
 .mi-name{font-size:12px;font-weight:700;color:var(--dark);margin-bottom:2px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
 .mi-desc{font-size:11px;color:var(--muted);line-height:1.5;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
 .mi-sizes{display:flex;gap:5px;margin-top:7px;flex-wrap:wrap}
-.sz-btn{font-size:10px;padding:4px 10px;border-radius:100px;border:1px solid var(--border);color:var(--muted);cursor:pointer;transition:all .18s;background:transparent;font-family:var(--font-b);-webkit-tap-highlight-color:transparent;letter-spacing:.2px}
+.sz-btn{font-size:10px;padding:4px 10px;border-radius:100px;border:1px solid var(--border);color:var(--muted);cursor:pointer;transition:all .18s;background:transparent;font-family:var(--font-b)}
 .sz-btn:hover,.sz-btn.picked{background:var(--red);border-color:var(--red);color:#fff}
 .mi-right{display:flex;flex-direction:column;align-items:flex-end;gap:7px;flex-shrink:0}
 .mi-price{font-family:var(--font-h);font-size:13px;font-weight:700;color:var(--dark);white-space:nowrap}
-.add-btn{width:28px;height:28px;border-radius:50%;background:var(--red);border:none;color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .15s;-webkit-tap-highlight-color:transparent}
+.add-btn{width:28px;height:28px;border-radius:50%;background:var(--red);border:none;color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .15s}
 .add-btn:hover{background:var(--orange);transform:scale(1.12)}
 .menu-cart-bar{flex-shrink:0;padding:14px 24px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:var(--card);gap:10px}
-.cart-info{font-size:12px;color:var(--muted);min-width:0}
+.cart-info{font-size:12px;color:var(--muted)}
 .cart-info strong{color:var(--dark)}
-.cart-go{background:var(--red);color:#fff;border:none;padding:12px 26px;border-radius:100px;font-size:13px;font-weight:700;cursor:pointer;font-family:var(--font-b);transition:background .2s;white-space:nowrap;flex-shrink:0;-webkit-tap-highlight-color:transparent;letter-spacing:.3px}
+.cart-go{background:var(--red);color:#fff;border:none;padding:12px 26px;border-radius:100px;font-size:13px;font-weight:700;cursor:pointer;font-family:var(--font-b);transition:background .2s;white-space:nowrap;flex-shrink:0}
 .cart-go:hover{background:var(--orange)}
+.new-tag{font-size:8px;font-weight:700;padding:2px 7px;border-radius:100px;background:var(--green);color:#fff;vertical-align:middle;letter-spacing:.5px;text-transform:uppercase}
 
 /* ═══ AUTH ═══ */
 .auth-sheet{max-width:440px;max-height:96svh}
-.auth-inner{padding:20px 24px 30px;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.auth-inner{padding:20px 24px 30px;overflow-y:auto}
 .auth-logo{font-family:var(--font-h);font-size:18px;font-weight:900;color:var(--dark);margin-bottom:16px}
 .auth-logo span{color:var(--red)}
-.auth-title{font-family:var(--font-h);font-size:22px;font-weight:900;color:var(--dark);letter-spacing:-.4px;margin-bottom:4px}
+.auth-title{font-family:var(--font-h);font-size:22px;font-weight:900;color:var(--dark);margin-bottom:4px}
 .auth-sub{font-size:12px;color:var(--muted);margin-bottom:20px;line-height:1.65}
 .form-field{margin-bottom:12px}
 .form-field label{display:block;font-size:9px;font-weight:700;color:var(--muted);margin-bottom:5px;letter-spacing:1.5px;text-transform:uppercase}
-.form-field input,.form-field select{width:100%;padding:13px 15px;border:1px solid var(--input-border);border-radius:11px;background:var(--input-bg);color:var(--dark);font-family:var(--font-b);font-size:14px;outline:none;transition:border-color .2s;-webkit-appearance:none;appearance:none}
-.form-field input:focus,.form-field select:focus{border-color:rgba(232,52,10,0.42);box-shadow:var(--sh-glow)}
+.form-field input{width:100%;padding:13px 15px;border:1px solid var(--input-border);border-radius:11px;background:var(--input-bg);color:var(--dark);font-family:var(--font-b);font-size:14px;outline:none;transition:border-color .2s}
+.form-field input:focus{border-color:rgba(232,52,10,0.42);box-shadow:var(--sh-glow)}
 .form-field input::placeholder{color:var(--light-muted)}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .form-err{font-size:10px;color:#dc2626;margin-top:4px;display:none}
 .form-field.error input{border-color:#dc2626}
 .form-field.error .form-err{display:block}
-.auth-or{display:flex;align-items:center;gap:10px;margin:16px 0;color:var(--muted);font-size:11px;font-weight:600;letter-spacing:.5px}
+.auth-or{display:flex;align-items:center;gap:10px;margin:16px 0;color:var(--muted);font-size:11px;font-weight:600}
 .auth-or::before,.auth-or::after{content:'';flex:1;height:1px;background:var(--border)}
-.social-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:9px;padding:12px;border-radius:11px;border:1px solid var(--border);background:var(--input-bg);color:var(--ink);font-family:var(--font-b);font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;margin-bottom:8px;-webkit-tap-highlight-color:transparent}
+.social-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:9px;padding:12px;border-radius:11px;border:1px solid var(--border);background:var(--input-bg);color:var(--ink);font-family:var(--font-b);font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;margin-bottom:8px}
 .social-btn:hover{border-color:var(--red);background:rgba(232,52,10,.04)}
-.auth-btn-main{width:100%;background:var(--red);color:#fff;border:none;padding:14px;border-radius:100px;font-family:var(--font-b);font-size:14px;font-weight:700;cursor:pointer;margin-top:8px;transition:background .2s,transform .15s;box-shadow:0 4px 20px rgba(232,52,10,.26);-webkit-tap-highlight-color:transparent;letter-spacing:.3px}
+.auth-btn-main{width:100%;background:var(--red);color:#fff;border:none;padding:14px;border-radius:100px;font-family:var(--font-b);font-size:14px;font-weight:700;cursor:pointer;margin-top:8px;transition:background .2s,transform .15s;box-shadow:0 4px 20px rgba(232,52,10,.26)}
 .auth-btn-main:hover{background:var(--orange);transform:translateY(-1px)}
 .auth-toggle-txt{margin-top:16px;text-align:center;font-size:12px;color:var(--muted)}
 .auth-toggle-txt a{color:var(--red);font-weight:700;cursor:pointer}
@@ -447,7 +336,7 @@ nav.promo-hidden{top:0}
 
 /* ═══ CHECKOUT ═══ */
 .co-sheet{max-width:460px;max-height:96svh}
-.co-inner{padding:20px 24px 30px;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.co-inner{padding:20px 24px 30px;overflow-y:auto}
 .co-title{font-family:var(--font-h);font-size:20px;font-weight:900;color:var(--dark);margin-bottom:3px}
 .co-sub{font-size:12px;color:var(--muted);margin-bottom:18px;line-height:1.6}
 .co-sec{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin:16px 0 8px}
@@ -456,55 +345,51 @@ nav.promo-hidden{top:0}
 .os-row:last-child{border-bottom:none;font-weight:700;color:var(--dark)}
 .os-row.muted{color:var(--muted)}
 .pay-opts{display:flex;gap:7px;flex-wrap:wrap}
-.pay-btn{padding:9px 15px;border-radius:10px;border:1px solid var(--border);font-size:11px;font-weight:700;color:var(--muted);cursor:pointer;background:var(--surface);font-family:var(--font-b);transition:all .2s;-webkit-tap-highlight-color:transparent;letter-spacing:.2px}
+.pay-btn{padding:9px 15px;border-radius:10px;border:1px solid var(--border);font-size:11px;font-weight:700;color:var(--muted);cursor:pointer;background:var(--surface);font-family:var(--font-b);transition:all .2s}
 .pay-btn.active,.pay-btn:hover{border-color:var(--red);color:var(--red);background:rgba(232,52,10,.05)}
-.save-chk-row{display:flex;align-items:center;gap:8px;margin-top:10px}
-.save-chk-row input[type=checkbox]{width:15px;height:15px;accent-color:var(--red);cursor:pointer}
-.save-chk-row label{font-size:11px;color:var(--muted);cursor:pointer;line-height:1.4}
-.place-btn{width:100%;background:var(--red);color:#fff;border:none;padding:16px;border-radius:100px;font-family:var(--font-b);font-size:14px;font-weight:700;cursor:pointer;margin-top:16px;box-shadow:0 4px 20px rgba(232,52,10,.26);transition:background .2s;-webkit-tap-highlight-color:transparent;letter-spacing:.3px}
+.place-btn{width:100%;background:var(--red);color:#fff;border:none;padding:16px;border-radius:100px;font-family:var(--font-b);font-size:14px;font-weight:700;cursor:pointer;margin-top:16px;box-shadow:0 4px 20px rgba(232,52,10,.26);transition:background .2s}
 .place-btn:hover{background:var(--orange)}
-.co-info-box{background:rgba(232,52,10,0.05);border:1px solid rgba(232,52,10,0.14);border-radius:11px;padding:12px 14px;margin-bottom:4px;font-size:11px;color:var(--muted);line-height:1.6}
-.co-info-box strong{color:var(--dark);display:block;margin-bottom:3px;font-size:12px}
 
-/* ═══ CHECKOUT PROGRESS ═══ */
-.co-progress{display:flex;align-items:center;gap:0;margin-bottom:20px;padding:0 4px}
-.co-step{display:flex;align-items:center;gap:6px;font-size:10px;font-weight:600;color:var(--muted);white-space:nowrap}
-.co-step.active{color:var(--red)}
-.co-step.done{color:var(--green)}
-.co-step-dot{width:22px;height:22px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:9px;transition:all .3s}
-.co-step.active .co-step-dot{border-color:var(--red);background:rgba(232,52,10,0.1);color:var(--red)}
-.co-step.done .co-step-dot{border-color:var(--green);background:var(--green);color:#fff}
-.co-line{flex:1;height:2px;background:var(--border);margin:0 6px}
-.co-line.done{background:var(--green)}
+/* ═══ ORDER RECEIPT ═══ */
+.receipt-sheet{max-width:480px;max-height:96svh}
+.receipt-inner{padding:20px 24px 30px;overflow-y:auto}
+.receipt-header{text-align:center;padding-bottom:16px;border-bottom:2px dashed var(--border);margin-bottom:16px}
+.receipt-header .rh-logo{font-family:var(--font-h);font-size:24px;font-weight:900;color:var(--dark)}
+.receipt-header .rh-logo span{color:var(--red)}
+.receipt-header .rh-sub{font-size:10px;color:var(--muted);margin-top:2px;letter-spacing:1px;text-transform:uppercase}
+.receipt-check{width:56px;height:56px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;font-size:28px;margin:0 auto 12px;box-shadow:0 4px 18px rgba(22,163,74,0.3)}
+.receipt-status{font-family:var(--font-h);font-size:20px;font-weight:900;color:var(--dark);margin-bottom:4px}
+.receipt-orderno{font-size:12px;color:var(--muted)}
+.receipt-section{margin-top:16px;padding-top:12px;border-top:1px dashed var(--border)}
+.receipt-section h4{font-size:10px;font-weight:700;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px}
+.receipt-row{display:flex;justify-content:space-between;align-items:flex-start;font-size:12px;padding:4px 0;color:var(--ink)}
+.receipt-row.total{font-size:14px;font-weight:700;color:var(--dark);padding:8px 0;border-top:2px solid var(--dark);margin-top:4px}
+.receipt-row .item-qty{color:var(--muted);font-size:11px}
+.receipt-info{background:var(--surface2);border:1px solid var(--border);border-radius:11px;padding:12px 14px;font-size:12px;color:var(--ink);line-height:1.7}
+.receipt-info strong{color:var(--dark)}
+.receipt-actions{margin-top:20px;display:flex;flex-direction:column;gap:8px}
+.receipt-actions a,.receipt-actions button{display:flex;align-items:center;justify-content:center;gap:8px;padding:13px;border-radius:12px;font-family:var(--font-b);font-size:13px;font-weight:700;cursor:pointer;transition:all .2s;text-decoration:none;border:none;width:100%}
+.wa-btn{background:#25D366;color:#fff;box-shadow:0 4px 16px rgba(37,211,102,0.3)}
+.wa-btn:hover{background:#1ebe57;transform:translateY(-1px)}
+.wa-btn-outline{background:transparent;border:1px solid #25D366;color:#25D366}
+.wa-btn-outline:hover{background:rgba(37,211,102,0.05)}
+.print-btn{background:var(--surface);border:1px solid var(--border);color:var(--ink)}
+.print-btn:hover{border-color:var(--dark)}
+.receipt-footer{text-align:center;margin-top:16px;padding-top:12px;border-top:1px dashed var(--border);font-size:11px;color:var(--muted);line-height:1.7}
 
 /* ═══ DASHBOARD ═══ */
 .dash-panel{position:fixed;top:0;right:0;bottom:0;z-index:700;width:380px;max-width:100vw;background:var(--card);box-shadow:-6px 0 48px rgba(0,0,0,.12);transition:transform .38s cubic-bezier(.22,1,.36,1);display:flex;flex-direction:column;border-left:1px solid var(--border);transform:translateX(100%)}
-[data-theme="dark"] .dash-panel{box-shadow:-6px 0 48px rgba(0,0,0,.50)}
 .dash-panel.open{transform:none}
 .dash-head{padding:20px 22px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;flex-shrink:0;background:linear-gradient(135deg,rgba(232,52,10,.06),rgba(245,96,15,.02))}
 .d-av{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--red),var(--orange));display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;color:#fff;flex-shrink:0;box-shadow:0 4px 18px rgba(232,52,10,.28)}
 .d-name{font-family:var(--font-h);font-size:16px;font-weight:700;color:var(--dark)}
 .d-email{font-size:11px;color:var(--muted);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:220px}
-.d-close{margin-left:auto;width:30px;height:30px;border-radius:50%;border:1px solid var(--border);background:transparent;cursor:pointer;color:var(--muted);display:flex;align-items:center;justify-content:center;font-size:13px;transition:all .2s;flex-shrink:0;-webkit-tap-highlight-color:transparent}
+.d-close{margin-left:auto;width:30px;height:30px;border-radius:50%;border:1px solid var(--border);background:transparent;cursor:pointer;color:var(--muted);display:flex;align-items:center;justify-content:center;font-size:13px;transition:all .2s;flex-shrink:0}
 .d-close:hover{background:var(--red);border-color:var(--red);color:#fff}
-.dash-body{overflow-y:auto;flex:1;padding:18px 22px;-webkit-overflow-scrolling:touch}
-.dash-streak{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:100px;background:rgba(232,52,10,.08);border:1px solid rgba(232,52,10,.16);font-size:11px;font-weight:700;color:var(--red);margin-bottom:18px;letter-spacing:.3px}
-
-/* Loyalty Points */
-.loyalty-card{background:linear-gradient(135deg,var(--red),var(--orange));border-radius:14px;padding:18px 20px;color:#fff;margin-bottom:18px;position:relative;overflow:hidden}
-.loyalty-card::before{content:'';position:absolute;top:-20px;right:-20px;width:100px;height:100px;border-radius:50%;background:rgba(255,255,255,0.08)}
-.loyalty-card::after{content:'';position:absolute;bottom:-30px;left:-10px;width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,0.05)}
-.loyalty-pts{font-family:var(--font-h);font-size:32px;font-weight:900;line-height:1}
-.loyalty-label{font-size:10px;opacity:0.8;margin-top:3px;text-transform:uppercase;letter-spacing:1px}
-.loyalty-bar-wrap{margin-top:12px}
-.loyalty-bar-label{font-size:10px;opacity:0.7;display:flex;justify-content:space-between;margin-bottom:4px}
-.loyalty-bar{height:4px;background:rgba(255,255,255,0.2);border-radius:4px;overflow:hidden}
-.loyalty-bar-fill{height:100%;background:#fff;border-radius:4px;transition:width 1s ease}
-.loyalty-reward{font-size:10px;margin-top:6px;opacity:0.8;font-style:italic}
-
+.dash-body{overflow-y:auto;flex:1;padding:18px 22px}
 .d-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:22px}
 .d-stat{background:var(--dash-bg);border-radius:12px;padding:14px;border:1px solid var(--border)}
-.d-stat .dsn{font-family:var(--font-h);font-size:22px;font-weight:900;color:var(--red);letter-spacing:-.3px}
+.d-stat .dsn{font-family:var(--font-h);font-size:22px;font-weight:900;color:var(--red)}
 .d-stat .dsl{font-size:10px;color:var(--muted);margin-top:2px;text-transform:uppercase;letter-spacing:.8px}
 .d-sec{font-family:var(--font-h);font-size:13px;font-weight:700;color:var(--dark);margin-bottom:10px}
 .d-info-card{background:var(--dash-bg);border:1px solid var(--border);border-radius:11px;padding:13px 15px;margin-bottom:18px}
@@ -518,14 +403,13 @@ nav.promo-hidden{top:0}
 .oh-info{flex:1;min-width:0}
 .oh-name{font-size:12px;font-weight:600;color:var(--dark);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .oh-meta{font-size:10px;color:var(--muted);margin-top:2px}
-.oh-badge{display:inline-block;font-size:9px;font-weight:700;padding:2px 8px;border-radius:100px;margin-top:3px;background:rgba(22,163,74,.09);color:#16a34a;text-transform:uppercase;letter-spacing:.5px}
 .oh-price{font-family:var(--font-h);font-size:13px;font-weight:700;color:var(--red);flex-shrink:0}
-.d-logout{margin-top:20px;width:100%;padding:12px;border-radius:11px;border:1px solid var(--border);background:transparent;font-family:var(--font-b);font-size:12px;font-weight:600;color:var(--muted);cursor:pointer;transition:all .2s;-webkit-tap-highlight-color:transparent;letter-spacing:.3px}
+.d-logout{margin-top:20px;width:100%;padding:12px;border-radius:11px;border:1px solid var(--border);background:transparent;font-family:var(--font-b);font-size:12px;font-weight:600;color:var(--muted);cursor:pointer;transition:all .2s}
 .d-logout:hover{border-color:#dc2626;color:#dc2626;background:rgba(220,38,38,.05)}
 
 /* ═══ LEGAL ═══ */
 .legal-sheet{max-width:620px;max-height:90svh}
-.legal-inner{padding:20px 28px 32px;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.legal-inner{padding:20px 28px 32px;overflow-y:auto}
 .legal-inner h2{font-family:var(--font-h);font-size:22px;font-weight:900;color:var(--dark);margin-bottom:6px}
 .legal-inner .legal-meta{font-size:11px;color:var(--muted);margin-bottom:20px}
 .legal-inner h3{font-size:13px;font-weight:700;color:var(--dark);margin:18px 0 7px;text-transform:uppercase;letter-spacing:.8px}
@@ -536,7 +420,7 @@ nav.promo-hidden{top:0}
 /* ═══ FOOTER ═══ */
 footer{background:#100601;padding:48px 28px 28px;position:relative;z-index:1;border-top:1px solid rgba(160,90,20,0.08)}
 .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:40px}
-.foot-brand .fb-logo{font-family:var(--font-h);font-size:22px;font-weight:900;color:#F5EAD8;letter-spacing:-.5px;margin-bottom:5px}
+.foot-brand .fb-logo{font-family:var(--font-h);font-size:22px;font-weight:900;color:#F5EAD8;margin-bottom:5px}
 .foot-brand .fb-logo span{color:var(--red)}
 .foot-brand .fb-loc{font-size:11px;color:rgba(245,235,200,.28);margin-bottom:3px;display:flex;align-items:center;gap:5px}
 .foot-brand .fb-loc a{color:rgba(232,52,10,.65);text-decoration:none;transition:color .2s}
@@ -554,34 +438,28 @@ footer{background:#100601;padding:48px 28px 28px;position:relative;z-index:1;bor
 .foot-bot a:hover{color:rgba(245,235,200,.48)}
 
 /* ═══ TOAST ═══ */
-.toast{position:fixed;bottom:76px;left:50%;transform:translateX(-50%) translateY(14px);background:var(--dark);color:var(--bg);padding:11px 22px;border-radius:100px;font-size:12px;font-weight:600;z-index:9999;opacity:0;transition:all .3s;pointer-events:none;white-space:nowrap;box-shadow:0 8px 32px rgba(0,0,0,.25);max-width:90vw;text-align:center;letter-spacing:.2px}
+.toast{position:fixed;bottom:76px;left:50%;transform:translateX(-50%) translateY(14px);background:var(--dark);color:var(--bg);padding:11px 22px;border-radius:100px;font-size:12px;font-weight:600;z-index:9999;opacity:0;transition:all .3s;pointer-events:none;white-space:nowrap;box-shadow:0 8px 32px rgba(0,0,0,.25);max-width:90vw;text-align:center}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
 /* ═══ CONFETTI ═══ */
 .confetti-piece{position:fixed;z-index:10000;pointer-events:none;width:8px;height:8px;border-radius:2px;animation:confettiFall linear forwards}
 @keyframes confettiFall{0%{opacity:1;transform:translateY(0) rotate(0deg) scale(1)}100%{opacity:0;transform:translateY(100vh) rotate(720deg) scale(0.3)}}
 
-/* ═══ ANIMATIONS ═══ */
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
 .reveal{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}
 .reveal.visible{opacity:1;transform:none}
-.new-badge{font-size:8px;font-weight:700;padding:2px 7px;border-radius:100px;background:var(--red);color:#fff;vertical-align:middle;letter-spacing:.5px;text-transform:uppercase}
-
-/* ═══ PROGRESS BAR (page scroll) ═══ */
-.scroll-progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--red),var(--orange));z-index:9999;transition:width .1s linear;width:0;border-radius:0 3px 3px 0}
 
 /* ═══ MOBILE ═══ */
 @media(max-width:767px){
   .promo-banner{font-size:10px;padding:7px 14px;gap:8px;flex-wrap:wrap}
-  .promo-timer span{font-size:10px;min-width:20px}
   nav{padding:0 16px;height:58px}
   .nav-links,.btn-red.nav-cta-desktop{display:none}
   .nav-ham{display:flex}
   .mob-drawer{top:94px}
-  nav.promo-hidden + .mob-drawer,.mob-drawer.promo-gone{top:58px}
+  nav.promo-hidden+.mob-drawer,.mob-drawer.promo-gone{top:58px}
   .hero{grid-template-columns:1fr;padding:118px 18px 48px;gap:0;min-height:auto}
   .hero-visual{display:none}
-  .hero h1{font-size:clamp(36px,10vw,52px);letter-spacing:-.5px}
+  .hero h1{font-size:clamp(36px,10vw,52px)}
   .hero-sub{font-size:13px;max-width:100%;margin-top:14px}
   .search-box{max-width:100%;margin-top:22px}
   .search-inner{flex-direction:column;background:transparent;box-shadow:none;border:none;gap:8px;border-radius:0}
@@ -591,42 +469,31 @@ footer{background:#100601;padding:48px 28px 28px;position:relative;z-index:1;bor
   .stat-num{font-size:24px}
   .feat-strip-inner{grid-template-columns:1fr 1fr}
   .feat-item{padding:14px 12px;gap:9px}
-  .popular-header{padding:0 18px}
-  .dishes-scroll{padding:0 18px 12px}
   .cats-section{padding:28px 16px}
   .section{padding:40px 16px}
   .sec-h{font-size:clamp(22px,6vw,30px)}
   .rest-grid{grid-template-columns:1fr;gap:12px}
   .rc-thumb{height:170px}
-  .rest-card .fav-btn{opacity:1;transform:scale(1)}
   .steps-grid{grid-template-columns:1fr;gap:10px;margin-top:28px}
-  .step-card{padding:22px 18px}
-  .tracker-steps{flex-wrap:wrap;gap:8px}
-  .tracker-line{display:none}
   .partner-grid{grid-template-columns:1fr;gap:28px}
   .pv-box{padding:22px}
   .pstats{grid-template-columns:1fr 1fr;gap:8px}
-  .nl-form{flex-direction:column}
   .foot-grid{grid-template-columns:1fr 1fr;gap:24px}
   footer{padding:36px 16px 22px}
   .foot-col:nth-child(n+4){display:none}
   .dash-panel{width:100vw;border-left:none}
-  .dash-body{padding:14px 16px}
   .theme-toggle{bottom:70px;right:14px;width:40px;height:40px;font-size:14px}
   .scroll-top{bottom:70px;left:14px;width:36px;height:36px}
   .toast{font-size:11px;padding:10px 18px;bottom:68px;white-space:normal;max-width:86vw}
-  .auth-inner,.co-inner{padding:14px 18px 26px}
+  .auth-inner,.co-inner,.receipt-inner{padding:14px 18px 26px}
   .menu-body{max-height:50svh}
   .form-row{grid-template-columns:1fr}
-  .test-card{width:280px}
 }
 @media(min-width:768px) and (max-width:1023px){
   nav{padding:0 22px}
   .hero{padding:128px 32px 56px;gap:32px}
   .section{padding:60px 32px}
   .cats-section{padding:36px 22px}
-  .popular-header{padding:0 32px}
-  .dishes-scroll{padding:0 32px 12px}
   .rest-grid{grid-template-columns:1fr 1fr}
   footer{padding:44px 32px 24px}
   .foot-grid{grid-template-columns:2fr 1fr 1fr}
@@ -635,13 +502,17 @@ footer{background:#100601;padding:48px 28px 28px;position:relative;z-index:1;bor
   .hv-card{width:245px}
 }
 @media(max-width:380px){.hero h1{font-size:32px}.pstats{grid-template-columns:1fr}}
+@media print{
+  .promo-banner,nav,.theme-toggle,.scroll-top,.scroll-progress,.bg-atmo,.bg-smoke,.receipt-actions,.drag-handle{display:none!important}
+  .overlay{position:static!important;background:none!important;opacity:1!important;pointer-events:all!important}
+  .bottom-sheet{border-radius:0!important;box-shadow:none!important;transform:none!important;max-height:none!important}
+  body{background:#fff!important;color:#000!important}
+}
 </style>
 </head>
 <body>
 
-<!-- SCROLL PROGRESS -->
 <div class="scroll-progress" id="scrollProgress"></div>
-
 <div class="bg-atmo"></div>
 <div class="bg-smoke">
   <div class="smoke-orb" style="width:500px;height:500px;top:-100px;left:-150px;background:radial-gradient(circle,rgba(150,40,5,0.10),transparent 70%);animation-duration:9s"></div>
@@ -649,94 +520,79 @@ footer{background:#100601;padding:48px 28px 28px;position:relative;z-index:1;bor
   <div class="smoke-orb" style="width:400px;height:400px;bottom:-80px;left:30%;background:radial-gradient(circle,rgba(180,60,5,0.07),transparent 70%);animation-duration:8s;animation-delay:1.5s"></div>
 </div>
 
-<!-- PROMO BANNER -->
+<!-- PROMO -->
 <div class="promo-banner" id="promoBanner">
-  <div class="promo-text">
-    🎉 <strong>Ramadan Special!</strong> Use code <span class="promo-code" onclick="copyPromo()" title="Click to copy">PLATE30</span> for <strong>30% off</strong> your first order
-  </div>
-  <div class="promo-timer">
-    <span id="promoH">00</span>:<span id="promoM">00</span>:<span id="promoS">00</span>
-  </div>
-  <button class="promo-close" onclick="closePromo()" aria-label="Close promo">✕</button>
+  <div class="promo-text">🎉 <strong>Launch Offer!</strong> Free delivery on orders above <strong>Rs. 3,000</strong> — use <span class="promo-code" onclick="copyPromo()" title="Click to copy">PLATE30</span></div>
+  <div class="promo-timer"><span id="promoH">00</span>:<span id="promoM">00</span>:<span id="promoS">00</span></div>
+  <button class="promo-close" onclick="closePromo()">✕</button>
 </div>
 
-<!-- SCROLL TO TOP -->
-<button class="scroll-top" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">↑</button>
+<button class="scroll-top" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
-<!-- AUTH OVERLAY -->
+<!-- AUTH -->
 <div class="overlay" id="authOv" onclick="overlayTap(event,'authOv')">
  <div class="bottom-sheet auth-sheet">
   <div class="drag-handle"></div>
   <div class="auth-inner">
    <div class="auth-logo">Plate<span>Run</span></div>
    <div class="auth-title" id="authTitle">Welcome back 👋</div>
-   <div class="auth-sub" id="authSub">Sign in — your address, number &amp; order history are always saved. Checkout takes 10 seconds.</div>
-   <button class="social-btn" onclick="quickAuth()">
+   <div class="auth-sub" id="authSub">Sign in — your address, number &amp; order history are saved.</div>
+   <a class="social-btn" href="https://wa.me/923076064194?text=Hi%20PlateRun!%20I%20want%20to%20sign%20up." target="_blank" rel="noopener">
     <span style="font-size:18px">💬</span>
     <div style="text-align:left"><div style="font-size:13px;font-weight:700;color:var(--dark)">Continue with WhatsApp</div><div style="font-size:10px;color:var(--muted);margin-top:1px">Fastest way — one tap</div></div>
-   </button>
+   </a>
    <div class="auth-or">or with email</div>
    <div id="signupExtra" style="display:none">
     <div class="form-row">
      <div class="form-field"><label>First name *</label><input id="fFirst" type="text" placeholder="Ali" autocomplete="given-name"/><div class="form-err">Required</div></div>
      <div class="form-field"><label>Last name</label><input id="fLast" type="text" placeholder="Khan" autocomplete="family-name"/></div>
     </div>
-    <div class="form-field"><label>Phone number *</label><input id="fPhone" type="tel" placeholder="0307-6064194" autocomplete="tel"/><div class="form-err">Required — for order updates</div></div>
+    <div class="form-field"><label>Phone number *</label><input id="fPhone" type="tel" placeholder="03XX-XXXXXXX" autocomplete="tel"/><div class="form-err">Required — for order updates</div></div>
     <div class="form-field"><label>Delivery address</label><input id="fAddr" type="text" placeholder="House #, Street, Block, Johar Town" autocomplete="street-address"/></div>
    </div>
    <div class="form-field"><label>Email address *</label><input id="fEmail" type="email" placeholder="you@email.com" autocomplete="email"/><div class="form-err" id="emailErr">Enter a valid email</div></div>
-   <div class="form-field"><label>Password * <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--light-muted)">(min. 4 characters)</span></label><input id="fPass" type="password" placeholder="••••••••" autocomplete="current-password" oninput="checkPwStrength(this.value)"/><div class="pw-strength"><div class="pw-bar" id="pwBar"></div></div><div class="form-err" id="passErr">Minimum 4 characters required</div></div>
+   <div class="form-field"><label>Password * <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--light-muted)">(min. 4 chars)</span></label><input id="fPass" type="password" placeholder="••••••••" autocomplete="current-password" oninput="checkPwStrength(this.value)"/><div class="pw-strength"><div class="pw-bar" id="pwBar"></div></div><div class="form-err" id="passErr">Minimum 4 characters</div></div>
    <button class="auth-btn-main" id="authMainBtn" onclick="doAuth()">Sign in →</button>
    <div class="auth-toggle-txt" id="authToggle">New to PlateRun? <a onclick="toggleMode()">Create account</a></div>
   </div>
  </div>
 </div>
 
-<!-- CHECKOUT OVERLAY -->
+<!-- CHECKOUT -->
 <div class="overlay" id="coOv" onclick="overlayTap(event,'coOv')">
  <div class="bottom-sheet co-sheet">
   <div class="drag-handle"></div>
   <div class="co-inner">
    <div class="co-title">Confirm order 🛵</div>
-   <!-- Checkout Progress Steps -->
-   <div class="co-progress">
-    <div class="co-step done"><div class="co-step-dot">✓</div> Cart</div>
-    <div class="co-line done"></div>
-    <div class="co-step active"><div class="co-step-dot">2</div> Details</div>
-    <div class="co-line"></div>
-    <div class="co-step"><div class="co-step-dot">3</div> Pay</div>
-   </div>
-   <div class="co-sub" id="coSub">You'll get a WhatsApp confirmation on your number.</div>
+   <div class="co-sub" id="coSub">You'll receive order confirmation on WhatsApp.</div>
    <div class="co-sec">Your details</div>
-   <div id="guestFields" style="display:none">
-    <div class="form-field"><label>Your name *</label><input id="coName" type="text" placeholder="Full name" autocomplete="name"/><div class="form-err" id="coNameErr">Please enter your name</div></div>
-    <div class="form-field"><label>Phone number *</label><input id="coPhone" type="tel" placeholder="03XX-XXXXXXX" autocomplete="tel"/><div class="form-err" id="coPhoneErr">Please enter your phone</div></div>
-    <div class="form-field"><label>Delivery address *</label><input id="coAddr" type="text" placeholder="House #, Block, Area, Lahore" autocomplete="street-address"/><div class="form-err" id="coAddrErr">Please enter your address</div></div>
-    <div class="form-field"><label>Email (optional)</label><input id="coEmail" type="email" placeholder="you@email.com" autocomplete="email"/></div>
-   </div>
-   <div id="loggedDetails" style="display:none">
-    <div class="co-info-box" id="coInfoBox"></div>
-    <div style="font-size:10px;color:var(--red);font-weight:600;cursor:pointer;margin-top:6px" onclick="toggleAddrEdit()">Change details ›</div>
-    <div id="addrEditBlock" style="display:none;margin-top:10px">
-     <div class="form-field"><label>Phone</label><input id="coPhoneEdit" type="tel" autocomplete="tel"/></div>
-     <div class="form-field"><label>Address</label><input id="coAddrEdit" type="text" autocomplete="street-address"/></div>
-    </div>
+   <div id="guestFields">
+    <div class="form-field"><label>Your name *</label><input id="coName" type="text" placeholder="Full name" autocomplete="name"/><div class="form-err">Please enter your name</div></div>
+    <div class="form-field"><label>Phone number *</label><input id="coPhone" type="tel" placeholder="03XX-XXXXXXX" autocomplete="tel"/><div class="form-err">Please enter your phone</div></div>
+    <div class="form-field"><label>Delivery address *</label><input id="coAddr" type="text" placeholder="House #, Block, Area, Johar Town" autocomplete="street-address"/><div class="form-err">Please enter your address</div></div>
    </div>
    <div class="co-sec">Order summary</div>
    <div class="order-summary" id="coItems"></div>
    <div class="co-sec">Payment</div>
    <div class="pay-opts">
-    <button class="pay-btn active" onclick="setPay(this,'COD')">💵 Cash on Delivery</button>
+    <button class="pay-btn active" onclick="setPay(this,'Cash on Delivery')">💵 Cash on Delivery</button>
     <button class="pay-btn" onclick="setPay(this,'JazzCash')">📱 JazzCash</button>
     <button class="pay-btn" onclick="setPay(this,'EasyPaisa')">🟢 EasyPaisa</button>
    </div>
-   <div class="save-chk-row" id="saveChkRow"><input type="checkbox" id="saveInfoChk" checked><label for="saveInfoChk">Save my info for faster future orders</label></div>
-   <button class="place-btn" onclick="placeOrder()">Place order &amp; get WhatsApp receipt →</button>
+   <button class="place-btn" onclick="placeOrder()">Place order →</button>
   </div>
  </div>
 </div>
 
-<!-- MENU OVERLAY -->
+<!-- ORDER RECEIPT -->
+<div class="overlay" id="receiptOv" onclick="overlayTap(event,'receiptOv')">
+ <div class="bottom-sheet receipt-sheet">
+  <div class="drag-handle"></div>
+  <div class="receipt-inner" id="receiptInner"></div>
+ </div>
+</div>
+
+<!-- MENU -->
 <div class="overlay" id="menuOv" onclick="overlayTap(event,'menuOv')">
  <div class="bottom-sheet" style="max-height:95svh">
   <div class="drag-handle"></div>
@@ -744,7 +600,7 @@ footer{background:#100601;padding:48px 28px 28px;position:relative;z-index:1;bor
    <div class="rest-logo-sm" id="menuRestIcon">🫒</div>
    <div>
     <div class="menu-rest-name" id="menuRestName">Little Olives</div>
-    <div class="menu-rest-meta" id="menuRestMeta">⭐ 4.8 · Italian &amp; Pan Asian · ⏱ 30–45 min · Rs. 149 delivery</div>
+    <div class="menu-rest-meta" id="menuRestMeta">⭐ 4.8 · Italian &amp; Pan Asian · ⏱ 30–45 min</div>
    </div>
    <button class="m-close" onclick="closeOverlay('menuOv')">✕</button>
   </div>
@@ -757,7 +613,7 @@ footer{background:#100601;padding:48px 28px 28px;position:relative;z-index:1;bor
  </div>
 </div>
 
-<!-- LEGAL OVERLAY -->
+<!-- LEGAL -->
 <div class="overlay" id="legalOv" onclick="overlayTap(event,'legalOv')">
  <div class="bottom-sheet legal-sheet">
   <div class="drag-handle"></div>
@@ -765,7 +621,7 @@ footer{background:#100601;padding:48px 28px 28px;position:relative;z-index:1;bor
  </div>
 </div>
 
-<!-- DASHBOARD PANEL -->
+<!-- DASHBOARD -->
 <div class="dash-panel" id="dashPanel">
  <div class="dash-head">
   <div class="d-av" id="dAv">A</div>
@@ -773,43 +629,23 @@ footer{background:#100601;padding:48px 28px 28px;position:relative;z-index:1;bor
   <button class="d-close" onclick="closeDash()">✕</button>
  </div>
  <div class="dash-body">
-  <!-- Loyalty Card -->
-  <div class="loyalty-card" id="loyaltyCard">
-   <div class="loyalty-pts" id="loyaltyPts">120</div>
-   <div class="loyalty-label">PlateRun Points</div>
-   <div class="loyalty-bar-wrap">
-    <div class="loyalty-bar-label"><span>Current</span><span id="loyaltyNext">200 pts for free delivery</span></div>
-    <div class="loyalty-bar"><div class="loyalty-bar-fill" id="loyaltyBarFill" style="width:60%"></div></div>
-   </div>
-   <div class="loyalty-reward">🎁 Earn 10 pts per order · Redeem for discounts</div>
-  </div>
-  <div class="dash-streak" id="dStreak">🍽️ Ready to make your first order?</div>
   <div class="d-stats">
    <div class="d-stat"><div class="dsn" id="dsOrders">0</div><div class="dsl">Orders</div></div>
    <div class="d-stat"><div class="dsn" id="dsSaved">Rs. 0</div><div class="dsl">Saved</div></div>
   </div>
   <div class="d-sec">📍 Delivery info</div>
-  <div class="d-info-card" id="dInfoCard">
+  <div class="d-info-card">
    <div class="d-info-row"><div class="ico">📞</div><div><strong id="dPhone">–</strong><span>Phone</span></div></div>
-   <div class="d-info-row"><div class="ico">🏠</div><div><strong id="dAddr">–</strong><span>Delivery address</span></div></div>
+   <div class="d-info-row"><div class="ico">🏠</div><div><strong id="dAddr">–</strong><span>Address</span></div></div>
   </div>
   <div class="d-sec">📦 Order history</div>
-  <div class="oh-list" id="ohList">
-   <div style="font-size:12px;color:var(--muted);padding:12px 0">No orders yet — let's fix that! 🍕</div>
-  </div>
+  <div class="oh-list" id="ohList"><div style="font-size:12px;color:var(--muted);padding:12px 0">No orders yet 🍕</div></div>
   <button class="d-logout" onclick="doLogout()">🚪 Log out</button>
  </div>
 </div>
 
-<!-- THEME TOGGLE -->
-<button class="theme-toggle" id="themeBtn" onclick="toggleTheme()" aria-label="Toggle theme">🌙</button>
-
-<!-- TOAST -->
+<button class="theme-toggle" id="themeBtn" onclick="toggleTheme()">🌙</button>
 <div class="toast" id="toast"></div>
-
-<!-- ═══════════════════════════════════════ -->
-<!-- MAIN PAGE CONTENT -->
-<!-- ═══════════════════════════════════════ -->
 
 <!-- NAV -->
 <nav id="mainNav">
@@ -821,18 +657,13 @@ footer{background:#100601;padding:48px 28px 28px;position:relative;z-index:1;bor
   <li><a href="#faq">FAQs</a></li>
  </ul>
  <div class="nav-right">
-  <button class="btn-ghost cart-badge" onclick="openMenu()" id="navCartBtn" style="display:none">
-   🛒 Cart <span class="badge-count" id="navBadge">0</span>
-  </button>
+  <button class="btn-ghost cart-badge" onclick="openMenu()" id="navCartBtn" style="display:none">🛒 Cart <span class="badge-count" id="navBadge">0</span></button>
   <button class="btn-ghost" id="navAuth" onclick="openAuth()">👤 Sign in</button>
-  <button class="btn-red nav-cta-desktop" onclick="document.getElementById('heroSearch').focus()">Order now</button>
-  <button class="nav-ham" id="hamBtn" onclick="toggleMob()" aria-label="Menu">
-   <span></span><span></span><span></span>
-  </button>
+  <button class="btn-red nav-cta-desktop" onclick="openMenuFor(1)">Order now</button>
+  <button class="nav-ham" id="hamBtn" onclick="toggleMob()"><span></span><span></span><span></span></button>
  </div>
 </nav>
 
-<!-- MOBILE DRAWER -->
 <div class="mob-drawer" id="mobDrawer">
  <a href="#restaurants" onclick="closeMob()">🍽️ Restaurants</a>
  <a href="#how" onclick="closeMob()">📋 How it works</a>
@@ -840,105 +671,62 @@ footer{background:#100601;padding:48px 28px 28px;position:relative;z-index:1;bor
  <a href="#faq" onclick="closeMob()">❓ FAQs</a>
  <hr/>
  <button onclick="closeMob();openAuth()">👤 Sign in / Sign up</button>
- <button onclick="closeMob();document.getElementById('heroSearch').focus()" style="color:var(--red);font-weight:700">🚀 Order now</button>
+ <button onclick="closeMob();openMenuFor(1)" style="color:var(--red);font-weight:700">🚀 Order now</button>
 </div>
 
 <!-- HERO -->
 <section class="hero" id="hero">
- <div class="hero-content">
-  <div class="hero-badge"><span class="dot"></span> Now delivering in Johar Town, Lahore</div>
+ <div>
+  <div class="hero-badge"><span class="dot"></span> Now delivering in Johar Town</div>
   <h1>Lahore's<br/>Best Food,<br/><em><span class="underline-word">Delivered</span></em></h1>
   <p class="hero-sub" id="heroSub"></p>
   <div class="search-box">
    <div class="search-inner">
-    <input type="text" id="heroSearch" placeholder="Search biryani, pizza, burgers..." autocomplete="off"/>
+    <input type="text" id="heroSearch" placeholder="Search pasta, pizza, udon, chinese..." autocomplete="off"/>
     <button onclick="doSearch()">🔍 Search</button>
    </div>
    <div class="search-chips">
-    <span class="chip" onclick="quickSearch('Biryani')">🍛 Biryani</span>
     <span class="chip" onclick="quickSearch('Pizza')">🍕 Pizza</span>
-    <span class="chip" onclick="quickSearch('Burger')">🍔 Burgers</span>
-    <span class="chip" onclick="quickSearch('Nihari')">🥘 Nihari</span>
-    <span class="chip" onclick="quickSearch('Karahi')">🍲 Karahi</span>
+    <span class="chip" onclick="quickSearch('Pasta')">🍝 Pasta</span>
+    <span class="chip" onclick="quickSearch('Udon')">🍜 Udons</span>
+    <span class="chip" onclick="quickSearch('Chinese')">🥡 Chinese</span>
+    <span class="chip" onclick="quickSearch('Steak')">🥩 Steaks</span>
    </div>
   </div>
   <div class="hero-stats">
-   <div class="stat-item"><div class="stat-num" data-count="45">0</div><div class="stat-lbl">Restaurants</div></div>
+   <div class="stat-item"><div class="stat-num">25 min</div><div class="stat-lbl">Avg delivery</div></div>
    <div class="stat-div"></div>
-   <div class="stat-item"><div class="stat-num" data-count="25">0</div><div class="stat-lbl">Min avg delivery</div></div>
+   <div class="stat-item"><div class="stat-num">Free</div><div class="stat-lbl">Over Rs. 3,000</div></div>
    <div class="stat-div"></div>
-   <div class="stat-item"><div class="stat-num" data-count="12000">0</div><div class="stat-lbl">Happy customers</div></div>
+   <div class="stat-item"><div class="stat-num">Live</div><div class="stat-lbl">GPS Tracking</div></div>
   </div>
  </div>
  <div class="hero-visual">
   <div class="hv-food" style="font-size:80px">🍕</div>
-  <div class="hv-food" style="font-size:68px">🍛</div>
-  <div class="hv-food" style="font-size:62px">🥘</div>
+  <div class="hv-food" style="font-size:68px">🍝</div>
+  <div class="hv-food" style="font-size:62px">🥡</div>
   <div class="hv-card">
    <div class="hv-card-img">🫒</div>
    <div class="hv-card-body">
     <div class="hv-card-name">Little Olives</div>
     <div class="hv-card-meta"><span class="r">⭐ 4.8</span> · Italian &amp; Pan Asian <span class="t">· 🕐 30 min</span></div>
-    <button class="hv-btn" onclick="openMenu()">View menu →</button>
+    <button class="hv-btn" onclick="openMenuFor(1)">View menu →</button>
    </div>
   </div>
-  <div class="hv-pill track">
-   <div>
-    <div class="pm">🛵 On the way!</div>
-    <div class="ps">Arriving in 8 min</div>
-   </div>
-  </div>
-  <div class="hv-rating">
-   <div class="rb">4.9★</div>
-   <div class="rs">Avg rating</div>
-  </div>
+  <div class="hv-pill track"><div><div class="pm">🛵 On the way!</div><div class="ps">Arriving in 8 min</div></div></div>
+  <div class="hv-rating"><div class="rb">4.8★</div><div class="rs">Top Rated</div></div>
  </div>
 </section>
 
-<!-- TRUSTED BY STRIP -->
-<div class="trusted-strip">
- <div class="trusted-inner" id="trustedScroll">
-  <span class="trusted-label">Trusted by</span>
-  <span class="trusted-item"><span class="ti-icon">🏫</span> UCP Students</span>
-  <span class="trusted-item"><span class="ti-icon">🏥</span> Jinnah Hospital Staff</span>
-  <span class="trusted-item"><span class="ti-icon">🏢</span> Johar Town Families</span>
-  <span class="trusted-item"><span class="ti-icon">🎓</span> FAST-NU Campus</span>
-  <span class="trusted-item"><span class="ti-icon">🏠</span> Canal View Residents</span>
-  <span class="trusted-item"><span class="ti-icon">🏪</span> 500+ Daily Orders</span>
-  <span class="trusted-item"><span class="ti-icon">⭐</span> 4.9 Average Rating</span>
-  <span class="trusted-item"><span class="ti-icon">🚀</span> 25 Min Avg Delivery</span>
-  <!-- duplicate for seamless loop -->
-  <span class="trusted-label">Trusted by</span>
-  <span class="trusted-item"><span class="ti-icon">🏫</span> UCP Students</span>
-  <span class="trusted-item"><span class="ti-icon">🏥</span> Jinnah Hospital Staff</span>
-  <span class="trusted-item"><span class="ti-icon">🏢</span> Johar Town Families</span>
-  <span class="trusted-item"><span class="ti-icon">🎓</span> FAST-NU Campus</span>
-  <span class="trusted-item"><span class="ti-icon">🏠</span> Canal View Residents</span>
-  <span class="trusted-item"><span class="ti-icon">🏪</span> 500+ Daily Orders</span>
-  <span class="trusted-item"><span class="ti-icon">⭐</span> 4.9 Average Rating</span>
-  <span class="trusted-item"><span class="ti-icon">🚀</span> 25 Min Avg Delivery</span>
- </div>
-</div>
-
-<!-- FEATURE STRIP -->
+<!-- FEAT -->
 <div class="feat-strip">
  <div class="feat-strip-inner">
   <div class="feat-item"><div class="feat-icon">🏍️</div><div class="feat-txt"><strong>25 min avg</strong><span>Fastest in Johar Town</span></div></div>
-  <div class="feat-item"><div class="feat-icon">💰</div><div class="feat-txt"><strong>Rs. 49 delivery</strong><span>Free over Rs. 999</span></div></div>
-  <div class="feat-item"><div class="feat-icon">📍</div><div class="feat-txt"><strong>Live tracking</strong><span>Real-time GPS</span></div></div>
-  <div class="feat-item"><div class="feat-icon">🎁</div><div class="feat-txt"><strong>Loyalty points</strong><span>Earn on every order</span></div></div>
+  <div class="feat-item"><div class="feat-icon">💰</div><div class="feat-txt"><strong>Free delivery</strong><span>Orders over Rs. 3,000</span></div></div>
+  <div class="feat-item"><div class="feat-icon">📍</div><div class="feat-txt"><strong>Live tracking</strong><span>WhatsApp updates</span></div></div>
+  <div class="feat-item"><div class="feat-icon">💵</div><div class="feat-txt"><strong>Cash on delivery</strong><span>Pay when you receive</span></div></div>
  </div>
 </div>
-
-<!-- POPULAR DISHES -->
-<section class="popular-section reveal" id="popular">
- <div class="popular-header">
-  <div class="eyebrow">🔥 Trending Now</div>
-  <div class="sec-h">Most ordered this week</div>
-  <p class="sec-p">The dishes Johar Town can't stop ordering — freshly prepared and delivered hot.</p>
- </div>
- <div class="dishes-scroll" id="dishesScroll"></div>
-</section>
 
 <!-- CATEGORIES -->
 <div class="cats-section reveal" id="categories">
@@ -951,83 +739,29 @@ footer{background:#100601;padding:48px 28px 28px;position:relative;z-index:1;bor
 <section class="section reveal" id="restaurants">
  <div class="rest-hd">
   <div>
-   <div class="eyebrow">Featured Restaurants</div>
+   <div class="eyebrow">Restaurants</div>
    <div class="sec-h">Johar Town's finest kitchens</div>
-   <p class="sec-p">Hand-picked restaurants with consistently high ratings and fast delivery times.</p>
+   <p class="sec-p">Order from the best — more restaurants joining every week.</p>
   </div>
-  <a href="#" class="view-all">View all →</a>
  </div>
- <div class="filter-row" id="filterRow"></div>
  <div class="rest-grid" id="restGrid"></div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="section test-section reveal" id="testimonials">
- <div class="eyebrow">💬 What customers say</div>
- <div class="sec-h">Loved by 12,000+ foodies</div>
- <p class="sec-p">Real reviews from real customers in Johar Town.</p>
- <div class="test-grid" id="testGrid"></div>
-</section>
-
-<!-- HOW IT WORKS -->
+<!-- HOW -->
 <section class="section how-section reveal" id="how">
  <div class="eyebrow">Simple as 1-2-3</div>
  <div class="sec-h">How PlateRun works</div>
  <p class="sec-p">From craving to doorstep in three easy steps.</p>
  <div class="steps-grid">
-  <div class="step-card">
-   <div class="step-num">01</div>
-   <div class="step-icon">📱</div>
-   <h3>Browse &amp; choose</h3>
-   <p>Explore 45+ restaurants, filter by cuisine, read reviews, and pick your favourites.</p>
-  </div>
-  <div class="step-card">
-   <div class="step-num">02</div>
-   <div class="step-icon">🛒</div>
-   <h3>Customise &amp; order</h3>
-   <p>Pick sizes, add extras, apply promo codes. Checkout in under 10 seconds.</p>
-  </div>
-  <div class="step-card">
-   <div class="step-num">03</div>
-   <div class="step-icon">🛵</div>
-   <h3>Track &amp; enjoy</h3>
-   <p>Watch your rider on the live map. Average delivery: 25 minutes. Pay cash or online.</p>
-  </div>
- </div>
-</section>
-
-<!-- LIVE TRACKER DEMO -->
-<section class="section tracker-section reveal" id="tracker-demo">
- <div style="text-align:center">
-  <div class="eyebrow">📍 Real-time tracking</div>
-  <div class="sec-h">Know exactly where your food is</div>
-  <p class="sec-p" style="margin:0 auto">Track your order from kitchen to doorstep with live GPS updates and ETA.</p>
- </div>
- <div class="tracker-demo" id="trackerWidget">
-  <div class="tracker-header">
-   <div><h4>Order #PR-4821</h4><div class="order-id">Placed 12 min ago</div></div>
-   <div style="font-size:24px">🛵</div>
-  </div>
-  <div class="tracker-steps" style="position:relative">
-   <div class="tracker-line"><div class="tracker-line-fill" id="trackerFill"></div></div>
-   <div class="tracker-step done" id="ts1"><div class="ts-dot">✓</div><div class="ts-label">Confirmed</div><div class="ts-time">2:34 PM</div></div>
-   <div class="tracker-step done" id="ts2"><div class="ts-dot">✓</div><div class="ts-label">Preparing</div><div class="ts-time">2:36 PM</div></div>
-   <div class="tracker-step active" id="ts3"><div class="ts-dot">🛵</div><div class="ts-label">On the way</div><div class="ts-time">2:48 PM</div></div>
-   <div class="tracker-step" id="ts4"><div class="ts-dot">📍</div><div class="ts-label">Delivered</div><div class="ts-time">~2:58 PM</div></div>
-  </div>
-  <div class="tracker-eta">
-   <div class="eta-txt">Estimated arrival: <span>10 min</span></div>
-   <div class="eta-rider"><div class="rider-dot"></div> Rider: Ahmed K.</div>
-  </div>
+  <div class="step-card"><div class="step-num">01</div><div class="step-icon">📱</div><h3>Browse &amp; choose</h3><p>Explore the full menu, pick your favourites, customise sizes and extras.</p></div>
+  <div class="step-card"><div class="step-num">02</div><div class="step-icon">🛒</div><h3>Place your order</h3><p>Add to cart, enter your address. You'll get a receipt and WhatsApp confirmation instantly.</p></div>
+  <div class="step-card"><div class="step-num">03</div><div class="step-icon">🛵</div><h3>Receive &amp; enjoy</h3><p>Our rider picks up your food and delivers it hot. Track via WhatsApp. Pay cash on delivery.</p></div>
  </div>
 </section>
 
 <!-- FAQs -->
 <section class="section faq-section reveal" id="faq">
- <div style="text-align:center">
-  <div class="eyebrow">Got questions?</div>
-  <div class="sec-h">Frequently asked questions</div>
- </div>
+ <div style="text-align:center"><div class="eyebrow">Got questions?</div><div class="sec-h">Frequently asked questions</div></div>
  <div class="faq-grid" id="faqGrid"></div>
 </section>
 
@@ -1037,43 +771,27 @@ footer{background:#100601;padding:48px 28px 28px;position:relative;z-index:1;bor
   <div>
    <div class="eyebrow">For restaurant owners</div>
    <div class="sec-h">Partner with PlateRun</div>
-   <p class="sec-p">Join Lahore's fastest-growing food delivery platform. Zero upfront cost, smart dashboard, and instant payouts.</p>
+   <p class="sec-p">Get your restaurant on Lahore's fastest-growing delivery platform. Zero upfront cost — we handle delivery, you handle the food.</p>
    <div class="pstats">
-    <div class="pstat"><div class="n">1,200+</div><div class="l">Daily orders</div></div>
-    <div class="pstat"><div class="n">45+</div><div class="l">Partners</div></div>
-    <div class="pstat"><div class="n">35%</div><div class="l">Revenue boost</div></div>
-    <div class="pstat"><div class="n">24/7</div><div class="l">Support</div></div>
+    <div class="pstat"><div class="n">25 min</div><div class="l">Avg delivery</div></div>
+    <div class="pstat"><div class="n">0%</div><div class="l">Upfront cost</div></div>
+    <div class="pstat"><div class="n">Live</div><div class="l">Order tracking</div></div>
+    <div class="pstat"><div class="n">24/7</div><div class="l">WhatsApp support</div></div>
    </div>
    <div class="perks">
-    <div class="perk"><div class="pchk">✓</div><div><strong>Zero commission first month</strong><small>Start risk-free and see results before paying</small></div></div>
-    <div class="perk"><div class="pchk">✓</div><div><strong>Real-time analytics dashboard</strong><small>Track orders, revenue, and customer trends</small></div></div>
-    <div class="perk"><div class="pchk">✓</div><div><strong>Marketing &amp; promotions</strong><small>Featured placement, social media push, and more</small></div></div>
-    <div class="perk"><div class="pchk">✓</div><div><strong>Dedicated account manager</strong><small>Personal support to help your restaurant grow</small></div></div>
+    <div class="perk"><div class="pchk">✓</div><div><strong>Your full menu online</strong><small>We digitise your menu with prices &amp; descriptions</small></div></div>
+    <div class="perk"><div class="pchk">✓</div><div><strong>Instant order notifications</strong><small>Orders come straight to your WhatsApp</small></div></div>
+    <div class="perk"><div class="pchk">✓</div><div><strong>Dedicated rider fleet</strong><small>We handle pickup and delivery — you just cook</small></div></div>
+    <div class="perk"><div class="pchk">✓</div><div><strong>Marketing &amp; promotions</strong><small>Featured placement and social media push</small></div></div>
    </div>
-   <button class="btn-red" style="margin-top:28px;padding:14px 32px;font-size:14px" onclick="toast('🎉 Partnership request sent! We\'ll call you within 24 hours.')">Apply to partner →</button>
+   <a class="btn-red" style="margin-top:28px;padding:14px 32px;font-size:14px;display:inline-block" href="https://wa.me/923076064194?text=Hi%20PlateRun!%20I%20own%20a%20restaurant%20and%20want%20to%20partner%20with%20you." target="_blank" rel="noopener">WhatsApp us to partner →</a>
   </div>
   <div class="pv-box">
-   <div class="pv-row"><div class="pv-label">Weekly Revenue</div><div class="pv-sub">Last 7 days performance</div><div class="pv-bar-bg"><div class="pv-bar" style="width:78%"></div></div></div>
-   <div class="pv-row"><div class="pv-label">Order Volume</div><div class="pv-sub">312 orders this week</div><div class="pv-bar-bg"><div class="pv-bar" style="width:62%"></div></div></div>
-   <div class="pv-row"><div class="pv-label">Customer Rating</div><div class="pv-sub">4.8 ⭐ average</div><div class="pv-bar-bg"><div class="pv-bar" style="width:96%"></div></div></div>
-   <div class="pv-row"><div class="pv-label">Repeat Customers</div><div class="pv-sub">68% return rate</div><div class="pv-bar-bg"><div class="pv-bar" style="width:68%"></div></div></div>
+   <div class="pv-row"><div class="pv-label">How it works for you</div><div class="pv-sub">1. Send us your menu via WhatsApp</div></div>
+   <div class="pv-row"><div class="pv-label">We build your page</div><div class="pv-sub">2. Your full menu goes live on PlateRun</div></div>
+   <div class="pv-row"><div class="pv-label">Orders start flowing</div><div class="pv-sub">3. You receive orders on WhatsApp instantly</div></div>
+   <div class="pv-row"><div class="pv-label">We handle delivery</div><div class="pv-sub">4. Our riders pick up &amp; deliver to customers</div></div>
   </div>
- </div>
-</section>
-
-<!-- NEWSLETTER -->
-<section class="section newsletter-section reveal" id="newsletter">
- <div class="newsletter-inner">
-  <div class="nl-decor" style="top:-10px;left:-30px">🍕</div>
-  <div class="nl-decor" style="bottom:-10px;right:-20px">🍛</div>
-  <div class="eyebrow">Stay in the loop</div>
-  <div class="sec-h">Get exclusive deals 🎁</div>
-  <p class="sec-p">Join 8,000+ food lovers. Get weekly deals, new restaurant launches, and promo codes delivered to your inbox.</p>
-  <div class="nl-form" id="nlForm">
-   <input type="email" placeholder="your@email.com" id="nlEmail"/>
-   <button onclick="subscribeNl()">Subscribe</button>
-  </div>
-  <div class="nl-trust">🔒 No spam, ever. Unsubscribe anytime.</div>
  </div>
 </section>
 
@@ -1082,14 +800,13 @@ footer{background:#100601;padding:48px 28px 28px;position:relative;z-index:1;bor
  <div class="foot-grid">
   <div class="foot-brand">
    <div class="fb-logo">Plate<span>Run</span></div>
-   <div class="fb-loc">📍 Johar Town, Lahore · <a href="#">See coverage map</a></div>
+   <div class="fb-loc">📍 Johar Town, Lahore</div>
    <div class="fb-loc">📞 <a href="tel:+923076064194">0307-606-4194</a></div>
-   <div class="fb-sub">Lahore's fastest food delivery. From kitchen to doorstep in 25 minutes.</div>
+   <div class="fb-loc">✉️ <a href="mailto:rshazab91@gmail.com">rshazab91@gmail.com</a></div>
+   <div class="fb-sub">Lahore's fastest food delivery. Kitchen to doorstep in 25 minutes.</div>
    <div class="foot-socials">
-    <a class="foot-social" title="Instagram">📷</a>
-    <a class="foot-social" title="Facebook">📘</a>
-    <a class="foot-social" title="WhatsApp">💬</a>
-    <a class="foot-social" title="TikTok">🎵</a>
+    <a class="foot-social" href="https://wa.me/923076064194" target="_blank" rel="noopener" title="WhatsApp">💬</a>
+    <a class="foot-social" href="mailto:rshazab91@gmail.com" title="Email">✉️</a>
    </div>
   </div>
   <div class="foot-col"><h5>Company</h5><ul>
@@ -1097,13 +814,12 @@ footer{background:#100601;padding:48px 28px 28px;position:relative;z-index:1;bor
    <li><a href="#restaurants">Restaurants</a></li>
    <li><a href="#how">How it works</a></li>
    <li><a href="#partner-sec">Partner with us</a></li>
-   <li><a onclick="showCareers()">Careers <span class="new-badge">Hiring</span></a></li>
   </ul></div>
   <div class="foot-col"><h5>Support</h5><ul>
    <li><a href="#faq">FAQs</a></li>
-   <li><a onclick="toast('📞 Call us: 0307-606-4194')">Contact us</a></li>
-   <li><a onclick="toast('📍 We deliver across all blocks of Johar Town')">Delivery areas</a></li>
-   <li><a onclick="toast('💼 Become a PlateRun rider — call 0307-606-4194')">Ride with us</a></li>
+   <li><a href="https://wa.me/923076064194?text=Hi%20PlateRun!%20I%20need%20help." target="_blank" rel="noopener">Contact us (WhatsApp)</a></li>
+   <li><a href="mailto:rshazab91@gmail.com">Email support</a></li>
+   <li><a href="https://wa.me/923076064194?text=Hi!%20I%20want%20to%20become%20a%20PlateRun%20rider." target="_blank" rel="noopener">Ride with us</a></li>
   </ul></div>
   <div class="foot-col"><h5>Legal</h5><ul>
    <li><a onclick="showLegal('privacy')">Privacy policy</a></li>
@@ -1117,497 +833,469 @@ footer{background:#100601;padding:48px 28px 28px;position:relative;z-index:1;bor
  </div>
 </footer>
 
-<!-- ═══════════════════════════════════════ -->
-<!-- JAVASCRIPT -->
-<!-- ═══════════════════════════════════════ -->
 <script>
-// ═══ DATA ═══
-const RESTAURANTS = [
-  {id:1,name:"Little Olives",icon:"🫒",area:"H-Block, Johar Town",tags:["Italian","Pan Asian","BBQ"],rating:4.8,reviews:412,time:"30–45",delivery:149,free:999,badge:"hot",bg:"linear-gradient(135deg,#2d6e4e,#1a4230)",
-   menu:{Starters:[{n:"Garlic Bread",d:"Crispy sourdough with herb butter",p:350,img:"🧄"},{n:"Chicken Wings",d:"12 pcs, buffalo sauce",p:650,img:"🍗"},{n:"Loaded Nachos",d:"Cheese, jalapeño, salsa, sour cream",p:550,img:"🧀"}],Pizza:[{n:"Margherita",d:"San Marzano, fresh mozzarella, basil",p:850,sizes:["10″","14″","18″"],sp:[850,1250,1650],img:"🍕"},{n:"Pepperoni Feast",d:"Double pepperoni, mozzarella, oregano",p:950,sizes:["10″","14″","18″"],sp:[950,1350,1750],img:"🍕"},{n:"BBQ Chicken",d:"Grilled chicken, BBQ drizzle, onion rings",p:1050,sizes:["10″","14″","18″"],sp:[1050,1450,1850],img:"🍕"}],Pasta:[{n:"Chicken Alfredo",d:"Creamy white sauce, grilled chicken, penne",p:750,img:"🍝"},{n:"Spaghetti Bolognese",d:"Slow-cooked beef ragú, parmesan",p:800,img:"🍝"}],Desserts:[{n:"Molten Lava Cake",d:"Warm chocolate center, vanilla ice cream",p:450,img:"🍫"},{n:"Tiramisu",d:"Classic Italian coffee dessert",p:550,img:"🍰"}]}},
-  {id:2,name:"Karahi King",icon:"🍲",area:"G-Block, Johar Town",tags:["Desi","Karahi","BBQ"],rating:4.7,reviews:685,time:"25–35",delivery:99,free:799,badge:"hot",bg:"linear-gradient(135deg,#8B4513,#654321)",
-   menu:{Karahi:[{n:"Chicken Karahi",d:"1 kg, fresh tomato-based, green chillies",p:1400,sizes:["Half","Full"],sp:[1400,2400],img:"🍲"},{n:"Mutton Karahi",d:"Premium mutton, slow-cooked, spicy",p:2200,sizes:["Half","Full"],sp:[2200,3800],img:"🍲"}],BBQ:[{n:"Seekh Kebab",d:"12 pcs, charcoal grilled, mint chutney",p:650,img:"🥩"},{n:"Malai Boti",d:"Creamy marinated chicken, tender pieces",p:750,img:"🍗"}],Rice:[{n:"Chicken Biryani",d:"Aromatic basmati, saffron, raita",p:450,sizes:["Single","Family"],sp:[450,1200],img:"🍛"},{n:"Beef Pulao",d:"Tender beef, whole spices, desi ghee",p:550,img:"🍚"}],Drinks:[{n:"Lassi",d:"Sweet or salty, topped with malai",p:150,img:"🥛"},{n:"Doodh Patti",d:"Strong milk tea, cardamom",p:80,img:"☕"}]}},
-  {id:3,name:"Burger Lab",icon:"🍔",area:"D-Block, Johar Town",tags:["Burgers","Fries","Shakes"],rating:4.6,reviews:523,time:"20–30",delivery:79,free:599,badge:"new",bg:"linear-gradient(135deg,#B8860B,#8B6914)",
-   menu:{Burgers:[{n:"Classic Smash",d:"Double smashed patty, special sauce, pickles",p:550,img:"🍔"},{n:"BBQ Bacon Burger",d:"Crispy bacon, cheddar, BBQ sauce",p:750,img:"🍔"},{n:"Mushroom Swiss",d:"Sautéed mushrooms, Swiss cheese, truffle mayo",p:850,img:"🍔"}],Sides:[{n:"Loaded Fries",d:"Cheese sauce, jalapeño, crispy onions",p:350,img:"🍟"},{n:"Onion Rings",d:"Beer-battered, ranch dip",p:300,img:"🧅"}],Shakes:[{n:"Nutella Shake",d:"Rich Nutella, whipped cream, wafer",p:450,img:"🥤"},{n:"Oreo Milkshake",d:"Crushed Oreo, ice cream, chocolate drizzle",p:400,img:"🥤"}]}},
-  {id:4,name:"Naan Stop",icon:"🫓",area:"F-Block, Johar Town",tags:["Desi","Naan","Curry"],rating:4.5,reviews:298,time:"20–35",delivery:49,free:499,badge:null,bg:"linear-gradient(135deg,#CD853F,#A0522D)",
-   menu:{"Naan & Curry":[{n:"Butter Chicken + Naan",d:"Creamy tomato gravy, 2 butter naans",p:550,img:"🫓"},{n:"Dal Makhani + Naan",d:"Slow-cooked black lentils, cream, 2 naans",p:380,img:"🫓"},{n:"Nihari + Naan",d:"Overnight slow-cooked beef, 2 naans",p:650,img:"🥘"}],Deals:[{n:"Family Deal",d:"2 curries + 8 naans + raita + salad",p:1600,img:"🎉"},{n:"Student Deal",d:"1 curry + 2 naans + drink",p:350,img:"🎒"}]}},
-  {id:5,name:"Wok This Way",icon:"🥡",area:"C-Block, Johar Town",tags:["Chinese","Thai","Wok"],rating:4.4,reviews:187,time:"30–45",delivery:129,free:899,badge:"new",bg:"linear-gradient(135deg,#DC143C,#8B0000)",
-   menu:{Wok:[{n:"Chicken Chow Mein",d:"Stir-fried noodles, vegetables, soy glaze",p:550,img:"🍜"},{n:"Kung Pao Chicken",d:"Spicy peanut sauce, bell peppers",p:650,img:"🥡"},{n:"Beef Black Pepper",d:"Tender strips, black pepper sauce",p:750,img:"🥩"}],Rice:[{n:"Special Fried Rice",d:"Egg, chicken, prawns, vegetables",p:480,img:"🍚"},{n:"Thai Basil Rice",d:"Holy basil, chilli, fried egg",p:520,img:"🍚"}],Soup:[{n:"Hot & Sour Soup",d:"Classic Szechuan, egg drop, tofu",p:280,img:"🍲"},{n:"Tom Yum",d:"Thai spicy-sour, prawn, lemongrass",p:380,img:"🍲"}]}},
-  {id:6,name:"Chai Shai",icon:"☕",area:"E-Block, Johar Town",tags:["Chai","Paratha","Breakfast"],rating:4.3,reviews:342,time:"15–25",delivery:49,free:399,badge:null,bg:"linear-gradient(135deg,#4a2c2a,#2d1b1a)",
-   menu:{Breakfast:[{n:"Halwa Puri",d:"Fresh puri, halwa, channay, achar",p:250,img:"🫓"},{n:"Paratha Roll",d:"Anda paratha with chutney, salad",p:180,img:"🌯"},{n:"Omelette Paratha",d:"Fluffy omelette, 2 parathas, chai",p:280,img:"🍳"}],Chai:[{n:"Kashmiri Chai",d:"Pink tea, almonds, cardamom",p:180,img:"🍵"},{n:"Doodh Patti Special",d:"Extra strong, cardamom, saffron",p:120,img:"☕"}]}}
+// ═══ CONFIG ═══
+const OWNER_WA = '923076064194';
+const RIDER_WA = '923286242582';
+const OWNER_EMAIL = 'rshazab91@gmail.com';
+
+// ═══ LITTLE OLIVES — FULL REAL MENU ═══
+const LITTLE_OLIVES = {
+  id:1, name:"Little Olives", icon:"🫒", area:"Johar Town, Lahore",
+  tags:["Italian","Pan Asian","Chinese"],
+  rating:4.8, reviews:412, time:"30–45", delivery:200, freeMin:3000,
+  badge:"hot", bg:"linear-gradient(135deg,#2d6e4e,#1a4230)",
+  phone:"03707262929",
+  menu:{
+    "Appetizers":[
+      {n:"Garlic Butter Balls",d:"Soft bread balls topped with garlic, butter, cheese, baked to perfection",p:849,img:"🧄"},
+      {n:"Momos (6 Pcs)",d:"Minced chicken, steamed",p:499,img:"🥟"},
+      {n:"Momos (12 Pcs)",d:"Minced chicken, steamed",p:799,img:"🥟"},
+      {n:"Dynamite Chicken Strips",d:"5 pcs, served with fries",p:749,img:"🍗"},
+      {n:"Crispy Tacos",d:"4 pcs, crispy corn breads with baked chicken & combo sauces",p:799,img:"🌮"}
+    ],
+    "Soups":[
+      {n:"Hot n Sour Soup",d:"Classic hot and sour",p:449,img:"🍲"},
+      {n:"Sweet Corn Soup",d:"Creamy sweet corn",p:449,img:"🍲"},
+      {n:"Cream of Mushroom",d:"Rich creamy mushroom soup",p:599,img:"🍄"},
+      {n:"Cream of Chicken",d:"Creamy chicken soup",p:599,img:"🍲"}
+    ],
+    "Pastas":[
+      {n:"Alfredo Pasta",d:"Penne pasta in creamy cheesy alfredo sauce with olives and mushrooms, served with garlic bread",p:849,img:"🍝"},
+      {n:"Penne Arrabiata",d:"Penne pasta in spicy arrabiata sauce with olives, served with garlic bread",p:849,img:"🍝"},
+      {n:"Penne Alla Bolognese",d:"Penne pasta in red sauce with minced chicken, olives, topped with cheese and red sauce, served with garlic bread",p:999,img:"🍝",isNew:true},
+      {n:"Parmesan Chicken Pasta",d:"Penne pasta in combination of red & white sauce, topped with 2 crispy fried cheesy chicken steaks, served with garlic breads",p:1749,img:"🍝"}
+    ],
+    "Signature Pizzas":[
+      {n:"Little Olive's Special",d:"Chicken chunks topped with olives, mushrooms, sausages & cheese. Thin crust italiano dough.",p:799,img:"🍕",sizes:['7"','10"','14"'],sp:[799,1499,1999]},
+      {n:"Alfredo Pizza",d:"Chicken chunks, olives, mushrooms, chef's special alfredo sauce, american cheese",p:799,img:"🍕",sizes:['7"','10"','14"'],sp:[799,1499,1999]},
+      {n:"Olive's Supreme",d:"Chicken, olives, mushrooms, bell peppers, tomatoes, onions, cheese",p:799,img:"🍕",sizes:['7"','10"','14"'],sp:[799,1499,1999]}
+    ],
+    "Udons":[
+      {n:"Kishimen Udon",d:"Delicious noodles cooked in a slightly spicy, soya based broth, topped with chicken, veggies, corns & boiled egg",p:1099,img:"🍜"},
+      {n:"Dry Pot Udon",d:"Spicy glazy noodles, topped with crispy chicken chunks, boiled eggs, and crispy veggies",p:999,img:"🍜"},
+      {n:"Kitsune Udon",d:"Hand made noodles glazed with Korean spices, chicken chunks, boiled egg, zucchini, carrot",p:899,img:"🍜"},
+      {n:"Sanuki Udon",d:"Noodles in chicken & mushroom broth, topped with chicken steak",p:899,img:"🍜"},
+      {n:"Kagawa Special Udon",d:"Noodles in chicken broth, bologna slice, crispy veg, boiled egg and chicken chunks",p:999,img:"🍜"},
+      {n:"Udon with Spicy Chicken",d:"Noodles with tender spicy chicken, crispy veggies, boiled egg",p:999,img:"🍜"},
+      {n:"Udon with Dumplings",d:"Hand made noodles in sweet n sour broth with chicken dumplings & crispy veggies",p:1049,img:"🍜"}
+    ],
+    "Stuffed Chicken":[
+      {n:"Hawaiian Stuffed Chicken",d:"Crispy fried chicken breast filled with cheese, marinated with special spices, served with fries/mashed potatoes, creamy spinach and chef's special pineapple sauce",p:1599,img:"🍗"},
+      {n:"Chicken Dijonnaise",d:"Crispy fried chicken roulades filled with creamy cheesy spinach, topped with special mustard based dijonnaise sauce, with veggies, mashed potatoes/fries and honey mustard sauce",p:1599,img:"🍗"},
+      {n:"Chimichurri Chicken",d:"Chicken breast stuffed with cheese, marinated in delicious herbs, baked to perfection, topped with chimichurri sauce & butter, served with garlic/herbs rice, herb potatoes and sauce",p:1649,img:"🍗"}
+    ],
+    "Chicken Steaks":[
+      {n:"White Mushroom Chicken",d:"Tender, juicy chicken breast cooked to perfection in tempting white mushroom sauce, served with sauteed veggies and mashed potatoes",p:1399,img:"🥩"},
+      {n:"Mexican Chicken",d:"Juicy chicken breast in tempting spicy mexican sauce, served with sauteed veggies & mashed potatoes",p:1399,img:"🥩"},
+      {n:"Moroccan Chicken",d:"Juicy chicken breast in tempting moroccan sauce, served with sauteed veggies and mashed potatoes",p:1499,img:"🥩"},
+      {n:"Chicken Stroganoff",d:"Juicy chicken breast in black pepper & cream, served with sauteed veggies & mashed potatoes",p:1499,img:"🥩"},
+      {n:"Tarragon Chicken",d:"Juicy chicken breast with chef's special tarragon sauce, served with sauteed veggies and mashed potatoes",p:1499,img:"🥩"},
+      {n:"Tangy Chicken Schnitzel",d:"Deep fried crispy chicken steaks with tangy zesty sauce, served with sauteed veggies, fries/mashed potatoes",p:1849,img:"🥩"}
+    ],
+    "Chinese":[
+      {n:"Kung Pao Chicken",d:"Stir fried chicken with salty, sweet & spicy flavours topped with peanuts. Served with veg fried rice",p:999,img:"🥡"},
+      {n:"Chicken Cashew Nuts",d:"Stir fried chicken, crispy cashew nuts cooked in sweet savory sauce with fresh veggies. Served with veg fried rice",p:1049,img:"🥡"},
+      {n:"Mongolian Chicken",d:"Slices of chicken breast stir fried in a savory sauce with crisp green onions, topped with sesame seeds. Served with veg fried rice",p:999,img:"🥡"},
+      {n:"Chicken Chilli Dry",d:"Pan fried chicken coated in savory sauce, tossed with green chillies, topped with julian cut ginger. Served with veg fried rice",p:999,img:"🥡"},
+      {n:"Manchurian",d:"Stir fried chicken in a sizzling red sauce. Served with veg fried rice",p:899,img:"🥡"},
+      {n:"Shashlik",d:"Stir fried chicken, tomato sauce, crispy veggies. Served with veg fried rice",p:899,img:"🥡"},
+      {n:"General Tso's Chicken",d:"Fried chicken pieces breaded and tossed in a tangy sauce, served with garlic rice, topped with chives and sesame seeds",p:1349,img:"🥡"}
+    ],
+    "Chowmein":[
+      {n:"Veg Chowmein",d:"Stir fried vegetable noodles",p:649,img:"🍜"},
+      {n:"Chicken Chowmein",d:"Stir fried chicken noodles",p:799,img:"🍜"}
+    ],
+    "Fries":[
+      {n:"Plain Fries",d:"Classic crispy fries",p:399,img:"🍟"},
+      {n:"Garlic Mayo Fries",d:"Fries with garlic mayo",p:449,img:"🍟"},
+      {n:"Masala Fries",d:"Spiced masala fries",p:449,img:"🍟"},
+      {n:"Loaded Fries",d:"Fries loaded with combo sauces, chicken chunks, olives, mushrooms",p:699,img:"🍟"},
+      {n:"Olive's Special Loaded Fries",d:"Fries loaded with Olive special white sauce, chicken chunks, olives, mushrooms, cheese, baked in oven",p:999,img:"🍟",isNew:true}
+    ],
+    "Desserts":[
+      {n:"Brownie with Ice-Cream",d:"Warm chocolate brownie with vanilla ice cream",p:499,img:"🍫"},
+      {n:"Molten Lava with Ice-Cream",d:"Warm molten chocolate lava cake with ice cream",p:599,img:"🍫"}
+    ],
+    "Drinks":[
+      {n:"Arancia Bevande",d:"Fresh orange beverage",p:449,img:"🍊"},
+      {n:"Menta Bevande",d:"Fresh mint beverage",p:399,img:"🍃"},
+      {n:"Rum Swizzle",d:"Refreshing rum swizzle mocktail",p:420,img:"🍹"},
+      {n:"Cola Next / Pepsi",d:"Cold drink",p:199,img:"🥤"},
+      {n:"Fizzup / 7up",d:"Cold drink",p:199,img:"🥤"},
+      {n:"Water 500 ml",d:"Mineral water",p:99,img:"💧"}
+    ]
+  }
+};
+
+// ═══ COMING SOON RESTAURANTS ═══
+const COMING_SOON = [
+  {id:2,name:"Karahi House",icon:"🍲",area:"Johar Town, Lahore",tags:["Desi","Karahi","BBQ"],time:"25–35",bg:"linear-gradient(135deg,#8B4513,#654321)"},
+  {id:3,name:"Burger Station",icon:"🍔",area:"Johar Town, Lahore",tags:["Burgers","Fries","Shakes"],time:"20–30",bg:"linear-gradient(135deg,#B8860B,#8B6914)"},
+  {id:4,name:"Naan & Chai",icon:"🫓",area:"Johar Town, Lahore",tags:["Naan","Curry","Chai"],time:"20–35",bg:"linear-gradient(135deg,#CD853F,#A0522D)"},
+  {id:5,name:"Dragon Wok",icon:"🥡",area:"Johar Town, Lahore",tags:["Chinese","Thai","Wok"],time:"30–45",bg:"linear-gradient(135deg,#DC143C,#8B0000)"},
+  {id:6,name:"Desi Dhaba",icon:"🍛",area:"Johar Town, Lahore",tags:["Biryani","Nihari","Desi"],time:"25–40",bg:"linear-gradient(135deg,#4a2c2a,#2d1b1a)"}
 ];
 
 const CATEGORIES = [
-  {icon:"🍛",label:"Biryani"},{icon:"🍕",label:"Pizza"},{icon:"🍔",label:"Burgers"},
-  {icon:"🍲",label:"Karahi"},{icon:"🥘",label:"Nihari"},{icon:"🫓",label:"Naan"},
-  {icon:"🍜",label:"Chinese"},{icon:"☕",label:"Chai"},{icon:"🍗",label:"BBQ"},
-  {icon:"🧁",label:"Desserts"},{icon:"🥤",label:"Shakes"},{icon:"🌯",label:"Rolls"}
-];
-
-const POPULAR_DISHES = [
-  {name:"Chicken Biryani",rest:"Karahi King",price:450,icon:"🍛",orders:89,fire:true},
-  {name:"Pepperoni Pizza 14″",rest:"Little Olives",price:1350,icon:"🍕",orders:76,fire:true},
-  {name:"Classic Smash Burger",rest:"Burger Lab",price:550,icon:"🍔",orders:72,fire:false},
-  {name:"Chicken Karahi (Full)",rest:"Karahi King",price:2400,icon:"🍲",orders:65,fire:true},
-  {name:"Butter Chicken + Naan",rest:"Naan Stop",price:550,icon:"🫓",orders:58,fire:false},
-  {name:"Nutella Shake",rest:"Burger Lab",price:450,icon:"🥤",orders:54,fire:false},
-  {name:"Kung Pao Chicken",rest:"Wok This Way",price:650,icon:"🥡",orders:48,fire:false},
-  {name:"Halwa Puri",rest:"Chai Shai",price:250,icon:"🫓",orders:45,fire:false}
-];
-
-const TESTIMONIALS = [
-  {name:"Fatima A.",quote:"PlateRun is literally the only delivery app that actually delivers in 25 minutes. I've timed it! The biryani from Karahi King always arrives piping hot. Obsessed! 🔥",rating:5,color:"linear-gradient(135deg,#E8340A,#F5600F)",meta:"Johar Town · 12 orders",badge:"Top Fan"},
-  {name:"Hassan R.",quote:"Ordered at 1 AM during exam season and got hot garlic bread from Little Olives in 28 minutes. These guys are absolute legends. Lifesaver during all-nighters!",rating:5,color:"linear-gradient(135deg,#2d6e4e,#1a4230)",meta:"UCP Student · 8 orders",badge:null},
-  {name:"Ayesha K.",quote:"The live tracking is so accurate! I could see exactly when to go to the gate. Plus the promo codes are actually worth using, not like other apps. Saved Rs. 800 this month!",rating:5,color:"linear-gradient(135deg,#B8860B,#8B6914)",meta:"Canal View · 15 orders",badge:"Verified"},
-  {name:"Omar M.",quote:"Family orders every weekend — the Karahi King family deal is incredible value. My parents love that they can pay cash on delivery. Simple and no fuss.",rating:4,color:"linear-gradient(135deg,#8B4513,#654321)",meta:"H-Block · 22 orders",badge:"Loyal"},
-  {name:"Zara S.",quote:"As a working mom, PlateRun saves me on busy nights. The app is so easy to use and the food quality has been consistently great from every restaurant I've tried.",rating:5,color:"linear-gradient(135deg,#DC143C,#8B0000)",meta:"G-Block · 10 orders",badge:null}
+  {icon:"🍕",label:"Pizza"},{icon:"🍝",label:"Pasta"},{icon:"🍜",label:"Udons"},
+  {icon:"🥡",label:"Chinese"},{icon:"🥩",label:"Steaks"},{icon:"🍗",label:"Chicken"},
+  {icon:"🍟",label:"Fries"},{icon:"🍲",label:"Soups"},{icon:"🍫",label:"Desserts"},
+  {icon:"🥤",label:"Drinks"},{icon:"🌮",label:"Appetizers"}
 ];
 
 const FAQS = [
-  {q:"What areas does PlateRun cover?",a:"We currently deliver across all blocks (A–H) of Johar Town, Lahore, plus nearby areas like Faisal Town, Muslim Town, Canal View, PCSIR Society, and Wapda Town. We're expanding to Model Town and Iqbal Town soon!"},
-  {q:"How long does delivery take?",a:"Our average delivery time is 25 minutes. Most orders arrive within 20–40 minutes depending on the restaurant's prep time and distance. You can track your rider in real-time on the live map!"},
-  {q:"What payment methods do you accept?",a:"We accept Cash on Delivery (COD), JazzCash, EasyPaisa, and bank transfers. Card payments are coming soon. All digital payments are instant and secure."},
-  {q:"Is there a minimum order?",a:"Most restaurants have no minimum order. Delivery is Rs. 49–149 depending on distance, and it's FREE when you order above Rs. 499–999 (varies by restaurant). Check each restaurant for details."},
-  {q:"How do loyalty points work?",a:"You earn 10 PlateRun Points per order. Collect 200 points = free delivery. Collect 500 points = Rs. 200 off. Points never expire! Check your balance in the dashboard."},
-  {q:"How do I become a PlateRun rider?",a:"We're always hiring riders! Call us at 0307-606-4194 or WhatsApp us. Requirements: 18+, own motorcycle, valid license, smartphone. Flexible hours, daily payouts, and bonuses."},
-  {q:"Can I schedule an order for later?",a:"Not yet, but scheduled ordering is coming very soon! For now, we recommend ordering 30–40 minutes before your desired time. Follow us on Instagram for feature updates."}
+  {q:"What areas does PlateRun deliver to?",a:"We deliver across all blocks of Johar Town, Lahore, and nearby areas. WhatsApp us at 0307-606-4194 to confirm your area."},
+  {q:"How long does delivery take?",a:"Average delivery time is 25–45 minutes depending on the restaurant. You'll receive live updates on WhatsApp."},
+  {q:"What payment methods do you accept?",a:"We accept Cash on Delivery (COD), JazzCash, and EasyPaisa. Pay when your food arrives."},
+  {q:"Is there a delivery fee?",a:"Delivery is Rs. 200. Orders above Rs. 3,000 get FREE delivery!"},
+  {q:"How do I track my order?",a:"After placing your order, you'll receive a WhatsApp confirmation with your order details. Our rider will contact you when they're on the way."},
+  {q:"Can I become a PlateRun rider?",a:"Yes! WhatsApp us at 0307-606-4194. Requirements: 18+, own motorcycle, valid license, smartphone."},
+  {q:"I'm a restaurant owner — how do I join?",a:"WhatsApp us your menu at 0307-606-4194 or email rshazab91@gmail.com. We'll set up your page within 24 hours. Zero upfront cost."}
 ];
 
 // ═══ STATE ═══
 let cart = [];
-let user = JSON.parse(localStorage.getItem('pr_user') || 'null');
+let user = JSON.parse(localStorage.getItem('pr_user')||'null');
 let authMode = 'login';
-let payMethod = 'COD';
-let favorites = JSON.parse(localStorage.getItem('pr_favs') || '[]');
-let promoVisible = true;
+let payMethod = 'Cash on Delivery';
+let orderHistory = JSON.parse(localStorage.getItem('pr_orders')||'[]');
 
 // ═══ INIT ═══
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded',()=>{
   renderCategories();
   renderRestaurants();
-  renderPopularDishes();
-  renderTestimonials();
   renderFAQs();
-  renderFilters();
   initReveal();
   initNavScroll();
   initTheme();
   initPromoTimer();
   initTypingEffect();
-  animateCounters();
-  animateTracker();
   if(user) updateUILoggedIn();
 });
 
-// ═══ TYPING EFFECT ═══
+// ═══ TYPING ═══
 function initTypingEffect(){
-  const phrases = [
-    "From Johar Town's best kitchens to your door in 25 minutes. Biryani, pizza, burgers, karahi — whatever you crave, we deliver hot & fresh. 🔥",
-    "45+ restaurants. 12,000+ happy customers. Lahore's most-loved food delivery — now with loyalty points! 🎁",
-    "Late-night cravings? We've got you covered. Order until 2 AM with live GPS tracking. 🌙"
+  const phrases=[
+    "From Johar Town's best kitchens to your door in 25 minutes. Italian, Pan Asian, Chinese — whatever you crave, we deliver hot & fresh. 🔥",
+    "Order from Little Olives and more restaurants joining every week. Real food, real prices, real delivery. 🍕",
+    "Place your order, get a WhatsApp receipt, track your rider. Pay cash on delivery. Simple. 🛵"
   ];
-  const el = document.getElementById('heroSub');
-  let pi = 0, ci = 0, deleting = false;
+  const el=document.getElementById('heroSub');
+  let pi=0,ci=0,deleting=false;
   function type(){
-    const phrase = phrases[pi];
+    const phrase=phrases[pi];
     if(!deleting){
-      el.innerHTML = phrase.substring(0, ci) + '<span class="typed-cursor"></span>';
+      el.innerHTML=phrase.substring(0,ci)+'<span class="typed-cursor"></span>';
       ci++;
-      if(ci > phrase.length){
-        setTimeout(() => { deleting = true; type(); }, 4000);
-        return;
-      }
-      setTimeout(type, 28);
-    } else {
-      el.innerHTML = phrase.substring(0, ci) + '<span class="typed-cursor"></span>';
+      if(ci>phrase.length){setTimeout(()=>{deleting=true;type()},4000);return;}
+      setTimeout(type,28);
+    }else{
+      el.innerHTML=phrase.substring(0,ci)+'<span class="typed-cursor"></span>';
       ci--;
-      if(ci < 0){
-        deleting = false;
-        pi = (pi + 1) % phrases.length;
-        ci = 0;
-        setTimeout(type, 600);
-        return;
-      }
-      setTimeout(type, 14);
+      if(ci<0){deleting=false;pi=(pi+1)%phrases.length;ci=0;setTimeout(type,600);return;}
+      setTimeout(type,14);
     }
   }
   type();
 }
 
-// ═══ COUNTER ANIMATION ═══
-function animateCounters(){
-  const counters = document.querySelectorAll('.stat-num[data-count]');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        const el = entry.target;
-        const target = parseInt(el.dataset.count);
-        const duration = 2000;
-        const step = target / (duration / 16);
-        let current = 0;
-        const timer = setInterval(() => {
-          current += step;
-          if(current >= target){
-            current = target;
-            clearInterval(timer);
-          }
-          el.textContent = target >= 1000 ? Math.floor(current).toLocaleString() + '+' : Math.floor(current);
-        }, 16);
-        observer.unobserve(el);
-      }
-    });
-  }, {threshold:0.5});
-  counters.forEach(c => observer.observe(c));
-}
-
-// ═══ PROMO BANNER ═══
+// ═══ PROMO ═══
 function initPromoTimer(){
-  const end = new Date();
-  end.setHours(23,59,59,999);
+  const end=new Date();end.setHours(23,59,59,999);
   function update(){
-    const now = new Date();
-    let diff = Math.max(0, Math.floor((end - now) / 1000));
-    const h = Math.floor(diff / 3600);
-    diff %= 3600;
-    const m = Math.floor(diff / 60);
-    const s = diff % 60;
-    document.getElementById('promoH').textContent = String(h).padStart(2,'0');
-    document.getElementById('promoM').textContent = String(m).padStart(2,'0');
-    document.getElementById('promoS').textContent = String(s).padStart(2,'0');
+    const now=new Date();let diff=Math.max(0,Math.floor((end-now)/1000));
+    const h=Math.floor(diff/3600);diff%=3600;const m=Math.floor(diff/60);const s=diff%60;
+    document.getElementById('promoH').textContent=String(h).padStart(2,'0');
+    document.getElementById('promoM').textContent=String(m).padStart(2,'0');
+    document.getElementById('promoS').textContent=String(s).padStart(2,'0');
   }
-  update();
-  setInterval(update, 1000);
+  update();setInterval(update,1000);
 }
-function closePromo(){
-  document.getElementById('promoBanner').classList.add('hidden');
-  document.getElementById('mainNav').classList.add('promo-hidden');
-  promoVisible = false;
-}
-function copyPromo(){
-  navigator.clipboard?.writeText('PLATE30');
-  toast('📋 Promo code PLATE30 copied!');
-}
+function closePromo(){document.getElementById('promoBanner').classList.add('hidden');document.getElementById('mainNav').classList.add('promo-hidden');}
+function copyPromo(){navigator.clipboard?.writeText('PLATE30');toast('📋 Code PLATE30 copied!');}
 
-// ═══ SCROLL PROGRESS ═══
-window.addEventListener('scroll', () => {
-  const h = document.documentElement.scrollHeight - window.innerHeight;
-  const p = (window.scrollY / h) * 100;
-  document.getElementById('scrollProgress').style.width = p + '%';
-  // scroll to top button
-  const stb = document.getElementById('scrollTopBtn');
-  if(window.scrollY > 600) stb.classList.add('visible');
-  else stb.classList.remove('visible');
+// ═══ SCROLL ═══
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  document.getElementById('scrollProgress').style.width=(window.scrollY/h)*100+'%';
+  const stb=document.getElementById('scrollTopBtn');
+  if(window.scrollY>600)stb.classList.add('visible');else stb.classList.remove('visible');
 });
 
-// ═══ RENDER POPULAR DISHES ═══
-function renderPopularDishes(){
-  const c = document.getElementById('dishesScroll');
-  c.innerHTML = POPULAR_DISHES.map((d,i) => `
-    <div class="dish-card" onclick="openMenuByName('${d.rest}')">
-      <div class="dish-img" style="background:linear-gradient(135deg,rgba(232,52,10,0.08),rgba(245,96,15,0.05))">
-        <span style="font-size:64px;position:relative;z-index:1">${d.icon}</span>
-        <div class="dish-rank">${i+1}</div>
-        ${d.fire ? '<div class="dish-fire">🔥</div>' : ''}
-      </div>
-      <div class="dish-body">
-        <div class="dish-name">${d.name}</div>
-        <div class="dish-rest">🏪 ${d.rest}</div>
-        <div class="dish-foot">
-          <div class="dish-price">Rs. ${d.price.toLocaleString()}</div>
-          <button class="dish-add" onclick="event.stopPropagation();toast('🛒 Added ${d.name}!')">+</button>
-        </div>
-        <div class="dish-orders"><span>${d.orders} orders</span><div class="bar"><div class="bar-fill" style="width:${Math.min(100, d.orders)}%"></div></div></div>
-      </div>
-    </div>
-  `).join('');
-}
-
-// ═══ RENDER TESTIMONIALS ═══
-function renderTestimonials(){
-  const c = document.getElementById('testGrid');
-  c.innerHTML = TESTIMONIALS.map(t => `
-    <div class="test-card">
-      ${t.badge ? `<div class="test-badge">${t.badge}</div>` : ''}
-      <div class="test-stars">${'⭐'.repeat(t.rating)}</div>
-      <div class="test-quote">"${t.quote}"</div>
-      <div class="test-author">
-        <div class="test-av" style="background:${t.color}">${t.name[0]}</div>
-        <div>
-          <div class="test-name">${t.name}</div>
-          <div class="test-meta">${t.meta}</div>
-        </div>
-      </div>
-    </div>
-  `).join('');
-}
-
-// ═══ RENDER CATEGORIES ═══
+// ═══ CATEGORIES ═══
 function renderCategories(){
-  const c = document.getElementById('catScroll');
-  c.innerHTML = CATEGORIES.map((cat,i) => `<div class="cat-pill${i===0?' active':''}" onclick="filterCat(this,'${cat.label}')">${cat.icon} ${cat.label}</div>`).join('');
+  document.getElementById('catScroll').innerHTML=CATEGORIES.map(c=>`<div class="cat-pill" onclick="quickSearch('${c.label}')">${c.icon} ${c.label}</div>`).join('');
 }
 
-// ═══ RENDER FILTERS ═══
-function renderFilters(){
-  const filters = ['All','Desi','Italian','Burgers','Chinese','Chai','BBQ'];
-  document.getElementById('filterRow').innerHTML = filters.map((f,i) => `<button class="ftab${i===0?' active':''}" onclick="filterRest(this,'${f}')">${f}</button>`).join('');
+// ═══ RESTAURANTS ═══
+function renderRestaurants(){
+  const grid=document.getElementById('restGrid');
+  // Little Olives — REAL
+  const r=LITTLE_OLIVES;
+  let html=`<a class="rest-card" href="#" onclick="event.preventDefault();openMenuFor(1)">
+    <div class="rc-thumb" style="background:${r.bg}"><span style="font-size:64px;position:relative;z-index:1">${r.icon}</span><div class="rc-thumb-ov"></div><div class="rc-badge rc-badge-hot">🔥 Open Now</div><div class="rc-time">⏱ ${r.time} min</div></div>
+    <div class="rc-body"><div class="rc-name">${r.name}</div><div class="rc-area">📍 ${r.area}</div>
+    <div class="rc-tags">${r.tags.map(t=>`<span class="rc-tag">${t}</span>`).join('')}</div>
+    <div class="rc-foot"><div class="rc-rating">⭐ ${r.rating} <span>(${r.reviews})</span></div><div class="rc-meta"><span>🛵 Rs. ${r.delivery}</span><span class="rc-free">Free &gt;3000</span></div></div></div></a>`;
+  // Coming Soon
+  COMING_SOON.forEach(cs=>{
+    html+=`<a class="rest-card" href="#" onclick="event.preventDefault();comingSoon('${cs.name}')" style="opacity:0.75">
+      <div class="rc-thumb" style="background:${cs.bg}"><span style="font-size:64px;position:relative;z-index:1">${cs.icon}</span><div class="rc-thumb-ov"></div><div class="rc-badge rc-badge-soon">🔜 Launching Soon</div><div class="rc-time">⏱ ${cs.time} min</div></div>
+      <div class="rc-body"><div class="rc-name">${cs.name}</div><div class="rc-area">📍 ${cs.area}</div>
+      <div class="rc-tags">${cs.tags.map(t=>`<span class="rc-tag">${t}</span>`).join('')}</div>
+      <div class="rc-foot"><div class="rc-rating" style="color:var(--muted)">Coming soon</div><div class="rc-meta"></div></div></div></a>`;
+  });
+  grid.innerHTML=html;
 }
-
-// ═══ RENDER RESTAURANTS ═══
-function renderRestaurants(filter='All'){
-  const grid = document.getElementById('restGrid');
-  let list = RESTAURANTS;
-  if(filter !== 'All') list = list.filter(r => r.tags.some(t => t.toLowerCase().includes(filter.toLowerCase())));
-  grid.innerHTML = list.map(r => {
-    const isFav = favorites.includes(r.id);
-    return `
-    <a class="rest-card" href="#" onclick="event.preventDefault();openMenuFor(${r.id})">
-      <button class="fav-btn ${isFav?'liked':''}" onclick="event.preventDefault();event.stopPropagation();toggleFav(${r.id},this)" aria-label="Favorite">${isFav?'❤️':'🤍'}</button>
-      <div class="rc-thumb" style="background:${r.bg}">
-        <span style="font-size:64px;position:relative;z-index:1">${r.icon}</span>
-        <div class="rc-thumb-ov"></div>
-        ${r.badge==='hot'?'<div class="rc-badge rc-badge-hot">🔥 Popular</div>':''}
-        ${r.badge==='new'?'<div class="rc-badge rc-badge-new">✨ New</div>':''}
-        <div class="rc-time">⏱ ${r.time} min</div>
-      </div>
-      <div class="rc-body">
-        <div class="rc-name">${r.name}</div>
-        <div class="rc-area">📍 ${r.area}</div>
-        <div class="rc-tags">${r.tags.map(t=>`<span class="rc-tag">${t}</span>`).join('')}</div>
-        <div class="rc-foot">
-          <div class="rc-rating">⭐ ${r.rating} <span>(${r.reviews})</span></div>
-          <div class="rc-meta"><span>🛵 Rs. ${r.delivery}</span>${r.delivery<=99?`<span class="rc-free">Free >${r.free}</span>`:''}</div>
-        </div>
-      </div>
-    </a>`;
-  }).join('');
-}
-
-// ═══ FAVORITES ═══
-function toggleFav(id, btn){
-  const idx = favorites.indexOf(id);
-  if(idx > -1){
-    favorites.splice(idx, 1);
-    btn.classList.remove('liked');
-    btn.innerHTML = '🤍';
-    toast('💔 Removed from favorites');
-  } else {
-    favorites.push(id);
-    btn.classList.add('liked');
-    btn.innerHTML = '❤️';
-    toast('❤️ Added to favorites!');
-  }
-  localStorage.setItem('pr_favs', JSON.stringify(favorites));
-}
-
-// ═══ FILTER ═══
-function filterRest(el, f){
-  document.querySelectorAll('.ftab').forEach(t => t.classList.remove('active'));
-  el.classList.add('active');
-  renderRestaurants(f);
-}
-function filterCat(el, label){
-  document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
-  el.classList.add('active');
-  document.getElementById('heroSearch').value = label;
-  doSearch();
-}
+function comingSoon(name){toast('🔜 '+name+' is launching soon! Stay tuned.');}
 
 // ═══ SEARCH ═══
 function doSearch(){
-  const q = document.getElementById('heroSearch').value.trim().toLowerCase();
-  if(!q){ renderRestaurants(); return; }
-  const grid = document.getElementById('restGrid');
-  const list = RESTAURANTS.filter(r =>
-    r.name.toLowerCase().includes(q) ||
-    r.tags.some(t => t.toLowerCase().includes(q)) ||
-    Object.values(r.menu).flat().some(item => item.n.toLowerCase().includes(q))
-  );
-  if(list.length === 0){
-    grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:48px 0;color:var(--muted)"><div style="font-size:48px;margin-bottom:12px">🔍</div><div style="font-family:var(--font-h);font-size:20px;color:var(--dark);margin-bottom:6px">No results for "'+q+'"</div><div style="font-size:13px">Try searching for biryani, pizza, or burgers</div></div>';
-    return;
+  const q=document.getElementById('heroSearch').value.trim().toLowerCase();
+  if(!q){document.getElementById('restaurants').scrollIntoView({behavior:'smooth'});return;}
+  // search Little Olives menu
+  const found=[];
+  Object.entries(LITTLE_OLIVES.menu).forEach(([cat,items])=>{
+    items.forEach(item=>{
+      if(item.n.toLowerCase().includes(q)||item.d.toLowerCase().includes(q)||cat.toLowerCase().includes(q)){
+        found.push({...item,cat});
+      }
+    });
+  });
+  if(found.length>0){
+    openMenuFor(1);
+    // find matching category
+    const firstCat=found[0].cat;
+    const tabs=document.querySelectorAll('.mtab');
+    tabs.forEach(t=>{if(t.textContent===firstCat){t.click();}});
+    toast('🔍 Found '+found.length+' items matching "'+q+'"');
+  }else{
+    toast('🔍 No items found for "'+q+'" — try pizza, pasta, udon...');
   }
-  renderRestaurants('All');
-  // re-render with filtered
-  grid.innerHTML = list.map(r => {
-    const isFav = favorites.includes(r.id);
-    return `
-    <a class="rest-card" href="#" onclick="event.preventDefault();openMenuFor(${r.id})">
-      <button class="fav-btn ${isFav?'liked':''}" onclick="event.preventDefault();event.stopPropagation();toggleFav(${r.id},this)" aria-label="Favorite">${isFav?'❤️':'🤍'}</button>
-      <div class="rc-thumb" style="background:${r.bg}">
-        <span style="font-size:64px;position:relative;z-index:1">${r.icon}</span>
-        <div class="rc-thumb-ov"></div>
-        ${r.badge==='hot'?'<div class="rc-badge rc-badge-hot">🔥 Popular</div>':''}
-        ${r.badge==='new'?'<div class="rc-badge rc-badge-new">✨ New</div>':''}
-        <div class="rc-time">⏱ ${r.time} min</div>
-      </div>
-      <div class="rc-body">
-        <div class="rc-name">${r.name}</div>
-        <div class="rc-area">📍 ${r.area}</div>
-        <div class="rc-tags">${r.tags.map(t=>`<span class="rc-tag">${t}</span>`).join('')}</div>
-        <div class="rc-foot">
-          <div class="rc-rating">⭐ ${r.rating} <span>(${r.reviews})</span></div>
-          <div class="rc-meta"><span>🛵 Rs. ${r.delivery}</span></div>
-        </div>
-      </div>
-    </a>`;
-  }).join('');
-  document.getElementById('restaurants').scrollIntoView({behavior:'smooth'});
 }
-function quickSearch(q){
-  document.getElementById('heroSearch').value = q;
-  doSearch();
-}
+function quickSearch(q){document.getElementById('heroSearch').value=q;doSearch();}
 
-// ═══ RENDER FAQs ═══
+// ═══ FAQs ═══
 function renderFAQs(){
-  document.getElementById('faqGrid').innerHTML = FAQS.map(f => `
+  document.getElementById('faqGrid').innerHTML=FAQS.map(f=>`
     <div class="faq-item" onclick="this.classList.toggle('open')">
       <div class="faq-q"><span>${f.q}</span><div class="faq-icon">+</div></div>
       <div class="faq-a"><div class="faq-a-inner">${f.a}</div></div>
-    </div>
-  `).join('');
+    </div>`).join('');
 }
 
 // ═══ MENU ═══
-let currentRest = RESTAURANTS[0];
-function openMenu(){ openMenuFor(currentRest.id); }
-function openMenuByName(name){
-  const r = RESTAURANTS.find(r => r.name === name);
-  if(r) openMenuFor(r.id);
-}
+function openMenu(){openMenuFor(1);}
 function openMenuFor(id){
-  currentRest = RESTAURANTS.find(r => r.id === id);
-  document.getElementById('menuRestIcon').textContent = currentRest.icon;
-  document.getElementById('menuRestName').textContent = currentRest.name;
-  document.getElementById('menuRestMeta').innerHTML = `⭐ ${currentRest.rating} · ${currentRest.tags.join(' & ')} · ⏱ ${currentRest.time} min · Rs. ${currentRest.delivery} delivery`;
-  document.getElementById('menuRestIcon').style.background = currentRest.bg;
-  const cats = Object.keys(currentRest.menu);
-  document.getElementById('menuTabs').innerHTML = cats.map((c,i) => `<button class="mtab${i===0?' active':''}" onclick="showMenuCat(this,'${c}')">${c}</button>`).join('');
-  showMenuCat(null, cats[0]);
+  if(id!==1){comingSoon(COMING_SOON.find(c=>c.id===id)?.name||'Restaurant');return;}
+  const r=LITTLE_OLIVES;
+  document.getElementById('menuRestIcon').textContent=r.icon;
+  document.getElementById('menuRestIcon').style.background=r.bg;
+  document.getElementById('menuRestName').textContent=r.name;
+  document.getElementById('menuRestMeta').innerHTML=`⭐ ${r.rating} · ${r.tags.join(' & ')} · ⏱ ${r.time} min · 📞 ${r.phone}`;
+  const cats=Object.keys(r.menu);
+  document.getElementById('menuTabs').innerHTML=cats.map((c,i)=>`<button class="mtab${i===0?' active':''}" onclick="showMenuCat(this,'${c}')">${c}</button>`).join('');
+  showMenuCat(null,cats[0]);
   openOverlay('menuOv');
   updateCart();
 }
-function showMenuCat(btn, cat){
+function showMenuCat(btn,cat){
   if(btn){document.querySelectorAll('.mtab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');}
-  const items = currentRest.menu[cat] || [];
-  const body = document.getElementById('menuBody');
-  body.innerHTML = `<div class="menu-sec-title">${cat}</div><div class="menu-sec-sub">${items.length} items</div><div class="menu-items">${items.map(it => {
-    const sizesHtml = it.sizes ? `<div class="mi-sizes">${it.sizes.map((s,i) => `<button class="sz-btn${i===0?' picked':''}" onclick="pickSize(this,${it.sp[i]})">${s} · Rs.${it.sp[i]}</button>`).join('')}</div>` : '';
-    return `<div class="menu-item"><div style="font-size:32px;flex-shrink:0">${it.img}</div><div class="mi-info"><div class="mi-name">${it.n}</div><div class="mi-desc">${it.d}</div>${sizesHtml}</div><div class="mi-right"><div class="mi-price">Rs. ${it.p}</div><button class="add-btn" onclick="addToCart('${it.n}',${it.p},'${currentRest.name}')">+</button></div></div>`;
+  const items=LITTLE_OLIVES.menu[cat]||[];
+  document.getElementById('menuBody').innerHTML=`<div class="menu-sec-title">${cat}</div><div class="menu-sec-sub">${items.length} items${cat==='Chinese'?' · All served with Veg Fried Rice':''}</div><div class="menu-items">${items.map(it=>{
+    const newTag=it.isNew?'<span class="new-tag">New</span>':'';
+    const sizesHtml=it.sizes?`<div class="mi-sizes">${it.sizes.map((s,i)=>`<button class="sz-btn${i===0?' picked':''}" onclick="pickSize(this,'${it.n}',${it.sp[i]})">${s} · Rs.${it.sp[i]}</button>`).join('')}</div>`:'';
+    return `<div class="menu-item" data-item="${it.n}" data-price="${it.p}"><div style="font-size:32px;flex-shrink:0">${it.img}</div><div class="mi-info"><div class="mi-name">${it.n} ${newTag}</div><div class="mi-desc">${it.d}</div>${sizesHtml}</div><div class="mi-right"><div class="mi-price">Rs. ${it.p}</div><button class="add-btn" onclick="addToCart('${it.n.replace(/'/g,"\\'")}',${it.p})">+</button></div></div>`;
   }).join('')}</div>`;
-  body.scrollTop = 0;
+  document.getElementById('menuBody').scrollTop=0;
 }
-function pickSize(btn, price){
+function pickSize(btn,name,price){
   btn.closest('.mi-sizes').querySelectorAll('.sz-btn').forEach(b=>b.classList.remove('picked'));
   btn.classList.add('picked');
-  btn.closest('.menu-item').querySelector('.mi-price').textContent = 'Rs. ' + price;
+  const item=btn.closest('.menu-item');
+  item.querySelector('.mi-price').textContent='Rs. '+price;
+  item.querySelector('.add-btn').setAttribute('onclick',`addToCart('${name.replace(/'/g,"\\'")}',${price})`);
 }
-function addToCart(name, price, rest){
-  const existing = cart.find(c => c.name === name && c.rest === rest);
-  if(existing) existing.qty++;
-  else cart.push({name, price, qty:1, rest});
+function addToCart(name,price){
+  const key=name+'_'+price;
+  const existing=cart.find(c=>c.key===key);
+  if(existing)existing.qty++;
+  else cart.push({key,name,price,qty:1});
   updateCart();
-  toast(`🛒 Added ${name}`);
-  // bump badge
-  const badge = document.getElementById('navBadge');
+  toast('🛒 Added '+name);
+  const badge=document.getElementById('navBadge');
   if(badge){badge.classList.remove('bump');void badge.offsetWidth;badge.classList.add('bump');}
 }
 function updateCart(){
-  const count = cart.reduce((s,c)=>s+c.qty,0);
-  const total = cart.reduce((s,c)=>s+c.price*c.qty,0);
-  document.getElementById('cartCount').textContent = count + ' items';
-  document.getElementById('cartTotal').textContent = 'Rs. ' + total.toLocaleString();
-  const nb = document.getElementById('navCartBtn');
-  const badge = document.getElementById('navBadge');
-  if(count > 0){nb.style.display='flex';badge.textContent=count;}
+  const count=cart.reduce((s,c)=>s+c.qty,0);
+  const total=cart.reduce((s,c)=>s+c.price*c.qty,0);
+  document.getElementById('cartCount').textContent=count+' items';
+  document.getElementById('cartTotal').textContent='Rs. '+total.toLocaleString();
+  const nb=document.getElementById('navCartBtn');
+  const badge=document.getElementById('navBadge');
+  if(count>0){nb.style.display='flex';badge.textContent=count;}
   else{nb.style.display='none';}
 }
 
 // ═══ CHECKOUT ═══
 function goCheckout(){
-  if(cart.length === 0){toast('🛒 Your cart is empty!');return;}
+  if(cart.length===0){toast('🛒 Your cart is empty!');return;}
   closeOverlay('menuOv');
-  setTimeout(() => {
-    const delivery = currentRest.delivery;
-    const subtotal = cart.reduce((s,c)=>s+c.price*c.qty,0);
-    const freeMin = currentRest.free || 999;
-    const delFee = subtotal >= freeMin ? 0 : delivery;
-    const total = subtotal + delFee;
-    document.getElementById('coItems').innerHTML = cart.map(c =>
+  setTimeout(()=>{
+    const subtotal=cart.reduce((s,c)=>s+c.price*c.qty,0);
+    const delFee=subtotal>=LITTLE_OLIVES.freeMin?0:LITTLE_OLIVES.delivery;
+    const total=subtotal+delFee;
+    document.getElementById('coItems').innerHTML=cart.map(c=>
       `<div class="os-row muted"><span>${c.name} × ${c.qty}</span><span>Rs. ${(c.price*c.qty).toLocaleString()}</span></div>`
-    ).join('') +
-    `<div class="os-row muted"><span>Delivery</span><span>${delFee===0?'<span style="color:var(--green);font-weight:700">FREE</span>':'Rs. '+delFee}</span></div>` +
+    ).join('')+
+    `<div class="os-row muted"><span>Delivery</span><span>${delFee===0?'<span style="color:var(--green);font-weight:700">FREE ✓</span>':'Rs. '+delFee}</span></div>`+
     `<div class="os-row"><span>TOTAL</span><span>Rs. ${total.toLocaleString()}</span></div>`;
+    // pre-fill if user logged in
     if(user){
-      document.getElementById('guestFields').style.display='none';
-      document.getElementById('loggedDetails').style.display='block';
-      document.getElementById('coInfoBox').innerHTML=`<strong>${user.name}</strong>📞 ${user.phone}<br/>🏠 ${user.address||'Not set'}`;
-      document.getElementById('saveChkRow').style.display='none';
-    } else {
-      document.getElementById('guestFields').style.display='block';
-      document.getElementById('loggedDetails').style.display='none';
-      document.getElementById('saveChkRow').style.display='flex';
+      document.getElementById('coName').value=user.name||'';
+      document.getElementById('coPhone').value=user.phone||'';
+      document.getElementById('coAddr').value=user.address||'';
     }
     openOverlay('coOv');
-  }, 350);
+  },350);
 }
-function setPay(btn, method){
+function setPay(btn,method){
   document.querySelectorAll('.pay-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
-  payMethod = method;
+  payMethod=method;
 }
-function toggleAddrEdit(){
-  const b = document.getElementById('addrEditBlock');
-  b.style.display = b.style.display === 'none' ? 'block' : 'none';
-  if(b.style.display === 'block' && user){
-    document.getElementById('coPhoneEdit').value = user.phone || '';
-    document.getElementById('coAddrEdit').value = user.address || '';
-  }
-}
+
+// ═══ PLACE ORDER — REAL RECEIPT ═══
 function placeOrder(){
-  if(!user){
-    const name = document.getElementById('coName').value.trim();
-    const phone = document.getElementById('coPhone').value.trim();
-    const addr = document.getElementById('coAddr').value.trim();
-    let valid = true;
-    if(!name){document.getElementById('coName').closest('.form-field').classList.add('error');valid=false;}
-    else document.getElementById('coName').closest('.form-field').classList.remove('error');
-    if(!phone){document.getElementById('coPhone').closest('.form-field').classList.add('error');valid=false;}
-    else document.getElementById('coPhone').closest('.form-field').classList.remove('error');
-    if(!addr){document.getElementById('coAddr').closest('.form-field').classList.add('error');valid=false;}
-    else document.getElementById('coAddr').closest('.form-field').classList.remove('error');
-    if(!valid) return;
-  }
+  const name=document.getElementById('coName').value.trim();
+  const phone=document.getElementById('coPhone').value.trim();
+  const addr=document.getElementById('coAddr').value.trim();
+  let valid=true;
+  [['coName',name],['coPhone',phone],['coAddr',addr]].forEach(([id,v])=>{
+    const ff=document.getElementById(id).closest('.form-field');
+    if(!v){ff.classList.add('error');valid=false;}else ff.classList.remove('error');
+  });
+  if(!valid)return;
+
+  // Generate order
+  const orderId='PR-'+String(Math.floor(1000+Math.random()*9000));
+  const now=new Date();
+  const dateStr=now.toLocaleDateString('en-PK',{day:'2-digit',month:'short',year:'numeric'});
+  const timeStr=now.toLocaleTimeString('en-PK',{hour:'2-digit',minute:'2-digit',hour12:true});
+  const subtotal=cart.reduce((s,c)=>s+c.price*c.qty,0);
+  const delFee=subtotal>=LITTLE_OLIVES.freeMin?0:LITTLE_OLIVES.delivery;
+  const total=subtotal+delFee;
+
+  // Build receipt HTML
+  let itemsHtml=cart.map(c=>`<div class="receipt-row"><span>${c.name} <span class="item-qty">× ${c.qty}</span></span><span>Rs. ${(c.price*c.qty).toLocaleString()}</span></div>`).join('');
+
+  // WhatsApp message for OWNER
+  let waMsg=`🍽️ *NEW ORDER — PlateRun*%0A`;
+  waMsg+=`📋 Order ${orderId}%0A`;
+  waMsg+=`📅 ${dateStr}, ${timeStr}%0A%0A`;
+  waMsg+=`👤 *Customer:* ${name}%0A`;
+  waMsg+=`📞 ${phone}%0A`;
+  waMsg+=`🏠 ${addr}%0A%0A`;
+  waMsg+=`🛒 *Items:*%0A`;
+  cart.forEach(c=>{waMsg+=`• ${c.name} × ${c.qty} = Rs. ${(c.price*c.qty).toLocaleString()}%0A`;});
+  waMsg+=`%0A💰 Subtotal: Rs. ${subtotal.toLocaleString()}%0A`;
+  waMsg+=`🛵 Delivery: ${delFee===0?'FREE':'Rs. '+delFee}%0A`;
+  waMsg+=`✅ *TOTAL: Rs. ${total.toLocaleString()}*%0A%0A`;
+  waMsg+=`💵 Payment: ${payMethod}%0A`;
+  waMsg+=`🏪 Restaurant: Little Olives%0A`;
+  waMsg+=`📞 Restaurant: ${LITTLE_OLIVES.phone}%0A`;
+  waMsg+=`🏍️ Rider: 0328-624-2582`;
+
+  // WhatsApp message for RESTAURANT
+  let waRest=`📋 *NEW ORDER — ${orderId}*%0A`;
+  waRest+=`👤 ${name} · ${phone}%0A`;
+  waRest+=`🏠 ${addr}%0A%0A`;
+  cart.forEach(c=>{waRest+=`• ${c.name} × ${c.qty}%0A`;});
+  waRest+=`%0A✅ Total: Rs. ${total.toLocaleString()} (${payMethod})%0A`;
+  waRest+=`🏍️ Rider will pickup shortly`;
+
+  // Save order
+  const order={id:orderId,date:dateStr,time:timeStr,items:[...cart],subtotal,delivery:delFee,total,payment:payMethod,customer:{name,phone,addr}};
+  orderHistory.unshift(order);
+  localStorage.setItem('pr_orders',JSON.stringify(orderHistory));
+  if(user){user.orders=(user.orders||0)+1;localStorage.setItem('pr_user',JSON.stringify(user));updateDashboard();}
+
   closeOverlay('coOv');
-  launchConfetti();
-  setTimeout(() => {
-    toast('✅ Order placed! You\'ll receive WhatsApp confirmation shortly.');
-    if(user){
-      user.orders = (user.orders||0)+1;
-      user.points = (user.points||0)+10;
-      localStorage.setItem('pr_user',JSON.stringify(user));
-      updateDashboard();
-    }
-    cart = [];
+
+  // Show receipt
+  setTimeout(()=>{
+    document.getElementById('receiptInner').innerHTML=`
+      <div class="receipt-header">
+        <div class="receipt-check">✓</div>
+        <div class="receipt-status">Order confirmed!</div>
+        <div class="receipt-orderno">${orderId} · ${dateStr} · ${timeStr}</div>
+        <div class="rh-logo" style="margin-top:8px">Plate<span>Run</span></div>
+      </div>
+
+      <div class="receipt-section">
+        <h4>📍 Delivery to</h4>
+        <div class="receipt-info">
+          <strong>${name}</strong><br/>
+          📞 ${phone}<br/>
+          🏠 ${addr}
+        </div>
+      </div>
+
+      <div class="receipt-section">
+        <h4>🛒 Items from Little Olives</h4>
+        ${itemsHtml}
+        <div class="receipt-row" style="color:var(--muted)"><span>Delivery</span><span>${delFee===0?'FREE ✓':'Rs. '+delFee}</span></div>
+        <div class="receipt-row total"><span>TOTAL</span><span>Rs. ${total.toLocaleString()}</span></div>
+      </div>
+
+      <div class="receipt-section">
+        <h4>💵 Payment</h4>
+        <div class="receipt-info"><strong>${payMethod}</strong>${payMethod==='Cash on Delivery'?'<br/>Pay the rider when food arrives':''}</div>
+      </div>
+
+      <div class="receipt-actions">
+        <a class="wa-btn" href="https://wa.me/${OWNER_WA}?text=${waMsg}" target="_blank" rel="noopener">
+          💬 Send order to PlateRun (WhatsApp)
+        </a>
+        <a class="wa-btn-outline" href="https://wa.me/92${LITTLE_OLIVES.phone.substring(1)}?text=${waRest}" target="_blank" rel="noopener" style="border:1px solid #25D366;color:#25D366;border-radius:12px;padding:13px;text-align:center;font-weight:700;font-size:13px;text-decoration:none;display:block">
+          🏪 Send to Restaurant (${LITTLE_OLIVES.phone})
+        </a>
+        <a class="wa-btn-outline" href="https://wa.me/${RIDER_WA}" target="_blank" rel="noopener" style="border:1px solid var(--border);color:var(--ink);border-radius:12px;padding:13px;text-align:center;font-weight:700;font-size:13px;text-decoration:none;display:block">
+          🏍️ Contact Rider (0328-624-2582)
+        </a>
+        <button class="print-btn" onclick="window.print()" style="border:1px solid var(--border);background:var(--surface);border-radius:12px;padding:13px;font-size:13px;font-weight:700;cursor:pointer;font-family:var(--font-b);color:var(--ink)">
+          🖨️ Print / Save Receipt
+        </button>
+      </div>
+
+      <div class="receipt-footer">
+        <strong>PlateRun</strong> — Johar Town, Lahore<br/>
+        📞 0307-606-4194 · ✉️ rshazab91@gmail.com<br/>
+        Thank you for ordering! 🍕
+      </div>
+    `;
+    openOverlay('receiptOv');
+    launchConfetti();
+    cart=[];
     updateCart();
-  }, 400);
+  },400);
 }
 
 // ═══ CONFETTI ═══
 function launchConfetti(){
-  const colors = ['#E8340A','#F5600F','#16a34a','#B8820A','#FFD700','#FF69B4'];
+  const colors=['#E8340A','#F5600F','#16a34a','#B8820A','#FFD700','#FF69B4'];
   for(let i=0;i<40;i++){
-    const el = document.createElement('div');
-    el.className = 'confetti-piece';
-    el.style.left = Math.random()*100+'vw';
-    el.style.top = '-10px';
-    el.style.background = colors[Math.floor(Math.random()*colors.length)];
-    el.style.animationDuration = (2+Math.random()*2)+'s';
-    el.style.animationDelay = Math.random()*0.5+'s';
-    el.style.width = (6+Math.random()*6)+'px';
-    el.style.height = (6+Math.random()*6)+'px';
-    el.style.borderRadius = Math.random()>0.5?'50%':'2px';
+    const el=document.createElement('div');
+    el.className='confetti-piece';
+    el.style.left=Math.random()*100+'vw';
+    el.style.top='-10px';
+    el.style.background=colors[Math.floor(Math.random()*colors.length)];
+    el.style.animationDuration=(2+Math.random()*2)+'s';
+    el.style.animationDelay=Math.random()*0.5+'s';
+    el.style.width=(6+Math.random()*6)+'px';
+    el.style.height=(6+Math.random()*6)+'px';
+    el.style.borderRadius=Math.random()>0.5?'50%':'2px';
     document.body.appendChild(el);
     setTimeout(()=>el.remove(),4500);
   }
@@ -1616,88 +1304,71 @@ function launchConfetti(){
 // ═══ AUTH ═══
 function openAuth(){openOverlay('authOv');}
 function toggleMode(){
-  authMode = authMode==='login'?'signup':'login';
-  document.getElementById('authTitle').textContent = authMode==='login'?'Welcome back 👋':'Create account 🎉';
-  document.getElementById('authSub').textContent = authMode==='login'?'Sign in — your address, number & order history are always saved.':'Join 12,000+ food lovers in Johar Town. First order gets 30% off!';
-  document.getElementById('signupExtra').style.display = authMode==='signup'?'block':'none';
-  document.getElementById('authMainBtn').textContent = authMode==='login'?'Sign in →':'Create account →';
-  document.getElementById('authToggle').innerHTML = authMode==='login'?'New to PlateRun? <a onclick="toggleMode()">Create account</a>':'Already have an account? <a onclick="toggleMode()">Sign in</a>';
-}
-function quickAuth(){
-  user = {name:'Quick User',email:'user@whatsapp.com',phone:'0307-6064194',address:'H-Block, Johar Town',orders:3,points:30};
-  localStorage.setItem('pr_user',JSON.stringify(user));
-  closeOverlay('authOv');
-  updateUILoggedIn();
-  toast('✅ Signed in via WhatsApp!');
+  authMode=authMode==='login'?'signup':'login';
+  document.getElementById('authTitle').textContent=authMode==='login'?'Welcome back 👋':'Create account 🎉';
+  document.getElementById('authSub').textContent=authMode==='login'?'Sign in — your details are saved for faster checkout.':'Join PlateRun. Your first order gets free delivery!';
+  document.getElementById('signupExtra').style.display=authMode==='signup'?'block':'none';
+  document.getElementById('authMainBtn').textContent=authMode==='login'?'Sign in →':'Create account →';
+  document.getElementById('authToggle').innerHTML=authMode==='login'?'New to PlateRun? <a onclick="toggleMode()">Create account</a>':'Already have an account? <a onclick="toggleMode()">Sign in</a>';
 }
 function doAuth(){
-  const email = document.getElementById('fEmail').value.trim();
-  const pass = document.getElementById('fPass').value;
-  let valid = true;
-  if(!email || !email.includes('@')){document.getElementById('fEmail').closest('.form-field').classList.add('error');valid=false;}
+  const email=document.getElementById('fEmail').value.trim();
+  const pass=document.getElementById('fPass').value;
+  let valid=true;
+  if(!email||!email.includes('@')){document.getElementById('fEmail').closest('.form-field').classList.add('error');valid=false;}
   else document.getElementById('fEmail').closest('.form-field').classList.remove('error');
-  if(pass.length < 4){document.getElementById('fPass').closest('.form-field').classList.add('error');valid=false;}
+  if(pass.length<4){document.getElementById('fPass').closest('.form-field').classList.add('error');valid=false;}
   else document.getElementById('fPass').closest('.form-field').classList.remove('error');
-  if(!valid) return;
+  if(!valid)return;
   if(authMode==='signup'){
-    const first = document.getElementById('fFirst').value.trim();
-    const phone = document.getElementById('fPhone').value.trim();
+    const first=document.getElementById('fFirst').value.trim();
+    const phone=document.getElementById('fPhone').value.trim();
     if(!first){document.getElementById('fFirst').closest('.form-field').classList.add('error');return;}
     if(!phone){document.getElementById('fPhone').closest('.form-field').classList.add('error');return;}
-    user = {name:first+' '+(document.getElementById('fLast').value.trim()||''),email,phone,address:document.getElementById('fAddr').value.trim(),orders:0,points:0};
-  } else {
-    user = {name:email.split('@')[0],email,phone:'0307-6064194',address:'Johar Town',orders:2,points:20};
+    user={name:first+' '+(document.getElementById('fLast').value.trim()||'').trim(),email,phone,address:document.getElementById('fAddr').value.trim(),orders:0};
+  }else{
+    user={name:email.split('@')[0],email,phone:'',address:'',orders:0};
   }
   localStorage.setItem('pr_user',JSON.stringify(user));
   closeOverlay('authOv');
   updateUILoggedIn();
-  toast(authMode==='signup'?'🎉 Account created! Welcome to PlateRun!':'✅ Welcome back, '+user.name+'!');
-  if(authMode==='signup') launchConfetti();
+  toast(authMode==='signup'?'🎉 Account created!':'✅ Welcome back!');
 }
 function checkPwStrength(v){
-  const bar = document.getElementById('pwBar');
-  let s = 0;
-  if(v.length >= 4) s++;
-  if(v.length >= 8) s++;
-  if(/[A-Z]/.test(v) && /[0-9]/.test(v)) s++;
-  if(/[^A-Za-z0-9]/.test(v)) s++;
-  const pct = [0,25,50,75,100][s];
-  const cols = ['','#dc2626','#f59e0b','#22c55e','#16a34a'];
-  bar.style.width = pct+'%';
-  bar.style.background = cols[s]||'';
+  const bar=document.getElementById('pwBar');
+  let s=0;if(v.length>=4)s++;if(v.length>=8)s++;if(/[A-Z]/.test(v)&&/[0-9]/.test(v))s++;if(/[^A-Za-z0-9]/.test(v))s++;
+  bar.style.width=[0,25,50,75,100][s]+'%';
+  bar.style.background=['','#dc2626','#f59e0b','#22c55e','#16a34a'][s]||'';
 }
 function updateUILoggedIn(){
-  document.getElementById('navAuth').innerHTML = `👤 ${user.name.split(' ')[0]}`;
-  document.getElementById('navAuth').onclick = () => openDash();
+  document.getElementById('navAuth').innerHTML='👤 '+user.name.split(' ')[0];
+  document.getElementById('navAuth').onclick=()=>openDash();
   updateDashboard();
 }
 function updateDashboard(){
-  if(!user) return;
-  document.getElementById('dAv').textContent = user.name[0].toUpperCase();
-  document.getElementById('dName').textContent = user.name;
-  document.getElementById('dEmail').textContent = user.email;
-  document.getElementById('dPhone').querySelector('strong').textContent = user.phone||'–';
-  document.getElementById('dAddr').querySelector('strong').textContent = user.address||'–';
-  document.getElementById('dsOrders').textContent = user.orders||0;
-  document.getElementById('dsSaved').textContent = 'Rs. '+(((user.orders||0)*80));
-  document.getElementById('dStreak').textContent = (user.orders||0)>0?`🔥 ${user.orders} orders completed!`:'🍽️ Ready to make your first order?';
-  // loyalty
-  const pts = user.points || 0;
-  document.getElementById('loyaltyPts').textContent = pts;
-  const nextMilestone = pts < 200 ? 200 : 500;
-  const pct = Math.min(100, (pts / nextMilestone) * 100);
-  document.getElementById('loyaltyBarFill').style.width = pct + '%';
-  document.getElementById('loyaltyNext').textContent = pts < 200 ? `${nextMilestone - pts} more for free delivery` : `${nextMilestone - pts} more for Rs. 200 off`;
+  if(!user)return;
+  document.getElementById('dAv').textContent=user.name[0].toUpperCase();
+  document.getElementById('dName').textContent=user.name;
+  document.getElementById('dEmail').textContent=user.email;
+  document.getElementById('dPhone').querySelector('strong').textContent=user.phone||'Not set';
+  document.getElementById('dAddr').querySelector('strong').textContent=user.address||'Not set';
+  document.getElementById('dsOrders').textContent=user.orders||0;
+  document.getElementById('dsSaved').textContent='Rs. '+((user.orders||0)*200);
+  // order history
+  const oh=document.getElementById('ohList');
+  if(orderHistory.length===0){oh.innerHTML='<div style="font-size:12px;color:var(--muted);padding:12px 0">No orders yet 🍕</div>';return;}
+  oh.innerHTML=orderHistory.slice(0,5).map(o=>`
+    <div class="oh-item"><div class="oh-icon">🫒</div><div class="oh-info"><div class="oh-name">${o.id} · Little Olives</div><div class="oh-meta">${o.date} · ${o.items.length} items</div></div><div class="oh-price">Rs. ${o.total.toLocaleString()}</div></div>
+  `).join('');
 }
 function openDash(){document.getElementById('dashPanel').classList.add('open');}
 function closeDash(){document.getElementById('dashPanel').classList.remove('open');}
 function doLogout(){
-  user = null;
-  localStorage.removeItem('pr_user');
+  user=null;localStorage.removeItem('pr_user');
   closeDash();
-  document.getElementById('navAuth').innerHTML = '👤 Sign in';
-  document.getElementById('navAuth').onclick = () => openAuth();
-  toast('👋 Logged out successfully');
+  document.getElementById('navAuth').innerHTML='👤 Sign in';
+  document.getElementById('navAuth').onclick=()=>openAuth();
+  toast('👋 Logged out');
 }
 
 // ═══ OVERLAYS ═══
@@ -1707,101 +1378,32 @@ function overlayTap(e,id){if(e.target.classList.contains('overlay'))closeOverlay
 
 // ═══ LEGAL ═══
 function showLegal(type){
-  const content = document.getElementById('legalContent');
-  const docs = {
-    privacy:`<h2>Privacy Policy</h2><p class="legal-meta">Last updated: May 2025</p><h3>Information We Collect</h3><p>We collect your name, email, phone number, and delivery address to process orders. Location data is used only during active deliveries for GPS tracking.</p><h3>How We Use It</h3><p>Your data is used exclusively for order processing, delivery coordination, and improving our service. We never sell your personal information to third parties.</p><h3>Data Security</h3><p>All data is encrypted in transit and at rest. Payment information is processed through secure, PCI-compliant payment gateways.</p><h3>Your Rights</h3><p>You can request deletion of your account and all associated data at any time by contacting us at privacy@platerun.pk.</p>`,
-    terms:`<h2>Terms of Service</h2><p class="legal-meta">Last updated: May 2025</p><h3>Service Description</h3><p>PlateRun is a food delivery platform connecting customers with restaurants in Johar Town, Lahore. We facilitate orders but are not responsible for food preparation.</p><h3>Orders & Payments</h3><p>All prices include applicable taxes. Delivery fees vary by restaurant and distance. Orders cannot be cancelled once the restaurant has started preparing your food.</p><h3>Delivery</h3><p>Estimated delivery times are approximate. PlateRun is not liable for delays caused by weather, traffic, or other factors beyond our control.</p><h3>Refunds</h3><p>Refund requests must be submitted within 24 hours of delivery. See our Refund Policy for details.</p>`,
-    refund:`<h2>Refund Policy</h2><p class="legal-meta">Last updated: May 2025</p><h3>When You Can Get a Refund</h3><ul><li>Wrong items delivered</li><li>Missing items from your order</li><li>Food quality issues (with photo evidence)</li><li>Order not delivered within 90 minutes</li></ul><h3>How to Request</h3><p>WhatsApp us at 0307-606-4194 with your order number and photos (if applicable). Refunds are processed within 24–48 hours.</p><h3>Refund Method</h3><p>Refunds are credited to your original payment method. Cash orders are refunded as PlateRun credit.</p>`
+  const docs={
+    privacy:`<h2>Privacy Policy</h2><p class="legal-meta">Last updated: May 2025</p><h3>Information We Collect</h3><p>We collect your name, phone number, and delivery address to process orders.</p><h3>How We Use It</h3><p>Your data is used exclusively for order processing and delivery. We never sell your information.</p><h3>Contact</h3><p>Questions? Email rshazab91@gmail.com or WhatsApp 0307-606-4194.</p>`,
+    terms:`<h2>Terms of Service</h2><p class="legal-meta">Last updated: May 2025</p><h3>Service</h3><p>PlateRun connects customers with restaurants in Johar Town, Lahore for food delivery.</p><h3>Orders</h3><p>Delivery fee is Rs. 200 (free over Rs. 3,000). All prices include tax.</p><h3>Contact</h3><p>WhatsApp: 0307-606-4194 · Email: rshazab91@gmail.com</p>`,
+    refund:`<h2>Refund Policy</h2><p class="legal-meta">Last updated: May 2025</p><h3>When You Can Get a Refund</h3><ul><li>Wrong items delivered</li><li>Missing items</li><li>Quality issues (with photo)</li></ul><h3>How</h3><p>WhatsApp us at 0307-606-4194 with your order number and photos. Refunds processed within 24–48 hours.</p>`
   };
-  content.innerHTML = docs[type] || '<p>Content not available.</p>';
-  content.innerHTML += '<button class="m-close" onclick="closeOverlay(\'legalOv\')" style="position:absolute;top:16px;right:16px">✕</button>';
+  document.getElementById('legalContent').innerHTML=(docs[type]||'')+'<button class="m-close" onclick="closeOverlay(\'legalOv\')" style="position:absolute;top:16px;right:16px">✕</button>';
   openOverlay('legalOv');
-}
-function showCareers(){
-  toast('🚀 We\'re hiring! Check our Instagram @platerun.pk for openings.');
-}
-
-// ═══ NEWSLETTER ═══
-function subscribeNl(){
-  const email = document.getElementById('nlEmail').value.trim();
-  if(!email || !email.includes('@')){toast('⚠️ Please enter a valid email');return;}
-  toast('🎉 Subscribed! Check your inbox for a welcome discount.');
-  document.getElementById('nlEmail').value = '';
-  launchConfetti();
-}
-
-// ═══ TRACKER ANIMATION ═══
-function animateTracker(){
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        setTimeout(() => {
-          document.getElementById('trackerFill').style.width = '62%';
-        }, 500);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {threshold:0.3});
-  observer.observe(document.getElementById('trackerWidget'));
 }
 
 // ═══ THEME ═══
-function initTheme(){
-  const saved = localStorage.getItem('pr_theme');
-  if(saved){
-    document.documentElement.setAttribute('data-theme',saved);
-    document.getElementById('themeBtn').textContent = saved==='dark'?'☀️':'🌙';
-  }
-}
-function toggleTheme(){
-  const current = document.documentElement.getAttribute('data-theme');
-  const next = current === 'dark' ? 'light' : 'dark';
-  document.documentElement.setAttribute('data-theme', next);
-  document.getElementById('themeBtn').textContent = next==='dark'?'☀️':'🌙';
-  localStorage.setItem('pr_theme', next);
-}
+function initTheme(){const s=localStorage.getItem('pr_theme');if(s){document.documentElement.setAttribute('data-theme',s);document.getElementById('themeBtn').textContent=s==='dark'?'☀️':'🌙';}}
+function toggleTheme(){const c=document.documentElement.getAttribute('data-theme');const n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);document.getElementById('themeBtn').textContent=n==='dark'?'☀️':'🌙';localStorage.setItem('pr_theme',n);}
 
-// ═══ NAV SCROLL ═══
-function initNavScroll(){
-  const nav = document.getElementById('mainNav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 20);
-  });
-}
+// ═══ NAV ═══
+function initNavScroll(){window.addEventListener('scroll',()=>{document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>20);});}
+function toggleMob(){document.getElementById('mobDrawer').classList.toggle('open');}
+function closeMob(){document.getElementById('mobDrawer').classList.remove('open');}
 
-// ═══ MOBILE ═══
-function toggleMob(){
-  const d = document.getElementById('mobDrawer');
-  d.classList.toggle('open');
-  const h = document.getElementById('hamBtn');
-  h.classList.toggle('active');
-}
-function closeMob(){
-  document.getElementById('mobDrawer').classList.remove('open');
-  document.getElementById('hamBtn').classList.remove('active');
-}
-
-// ═══ REVEAL ON SCROLL ═══
+// ═══ REVEAL ═══
 function initReveal(){
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {threshold:0.08, rootMargin:'0px 0px -40px 0px'});
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 }
 
 // ═══ TOAST ═══
-function toast(msg){
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  clearTimeout(t._timer);
-  t._timer = setTimeout(() => t.classList.remove('show'), 3000);
-}
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(t._timer);t._timer=setTimeout(()=>t.classList.remove('show'),3000);}
 </script>
 </body>
 </html>
