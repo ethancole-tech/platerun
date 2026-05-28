@@ -1139,18 +1139,37 @@ function updateCart(){
 }
 
 // ═══ CHECKOUT ═══
+function renderCheckoutItems() {
+  const subtotal=cart.reduce((s,c)=>s+c.price*c.qty,0);
+  const delFee=subtotal>=LITTLE_OLIVES.freeMin?0:LITTLE_OLIVES.delivery;
+  const total=subtotal+delFee;
+  document.getElementById('coItems').innerHTML=cart.map(c=>
+    `<div class="os-row muted" style="align-items:center"><span style="display:flex;align-items:center;gap:6px"><button onclick="updateQty('${c.key.replace(/'/g, "\\'")}',-1)" style="padding:2px 8px;border-radius:4px;border:1px solid var(--border);background:var(--surface);cursor:pointer;color:var(--ink)">-</button><b>${c.qty}</b><button onclick="updateQty('${c.key.replace(/'/g, "\\'")}',1)" style="padding:2px 8px;border-radius:4px;border:1px solid var(--border);background:var(--surface);cursor:pointer;color:var(--ink)">+</button> ${c.name}</span><span>Rs. ${(c.price*c.qty).toLocaleString()}</span></div>`
+  ).join('')+
+  `<div class="os-row muted"><span>Delivery</span><span>${delFee===0?'<span style="color:var(--green);font-weight:700">FREE ✓</span>':'Rs. '+delFee}</span></div>`+
+  `<div class="os-row"><span>TOTAL</span><span>Rs. ${total.toLocaleString()}</span></div>`;
+}
+
+function updateQty(key, delta) {
+  const item = cart.find(c => c.key === key);
+  if(item) {
+    item.qty += delta;
+    if(item.qty <= 0) cart = cart.filter(c => c.key !== key);
+    updateCart();
+    if(cart.length === 0) {
+      closeOverlay('coOv');
+      toast('🛒 Cart is empty');
+    } else {
+      renderCheckoutItems();
+    }
+  }
+}
+
 function goCheckout(){
   if(cart.length===0){toast('🛒 Your cart is empty!');return;}
   closeOverlay('menuOv');
   setTimeout(()=>{
-    const subtotal=cart.reduce((s,c)=>s+c.price*c.qty,0);
-    const delFee=subtotal>=LITTLE_OLIVES.freeMin?0:LITTLE_OLIVES.delivery;
-    const total=subtotal+delFee;
-    document.getElementById('coItems').innerHTML=cart.map(c=>
-      `<div class="os-row muted"><span>${c.name} × ${c.qty}</span><span>Rs. ${(c.price*c.qty).toLocaleString()}</span></div>`
-    ).join('')+
-    `<div class="os-row muted"><span>Delivery</span><span>${delFee===0?'<span style="color:var(--green);font-weight:700">FREE ✓</span>':'Rs. '+delFee}</span></div>`+
-    `<div class="os-row"><span>TOTAL</span><span>Rs. ${total.toLocaleString()}</span></div>`;
+    renderCheckoutItems();
     // pre-fill if user logged in
     if(user){
       document.getElementById('coName').value=user.name||'';
@@ -1222,6 +1241,9 @@ function placeOrder(){
   if(user){user.orders=(user.orders||0)+1;localStorage.setItem('pr_user',JSON.stringify(user));updateDashboard();}
 
   closeOverlay('coOv');
+
+  // Auto-open WhatsApp
+  window.open(`https://wa.me/${OWNER_WA}?text=${waMsg}`, '_blank');
 
   // Show receipt
   setTimeout(()=>{
