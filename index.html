@@ -457,15 +457,18 @@ footer{background:#100601;padding:48px 28px 28px;position:relative;z-index:1;bor
   .nav-ham{display:flex}
   .mob-drawer{top:94px}
   nav.promo-hidden+.mob-drawer,.mob-drawer.promo-gone{top:58px}
-  .hero{grid-template-columns:1fr;padding:118px 18px 48px;gap:0;min-height:auto}
-  .hero-visual{display:none}
-  .hero h1{font-size:clamp(36px,10vw,52px)}
-  .hero-sub{font-size:13px;max-width:100%;margin-top:14px}
+  .hero{grid-template-columns:1fr;padding:118px 18px 48px;gap:30px;min-height:auto}
+  .hero-visual{height:300px;transform:scale(0.85);transform-origin:top center;margin-bottom:-60px;margin-top:10px}
+  .hv-food:nth-child(2){left:80%}
+  .hero h1{font-size:clamp(36px,10vw,52px);text-align:center}
+  .hero-sub{font-size:13px;max-width:100%;margin-top:14px;text-align:center}
+  .hero-badge{margin-left:auto;margin-right:auto;display:flex;width:fit-content}
   .search-box{max-width:100%;margin-top:22px}
   .search-inner{flex-direction:column;background:transparent;box-shadow:none;border:none;gap:8px;border-radius:0}
   .search-inner input{border:1px solid var(--border);border-radius:11px;background:var(--card);box-shadow:var(--sh);padding:14px 16px}
   .search-inner button{border-radius:11px;padding:14px;box-shadow:0 4px 16px rgba(232,52,10,.28)}
-  .hero-stats{gap:16px;margin-top:20px}
+  .search-chips{justify-content:center}
+  .hero-stats{gap:16px;margin-top:20px;justify-content:center}
   .stat-num{font-size:24px}
   .feat-strip-inner{grid-template-columns:1fr 1fr}
   .feat-item{padding:14px 12px;gap:9px}
@@ -479,8 +482,10 @@ footer{background:#100601;padding:48px 28px 28px;position:relative;z-index:1;bor
   .pv-box{padding:22px}
   .pstats{grid-template-columns:1fr 1fr;gap:8px}
   .foot-grid{grid-template-columns:1fr 1fr;gap:24px}
+  .foot-brand{grid-column:1 / -1;text-align:center}
+  .foot-brand .foot-socials{justify-content:center}
+  .foot-brand .fb-loc{justify-content:center}
   footer{padding:36px 16px 22px}
-  .foot-col:nth-child(n+4){display:none}
   .dash-panel{width:100vw;border-left:none}
   .theme-toggle{bottom:70px;right:14px;width:40px;height:40px;font-size:14px}
   .scroll-top{bottom:70px;left:14px;width:36px;height:36px}
@@ -496,8 +501,8 @@ footer{background:#100601;padding:48px 28px 28px;position:relative;z-index:1;bor
   .cats-section{padding:36px 22px}
   .rest-grid{grid-template-columns:1fr 1fr}
   footer{padding:44px 32px 24px}
-  .foot-grid{grid-template-columns:2fr 1fr 1fr}
-  .foot-col:last-child{display:none}
+  .foot-grid{grid-template-columns:1fr 1fr 1fr;gap:32px}
+  .foot-brand{grid-column:1 / -1;margin-bottom:10px}
   .hero-visual{height:440px}
   .hv-card{width:245px}
 }
@@ -1250,13 +1255,14 @@ function placeOrder(){
 
   closeOverlay('coOv');
 
-  // Auto-open WhatsApp
-  const waLink = document.createElement('a');
-  waLink.href = `https://wa.me/${OWNER_WA}?text=${encodedMsg}`;
-  waLink.target = '_blank';
-  document.body.appendChild(waLink);
-  waLink.click();
-  document.body.removeChild(waLink);
+  // Auto-open WhatsApp (robust for mobile)
+  const waUrl = `https://wa.me/${OWNER_WA}?text=${encodedMsg}`;
+  try {
+    const w = window.open(waUrl, '_blank');
+    if(!w) window.location.href = waUrl;
+  } catch(e) {
+    window.location.href = waUrl;
+  }
 
   // Show receipt
   setTimeout(()=>{
@@ -1293,8 +1299,8 @@ function placeOrder(){
         <a class="wa-btn" href="https://wa.me/${OWNER_WA}?text=${encodedMsg}" target="_blank" rel="noopener">
           💬 Send order to PlateRun (WhatsApp)
         </a>
-        <a class="wa-btn-outline" href="https://wa.me/92${LITTLE_OLIVES.phone.substring(1)}?text=${encodedRest}" target="_blank" rel="noopener" style="border:1px solid #25D366;color:#25D366;border-radius:12px;padding:13px;text-align:center;font-weight:700;font-size:13px;text-decoration:none;display:block">
-          🏪 Send to Restaurant (${LITTLE_OLIVES.phone})
+        <a class="wa-btn-outline" href="https://wa.me/92${LITTLE_OLIVES.phone.substring(1)}" target="_blank" rel="noopener" style="border:1px solid var(--border);color:var(--ink);border-radius:12px;padding:13px;text-align:center;font-weight:700;font-size:13px;text-decoration:none;display:block">
+          🏪 Contact Restaurant (${LITTLE_OLIVES.phone})
         </a>
         <a class="wa-btn-outline" href="https://wa.me/${RIDER_WA}" target="_blank" rel="noopener" style="border:1px solid var(--border);color:var(--ink);border-radius:12px;padding:13px;text-align:center;font-weight:700;font-size:13px;text-decoration:none;display:block">
           🏍️ Contact Rider (0328-624-2582)
