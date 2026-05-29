@@ -14,10 +14,12 @@ app.post('/api/chat', async (req, res) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.OPENROUTER_API_KEY}`
+        'Authorization': `Bearer ${process.env.OPENROUTER_API_KEY}`,
+        'HTTP-Referer': 'https://platerun.onrender.com',
+        'X-Title': 'PlateRun'
       },
       body: JSON.stringify({
-        model: 'meta-llama/llama-3.2-3b-instruct:free',
+        model: 'meta-llama/llama-3.3-70b-instruct:free',
         messages: [
           {
             role: 'system',
@@ -29,16 +31,22 @@ app.post('/api/chat', async (req, res) => {
     });
 
     const data = await response.json();
-    console.log('Response:', JSON.stringify(data));
+    console.log('Full response:', JSON.stringify(data));
+
+    if (data.error) {
+      console.error('OpenRouter error:', data.error.message);
+      return res.json({ response: `Error: ${data.error.message}` });
+    }
 
     if (data.choices?.[0]?.message) {
       res.json({ response: data.choices[0].message.content });
     } else {
-      console.error('Unexpected:', JSON.stringify(data));
+      console.error('Unexpected structure:', JSON.stringify(data));
       res.json({ response: 'Sorry, something went wrong.' });
     }
+
   } catch (error) {
-    console.error('Error:', error.message);
+    console.error('Catch error:', error.message);
     res.status(500).json({ response: 'Something went wrong.' });
   }
 });
@@ -46,5 +54,4 @@ app.post('/api/chat', async (req, res) => {
 app.get('/', (req, res) => res.send('PlateRun Chat API running!'));
 
 const PORT = process.env.PORT || 3000;
-// ✅ Explicitly bind to 0.0.0.0 — required by Render
 app.listen(PORT, '0.0.0.0', () => console.log(`Server running on port ${PORT}`));
