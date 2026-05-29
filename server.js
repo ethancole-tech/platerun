@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
-
 const app = express();
+
 app.use(cors({ origin: '*' }));
 app.use(express.json());
 
@@ -23,10 +23,7 @@ app.post('/api/chat', async (req, res) => {
             role: 'system',
             content: 'You are PlateRun AI Assistant for a food delivery service in Johar Town, Lahore. Help with menu questions, delivery info, and orders. Be friendly and concise. If unsure, suggest WhatsApp: 0307-606-4194.'
           },
-          {
-            role: 'user',
-            content: message
-          }
+          { role: 'user', content: message }
         ]
       })
     });
@@ -34,13 +31,12 @@ app.post('/api/chat', async (req, res) => {
     const data = await response.json();
     console.log('Response:', JSON.stringify(data));
 
-    if (data.choices && data.choices[0] && data.choices[0].message) {
+    if (data.choices?.[0]?.message) {
       res.json({ response: data.choices[0].message.content });
     } else {
       console.error('Unexpected:', JSON.stringify(data));
       res.json({ response: 'Sorry, something went wrong.' });
     }
-
   } catch (error) {
     console.error('Error:', error.message);
     res.status(500).json({ response: 'Something went wrong.' });
@@ -50,4 +46,5 @@ app.post('/api/chat', async (req, res) => {
 app.get('/', (req, res) => res.send('PlateRun Chat API running!'));
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log('Server on port ' + PORT));
+// ✅ Explicitly bind to 0.0.0.0 — required by Render
+app.listen(PORT, '0.0.0.0', () => console.log(`Server running on port ${PORT}`));
