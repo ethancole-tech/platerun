@@ -5,58 +5,37 @@ const app = express();
 app.use(cors({ origin: '*' }));
 app.use(express.json());
 
-const MODELS = [
-  'deepseek/deepseek-r1:free',
-  'qwen/qwen3-8b:free',
-  'mistralai/mistral-7b-instruct:free',
-  'meta-llama/llama-3.3-70b-instruct:free'
-];
-
 app.post('/api/chat', async (req, res) => {
   const { message } = req.body;
   if (!message) return res.status(400).json({ response: 'No message' });
 
-  const model = MODELS[Math.floor(Math.random() * MODELS.length)];
-  console.log('Using model:', model);
-
   try {
-    const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.OPENROUTER_API_KEY}`,
-        'HTTP-Referer': 'https://platerun.onrender.com',
-        'X-Title': 'PlateRun'
-      },
-      body: JSON.stringify({
-        model: model,
-        messages: [
-          {
-            role: 'system',
-            content: 'You are PlateRun AI Assistant for a food delivery service in Johar Town, Lahore. Help with menu questions, delivery info, and orders. Be friendly and concise. If unsure, suggest WhatsApp: 0307-606-4194.'
+    const response = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          system_instruction: {
+            parts: [{ text: 'You are PlateRun AI Assistant for a food delivery service in Johar Town, Lahore. Help with menu questions, delivery info, and orders. Be friendly and concise. If unsure, suggest WhatsApp: 0307-606-4194.' }]
           },
-          { role: 'user', content: message }
-        ]
-      })
-    });
+          contents: [{ parts: [{ text: message }] }]
+        })
+      }
+    );
 
     const data = await response.json();
-    console.log('Full response:', JSON.stringify(data));
+    console.log('Gemini response:', JSON.stringify(data));
 
-    if (data.error) {
-      console.error('OpenRouter error:', data.error.message);
-      return res.json({ response: `Error: ${data.error.message}` });
-    }
-
-    if (data.choices?.[0]?.message) {
-      res.json({ response: data.choices[0].message.content });
+    if (data.candidates?.[0]?.content?.parts?.[0]?.text) {
+      res.json({ response: data.candidates[0].content.parts[0].text });
     } else {
-      console.error('Unexpected structure:', JSON.stringify(data));
+      console.error('Unexpected:', JSON.stringify(data));
       res.json({ response: 'Sorry, something went wrong.' });
     }
 
   } catch (error) {
-    console.error('Catch error:', error.message);
+    console.error('Error:', error.message);
     res.status(500).json({ response: 'Something went wrong.' });
   }
 });
