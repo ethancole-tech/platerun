@@ -7,6 +7,7 @@ app.use(express.json());
 
 app.post('/api/chat', async (req, res) => {
   const { message } = req.body;
+  if (!message) return res.status(400).json({ response: 'No message provided' });
 
   try {
     const response = await fetch('https://api.anthropic.com/v1/messages', {
@@ -19,9 +20,7 @@ app.post('/api/chat', async (req, res) => {
       body: JSON.stringify({
         model: 'claude-sonnet-4-20250514',
         max_tokens: 500,
-        system: `You are PlateRun AI Assistant for a food delivery service in Johar Town, Lahore. 
-        Help with menu questions, delivery info, and orders. Be friendly and concise. 
-        If unsure, suggest WhatsApp: 0307-606-4194.`,
+        system: 'You are PlateRun AI Assistant for a food delivery service in Johar Town, Lahore. Help with menu questions, delivery info, and orders. Be friendly and concise. If unsure, suggest WhatsApp: 0307-606-4194.',
         messages: [{ role: 'user', content: message }]
       })
     });
@@ -38,4 +37,4 @@ app.post('/api/chat', async (req, res) => {
 app.get('/', (req, res) => res.send('PlateRun Chat API running!'));
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server on port ${PORT}`));
+app.listen(PORT, () => console.log('Server running on port ' + PORT));
