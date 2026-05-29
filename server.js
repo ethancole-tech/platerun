@@ -2,7 +2,13 @@ const express = require('express');
 const cors = require('cors');
 
 const app = express();
-app.use(cors());
+
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type']
+}));
+
 app.use(express.json());
 
 app.post('/api/chat', async (req, res) => {
@@ -26,10 +32,17 @@ app.post('/api/chat', async (req, res) => {
     });
 
     const data = await response.json();
-    res.json({ response: data.content[0].text });
+    console.log('Anthropic response:', JSON.stringify(data));
+    
+    if (data.content && data.content[0]) {
+      res.json({ response: data.content[0].text });
+    } else {
+      console.error('Unexpected response:', data);
+      res.json({ response: 'Sorry, something went wrong.' });
+    }
 
   } catch (error) {
-    console.error(error);
+    console.error('Error:', error);
     res.status(500).json({ response: 'Something went wrong.' });
   }
 });
