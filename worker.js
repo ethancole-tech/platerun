@@ -1,6 +1,7 @@
 export default {
   async fetch(request, env) {
 
+    // ── CORS preflight ────────────────────────────────────────────────────────
     if (request.method === 'OPTIONS') {
       return new Response(null, {
         headers: {
@@ -11,22 +12,38 @@ export default {
       });
     }
 
+    // ── Health check ──────────────────────────────────────────────────────────
     if (request.method === 'GET') {
       return new Response('PlateRun Chat API running! 🍕', {
         headers: { 'Access-Control-Allow-Origin': '*' }
       });
     }
 
+    // ── Main chat handler ─────────────────────────────────────────────────────
     if (request.method === 'POST') {
       try {
-        const { message } = await request.json();
+        const body = await request.json();
+        const { message, history } = body;
 
-        if (!message) {
+        if (!message || typeof message !== 'string' || !message.trim()) {
           return Response.json(
-            { response: 'No message received' },
+            { response: 'No message received.' },
             { headers: { 'Access-Control-Allow-Origin': '*' } }
           );
         }
+
+        // Build messages array: past history + current user message
+        // history comes from chatbot.js as [{role, content}, ...]
+        const pastMessages = Array.isArray(history)
+          ? history
+              .filter(m => m.role && m.content && typeof m.content === 'string')
+              .slice(-10) // max 10 past turns to stay within token limits
+          : [];
+
+        const messages = [
+          ...pastMessages,
+          { role: 'user', content: message.trim() }
+        ];
 
         const anthropicResponse = await fetch('https://api.anthropic.com/v1/messages', {
           method: 'POST',
@@ -37,25 +54,40 @@ export default {
           },
           body: JSON.stringify({
             model: 'claude-haiku-4-5-20251001',
-            max_tokens: 300,
-            system: `You are PlateRun AI Assistant — a friendly food delivery chatbot for PlateRun in Johar Town, Lahore, Pakistan.
+            max_tokens: 400,
+            system: `You are PlateRun AI Assistant — a friendly, concise food delivery chatbot for PlateRun in Johar Town, Lahore, Pakistan.
 
 You help customers with:
 - Menu questions (Little Olives restaurant: Italian, Pan Asian, Chinese food)
-- Delivery info: Rs. 200 fee, FREE delivery over Rs. 3000, 25-45 min delivery
-- Payment: Cash on Delivery, JazzCash, EasyPaisa
-- Order support via WhatsApp
+- Delivery info: Rs. 200 fee, FREE delivery over Rs. 3000, 25–45 min delivery time
+- Payment methods: Cash on Delivery, JazzCash, EasyPaisa
+- Order tracking and support via WhatsApp
 
-Key contacts:
+Key info:
 - WhatsApp: 0307-606-4194
-- Area: Johar Town, Lahore only
+- Delivery area: Johar Town, Lahore only
+- Website: platerun.vercel.app
 
-Be friendly, helpful, and concise. Max 2-3 sentences. If unsure, direct to WhatsApp.`,
-            messages: [{ role: 'user', content: message }]
+Rules:
+- Be friendly, warm, and helpful
+- Keep replies to 2–3 sentences max
+- If you don't know something specific, direct the customer to WhatsApp
+- Never make up menu items, prices, or delivery times you are unsure about
+- If asked something unrelated to food/PlateRun, politely redirect`,
+            messages
           })
         });
 
         const data = await anthropicResponse.json();
+
+        // Handle Anthropic API errors gracefully
+        if (data.error) {
+          console.error('Anthropic API error:', data.error);
+          return Response.json(
+            { response: 'Sorry, our AI is taking a break. Please WhatsApp us at 0307-606-4194 💬' },
+            { headers: { 'Access-Control-Allow-Origin': '*' } }
+          );
+        }
 
         if (data.content && data.content[0]?.text) {
           return Response.json(
@@ -70,6 +102,7 @@ Be friendly, helpful, and concise. Max 2-3 sentences. If unsure, direct to Whats
         );
 
       } catch (err) {
+        console.error('Worker error:', err);
         return Response.json(
           { response: 'Something went wrong. WhatsApp: 0307-606-4194 💬' },
           { status: 500, headers: { 'Access-Control-Allow-Origin': '*' } }
