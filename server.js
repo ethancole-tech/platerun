@@ -32,11 +32,17 @@ app.post('/api/chat', async (req, res) => {
     });
 
     const data = await response.json();
-    const reply = data.choices[0].message.content;
-    res.json({ response: reply });
+    console.log('Response:', JSON.stringify(data));
+
+    if (data.choices && data.choices[0] && data.choices[0].message) {
+      res.json({ response: data.choices[0].message.content });
+    } else {
+      console.error('Unexpected:', JSON.stringify(data));
+      res.json({ response: 'Sorry, something went wrong.' });
+    }
 
   } catch (error) {
-    console.error('Error:', error);
+    console.error('Error:', error.message);
     res.status(500).json({ response: 'Something went wrong.' });
   }
 });
