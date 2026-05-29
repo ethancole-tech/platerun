@@ -5,9 +5,19 @@ const app = express();
 app.use(cors({ origin: '*' }));
 app.use(express.json());
 
+const MODELS = [
+  'deepseek/deepseek-r1:free',
+  'qwen/qwen3-8b:free',
+  'mistralai/mistral-7b-instruct:free',
+  'meta-llama/llama-3.3-70b-instruct:free'
+];
+
 app.post('/api/chat', async (req, res) => {
   const { message } = req.body;
   if (!message) return res.status(400).json({ response: 'No message' });
+
+  const model = MODELS[Math.floor(Math.random() * MODELS.length)];
+  console.log('Using model:', model);
 
   try {
     const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
@@ -19,7 +29,7 @@ app.post('/api/chat', async (req, res) => {
         'X-Title': 'PlateRun'
       },
       body: JSON.stringify({
-        model: 'meta-llama/llama-3.3-70b-instruct:free',
+        model: model,
         messages: [
           {
             role: 'system',
