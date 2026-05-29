@@ -5,7 +5,7 @@
 
 class PlateRunChatAgent {
   constructor() {
-    this.apiURL = 'https://platerun-chat.onrender.com/api/chat'; // Update for your server
+    this.apiURL = 'https://platerun.onrender.com/api/chat';
     this.isOpen = false;
     this.messages = [];
     this.isLoading = false;
