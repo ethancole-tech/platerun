@@ -17,7 +17,7 @@ app.post('/api/chat', async (req, res) => {
         'Authorization': `Bearer ${process.env.OPENROUTER_API_KEY}`
       },
       body: JSON.stringify({
-        model: 'google/gemma-3-4b-it:free',
+        model: 'meta-llama/llama-3.2-3b-instruct:free',
         messages: [
           {
             role: 'system',
