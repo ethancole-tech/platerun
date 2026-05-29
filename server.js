@@ -10,33 +10,30 @@ app.post('/api/chat', async (req, res) => {
   if (!message) return res.status(400).json({ response: 'No message' });
 
   try {
-    const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          systemInstruction: {
-            parts: [{ text: 'You are PlateRun AI Assistant for a food delivery service in Johar Town, Lahore. Help with menu questions, delivery info, and orders. Be friendly and concise. If unsure, suggest WhatsApp: 0307-606-4194.' }]
+    const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${process.env.OPENROUTER_API_KEY}`
+      },
+      body: JSON.stringify({
+        model: 'mistralai/mistral-7b-instruct:free',
+        messages: [
+          {
+            role: 'system',
+            content: 'You are PlateRun AI Assistant for a food delivery service in Johar Town, Lahore. Help with menu questions, delivery info, and orders. Be friendly and concise. If unsure, suggest WhatsApp: 0307-606-4194.'
           },
-          contents: [{
+          {
             role: 'user',
-            parts: [{ text: message }]
-          }]
-        })
-      }
-    );
+            content: message
+          }
+        ]
+      })
+    });
 
     const data = await response.json();
-    console.log('Gemini response:', JSON.stringify(data));
-
-    if (data.candidates && data.candidates[0]) {
-      const reply = data.candidates[0].content.parts[0].text;
-      res.json({ response: reply });
-    } else {
-      console.error('Unexpected:', data);
-      res.json({ response: 'Sorry, something went wrong.' });
-    }
+    const reply = data.choices[0].message.content;
+    res.json({ response: reply });
 
   } catch (error) {
     console.error('Error:', error);
