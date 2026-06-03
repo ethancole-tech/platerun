@@ -940,6 +940,179 @@ const LITTLE_OLIVES = {
   }
 };
 
+// ═══ YAARIYAN CAFE — FULL REAL MENU ═══
+const YAARIYAN_CAFE = {
+  id:7, name:"Yaariyan Cafe", icon:"☕", area:"Johar Town, Lahore",
+  tags:["BBQ","Desi","Cafe","Fast Food"],
+  rating:4.6, reviews:287, time:"25–40", delivery:200, freeMin:3000,
+  badge:"hot", bg:"linear-gradient(135deg,#C05C1A,#7A3010)",
+  phone:"03214675303",
+  phone:"03248518368",
+  menu:{
+    "Pizza":[
+      {n:"Supreme",d:"Classic supreme pizza with loaded toppings",p:600,img:"🍕",sizes:['Small','Medium','Large'],sp:[600,1100,1600]},
+      {n:"Chicken Tikka",d:"Spicy chicken tikka pizza",p:400,img:"🍕",sizes:['Small','Medium','Large'],sp:[400,900,1400]},
+      {n:"Malai Boti Pizza",d:"Creamy malai boti topped pizza",p:700,img:"🍕",sizes:['Small','Medium','Large'],sp:[700,1200,1700]},
+      {n:"Chicken Fajita",d:"Chicken fajita with bell peppers & cheese",p:400,img:"🍕",sizes:['Small','Medium','Large'],sp:[400,900,1400]},
+      {n:"Yaariyan Special",d:"Yaariyan Cafe's signature pizza with special toppings",p:800,img:"🍕",sizes:['Small','Medium','Large'],sp:[800,1300,1900]},
+      {n:"Crown Crust",d:"Stuffed crust crown pizza — Medium & Large only",p:1400,img:"🍕",sizes:['Medium','Large'],sp:[1400,2000]},
+      {n:"Pizza Slider",d:"Mini pizza sliders, perfect snack",p:300,img:"🍕",sizes:['Small','Medium','Large'],sp:[300,500,800]},
+      {n:"Extra Topping",d:"Add extra topping to any pizza",p:80,img:"🍕",sizes:['Small','Medium','Large'],sp:[80,140,200]}
+    ],
+    "Chinese":[
+      {n:"Chinese Rice",d:"Classic Chinese fried rice",p:300,img:"🍚"},
+      {n:"Chilli Dry",d:"Crispy chicken chilli dry",p:1200,img:"🥡"},
+      {n:"Chowmein",d:"Stir-fried Chinese noodles",p:500,img:"🍜"},
+      {n:"Cashew Nut Chicken",d:"Chicken with cashew nuts in savory sauce",p:1300,img:"🥡"},
+      {n:"Manchurian With Rice",d:"Crispy manchurian in red sauce with rice",p:900,img:"🥡"},
+      {n:"Sashlik With Rice",d:"Sashlik chicken with fried rice",p:1200,img:"🥡"},
+      {n:"Masala Rice",d:"Spiced masala fried rice",p:450,img:"🍚"}
+    ],
+    "BBQ":[
+      {n:"Tikka Boti",d:"Tender chicken tikka boti",p:650,img:"🍗",sizes:['Half','Full'],sp:[650,1300]},
+      {n:"Malai Boti",d:"Creamy malai boti skewers",p:900,img:"🍗",sizes:['Half','Full'],sp:[900,1800]},
+      {n:"Chicken Kabab",d:"Seekh kabab made with minced chicken",p:800,img:"🍖",sizes:['Half','Full'],sp:[800,1600]},
+      {n:"Chicken Cheese Kabab",d:"Cheese-stuffed chicken kabab",p:1000,img:"🍖",sizes:['Half','Full'],sp:[1000,2000]},
+      {n:"Beef Kabab",d:"Juicy beef seekh kabab",p:1200,img:"🍖",sizes:['Half','Full'],sp:[1200,2400]},
+      {n:"Kastoori Boti",d:"Special kastoori marinated chicken boti",p:1000,img:"🍗",sizes:['Half','Full'],sp:[1000,2000]},
+      {n:"Sheesh Touk",d:"Lebanese-style sheesh touk chicken",p:1000,img:"🍗",sizes:['Half','Full'],sp:[1000,2000]},
+      {n:"Gril Fish",d:"Grilled whole fish",p:850,img:"🐟",sizes:['Half','Full'],sp:[850,1700]},
+      {n:"Soup",d:"Hot soup",p:220,img:"🍲",sizes:['Half','Full'],sp:[220,800]}
+    ],
+    "Steaks":[
+      {n:"White Mushroom Steak",d:"Chicken steak in white mushroom sauce",p:960,img:"🥩"},
+      {n:"Black Pepper Steak",d:"Chicken steak in rich black pepper sauce",p:960,img:"🥩"},
+      {n:"Picata Steak",d:"Chicken picata steak with caper sauce",p:960,img:"🥩"},
+      {n:"Polo Chicken",d:"Grilled polo-style chicken",p:1080,img:"🥩"},
+      {n:"Rose Marry Steak",d:"Rosemary herb chicken steak",p:1440,img:"🥩"}
+    ],
+    "Karhai":[
+      {n:"Green Karhai",d:"Chicken karhai with green chillies & herbs",p:1000,img:"🍲",sizes:['Half','Full'],sp:[1000,1900]},
+      {n:"Jalfrezi Karhai",d:"Spicy jalfrezi style karhai",p:1200,img:"🍲",sizes:['Half','Full'],sp:[1200,2100]},
+      {n:"White Karhai",d:"Creamy white karhai",p:1100,img:"🍲",sizes:['Half','Full'],sp:[1100,2000]},
+      {n:"Black Pepper Karhai",d:"Bold black pepper chicken karhai",p:1000,img:"🍲",sizes:['Half','Full'],sp:[1000,1800]},
+      {n:"Red Karhai",d:"Spicy red masala karhai",p:900,img:"🍲",sizes:['Half','Full'],sp:[900,1700]},
+      {n:"Chicken Boneless Karhai",d:"Boneless chicken karhai",p:1000,img:"🍲",sizes:['Half','Full'],sp:[1000,1600]},
+      {n:"Achari Handi Boneless",d:"Tangy pickle-spiced boneless handi",p:1000,img:"🍲",sizes:['Half','Full'],sp:[1000,1700]},
+      {n:"Chicken Handi",d:"Classic chicken handi",p:1000,img:"🍲",sizes:['Half','Full'],sp:[1000,1700]}
+    ],
+    "Burgers":[
+      {n:"Patty Burger",d:"Classic beef patty burger",p:360,img:"🍔"},
+      {n:"Grill Burger",d:"Grilled chicken burger",p:420,img:"🍔"},
+      {n:"Zinger Burger",d:"Crispy zinger chicken burger",p:480,img:"🍔"},
+      {n:"Grill Cheese Burger",d:"Grilled chicken burger with cheese",p:540,img:"🍔"},
+      {n:"Butter Milk Burger",d:"Buttermilk-marinated chicken burger",p:720,img:"🍔"},
+      {n:"Beef Smash Burger",d:"Smashed beef patty burger",p:840,img:"🍔"}
+    ],
+    "Wraps & Sandwiches":[
+      {n:"Crispy Wrap",d:"Crispy chicken wrap",p:420,img:"🌯"},
+      {n:"BBQ Wrap",d:"BBQ chicken wrap",p:420,img:"🌯"},
+      {n:"Cheese Wrap",d:"Chicken & cheese wrap",p:480,img:"🌯"},
+      {n:"Grill Sandwich with Fries",d:"Grilled chicken sandwich served with fries",p:480,img:"🥪"},
+      {n:"Cocktail Sandwich (3 Layer)",d:"Triple-layer cocktail sandwich",p:600,img:"🥪"},
+      {n:"Club Sandwich with Cheese",d:"Classic club sandwich with cheese",p:660,img:"🥪"},
+      {n:"Savado Sandwich With Fries",d:"Savado-style sandwich served with fries",p:780,img:"🥪"}
+    ],
+    "Fries & Dips":[
+      {n:"Plain Fries",d:"Classic crispy fries",p:264,img:"🍟"},
+      {n:"Masala Fries",d:"Spiced masala fries",p:300,img:"🍟"},
+      {n:"Garlic Fries",d:"Garlic-seasoned fries",p:420,img:"🍟"},
+      {n:"Crispy Loaded Fries",d:"Fries loaded with crispy toppings",p:660,img:"🍟"},
+      {n:"Loaded Fries",d:"Fully loaded fries with sauces",p:720,img:"🍟"},
+      {n:"Double Loaded Fries",d:"Double-loaded fries with extra toppings",p:1080,img:"🍟"},
+      {n:"Raita",d:"Fresh yogurt raita",p:100,img:"🥣"},
+      {n:"Imli Chatni",d:"Tangy tamarind chutney",p:150,img:"🥣"}
+    ],
+    "Pasta":[
+      {n:"Penne Pasta",d:"Penne pasta in classic sauce",p:780,img:"🍝"},
+      {n:"Alfredo Pasta",d:"Creamy alfredo pasta",p:840,img:"🍝"}
+    ],
+    "Wings & Strips":[
+      {n:"Crispy Wings",d:"Crispy fried chicken wings",p:300,img:"🍗"},
+      {n:"BBQ Wings (6pcs)",d:"BBQ-glazed chicken wings",p:420,img:"🍗"},
+      {n:"Dynamite Wings (6pcs)",d:"Spicy dynamite wings",p:480,img:"🍗"},
+      {n:"Zinger Crispy Piece",d:"Zinger crispy chicken piece",p:240,img:"🍗"},
+      {n:"Chicken Bites",d:"Crispy chicken bites",p:360,img:"🍗"},
+      {n:"Spicy Chicken Bites",d:"Hot & spicy chicken bites",p:480,img:"🍗"},
+      {n:"Peri Bites",d:"Peri peri chicken bites",p:480,img:"🍗"},
+      {n:"Honey Bites",d:"Sweet honey-glazed chicken bites",p:600,img:"🍗"},
+      {n:"Chicken Strips (6pcs)",d:"6 crispy chicken strips",p:720,img:"🍗"},
+      {n:"Chicken Strips (10pcs)",d:"10 crispy chicken strips",p:1080,img:"🍗"},
+      {n:"Fish Strips with Fries",d:"Crispy fish strips served with fries",p:1200,img:"🐟"},
+      {n:"Mozzarella Strips",d:"Cheese mozzarella strips",p:840,img:"🧀"},
+      {n:"Spin Roll (4 Pcs)",d:"4 crispy spin rolls",p:720,img:"🥟"},
+      {n:"Cheese Spin Roll (4 Pcs)",d:"4 cheese-filled spin rolls",p:720,img:"🥟"}
+    ],
+    "Paratha":[
+      {n:"Alu Wala Paratha",d:"Potato-stuffed paratha",p:150,img:"🫓"},
+      {n:"Cheese Paratha",d:"Cheese-filled paratha",p:300,img:"🫓"},
+      {n:"Nuttella Paratha",d:"Nutella-filled sweet paratha",p:300,img:"🫓"},
+      {n:"Saada Paratha",d:"Plain paratha",p:60,img:"🫓"},
+      {n:"Omelette",d:"Classic egg omelette",p:70,img:"🍳"},
+      {n:"Anda Fry",d:"Fried egg",p:60,img:"🍳"},
+      {n:"Qeema Paratha",d:"Mince-stuffed paratha",p:250,img:"🫓"}
+    ],
+    "Tea & Coffee":[
+      {n:"Chai Karak",d:"Strong karak tea",p:180,img:"☕"},
+      {n:"Doodh Patti",d:"Traditional milk tea",p:240,img:"☕"},
+      {n:"Adrak Wali Chai",d:"Ginger tea",p:250,img:"☕"},
+      {n:"Masala Chai",d:"Spiced masala tea",p:300,img:"☕"},
+      {n:"Tandoori Chai",d:"Smoky tandoori chai",p:300,img:"☕"},
+      {n:"Elaichi Chai",d:"Cardamom tea",p:300,img:"☕"},
+      {n:"Kashmiri Chai",d:"Pink Kashmiri chai",p:420,img:"☕"},
+      {n:"Cardamom Tea",d:"Premium cardamom tea",p:420,img:"☕"},
+      {n:"Royal Tea",d:"Special royal blend tea",p:600,img:"☕"},
+      {n:"Gur Wali Chai",d:"Jaggery tea",p:300,img:"☕"},
+      {n:"Malai Chai",d:"Creamy malai tea",p:269,img:"☕"},
+      {n:"Kahwa Lemon Grass",d:"Lemon grass kahwa",p:170,img:"🍵"},
+      {n:"Black Kahwa",d:"Classic black kahwa",p:220,img:"🍵"},
+      {n:"Honey Kahwa",d:"Sweet honey kahwa",p:270,img:"🍵"},
+      {n:"Green Kahwa",d:"Refreshing green kahwa",p:270,img:"🍵"},
+      {n:"Coffee",d:"Hot coffee",p:400,img:"☕"},
+      {n:"Cold Coffee",d:"Chilled cold coffee",p:550,img:"☕"},
+      {n:"Ice Latte Coffee",d:"Iced latte",p:600,img:"☕"},
+      {n:"Spanish Ice Latte",d:"Spanish-style iced latte",p:700,img:"☕"},
+      {n:"Caramel Cold Coffee",d:"Caramel iced coffee",p:600,img:"☕"},
+      {n:"Chocolate Cold Coffee",d:"Chocolate iced coffee",p:600,img:"☕"}
+    ],
+    "Shakes & Drinks":[
+      {n:"Banana Milk Shake",d:"Fresh banana milkshake",p:360,img:"🍌"},
+      {n:"Strawberry Shake",d:"Fresh strawberry shake",p:420,img:"🍓"},
+      {n:"Pineapple Shake",d:"Refreshing pineapple shake",p:480,img:"🍍"},
+      {n:"Mango Shake",d:"Fresh mango shake",p:500,img:"🥭"},
+      {n:"Oreo Dessert Shake",d:"Oreo cookies milkshake",p:500,img:"🥤"},
+      {n:"Nuttella Shake",d:"Nutella milkshake",p:600,img:"🥤"},
+      {n:"Lotus Shake",d:"Lotus biscoff shake",p:600,img:"🥤"},
+      {n:"Peanut Butter Shake",d:"Creamy peanut butter shake",p:600,img:"🥤"},
+      {n:"Kikat Shake",d:"KitKat milkshake",p:700,img:"🥤"},
+      {n:"Blueberry Shake",d:"Fresh blueberry shake",p:500,img:"🫐"},
+      {n:"Mango Ice Cream Shake",d:"Mango with ice cream shake",p:600,img:"🥭"},
+      {n:"Strawberry Ice Cream Shake",d:"Strawberry with ice cream shake",p:600,img:"🍓"},
+      {n:"Vanilla Ice Cream Shake",d:"Vanilla ice cream shake",p:600,img:"🍦"},
+      {n:"Pineapple Ice Cream Shake",d:"Pineapple ice cream shake",p:600,img:"🍍"},
+      {n:"Regular Drink",d:"Regular soft drink",p:145,img:"🥤"},
+      {n:"Can Soft Drink",d:"Canned soft drink",p:240,img:"🥤"},
+      {n:"Cold Drink (1.5 Liter)",d:"1.5 litre cold drink bottle",p:300,img:"🥤"},
+      {n:"Lemonade",d:"Fresh lemonade",p:389,img:"🍋"},
+      {n:"Mini Margarita",d:"Mocktail mini margarita",p:180,img:"🍹"},
+      {n:"Water (0.5 Liter)",d:"Mineral water 500 ml",p:100,img:"💧"},
+      {n:"Yaariyan Signature Drink",d:"Cafe's special signature drink",p:500,img:"🍹"}
+    ],
+    "Desserts":[
+      {n:"Molten Lava",d:"Warm chocolate molten lava cake",p:400,img:"🍫"},
+      {n:"Brownie",d:"Chocolate brownie",p:350,img:"🍫"},
+      {n:"Cookies (Per Piece)",d:"Freshly baked cookie",p:250,img:"🍪"},
+      {n:"Date Pudding with Ice Cream",d:"Date pudding served with ice cream",p:600,img:"🍮"},
+      {n:"Crunchy Truffle Cake",d:"Crunchy chocolate truffle cake",p:500,img:"🎂"}
+    ],
+    "Salads":[
+      {n:"Fresh Salad",d:"Garden fresh salad",p:150,img:"🥗"},
+      {n:"Russian Salad",d:"Creamy Russian salad",p:300,img:"🥗"},
+      {n:"Apple Cabbage Salad",d:"Apple and cabbage coleslaw",p:250,img:"🥗"}
+    ]
+  }
+};
+
 // ═══ COMING SOON RESTAURANTS ═══
 const COMING_SOON = [
   {id:2,name:"Karahi House",icon:"🍲",area:"Johar Town, Lahore",tags:["Desi","Karahi","BBQ"],time:"25–35",bg:"linear-gradient(135deg,#8B4513,#654321)"},
@@ -968,6 +1141,7 @@ const FAQS = [
 
 // ═══ STATE ═══
 let cart = [];
+let currentRestaurant = LITTLE_OLIVES;
 let user = JSON.parse(localStorage.getItem('pr_user')||'null');
 let authMode = 'login';
 let payMethod = 'Cash on Delivery';
@@ -1050,6 +1224,13 @@ function renderRestaurants(){
     <div class="rc-body"><div class="rc-name">${r.name}</div><div class="rc-area">📍 ${r.area}</div>
     <div class="rc-tags">${r.tags.map(t=>`<span class="rc-tag">${t}</span>`).join('')}</div>
     <div class="rc-foot"><div class="rc-rating">⭐ ${r.rating} <span>(${r.reviews})</span></div><div class="rc-meta"><span>🛵 Rs. ${r.delivery}</span><span class="rc-free">Free &gt;3000</span></div></div></div></a>`;
+  // Yaariyan Cafe — REAL
+  const y=YAARIYAN_CAFE;
+  html+=`<a class="rest-card" href="#" onclick="event.preventDefault();openMenuFor(7)">
+    <div class="rc-thumb" style="background:${y.bg}"><span style="font-size:64px;position:relative;z-index:1">${y.icon}</span><div class="rc-thumb-ov"></div><div class="rc-badge rc-badge-hot">🔥 Open Now</div><div class="rc-time">⏱ ${y.time} min</div></div>
+    <div class="rc-body"><div class="rc-name">${y.name}</div><div class="rc-area">📍 ${y.area}</div>
+    <div class="rc-tags">${y.tags.map(t=>`<span class="rc-tag">${t}</span>`).join('')}</div>
+    <div class="rc-foot"><div class="rc-rating">⭐ ${y.rating} <span>(${y.reviews})</span></div><div class="rc-meta"><span>🛵 Rs. ${y.delivery}</span><span class="rc-free">Free &gt;3000</span></div></div></div></a>`;
   // Coming Soon
   COMING_SOON.forEach(cs=>{
     html+=`<a class="rest-card" href="#" onclick="event.preventDefault();comingSoon('${cs.name}')" style="opacity:0.75">
@@ -1066,9 +1247,9 @@ function comingSoon(name){toast('🔜 '+name+' is launching soon! Stay tuned.');
 function doSearch(){
   const q=document.getElementById('heroSearch').value.trim().toLowerCase();
   if(!q){document.getElementById('restaurants').scrollIntoView({behavior:'smooth'});return;}
-  // search Little Olives menu
+  // search current menu
   const found=[];
-  Object.entries(LITTLE_OLIVES.menu).forEach(([cat,items])=>{
+  Object.entries(currentRestaurant.menu).forEach(([cat,items])=>{
     items.forEach(item=>{
       if(item.n.toLowerCase().includes(q)||item.d.toLowerCase().includes(q)||cat.toLowerCase().includes(q)){
         found.push({...item,cat});
@@ -1076,8 +1257,7 @@ function doSearch(){
     });
   });
   if(found.length>0){
-    openMenuFor(1);
-    // find matching category
+    openMenuFor(currentRestaurant.id);
     const firstCat=found[0].cat;
     const tabs=document.querySelectorAll('.mtab');
     tabs.forEach(t=>{if(t.textContent===firstCat){t.click();}});
@@ -1100,8 +1280,9 @@ function renderFAQs(){
 // ═══ MENU ═══
 function openMenu(){openMenuFor(1);}
 function openMenuFor(id){
-  if(id!==1){comingSoon(COMING_SOON.find(c=>c.id===id)?.name||'Restaurant');return;}
-  const r=LITTLE_OLIVES;
+  if(id!==1 && id!==7){comingSoon(COMING_SOON.find(c=>c.id===id)?.name||'Restaurant');return;}
+  const r = id===7 ? YAARIYAN_CAFE : LITTLE_OLIVES;
+  currentRestaurant = r;
   document.getElementById('menuRestIcon').textContent=r.icon;
   document.getElementById('menuRestIcon').style.background=r.bg;
   document.getElementById('menuRestName').textContent=r.name;
@@ -1114,7 +1295,7 @@ function openMenuFor(id){
 }
 function showMenuCat(btn,cat){
   if(btn){document.querySelectorAll('.mtab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');}
-  const items=LITTLE_OLIVES.menu[cat]||[];
+  const items=currentRestaurant.menu[cat]||[];
   document.getElementById('menuBody').innerHTML=`<div class="menu-sec-title">${cat}</div><div class="menu-sec-sub">${items.length} items${cat==='Chinese'?' · All served with Veg Fried Rice':''}</div><div class="menu-items">${items.map(it=>{
     const newTag=it.isNew?'<span class="new-tag">New</span>':'';
     const sizesHtml=it.sizes?`<div class="mi-sizes">${it.sizes.map((s,i)=>`<button class="sz-btn${i===0?' picked':''}" onclick="pickSize(this,'${it.n}',${it.sp[i]})">${s} · Rs.${it.sp[i]}</button>`).join('')}</div>`:'';
@@ -1153,7 +1334,7 @@ function updateCart(){
 // ═══ CHECKOUT ═══
 function renderCheckoutItems() {
   const subtotal=cart.reduce((s,c)=>s+c.price*c.qty,0);
-  const delFee=subtotal>=LITTLE_OLIVES.freeMin?0:LITTLE_OLIVES.delivery;
+  const delFee=subtotal>=currentRestaurant.freeMin?0:currentRestaurant.delivery;
   const total=subtotal+delFee;
   document.getElementById('coItems').innerHTML=cart.map(c=>
     `<div class="os-row muted" style="align-items:center"><span style="display:flex;align-items:center;gap:6px"><button onclick="updateQty('${c.key.replace(/'/g, "\\'")}',-1)" style="padding:2px 8px;border-radius:4px;border:1px solid var(--border);background:var(--surface);cursor:pointer;color:var(--ink)">-</button><b>${c.qty}</b><button onclick="updateQty('${c.key.replace(/'/g, "\\'")}',1)" style="padding:2px 8px;border-radius:4px;border:1px solid var(--border);background:var(--surface);cursor:pointer;color:var(--ink)">+</button> ${c.name}</span><span>Rs. ${(c.price*c.qty).toLocaleString()}</span></div>`
@@ -1216,7 +1397,7 @@ function placeOrder(btn){
   const dateStr=now.toLocaleDateString('en-PK',{day:'2-digit',month:'short',year:'numeric'});
   const timeStr=now.toLocaleTimeString('en-PK',{hour:'2-digit',minute:'2-digit',hour12:true});
   const subtotal=cart.reduce((s,c)=>s+c.price*c.qty,0);
-  const delFee=subtotal>=LITTLE_OLIVES.freeMin?0:LITTLE_OLIVES.delivery;
+  const delFee=subtotal>=currentRestaurant.freeMin?0:currentRestaurant.delivery;
   const total=subtotal+delFee;
 
   // Build receipt HTML
@@ -1235,8 +1416,8 @@ function placeOrder(btn){
   waMsg+=`🛵 Delivery: ${delFee===0?'FREE':'Rs. '+delFee}\n`;
   waMsg+=`✅ *TOTAL: Rs. ${total.toLocaleString()}*\n\n`;
   waMsg+=`💵 Payment: ${payMethod}\n`;
-  waMsg+=`🏪 Restaurant: Little Olives\n`;
-  waMsg+=`📞 Restaurant: ${LITTLE_OLIVES.phone}\n`;
+  waMsg+=`🏪 Restaurant: ${currentRestaurant.name}\n`;
+  waMsg+=`📞 Restaurant: ${currentRestaurant.phone}\n`;
   waMsg+=`🏍️ Rider: 0328-624-2582`;
 
   const encodedMsg = encodeURIComponent(waMsg);
@@ -1283,7 +1464,7 @@ function placeOrder(btn){
       </div>
 
       <div class="receipt-section">
-        <h4>🛒 Items from Little Olives</h4>
+        <h4>🛒 Items from ${currentRestaurant.name}</h4>
         ${itemsHtml}
         <div class="receipt-row" style="color:var(--muted)"><span>Delivery</span><span>${delFee===0?'FREE ✓':'Rs. '+delFee}</span></div>
         <div class="receipt-row total"><span>TOTAL</span><span>Rs. ${total.toLocaleString()}</span></div>
@@ -1298,8 +1479,8 @@ function placeOrder(btn){
         <a class="wa-btn" href="https://wa.me/${OWNER_WA}?text=${encodedMsg}" target="_blank" rel="noopener">
           💬 Send order to PlateRun (WhatsApp)
         </a>
-        <a class="wa-btn-outline" href="https://wa.me/92${LITTLE_OLIVES.phone.substring(1)}" target="_blank" rel="noopener" style="border:1px solid var(--border);color:var(--ink);border-radius:12px;padding:13px;text-align:center;font-weight:700;font-size:13px;text-decoration:none;display:block">
-          🏪 Contact Restaurant (${LITTLE_OLIVES.phone})
+        <a class="wa-btn-outline" href="https://wa.me/92${currentRestaurant.phone.substring(1)}" target="_blank" rel="noopener" style="border:1px solid var(--border);color:var(--ink);border-radius:12px;padding:13px;text-align:center;font-weight:700;font-size:13px;text-decoration:none;display:block">
+          🏪 Contact Restaurant (${currentRestaurant.phone})
         </a>
         <a class="wa-btn-outline" href="https://wa.me/${RIDER_WA}" target="_blank" rel="noopener" style="border:1px solid var(--border);color:var(--ink);border-radius:12px;padding:13px;text-align:center;font-weight:700;font-size:13px;text-decoration:none;display:block">
           🏍️ Contact Rider (0328-624-2582)
@@ -1460,6 +1641,5 @@ function initReveal(){
 // ═══ TOAST ═══
 function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(t._timer);t._timer=setTimeout(()=>t.classList.remove('show'),3000);}
 </script>
-  <script src="chatbot.js?v=2"></script>
 </body>
 </html>
