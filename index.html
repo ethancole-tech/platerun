@@ -1141,9 +1141,9 @@ const FAQS = [
 ];
 
 // ═══ SUPABASE SETUP ═══
-// (Keep your real keys here!)
-const SUPABASE_URL = 'https://YOUR_ACTUAL_URL.supabase.co';
-const SUPABASE_ANON_KEY = 'YOUR_ACTUAL_KEY';
+// TODO: Replace these with your actual Supabase Project URL and anon key
+const SUPABASE_URL = 'https://epkvberxatvgjmxquwzi.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVwa3ZiZXJ4YXR2Z2pteHF1d3ppIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA2NzE2NTMsImV4cCI6MjA5NjI0NzY1M30.S28vvFMnk2OaXjpITskh2FaGl1ghr7iwS91_Fo_Io2c';
 const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 // ═══ STATE ═══
@@ -1171,6 +1171,7 @@ document.addEventListener('DOMContentLoaded', async ()=>{
 async function checkSession() {
   if (SUPABASE_URL === 'YOUR_SUPABASE_URL') {
     console.warn("Supabase keys not set. Running without backend.");
+    // Fallback to local storage if keys are missing
     user = JSON.parse(localStorage.getItem('pr_user')||'null');
     orderHistory = JSON.parse(localStorage.getItem('pr_orders')||'[]');
     if(user) updateUILoggedIn();
@@ -1194,67 +1195,173 @@ async function loadUserProfile(authUser) {
 
 // ═══ TYPING ═══
 function initTypingEffect(){
-  const span=document.getElementById('typedText');
-  const words=['Fastest','Hottest','Freshest','Tastiest'];
-  let wIdx=0,cIdx=0,isDel=false;
+  const phrases=[
+    "From Johar Town's best kitchens to your door in 25 minutes. Italian, Pan Asian, Chinese — whatever you crave, we deliver hot & fresh. 🔥",
+    "Order from Little Olives and more restaurants joining every week. Real food, real prices, real delivery. 🍕",
+    "Place your order, get a WhatsApp receipt, track your rider. Pay cash on delivery. Simple. 🛵"
+  ];
+  const el=document.getElementById('heroSub');
+  let pi=0,ci=0,deleting=false;
   function type(){
-    const cur=words[wIdx];
-    if(isDel){span.textContent=cur.substring(0,cIdx-1);cIdx--;}
-    else{span.textContent=cur.substring(0,cIdx+1);cIdx++;}
-    if(!isDel&&cIdx===cur.length){isDel=true;setTimeout(type,2000);}
-    else if(isDel&&cIdx===0){isDel=false;wIdx=(wIdx+1)%words.length;setTimeout(type,500);}
-    else{setTimeout(type,isDel?50:120);}
+    const phrase=phrases[pi];
+    if(!deleting){
+      el.innerHTML=phrase.substring(0,ci)+'<span class="typed-cursor"></span>';
+      ci++;
+      if(ci>phrase.length){setTimeout(()=>{deleting=true;type()},4000);return;}
+      setTimeout(type,28);
+    }else{
+      el.innerHTML=phrase.substring(0,ci)+'<span class="typed-cursor"></span>';
+      ci--;
+      if(ci<0){deleting=false;pi=(pi+1)%phrases.length;ci=0;setTimeout(type,600);return;}
+      setTimeout(type,14);
+    }
   }
-  setTimeout(type,1000);
+  type();
 }
 
-// ═══ PROMO TIMER ═══
-let promoSecs=2*3600+45*60+12;
+// ═══ PROMO ═══
 function initPromoTimer(){
-  if(localStorage.getItem('pr_promo_closed')==='1'){document.getElementById('promoBanner').classList.add('hidden');document.getElementById('mainNav').classList.remove('promo-hidden');return;}
-  setInterval(()=>{
-    if(promoSecs<=0)return;
-    promoSecs--;
-    const h=Math.floor(promoSecs/3600);const m=Math.floor((promoSecs%3600)/60);const s=promoSecs%60;
-    document.getElementById('promoH').textContent=h.toString().padStart(2,'0');
-    document.getElementById('promoM').textContent=m.toString().padStart(2,'0');
-    document.getElementById('promoS').textContent=s.toString().padStart(2,'0');
-  },1000);
+  const end=new Date();end.setHours(23,59,59,999);
+  function update(){
+    const now=new Date();let diff=Math.max(0,Math.floor((end-now)/1000));
+    const h=Math.floor(diff/3600);diff%=3600;const m=Math.floor(diff/60);const s=diff%60;
+    document.getElementById('promoH').textContent=String(h).padStart(2,'0');
+    document.getElementById('promoM').textContent=String(m).padStart(2,'0');
+    document.getElementById('promoS').textContent=String(s).padStart(2,'0');
+  }
+  update();setInterval(update,1000);
 }
-function closePromo(){document.getElementById('promoBanner').classList.add('hidden');document.getElementById('mainNav').classList.remove('promo-hidden');localStorage.setItem('pr_promo_closed','1');}
-function copyPromo(){navigator.clipboard.writeText('PLATE30');toast('🎉 Promo code PLATE30 copied!');}
+function closePromo(){document.getElementById('promoBanner').classList.add('hidden');document.getElementById('mainNav').classList.add('promo-hidden');}
+function copyPromo(){navigator.clipboard?.writeText('PLATE30');toast('📋 Code PLATE30 copied!');}
 
-// ═══ CART ═══
-function addToCart(name,price){
-  const key = name;
-  const ex = cart.find(c=>c.key===key);
-  if(ex) ex.qty++; else cart.push({key,name,price,qty:1});
+// ═══ SCROLL ═══
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  document.getElementById('scrollProgress').style.width=(window.scrollY/h)*100+'%';
+  const stb=document.getElementById('scrollTopBtn');
+  if(window.scrollY>600)stb.classList.add('visible');else stb.classList.remove('visible');
+});
+
+// ═══ CATEGORIES ═══
+function renderCategories(){
+  document.getElementById('catScroll').innerHTML=CATEGORIES.map(c=>`<div class="cat-pill" onclick="quickSearch('${c.label}')">${c.icon} ${c.label}</div>`).join('');
+}
+
+// ═══ RESTAURANTS ═══
+function renderRestaurants(){
+  const grid=document.getElementById('restGrid');
+  // Little Olives — REAL
+  const r=LITTLE_OLIVES;
+  let html=`<a class="rest-card" href="#" onclick="event.preventDefault();openMenuFor(1)">
+    <div class="rc-thumb" style="background:${r.bg}"><span style="font-size:64px;position:relative;z-index:1">${r.icon}</span><div class="rc-thumb-ov"></div><div class="rc-badge rc-badge-hot">🔥 Open Now</div><div class="rc-time">⏱ ${r.time} min</div></div>
+    <div class="rc-body"><div class="rc-name">${r.name}</div><div class="rc-area">📍 ${r.area}</div>
+    <div class="rc-tags">${r.tags.map(t=>`<span class="rc-tag">${t}</span>`).join('')}</div>
+    <div class="rc-foot"><div class="rc-rating">⭐ ${r.rating} <span>(${r.reviews})</span></div><div class="rc-meta"><span>🛵 Rs. ${r.delivery}</span><span class="rc-free">Free &gt;3000</span></div></div></div></a>`;
+  // Yaariyan Cafe — REAL
+  const y=YAARIYAN_CAFE;
+  html+=`<a class="rest-card" href="#" onclick="event.preventDefault();openMenuFor(7)">
+    <div class="rc-thumb" style="background:${y.bg}"><span style="font-size:64px;position:relative;z-index:1">${y.icon}</span><div class="rc-thumb-ov"></div><div class="rc-badge rc-badge-hot">🔥 Open Now</div><div class="rc-time">⏱ ${y.time} min</div></div>
+    <div class="rc-body"><div class="rc-name">${y.name}</div><div class="rc-area">📍 ${y.area}</div>
+    <div class="rc-tags">${y.tags.map(t=>`<span class="rc-tag">${t}</span>`).join('')}</div>
+    <div class="rc-foot"><div class="rc-rating">⭐ ${y.rating} <span>(${y.reviews})</span></div><div class="rc-meta"><span>🛵 Rs. ${y.delivery}</span><span class="rc-free">Free &gt;3000</span></div></div></div></a>`;
+  // Coming Soon
+  COMING_SOON.forEach(cs=>{
+    html+=`<a class="rest-card" href="#" onclick="event.preventDefault();comingSoon('${cs.name}')" style="opacity:0.75">
+      <div class="rc-thumb" style="background:${cs.bg}"><span style="font-size:64px;position:relative;z-index:1">${cs.icon}</span><div class="rc-thumb-ov"></div><div class="rc-badge rc-badge-soon">🔜 Launching Soon</div><div class="rc-time">⏱ ${cs.time} min</div></div>
+      <div class="rc-body"><div class="rc-name">${cs.name}</div><div class="rc-area">📍 ${cs.area}</div>
+      <div class="rc-tags">${cs.tags.map(t=>`<span class="rc-tag">${t}</span>`).join('')}</div>
+      <div class="rc-foot"><div class="rc-rating" style="color:var(--muted)">Coming soon</div><div class="rc-meta"></div></div></div></a>`;
+  });
+  grid.innerHTML=html;
+}
+function comingSoon(name){toast('🔜 '+name+' is launching soon! Stay tuned.');}
+
+// ═══ SEARCH ═══
+function doSearch(){
+  const q=document.getElementById('heroSearch').value.trim().toLowerCase();
+  if(!q){document.getElementById('restaurants').scrollIntoView({behavior:'smooth'});return;}
+  // search current menu
+  const found=[];
+  Object.entries(currentRestaurant.menu).forEach(([cat,items])=>{
+    items.forEach(item=>{
+      if(item.n.toLowerCase().includes(q)||item.d.toLowerCase().includes(q)||cat.toLowerCase().includes(q)){
+        found.push({...item,cat});
+      }
+    });
+  });
+  if(found.length>0){
+    openMenuFor(currentRestaurant.id);
+    const firstCat=found[0].cat;
+    const tabs=document.querySelectorAll('.mtab');
+    tabs.forEach(t=>{if(t.textContent===firstCat){t.click();}});
+    toast('🔍 Found '+found.length+' items matching "'+q+'"');
+  }else{
+    toast('🔍 No items found for "'+q+'" — try pizza, pasta, udon...');
+  }
+}
+function quickSearch(q){document.getElementById('heroSearch').value=q;doSearch();}
+
+// ═══ FAQs ═══
+function renderFAQs(){
+  document.getElementById('faqGrid').innerHTML=FAQS.map(f=>`
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q"><span>${f.q}</span><div class="faq-icon">+</div></div>
+      <div class="faq-a"><div class="faq-a-inner">${f.a}</div></div>
+    </div>`).join('');
+}
+
+// ═══ MENU ═══
+function openMenu(){openMenuFor(1);}
+function openMenuFor(id){
+  if(id!==1 && id!==7){comingSoon(COMING_SOON.find(c=>c.id===id)?.name||'Restaurant');return;}
+  const r = id===7 ? YAARIYAN_CAFE : LITTLE_OLIVES;
+  currentRestaurant = r;
+  document.getElementById('menuRestIcon').textContent=r.icon;
+  document.getElementById('menuRestIcon').style.background=r.bg;
+  document.getElementById('menuRestName').textContent=r.name;
+  document.getElementById('menuRestMeta').innerHTML=`⭐ ${r.rating} · ${r.tags.join(' & ')} · ⏱ ${r.time} min · 📞 ${r.phone}`;
+  const cats=Object.keys(r.menu);
+  document.getElementById('menuTabs').innerHTML=cats.map((c,i)=>`<button class="mtab${i===0?' active':''}" onclick="showMenuCat(this,'${c}')">${c}</button>`).join('');
+  showMenuCat(null,cats[0]);
+  openOverlay('menuOv');
   updateCart();
-  toast('🍕 Added '+name);
-  
-  // button feedback
-  const btn=event.currentTarget;
-  const og=btn.textContent;
-  btn.textContent='✓';
-  btn.style.background='var(--green)';
-  setTimeout(()=>{btn.textContent=og;btn.style.background='';},600);
+}
+function showMenuCat(btn,cat){
+  if(btn){document.querySelectorAll('.mtab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');}
+  const items=currentRestaurant.menu[cat]||[];
+  document.getElementById('menuBody').innerHTML=`<div class="menu-sec-title">${cat}</div><div class="menu-sec-sub">${items.length} items${cat==='Chinese'?' · All served with Veg Fried Rice':''}</div><div class="menu-items">${items.map(it=>{
+    const newTag=it.isNew?'<span class="new-tag">New</span>':'';
+    const sizesHtml=it.sizes?`<div class="mi-sizes">${it.sizes.map((s,i)=>`<button class="sz-btn${i===0?' picked':''}" onclick="pickSize(this,'${it.n}',${it.sp[i]})">${s} · Rs.${it.sp[i]}</button>`).join('')}</div>`:'';
+    return `<div class="menu-item" data-item="${it.n}" data-price="${it.p}"><div style="font-size:32px;flex-shrink:0">${it.img}</div><div class="mi-info"><div class="mi-name">${it.n} ${newTag}</div><div class="mi-desc">${it.d}</div>${sizesHtml}</div><div class="mi-right"><div class="mi-price">Rs. ${it.p}</div><button class="add-btn" onclick="addToCart('${it.n.replace(/'/g,"\\'")}',${it.p})">+</button></div></div>`;
+  }).join('')}</div>`;
+  document.getElementById('menuBody').scrollTop=0;
+}
+function pickSize(btn,name,price){
+  btn.closest('.mi-sizes').querySelectorAll('.sz-btn').forEach(b=>b.classList.remove('picked'));
+  btn.classList.add('picked');
+  const item=btn.closest('.menu-item');
+  item.querySelector('.mi-price').textContent='Rs. '+price;
+  item.querySelector('.add-btn').setAttribute('onclick',`addToCart('${name.replace(/'/g,"\\'")}',${price})`);
+}
+function addToCart(name,price){
+  const key=name+'_'+price;
+  const existing=cart.find(c=>c.key===key);
+  if(existing)existing.qty++;
+  else cart.push({key,name,price,qty:1});
+  updateCart();
+  toast('🛒 Added '+name);
+  const badge=document.getElementById('navBadge');
+  if(badge){badge.classList.remove('bump');void badge.offsetWidth;badge.classList.add('bump');}
 }
 function updateCart(){
-  const qty=cart.reduce((s,c)=>s+c.qty,0);
-  const bd=document.getElementById('cartBadge');
-  bd.textContent=qty;
-  bd.style.display=qty>0?'flex':'none';
-  if(qty>0){bd.classList.remove('bump');void bd.offsetWidth;bd.classList.add('bump');}
-  
-  const mbar=document.getElementById('menuCartBar');
-  if(cart.length>0){
-    const total=cart.reduce((s,c)=>s+c.price*c.qty,0);
-    document.getElementById('mcItems').textContent=`${qty} item${qty>1?'s':''}`;
-    document.getElementById('mcTotal').textContent=`Rs. ${total.toLocaleString()}`;
-    mbar.style.display='flex';
-  }else{
-    mbar.style.display='none';
-  }
+  const count=cart.reduce((s,c)=>s+c.qty,0);
+  const total=cart.reduce((s,c)=>s+c.price*c.qty,0);
+  document.getElementById('cartCount').textContent=count+' items';
+  document.getElementById('cartTotal').textContent='Rs. '+total.toLocaleString();
+  const nb=document.getElementById('navCartBtn');
+  const badge=document.getElementById('navBadge');
+  if(count>0){nb.style.display='flex';badge.textContent=count;}
+  else{nb.style.display='none';}
 }
 
 // ═══ CHECKOUT ═══
@@ -1477,7 +1584,6 @@ function toggleMode(){
   document.getElementById('authMainBtn').textContent=authMode==='login'?'Sign in →':'Create account →';
   document.getElementById('authToggle').innerHTML=authMode==='login'?'New to PlateRun? <a onclick="toggleMode()">Create account</a>':'Already have an account? <a onclick="toggleMode()">Sign in</a>';
 }
-
 function doAuth(){
   const email=document.getElementById('fEmail').value.trim();
   const pass=document.getElementById('fPass').value;
@@ -1549,7 +1655,6 @@ function doAuth(){
     });
   }
 }
-
 function checkPwStrength(v){
   const bar=document.getElementById('pwBar');
   let s=0;if(v.length>=4)s++;if(v.length>=8)s++;if(/[A-Z]/.test(v)&&/[0-9]/.test(v))s++;if(/[^A-Za-z0-9]/.test(v))s++;
@@ -1580,7 +1685,6 @@ function updateDashboard(){
 }
 function openDash(){document.getElementById('dashPanel').classList.add('open');}
 function closeDash(){document.getElementById('dashPanel').classList.remove('open');}
-
 async function doLogout(){
   if (SUPABASE_URL !== 'YOUR_SUPABASE_URL') {
     await sb.auth.signOut();
