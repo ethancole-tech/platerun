@@ -4,14 +4,12 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
 <meta name="description" content="PlateRun — Lahore's fastest food delivery from Johar Town's best restaurants."/>
-  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAABCGlDQ1BJQ0MgUHJvZmlsZQAAeJxjYGA8wQAELAYMDLl5JUVB7k4KEZFRCuwPGBiBEAwSk4sLGHADoKpv1yBqL+viUYcLcKakFicD6Q9ArFIEtBxopAiQLZIOYWuA2EkQtg2IXV5SUAJkB4DYRSFBzkB2CpCtkY7ETkJiJxcUgdT3ANk2uTmlyQh3M/Ck5oUGA2kOIJZhKGYIYnBncAL5H6IkfxEDg8VXBgbmCQixpJkMDNtbGRgkbiHEVBYwMPC3MDBsO48QQ4RJQWJRIliIBYiZ0tIYGD4tZ2DgjWRgEL7AwMAVDQsIHG5TALvNnSEfCNMZchhSgSKeDHkMyQx6QJYRgwGDIYMZAKbWPz9HbOBQAAADwklEQVR4nJVWS28cRRD+vu7end312ibYMVg2j4iNIkAmQrFRIgOSJYSQEIIrfyC/giN/gkjckLghceTAGThwIQdIMEjBkTAWJOvN7np3Hl0cZqe3e2bWhjqMeqqrq6u+rhevvrYvQsxJAAA+B4QUGwx/naQAzHkEBCQkFzCh9tm2dyZfBTJSub7guIMzGQIqNDzfEE+7oIbmTNYJeExRoQqHTxU0n+WWIp6xhKBAprCOJrQz8L3EkfLGHArMXWZJ0oTw+dqql5UkzrPG/auKUL3ohUQAkNKTCGCKxf/WWCIXxCVSWLDxX3VeRLUQyaLDBDSh6P4uNsLUaS+lQhEGRGwxzaiBtvaTuZ5YhKnUxUNAmcACmeVmy/a6ST9WdwdGUxq1aRZYKmaxdjp3VpvSUrgUZTcvTz/cHl3tJN8cLX3y8+o4hTn3DhRRVKM998wQ65HdiKS3nBw8N3y3N9DG2lHjo96pFtz+6akVbUMTJczNGoiCAmcFqVAgVCJKvn7YEYE9M5joQaw2IzvOSi7Mn03O8YCkUgoiAjme8IONyccvjgdGTNsSgM5SDdOUlZeGnx52Ryk18xJEmTshAOmVikB7kqTj8dg0jKYyzeaXf3buD9J2i41IQzCMGSdcUXJ30DhN2FJigxJEB4BUPSAZx/H21uY7B2/dP/y92136/ocfT/5+fG/jlf7pk+PDEyjz3ma6Hsm3/7ROE3a0TEQpAJDaBzcMw1mRk+nk5Wu9N3av79/a7fcH3W6nd+WF57c2Hxw9FJEnw9GV7+6cofn209OvjttrTdvrpOtNe+ePztGZjgpviruoaoJMaEWUUp99/sXZdHpr78b1nVf7w2HUau/t3lhbW8toLpnsaGLev3x2sDZd1vZRzGtL6cRyDnexYm/nzQpEyfbWswDv/frbzb3XV1aWCTx63F9a6mitB4PB6MEvsW6tGvtMM0uEf02VAKOUJ7HyUm8Wr+zt7JdbPJkkCYBWFI1Go8wKAK21tRYiymjdjCiSClMBc5QBtSCxTXWAEEGj0QCQZlm703HAOc/FWhANCikA7GxskNq2WIqiPOnEyVpry+8DyacSC0Lm44lL/pmVBUd57wLWt0/fA1QnFHpbnDW1+SykfNhKM0V4D32EndUC+qnqXc+8XLuxJTgsMyhKLnCRdxUxurNqwVTBxWU8GAXDtWuFc6BUNbTO0Z0bWJ3UfNtDhRL0ZHq3lwxkYFqN7fQmX1fpUArTc/sfw2aSB2v5kDc35h/PAzdcLmqCxdsJIXQPQVXsuPE98PVf/rO+9Dl1BPMAAAAASUVORK5CYII="/>
-<meta name="theme-color" content="#E8340A"/>
-<meta property="og:title" content="PlateRun — Delivering Deliciousness in Lahore"/>
-<meta property="og:description" content="Lahore's fastest food delivery from Johar Town's best restaurants."/>
 <title>PlateRun — Delivering Deliciousness in Lahore</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
+<!-- Supabase JS Library -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -950,8 +948,7 @@ const YAARIYAN_CAFE = {
   tags:["BBQ","Desi","Cafe","Fast Food"],
   rating:4.6, reviews:287, time:"25–40", delivery:200, freeMin:3000,
   badge:"hot", bg:"linear-gradient(135deg,#C05C1A,#7A3010)",
-  phone:"03214675303",
-  phone:"03248518368",
+  phone:"03000000000",
   menu:{
     "Pizza":[
       {n:"Supreme",d:"Classic supreme pizza with loaded toppings",p:600,img:"🍕",sizes:['Small','Medium','Large'],sp:[600,1100,1600]},
@@ -1143,16 +1140,22 @@ const FAQS = [
   {q:"I'm a restaurant owner — how do I join?",a:"WhatsApp us your menu at 0307-606-4194 or email rshazab91@gmail.com. We'll set up your page within 24 hours. Zero upfront cost."}
 ];
 
+// ═══ SUPABASE SETUP ═══
+// TODO: Replace these with your actual Supabase Project URL and anon key
+const SUPABASE_URL = 'https://epkvberxatvgjmxquwzi.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVwa3ZiZXJ4YXR2Z2pteHF1d3ppIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA2NzE2NTMsImV4cCI6MjA5NjI0NzY1M30.S28vvFMnk2OaXjpITskh2FaGl1ghr7iwS91_Fo_Io2c';
+const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
 // ═══ STATE ═══
 let cart = [];
 let currentRestaurant = LITTLE_OLIVES;
-let user = JSON.parse(localStorage.getItem('pr_user')||'null');
+let user = null;
 let authMode = 'login';
 let payMethod = 'Cash on Delivery';
-let orderHistory = JSON.parse(localStorage.getItem('pr_orders')||'[]');
+let orderHistory = [];
 
 // ═══ INIT ═══
-document.addEventListener('DOMContentLoaded',()=>{
+document.addEventListener('DOMContentLoaded', async ()=>{
   renderCategories();
   renderRestaurants();
   renderFAQs();
@@ -1161,8 +1164,34 @@ document.addEventListener('DOMContentLoaded',()=>{
   initTheme();
   initPromoTimer();
   initTypingEffect();
-  if(user) updateUILoggedIn();
+  await checkSession();
 });
+
+// ═══ SUPABASE SESSION CHECK ═══
+async function checkSession() {
+  if (SUPABASE_URL === 'YOUR_SUPABASE_URL') {
+    console.warn("Supabase keys not set. Running without backend.");
+    // Fallback to local storage if keys are missing
+    user = JSON.parse(localStorage.getItem('pr_user')||'null');
+    orderHistory = JSON.parse(localStorage.getItem('pr_orders')||'[]');
+    if(user) updateUILoggedIn();
+    return;
+  }
+  const { data: { session } } = await supabase.auth.getSession();
+  if (session) {
+    await loadUserProfile(session.user);
+  }
+}
+
+async function loadUserProfile(authUser) {
+  const { data: profile } = await supabase.from('profiles').select('*').eq('id', authUser.id).single();
+  if (profile) {
+    user = { ...authUser, ...profile };
+    const { data: orders } = await supabase.from('orders').select('*').eq('user_id', authUser.id).order('created_at', { ascending: false });
+    orderHistory = orders || [];
+    updateUILoggedIn();
+  }
+}
 
 // ═══ TYPING ═══
 function initTypingEffect(){
@@ -1439,11 +1468,28 @@ function placeOrder(btn){
   // Dynamically set the link destination!
   btn.href = `https://wa.me/${OWNER_WA}?text=${encodedMsg}`;
 
-  // Save order
-  const order={id:orderId,date:dateStr,time:timeStr,items:[...cart],subtotal,delivery:delFee,total,payment:payMethod,customer:{name,phone,addr}};
-  orderHistory.unshift(order);
-  localStorage.setItem('pr_orders',JSON.stringify(orderHistory));
-  if(user){user.orders=(user.orders||0)+1;localStorage.setItem('pr_user',JSON.stringify(user));updateDashboard();}
+  // Save order to Supabase
+  const order={id:orderId,user_id: user ? user.id : null, restaurant_id: currentRestaurant.id, restaurant_name: currentRestaurant.name, date:dateStr,time:timeStr,items:[...cart],subtotal,delivery_fee:delFee,total,payment_method:payMethod,customer_name:name, customer_phone:phone, customer_address:addr};
+  
+  if (SUPABASE_URL !== 'YOUR_SUPABASE_URL') {
+    supabase.from('orders').insert([order]).then(({error}) => {
+      if (error) console.error("Error saving order:", error);
+    });
+    if(user) {
+      const newOrdersCount = (user.orders_count || 0) + 1;
+      supabase.from('profiles').update({ orders_count: newOrdersCount }).eq('id', user.id).then();
+      user.orders_count = newOrdersCount;
+      orderHistory.unshift({...order, created_at: new Date().toISOString()});
+      updateDashboard();
+    } else {
+      orderHistory.unshift({...order, created_at: new Date().toISOString()});
+    }
+  } else {
+    // Fallback to local storage if no keys
+    orderHistory.unshift(order);
+    localStorage.setItem('pr_orders',JSON.stringify(orderHistory));
+    if(user){user.orders=(user.orders||0)+1;localStorage.setItem('pr_user',JSON.stringify(user));updateDashboard();}
+  }
 
   document.getElementById('coOv').classList.remove('open');
   document.body.style.overflow='';
@@ -1547,19 +1593,67 @@ function doAuth(){
   if(pass.length<4){document.getElementById('fPass').closest('.form-field').classList.add('error');valid=false;}
   else document.getElementById('fPass').closest('.form-field').classList.remove('error');
   if(!valid)return;
+
+  if (SUPABASE_URL === 'YOUR_SUPABASE_URL') {
+    // Fallback logic
+    if(authMode==='signup'){
+      const first=document.getElementById('fFirst').value.trim();
+      const phone=document.getElementById('fPhone').value.trim();
+      if(!first){document.getElementById('fFirst').closest('.form-field').classList.add('error');return;}
+      if(!phone){document.getElementById('fPhone').closest('.form-field').classList.add('error');return;}
+      user={name:first+' '+(document.getElementById('fLast').value.trim()||'').trim(),email,phone,address:document.getElementById('fAddr').value.trim(),orders:0};
+    }else{
+      user={name:email.split('@')[0],email,phone:'',address:'',orders:0};
+    }
+    localStorage.setItem('pr_user',JSON.stringify(user));
+    closeOverlay('authOv');
+    updateUILoggedIn();
+    toast(authMode==='signup'?'🎉 Account created!':'✅ Welcome back!');
+    return;
+  }
+
+  // Supabase logic
+  const btn = document.getElementById('authMainBtn');
+  const ogText = btn.textContent;
+  btn.textContent = 'Please wait...';
+  btn.disabled = true;
+
   if(authMode==='signup'){
     const first=document.getElementById('fFirst').value.trim();
     const phone=document.getElementById('fPhone').value.trim();
-    if(!first){document.getElementById('fFirst').closest('.form-field').classList.add('error');return;}
-    if(!phone){document.getElementById('fPhone').closest('.form-field').classList.add('error');return;}
-    user={name:first+' '+(document.getElementById('fLast').value.trim()||'').trim(),email,phone,address:document.getElementById('fAddr').value.trim(),orders:0};
-  }else{
-    user={name:email.split('@')[0],email,phone:'',address:'',orders:0};
+    if(!first){document.getElementById('fFirst').closest('.form-field').classList.add('error'); btn.textContent=ogText; btn.disabled=false; return;}
+    if(!phone){document.getElementById('fPhone').closest('.form-field').classList.add('error'); btn.textContent=ogText; btn.disabled=false; return;}
+    const fullName = first+' '+(document.getElementById('fLast').value.trim()||'').trim();
+    const addr = document.getElementById('fAddr').value.trim();
+    
+    supabase.auth.signUp({
+      email, password: pass
+    }).then(({data, error}) => {
+      btn.textContent = ogText;
+      btn.disabled = false;
+      if (error) { toast('❌ ' + error.message); return; }
+      if (data.user) {
+        supabase.from('profiles').upsert({
+          id: data.user.id, name: fullName, phone: phone, address: addr, orders_count: 0
+        }).then(() => {
+          toast('🎉 Account created!');
+          if(data.session) { loadUserProfile(data.user); }
+          closeOverlay('authOv');
+        });
+      }
+    });
+  } else {
+    supabase.auth.signInWithPassword({
+      email, password: pass
+    }).then(({data, error}) => {
+      btn.textContent = ogText;
+      btn.disabled = false;
+      if (error) { toast('❌ ' + error.message); return; }
+      loadUserProfile(data.user);
+      closeOverlay('authOv');
+      toast('✅ Welcome back!');
+    });
   }
-  localStorage.setItem('pr_user',JSON.stringify(user));
-  closeOverlay('authOv');
-  updateUILoggedIn();
-  toast(authMode==='signup'?'🎉 Account created!':'✅ Welcome back!');
 }
 function checkPwStrength(v){
   const bar=document.getElementById('pwBar');
@@ -1579,19 +1673,25 @@ function updateDashboard(){
   document.getElementById('dEmail').textContent=user.email;
   document.getElementById('dPhone').querySelector('strong').textContent=user.phone||'Not set';
   document.getElementById('dAddr').querySelector('strong').textContent=user.address||'Not set';
-  document.getElementById('dsOrders').textContent=user.orders||0;
-  document.getElementById('dsSaved').textContent='Rs. '+((user.orders||0)*200);
+  document.getElementById('dsOrders').textContent=user.orders_count||user.orders||0;
+  document.getElementById('dsSaved').textContent='Rs. '+((user.orders_count||user.orders||0)*200);
   // order history
   const oh=document.getElementById('ohList');
   if(orderHistory.length===0){oh.innerHTML='<div style="font-size:12px;color:var(--muted);padding:12px 0">No orders yet 🍕</div>';return;}
-  oh.innerHTML=orderHistory.slice(0,5).map(o=>`
-    <div class="oh-item"><div class="oh-icon">🫒</div><div class="oh-info"><div class="oh-name">${o.id} · Little Olives</div><div class="oh-meta">${o.date} · ${o.items.length} items</div></div><div class="oh-price">Rs. ${o.total.toLocaleString()}</div></div>
-  `).join('');
+  oh.innerHTML=orderHistory.slice(0,5).map(o=>{
+    const d = o.created_at ? new Date(o.created_at).toLocaleDateString('en-PK',{month:'short',day:'numeric'}) : o.date;
+    return `<div class="oh-item"><div class="oh-icon">🍽️</div><div class="oh-info"><div class="oh-name">${o.id} · ${o.restaurant_name || 'Restaurant'}</div><div class="oh-meta">${d} · ${o.items.length} items</div></div><div class="oh-price">Rs. ${o.total.toLocaleString()}</div></div>`;
+  }).join('');
 }
 function openDash(){document.getElementById('dashPanel').classList.add('open');}
 function closeDash(){document.getElementById('dashPanel').classList.remove('open');}
-function doLogout(){
-  user=null;localStorage.removeItem('pr_user');
+async function doLogout(){
+  if (SUPABASE_URL !== 'YOUR_SUPABASE_URL') {
+    await supabase.auth.signOut();
+  }
+  user=null;
+  orderHistory=[];
+  localStorage.removeItem('pr_user');
   closeDash();
   document.getElementById('navAuth').innerHTML='👤 Sign in';
   document.getElementById('navAuth').onclick=()=>openAuth();
