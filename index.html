@@ -1,6 +1,5 @@
 <meta>
 <meta>
-<meta>
 <title>PlateRun — Delivering Deliciousness in Lahore</title>
 <link>
 <link>
@@ -31,7 +30,6 @@ body{font-family:var(--font-b);background:var(--bg);color:var(--ink);overflow-x:
 .promo-close{background:transparent;border:none;color:rgba(245,234,216,0.4);font-size:16px;cursor:pointer;padding:4px;transition:color .2s;flex-shrink:0}
 .promo-close:hover{color:#fff}
 .theme-toggle{position:fixed;bottom:80px;right:18px;z-index:499;width:44px;height:44px;border-radius:50%;background:var(--card);border:1px solid var(--border);box-shadow:var(--sh-lg);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;transition:all .25s}
-.theme-toggle:hover{transform:scale(1.12)}
 .scroll-top{position:fixed;bottom:80px;left:18px;z-index:499;width:40px;height:40px;border-radius:50%;background:var(--card);border:1px solid var(--border);box-shadow:var(--sh);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .3s;opacity:0;transform:translateY(10px);pointer-events:none}
 .scroll-top.visible{opacity:1;transform:none;pointer-events:all}
 .scroll-top:hover{background:var(--red);border-color:var(--red);color:#fff}
@@ -48,8 +46,8 @@ nav.promo-hidden{top:0}
 .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:2px;background:var(--red);border-radius:2px;transition:width .25s}
 .nav-links a:hover::after{width:100%}
 .nav-right{display:flex;align-items:center;gap:10px;flex-shrink:0}
-.btn-red{background:var(--red);color:#fff;padding:10px 22px;border-radius:100px;font-size:13px;font-weight:700;text-decoration:none;border:none;cursor:pointer;font-family:var(--font-b);box-shadow:0 4px 18px rgba(232,52,10,0.32);transition:all .2s;white-space:nowrap;position:relative;overflow:hidden}
-.btn-red:hover{background:var(--orange);transform:translateY(-1px);box-shadow:0 6px 24px rgba(232,52,10,0.46)}
+.btn-red{background:var(--red);color:#fff;padding:10px 22px;border-radius:100px;font-size:13px;font-weight:700;text-decoration:none;border:none;cursor:pointer;font-family:var(--font-b);box-shadow:0 4px 18px rgba(232,52,10,0.32);transition:all .2s;white-space:nowrap}
+.btn-red:hover{background:var(--orange);transform:translateY(-1px)}
 .btn-ghost{display:flex;align-items:center;gap:8px;padding:9px 18px;border-radius:100px;border:1px solid var(--border);background:transparent;color:var(--ink);font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;font-family:var(--font-b);white-space:nowrap}
 .btn-ghost:hover{border-color:var(--red);color:var(--red);background:rgba(232,52,10,0.05)}
 .cart-badge{position:relative}
@@ -353,70 +351,49 @@ footer{background:#100601;padding:48px 28px 28px;position:relative;z-index:1;bor
 .reveal{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}
 .reveal.visible{opacity:1;transform:none}
 @media(max-width:767px){
-  .bg-atmo::after{display:none}
-  .smoke-orb{animation:none;filter:blur(40px)}
-  nav{backdrop-filter:none;-webkit-backdrop-filter:none;background:var(--nav-bg);padding:0 16px;height:58px}
-  .mob-drawer{backdrop-filter:none;-webkit-backdrop-filter:none;background:var(--nav-bg);top:94px}
-  .overlay{backdrop-filter:none;-webkit-backdrop-filter:none}
-  .promo-banner{font-size:10px;padding:7px 14px;gap:8px;flex-wrap:wrap}
-  .nav-links,.btn-red.nav-cta-desktop{display:none}
-  .nav-ham{display:flex}
-  nav.promo-hidden~.mob-drawer{top:58px}
-  .hero{grid-template-columns:1fr;padding:118px 18px 48px;gap:30px;min-height:auto}
-  .hero-visual{height:300px;transform:scale(0.85);transform-origin:top center;margin-bottom:-60px;margin-top:10px}
-  .hv-food:nth-child(2){left:80%}
-  .hero h1{font-size:clamp(36px,10vw,52px);text-align:center}
-  .hero-sub{font-size:13px;max-width:100%;margin-top:14px;text-align:center}
-  .hero-badge{margin-left:auto;margin-right:auto;display:flex;width:fit-content}
-  .search-box{max-width:100%;margin-top:22px}
-  .search-inner{flex-direction:column;background:transparent;box-shadow:none;border:none;gap:8px;border-radius:0}
-  .search-inner input{border:1px solid var(--border);border-radius:11px;background:var(--card);box-shadow:var(--sh);padding:14px 16px}
-  .search-inner button{border-radius:11px;padding:14px;box-shadow:0 4px 16px rgba(232,52,10,.28)}
-  .search-chips{justify-content:center}
-  .hero-stats{gap:16px;margin-top:20px;justify-content:center}
-  .stat-num{font-size:24px}
-  .feat-strip-inner{grid-template-columns:1fr 1fr}
-  .feat-item{padding:14px 12px;gap:9px}
-  .cats-section{padding:28px 16px}
-  .section{padding:40px 16px}
-  .sec-h{font-size:clamp(22px,6vw,30px)}
-  .rest-grid{grid-template-columns:1fr;gap:12px}
-  .rc-thumb{height:170px}
-  .steps-grid{grid-template-columns:1fr;gap:10px;margin-top:28px}
-  .partner-grid{grid-template-columns:1fr;gap:28px}
-  .pv-box{padding:22px}
-  .pstats{grid-template-columns:1fr 1fr;gap:8px}
-  .foot-grid{grid-template-columns:1fr 1fr;gap:24px}
-  .foot-brand{grid-column:1/-1;text-align:center}
-  .foot-brand .foot-socials{justify-content:center}
-  .foot-brand .fb-loc{justify-content:center}
-  footer{padding:36px 16px 22px}
-  .dash-panel{width:100vw;border-left:none}
-  .theme-toggle{bottom:70px;right:14px;width:40px;height:40px;font-size:14px}
-  .scroll-top{bottom:70px;left:14px;width:36px;height:36px}
-  .toast{font-size:11px;padding:10px 18px;bottom:68px;white-space:normal;max-width:86vw}
-  .auth-inner,.co-inner,.receipt-inner{padding:14px 18px 26px}
-  .menu-body{max-height:50svh}
-  .form-row{grid-template-columns:1fr}
+.bg-atmo::after{display:none}.smoke-orb{animation:none;filter:blur(40px)}
+nav{backdrop-filter:none;-webkit-backdrop-filter:none;background:var(--nav-bg);padding:0 16px;height:58px}
+.mob-drawer{backdrop-filter:none;-webkit-backdrop-filter:none;background:var(--nav-bg);top:94px}
+.overlay{backdrop-filter:none;-webkit-backdrop-filter:none}
+.promo-banner{font-size:10px;padding:7px 14px;gap:8px;flex-wrap:wrap}
+.nav-links,.btn-red.nav-cta-desktop{display:none}.nav-ham{display:flex}
+nav.promo-hidden~.mob-drawer{top:58px}
+.hero{grid-template-columns:1fr;padding:118px 18px 48px;gap:30px;min-height:auto}
+.hero-visual{height:300px;transform:scale(0.85);transform-origin:top center;margin-bottom:-60px;margin-top:10px}
+.hv-food:nth-child(2){left:80%}
+.hero h1{font-size:clamp(36px,10vw,52px);text-align:center}
+.hero-sub{font-size:13px;max-width:100%;margin-top:14px;text-align:center}
+.hero-badge{margin-left:auto;margin-right:auto;display:flex;width:fit-content}
+.search-box{max-width:100%;margin-top:22px}
+.search-inner{flex-direction:column;background:transparent;box-shadow:none;border:none;gap:8px;border-radius:0}
+.search-inner input{border:1px solid var(--border);border-radius:11px;background:var(--card);box-shadow:var(--sh);padding:14px 16px}
+.search-inner button{border-radius:11px;padding:14px;box-shadow:0 4px 16px rgba(232,52,10,.28)}
+.search-chips{justify-content:center}.hero-stats{gap:16px;margin-top:20px;justify-content:center}.stat-num{font-size:24px}
+.feat-strip-inner{grid-template-columns:1fr 1fr}.feat-item{padding:14px 12px;gap:9px}
+.cats-section{padding:28px 16px}.section{padding:40px 16px}.sec-h{font-size:clamp(22px,6vw,30px)}
+.rest-grid{grid-template-columns:1fr;gap:12px}.rc-thumb{height:170px}
+.steps-grid{grid-template-columns:1fr;gap:10px;margin-top:28px}
+.partner-grid{grid-template-columns:1fr;gap:28px}.pv-box{padding:22px}.pstats{grid-template-columns:1fr 1fr;gap:8px}
+.foot-grid{grid-template-columns:1fr 1fr;gap:24px}.foot-brand{grid-column:1/-1;text-align:center}
+.foot-brand .foot-socials{justify-content:center}.foot-brand .fb-loc{justify-content:center}
+footer{padding:36px 16px 22px}.dash-panel{width:100vw;border-left:none}
+.theme-toggle{bottom:70px;right:14px;width:40px;height:40px;font-size:14px}
+.scroll-top{bottom:70px;left:14px;width:36px;height:36px}
+.toast{font-size:11px;padding:10px 18px;bottom:68px;white-space:normal;max-width:86vw}
+.auth-inner,.co-inner,.receipt-inner{padding:14px 18px 26px}.menu-body{max-height:50svh}.form-row{grid-template-columns:1fr}
 }
 @media(min-width:768px) and (max-width:1023px){
-  nav{padding:0 22px}
-  .hero{padding:128px 32px 56px;gap:32px}
-  .section{padding:60px 32px}
-  .cats-section{padding:36px 22px}
-  .rest-grid{grid-template-columns:1fr 1fr}
-  footer{padding:44px 32px 24px}
-  .foot-grid{grid-template-columns:1fr 1fr 1fr;gap:32px}
-  .foot-brand{grid-column:1/-1;margin-bottom:10px}
-  .hero-visual{height:440px}
-  .hv-card{width:245px}
+nav{padding:0 22px}.hero{padding:128px 32px 56px;gap:32px}.section{padding:60px 32px}
+.cats-section{padding:36px 22px}.rest-grid{grid-template-columns:1fr 1fr}
+footer{padding:44px 32px 24px}.foot-grid{grid-template-columns:1fr 1fr 1fr;gap:32px}
+.foot-brand{grid-column:1/-1;margin-bottom:10px}.hero-visual{height:440px}.hv-card{width:245px}
 }
 @media(max-width:380px){.hero h1{font-size:32px}.pstats{grid-template-columns:1fr}}
 @media print{
-  .promo-banner,nav,.theme-toggle,.scroll-top,.scroll-progress,.bg-atmo,.bg-smoke,.receipt-actions,.drag-handle{display:none!important}
-  .overlay{position:static!important;background:none!important;opacity:1!important;pointer-events:all!important}
-  .bottom-sheet{border-radius:0!important;box-shadow:none!important;transform:none!important;max-height:none!important}
-  body{background:#fff!important;color:#000!important}
+.promo-banner,nav,.theme-toggle,.scroll-top,.scroll-progress,.bg-atmo,.bg-smoke,.receipt-actions,.drag-handle{display:none!important}
+.overlay{position:static!important;background:none!important;opacity:1!important;pointer-events:all!important}
+.bottom-sheet{border-radius:0!important;box-shadow:none!important;transform:none!important;max-height:none!important}
+body{background:#fff!important;color:#000!important}
 }
 </style>
 
@@ -424,846 +401,567 @@ footer{background:#100601;padding:48px 28px 28px;position:relative;z-index:1;bor
 
 
 
-  
-  
-  
 
 
-  🎉 Launch Offer! Free delivery on orders above Rs. 3,000 — use PLATE30
-  00:00:00
-  <button>✕</button>
+
+
+
+🎉 Launch Offer! Free delivery on orders above Rs. 3,000 — use PLATE30
+00:00:00
+<button>✕</button>
 
 <button>↑
 
- 
-  
-  
-   PlateRun
-   Welcome back 👋
-   Sign in — your address, number & order history are saved.
-   
-    💬
-    Continue with WhatsAppFastest way — one tap
-   
-   or with email
-   
-    
-     <label>First name *</label><input>Required
-     <label>Last name<input>
-    
-    <label>Phone number *<input>Required — for order updates
-    <label>Delivery address<input>
-   
-   <label>Email address *<input>Enter a valid email
-   <label>Password * (min. 4 chars)<input>Minimum 4 characters
-   <button>Sign in →
-   New to PlateRun? Create account
-  
- 
 
 
- 
-  
-  
-   Confirm order 🛵
-   You'll receive order confirmation on WhatsApp.
-   Your details
-   
-    <label>Your name *<input>Please enter your name
-    <label>Phone number *<input>Please enter your phone
-    <label>Delivery address *<input>Please enter your address
-   
-   Order summary
-   
-   Payment
-   
-    <button>💵 Cash on Delivery
-    <button>📱 JazzCash
-    <button>🟢 EasyPaisa
-   
-   Place order →
-  
- 
+
+PlateRun
+Welcome back 👋
+Sign in — your address, number & order history are saved.
+
+💬
+Continue with WhatsAppFastest way — one tap
+
+or with email
 
 
- 
-  
-  
- 
+<label>First name *</label><input>Required
+<label>Last name<input>
+
+<label>Phone number *<input>Required
+<label>Delivery address<input>
+
+<label>Email address *<input>Enter a valid email
+<label>Password *<input>Minimum 4 characters
+<button>Sign in →
+New to PlateRun? Create account
 
 
- 
-  
-  
-   🫒
-   
-    Little Olives
-    ⭐ 4.8 · Italian & Pan Asian · ⏱ 30–45 min
-   
-   <button>✕
-  
-  
-  
-  
-   🛒 0 items · Rs. 0
-   <button>Checkout →
-  
- 
 
 
- 
-  
-  
- 
 
 
- 
-  A
-  ––
-  <button>✕
- 
- 
-  
-   0Orders
-   Rs. 0Saved
-  
-  📍 Delivery info
-  
-   📞–Phone
-   🏠–Address
-  
-  📦 Order history
-  No orders yet 🍕
-  <button>🚪 Log out
- 
+
+Confirm order 🛵
+You will receive order confirmation on WhatsApp.
+Your details
+
+<label>Your name *<input>Please enter your name
+<label>Phone number *<input>Please enter your phone
+<label>Delivery address *<input>Please enter your address
+
+Order summary
+
+Payment
+
+<button>💵 Cash on Delivery
+<button>📱 JazzCash
+<button>🟢 EasyPaisa
+
+Place order →
+
+
+
+
+
+
+
+
+
+
+
+
+
+🫒
+
+Little Olives
+⭐ 4.8 · Italian & Pan Asian · ⏱ 30–45 min
+
+<button>✕
+
+
+
+
+🛒 0 items · Rs. 0
+<button>Checkout →
+
+
+
+
+
+
+
+
+
+
+
+A
+--
+<button>✕
+
+
+
+0Orders
+Rs. 0Saved
+
+📍 Delivery info
+
+📞-Phone
+🏠-Address
+
+📦 Order history
+No orders yet 🍕
+<button>🚪 Log out
+
 
 <button>🌙
 
 <nav>
- PlateRunLahore • Johar Town
- 
-  Restaurants
-  How it works
-  Partner
-  FAQs
- 
- 
-  🛒 Cart 0
-  👤 Sign in
-  Order now
-  
- 
+PlateRunLahore • Johar Town
+
+Restaurants
+How it works
+Partner
+FAQs
+
+
+🛒 Cart 0
+👤 Sign in
+Order now
+
+
 </nav>
 
- 🍽️ Restaurants
- 📋 How it works
- 🤝 Partner with us
- ❓ FAQs
- 
- <button>👤 Sign in / Sign up
- <button>🚀 Order now
+🍽️ Restaurants
+📋 How it works
+🤝 Partner with us
+❓ FAQs
+
+<button>👤 Sign in / Sign up
+<button>🚀 Order now
 
 <section>
- 
-   Now delivering in Johar Town
-  Lahore'sBest Food,Delivered
-  
-  
-   
-    
-    🔍 Search
-   
-   
-    🍕 Pizza
-    🍝 Pasta
-    🍜 Udons
-    🥡 Chinese
-    🥩 Steaks
-   
-  
-  
-   25 minAvg delivery
-   
-   FreeOver Rs. 3,000
-   
-   LiveGPS Tracking
-  
- 
- 
-  🍕
-  🍝
-  🥡
-  
-   🫒
-   
-    Little Olives
-    ⭐ 4.8 · Italian & Pan Asian · 🕐 30 min
-    View menu →
-   
-  
-  🛵 On the way!Arriving in 8 min
-  4.8★Top Rated
- 
+
+ Now delivering in Johar Town
+Lahore'sBest Food,Delivered
+
+
+
+
+🔍 Search
+
+
+🍕 Pizza
+🍝 Pasta
+🍜 Udons
+🥡 Chinese
+🥩 Steaks
+
+
+
+25 minAvg delivery
+
+FreeOver Rs. 3,000
+
+LiveGPS Tracking
+
+
+
+🍕
+🍝
+🥡
+
+🫒
+
+Little Olives
+⭐ 4.8 · Italian & Pan Asian · 🕐 30 min
+View menu →
+
+
+🛵 On the way!Arriving in 8 min
+4.8★Top Rated
+
 </section>
 
- 
-  🏍️25 min avgFastest in Johar Town
-  💰Free deliveryOrders over Rs. 3,000
-  📍Live trackingWhatsApp updates
-  💵Cash on deliveryPay when you receive
- 
+
+🏍️25 min avgFastest in Johar Town
+💰Free deliveryOrders over Rs. 3,000
+📍Live trackingWhatsApp updates
+💵Cash on deliveryPay when you receive
 
 
- Browse by cuisine
- What are you craving?
- 
+
+Browse by cuisine
+What are you craving?
+
 
 <section>
- 
-  
-   Restaurants
-   Johar Town's finest kitchens
-   Order from the best — more restaurants joining every week.
-  
- 
- 
+
+
+Restaurants
+Johar Town's finest kitchens
+Order from the best — more restaurants joining every week.
+
+
+
 
 <section>
- Simple as 1-2-3
- How PlateRun works
- From craving to doorstep in three easy steps.
- 
-  01📱Browse & chooseExplore the full menu, pick your favourites, customise sizes and extras.
-  02🛒Place your orderAdd to cart, enter your address. You'll get a receipt and WhatsApp confirmation instantly.
-  03🛵Receive & enjoyOur rider picks up your food and delivers it hot. Track via WhatsApp. Pay cash on delivery.
- 
+Simple as 1-2-3
+How PlateRun works
+From craving to doorstep in three easy steps.
+
+01📱Browse & chooseExplore the full menu, pick your favourites, customise sizes and extras.
+02🛒Place your orderAdd to cart, enter your address. You will get a receipt and WhatsApp confirmation instantly.
+03🛵Receive & enjoyOur rider picks up your food and delivers it hot. Track via WhatsApp. Pay cash on delivery.
+
 
 <section>
- Got questions?Frequently asked questions
- 
+Got questions?Frequently asked questions
+
 
 <section>
- 
-  
-   For restaurant owners
-   Partner with PlateRun
-   Get your restaurant on Lahore's fastest-growing delivery platform. Zero upfront cost — we handle delivery, you handle the food.
-   
-    25 minAvg delivery
-    0%Upfront cost
-    LiveOrder tracking
-    24/7WhatsApp support
-   
-   
-    ✓Your full menu onlineWe digitise your menu with prices & descriptions
-    ✓Instant order notificationsOrders come straight to your WhatsApp
-    ✓Dedicated rider fleetWe handle pickup and delivery — you just cook
-    ✓Marketing & promotionsFeatured placement and social media push
-   
-   WhatsApp us to partner →
-  
-  
-   How it works for you1. Send us your menu via WhatsApp
-   We build your page2. Your full menu goes live on PlateRun
-   Orders start flowing3. You receive orders on WhatsApp instantly
-   We handle delivery4. Our riders pick up & deliver to customers
-  
- 
+
+
+For restaurant owners
+Partner with PlateRun
+Get your restaurant on Lahore's fastest-growing delivery platform. Zero upfront cost — we handle delivery, you handle the food.
+
+25 minAvg delivery
+0%Upfront cost
+LiveOrder tracking
+24/7WhatsApp support
+
+
+✓Your full menu onlineWe digitise your menu with prices and descriptions
+✓Instant order notificationsOrders come straight to your WhatsApp
+✓Dedicated rider fleetWe handle pickup and delivery — you just cook
+✓Marketing and promotionsFeatured placement and social media push
+
+WhatsApp us to partner →
+
+
+How it works for you1. Send us your menu via WhatsApp
+We build your page2. Your full menu goes live on PlateRun
+Orders start flowing3. You receive orders on WhatsApp instantly
+We handle delivery4. Our riders pick up and deliver to customers
+
+
 
 <footer>
- 
-  
-   PlateRun
-   📍 Johar Town, Lahore
-   📞 0307-606-4194
-   ✉️ rshazab91@gmail.com
-   Lahore's fastest food delivery. Kitchen to doorstep in 25 minutes.
-   
-    💬
-    ✉️
-   
-  
-  Company
-   HomeRestaurants
-   How it worksPartner with us
-  
-  Support
-   FAQs
-   Contact us (WhatsApp)
-   Email support
-   Ride with us
-  
-  Legal
-   Privacy policy
-   Terms of service
-   Refund policy
-  
- 
- 
-  © 2025 PlateRun. Made with ❤️ in Lahore.
-  Privacy · Terms · Refunds
- 
+
+
+PlateRun
+📍 Johar Town, Lahore
+📞 0307-606-4194
+✉️ rshazab91@gmail.com
+Lahore's fastest food delivery. Kitchen to doorstep in 25 minutes.
+
+💬
+✉️
+
+
+Company
+HomeRestaurants
+How it worksPartner with us
+
+Support
+FAQs
+Contact us
+Email support
+Ride with us
+
+Legal
+Privacy policy
+Terms of service
+Refund policy
+
+
+
+© 2025 PlateRun. Made with ❤️ in Lahore.
+Privacy · Terms · Refunds
+
 </footer>
 <script>
-'use strict';
-// ═══ CONFIG ═══
 var OWNER_WA='923076064194';
 var RIDER_WA='923286242582';
 var SUPABASE_URL='https://epkvberxatvgjmxquwzi.supabase.co';
 var SUPABASE_ANON_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVwa3ZiZXJ4YXR2Z2pteHF1d3ppIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA2NzE2NTMsImV4cCI6MjA5NjI0NzY1M30.S28vvFMnk2OaXjpITskh2FaGl1ghr7iwS91_Fo_Io2c';
 var sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
 
-// ═══ LITTLE OLIVES MENU ═══
-var LITTLE_OLIVES={
-  id:1,name:'Little Olives',icon:'🫒',area:'Johar Town, Lahore',
-  tags:['Italian','Pan Asian','Chinese'],
-  rating:4.8,reviews:412,time:'30\u201345',delivery:200,freeMin:3000,
-  badge:'hot',bg:'linear-gradient(135deg,#2d6e4e,#1a4230)',
-  phone:'03707262929',
-  menu:{
-    'Appetizers':[
-      {n:'Garlic Butter Balls',d:'Soft bread balls topped with garlic, butter, cheese, baked to perfection',p:849,img:'🧄'},
-      {n:'Momos (6 Pcs)',d:'Minced chicken, steamed',p:499,img:'🥟'},
-      {n:'Momos (12 Pcs)',d:'Minced chicken, steamed',p:799,img:'🥟'},
-      {n:'Dynamite Chicken Strips',d:'5 pcs, served with fries',p:749,img:'🍗'},
-      {n:'Crispy Tacos',d:'4 pcs, crispy corn breads with baked chicken and combo sauces',p:799,img:'🌮'}
-    ],
-    'Soups':[
-      {n:'Hot n Sour Soup',d:'Classic hot and sour',p:449,img:'🍲'},
-      {n:'Sweet Corn Soup',d:'Creamy sweet corn',p:449,img:'🍲'},
-      {n:'Cream of Mushroom',d:'Rich creamy mushroom soup',p:599,img:'🍄'},
-      {n:'Cream of Chicken',d:'Creamy chicken soup',p:599,img:'🍲'}
-    ],
-    'Pastas':[
-      {n:'Alfredo Pasta',d:'Penne pasta in creamy cheesy alfredo sauce with olives and mushrooms, served with garlic bread',p:849,img:'🍝'},
-      {n:'Penne Arrabiata',d:'Penne pasta in spicy arrabiata sauce with olives, served with garlic bread',p:849,img:'🍝'},
-      {n:'Penne Alla Bolognese',d:'Penne pasta in red sauce with minced chicken, olives, topped with cheese, served with garlic bread',p:999,img:'🍝',isNew:true},
-      {n:'Parmesan Chicken Pasta',d:'Penne pasta in combination of red and white sauce, topped with 2 crispy fried cheesy chicken steaks, served with garlic breads',p:1749,img:'🍝'}
-    ],
-    'Signature Pizzas':[
-      {n:"Little Olive's Special",d:'Chicken chunks topped with olives, mushrooms, sausages and cheese. Thin crust italiano dough.',p:799,img:'🍕',sizes:['7"','10"','14"'],sp:[799,1499,1999]},
-      {n:'Alfredo Pizza',d:"Chicken chunks, olives, mushrooms, chef's special alfredo sauce, american cheese",p:799,img:'🍕',sizes:['7"','10"','14"'],sp:[799,1499,1999]},
-      {n:"Olive's Supreme",d:'Chicken, olives, mushrooms, bell peppers, tomatoes, onions, cheese',p:799,img:'🍕',sizes:['7"','10"','14"'],sp:[799,1499,1999]}
-    ],
-    'Udons':[
-      {n:'Kishimen Udon',d:'Delicious noodles cooked in a slightly spicy, soya based broth, topped with chicken, veggies, corns and boiled egg',p:1099,img:'🍜'},
-      {n:'Dry Pot Udon',d:'Spicy glazy noodles, topped with crispy chicken chunks, boiled eggs, and crispy veggies',p:999,img:'🍜'},
-      {n:'Kitsune Udon',d:'Hand made noodles glazed with Korean spices, chicken chunks, boiled egg, zucchini, carrot',p:899,img:'🍜'},
-      {n:'Sanuki Udon',d:'Noodles in chicken and mushroom broth, topped with chicken steak',p:899,img:'🍜'},
-      {n:'Kagawa Special Udon',d:'Noodles in chicken broth, bologna slice, crispy veg, boiled egg and chicken chunks',p:999,img:'🍜'},
-      {n:'Udon with Spicy Chicken',d:'Noodles with tender spicy chicken, crispy veggies, boiled egg',p:999,img:'🍜'},
-      {n:'Udon with Dumplings',d:'Hand made noodles in sweet n sour broth with chicken dumplings and crispy veggies',p:1049,img:'🍜'}
-    ],
-    'Stuffed Chicken':[
-      {n:'Hawaiian Stuffed Chicken',d:'Crispy fried chicken breast filled with cheese, marinated with special spices, served with fries/mashed potatoes, creamy spinach and pineapple sauce',p:1599,img:'🍗'},
-      {n:'Chicken Dijonnaise',d:'Crispy fried chicken roulades filled with creamy cheesy spinach, topped with special mustard based dijonnaise sauce, with veggies, mashed potatoes/fries and honey mustard sauce',p:1599,img:'🍗'},
-      {n:'Chimichurri Chicken',d:'Chicken breast stuffed with cheese, marinated in delicious herbs, baked to perfection, topped with chimichurri sauce and butter, served with garlic/herbs rice, herb potatoes and sauce',p:1649,img:'🍗'}
-    ],
-    'Chicken Steaks':[
-      {n:'White Mushroom Chicken',d:'Tender, juicy chicken breast in tempting white mushroom sauce, served with sauteed veggies and mashed potatoes',p:1399,img:'🥩'},
-      {n:'Mexican Chicken',d:'Juicy chicken breast in tempting spicy mexican sauce, served with sauteed veggies and mashed potatoes',p:1399,img:'🥩'},
-      {n:'Moroccan Chicken',d:'Juicy chicken breast in tempting moroccan sauce, served with sauteed veggies and mashed potatoes',p:1499,img:'🥩'},
-      {n:'Chicken Stroganoff',d:'Juicy chicken breast in black pepper and cream, served with sauteed veggies and mashed potatoes',p:1499,img:'🥩'},
-      {n:'Tarragon Chicken',d:"Juicy chicken breast with chef's special tarragon sauce, served with sauteed veggies and mashed potatoes",p:1499,img:'🥩'},
-      {n:'Tangy Chicken Schnitzel',d:'Deep fried crispy chicken steaks with tangy zesty sauce, served with sauteed veggies, fries/mashed potatoes',p:1849,img:'🥩'}
-    ],
-    'Chinese':[
-      {n:'Kung Pao Chicken',d:'Stir fried chicken with salty, sweet and spicy flavours topped with peanuts. Served with veg fried rice',p:999,img:'🥡'},
-      {n:'Chicken Cashew Nuts',d:'Stir fried chicken, crispy cashew nuts cooked in sweet savory sauce with fresh veggies. Served with veg fried rice',p:1049,img:'🥡'},
-      {n:'Mongolian Chicken',d:'Slices of chicken breast stir fried in a savory sauce with crisp green onions, topped with sesame seeds. Served with veg fried rice',p:999,img:'🥡'},
-      {n:'Chicken Chilli Dry',d:'Pan fried chicken coated in savory sauce, tossed with green chillies, topped with julian cut ginger. Served with veg fried rice',p:999,img:'🥡'},
-      {n:'Manchurian',d:'Stir fried chicken in a sizzling red sauce. Served with veg fried rice',p:899,img:'🥡'},
-      {n:'Shashlik',d:'Stir fried chicken, tomato sauce, crispy veggies. Served with veg fried rice',p:899,img:'🥡'},
-      {n:"General Tso's Chicken",d:'Fried chicken pieces breaded and tossed in a tangy sauce, served with garlic rice, topped with chives and sesame seeds',p:1349,img:'🥡'}
-    ],
-    'Chowmein':[
-      {n:'Veg Chowmein',d:'Stir fried vegetable noodles',p:649,img:'🍜'},
-      {n:'Chicken Chowmein',d:'Stir fried chicken noodles',p:799,img:'🍜'}
-    ],
-    'Fries':[
-      {n:'Plain Fries',d:'Classic crispy fries',p:399,img:'🍟'},
-      {n:'Garlic Mayo Fries',d:'Fries with garlic mayo',p:449,img:'🍟'},
-      {n:'Masala Fries',d:'Spiced masala fries',p:449,img:'🍟'},
-      {n:'Loaded Fries',d:'Fries loaded with combo sauces, chicken chunks, olives, mushrooms',p:699,img:'🍟'},
-      {n:"Olive's Special Loaded Fries",d:'Fries loaded with Olive special white sauce, chicken chunks, olives, mushrooms, cheese, baked in oven',p:999,img:'🍟',isNew:true}
-    ],
-    'Desserts':[
-      {n:'Brownie with Ice-Cream',d:'Warm chocolate brownie with vanilla ice cream',p:499,img:'🍫'},
-      {n:'Molten Lava with Ice-Cream',d:'Warm molten chocolate lava cake with ice cream',p:599,img:'🍫'}
-    ],
-    'Drinks':[
-      {n:'Arancia Bevande',d:'Fresh orange beverage',p:449,img:'🍊'},
-      {n:'Menta Bevande',d:'Fresh mint beverage',p:399,img:'🍃'},
-      {n:'Rum Swizzle',d:'Refreshing rum swizzle mocktail',p:420,img:'🍹'},
-      {n:'Cola Next / Pepsi',d:'Cold drink',p:199,img:'🥤'},
-      {n:'Fizzup / 7up',d:'Cold drink',p:199,img:'🥤'},
-      {n:'Water 500 ml',d:'Mineral water',p:99,img:'💧'}
-    ]
-  }
+var LO_MENU={
+'Appetizers':[
+{n:'Garlic Butter Balls',d:'Soft bread balls topped with garlic, butter, cheese, baked to perfection',p:849,img:'🧄'},
+{n:'Momos (6 Pcs)',d:'Minced chicken, steamed',p:499,img:'🥟'},
+{n:'Momos (12 Pcs)',d:'Minced chicken, steamed',p:799,img:'🥟'},
+{n:'Dynamite Chicken Strips',d:'5 pcs, served with fries',p:749,img:'🍗'},
+{n:'Crispy Tacos',d:'4 pcs, crispy corn breads with baked chicken and combo sauces',p:799,img:'🌮'}
+],
+'Soups':[
+{n:'Hot n Sour Soup',d:'Classic hot and sour',p:449,img:'🍲'},
+{n:'Sweet Corn Soup',d:'Creamy sweet corn',p:449,img:'🍲'},
+{n:'Cream of Mushroom',d:'Rich creamy mushroom soup',p:599,img:'🍄'},
+{n:'Cream of Chicken',d:'Creamy chicken soup',p:599,img:'🍲'}
+],
+'Pastas':[
+{n:'Alfredo Pasta',d:'Penne pasta in creamy cheesy alfredo sauce with olives and mushrooms, served with garlic bread',p:849,img:'🍝'},
+{n:'Penne Arrabiata',d:'Penne pasta in spicy arrabiata sauce with olives, served with garlic bread',p:849,img:'🍝'},
+{n:'Penne Alla Bolognese',d:'Penne pasta in red sauce with minced chicken, olives, topped with cheese, served with garlic bread',p:999,img:'🍝',isNew:true},
+{n:'Parmesan Chicken Pasta',d:'Penne pasta in combination of red and white sauce, topped with 2 crispy fried cheesy chicken steaks, served with garlic breads',p:1749,img:'🍝'}
+],
+'Signature Pizzas':[
+{n:'Little Olive Special',d:'Chicken chunks topped with olives, mushrooms, sausages and cheese. Thin crust italiano dough.',p:799,img:'🍕',sizes:['7 inch','10 inch','14 inch'],sp:[799,1499,1999]},
+{n:'Alfredo Pizza',d:'Chicken chunks, olives, mushrooms, special alfredo sauce, american cheese',p:799,img:'🍕',sizes:['7 inch','10 inch','14 inch'],sp:[799,1499,1999]},
+{n:'Olive Supreme',d:'Chicken, olives, mushrooms, bell peppers, tomatoes, onions, cheese',p:799,img:'🍕',sizes:['7 inch','10 inch','14 inch'],sp:[799,1499,1999]}
+],
+'Udons':[
+{n:'Kishimen Udon',d:'Delicious noodles cooked in a slightly spicy soya based broth, topped with chicken, veggies, corns and boiled egg',p:1099,img:'🍜'},
+{n:'Dry Pot Udon',d:'Spicy glazy noodles, topped with crispy chicken chunks, boiled eggs, and crispy veggies',p:999,img:'🍜'},
+{n:'Kitsune Udon',d:'Hand made noodles glazed with Korean spices, chicken chunks, boiled egg, zucchini, carrot',p:899,img:'🍜'},
+{n:'Sanuki Udon',d:'Noodles in chicken and mushroom broth, topped with chicken steak',p:899,img:'🍜'},
+{n:'Kagawa Special Udon',d:'Noodles in chicken broth, bologna slice, crispy veg, boiled egg and chicken chunks',p:999,img:'🍜'},
+{n:'Udon with Spicy Chicken',d:'Noodles with tender spicy chicken, crispy veggies, boiled egg',p:999,img:'🍜'},
+{n:'Udon with Dumplings',d:'Hand made noodles in sweet n sour broth with chicken dumplings and crispy veggies',p:1049,img:'🍜'}
+],
+'Stuffed Chicken':[
+{n:'Hawaiian Stuffed Chicken',d:'Crispy fried chicken breast filled with cheese, marinated with special spices, served with fries or mashed potatoes, creamy spinach and pineapple sauce',p:1599,img:'🍗'},
+{n:'Chicken Dijonnaise',d:'Crispy fried chicken roulades filled with creamy cheesy spinach, topped with special mustard based dijonnaise sauce, with veggies, mashed potatoes and honey mustard sauce',p:1599,img:'🍗'},
+{n:'Chimichurri Chicken',d:'Chicken breast stuffed with cheese, marinated in delicious herbs, baked to perfection, topped with chimichurri sauce and butter, served with garlic rice, herb potatoes and sauce',p:1649,img:'🍗'}
+],
+'Chicken Steaks':[
+{n:'White Mushroom Chicken',d:'Tender juicy chicken breast in tempting white mushroom sauce, served with sauteed veggies and mashed potatoes',p:1399,img:'🥩'},
+{n:'Mexican Chicken',d:'Juicy chicken breast in tempting spicy mexican sauce, served with sauteed veggies and mashed potatoes',p:1399,img:'🥩'},
+{n:'Moroccan Chicken',d:'Juicy chicken breast in tempting moroccan sauce, served with sauteed veggies and mashed potatoes',p:1499,img:'🥩'},
+{n:'Chicken Stroganoff',d:'Juicy chicken breast in black pepper and cream, served with sauteed veggies and mashed potatoes',p:1499,img:'🥩'},
+{n:'Tarragon Chicken',d:'Juicy chicken breast with special tarragon sauce, served with sauteed veggies and mashed potatoes',p:1499,img:'🥩'},
+{n:'Tangy Chicken Schnitzel',d:'Deep fried crispy chicken steaks with tangy zesty sauce, served with sauteed veggies and fries or mashed potatoes',p:1849,img:'🥩'}
+],
+'Chinese':[
+{n:'Kung Pao Chicken',d:'Stir fried chicken with salty sweet and spicy flavours topped with peanuts. Served with veg fried rice',p:999,img:'🥡'},
+{n:'Chicken Cashew Nuts',d:'Stir fried chicken, crispy cashew nuts cooked in sweet savory sauce with fresh veggies. Served with veg fried rice',p:1049,img:'🥡'},
+{n:'Mongolian Chicken',d:'Slices of chicken breast stir fried in a savory sauce with crisp green onions, topped with sesame seeds. Served with veg fried rice',p:999,img:'🥡'},
+{n:'Chicken Chilli Dry',d:'Pan fried chicken coated in savory sauce, tossed with green chillies, topped with julian cut ginger. Served with veg fried rice',p:999,img:'🥡'},
+{n:'Manchurian',d:'Stir fried chicken in a sizzling red sauce. Served with veg fried rice',p:899,img:'🥡'},
+{n:'Shashlik',d:'Stir fried chicken, tomato sauce, crispy veggies. Served with veg fried rice',p:899,img:'🥡'},
+{n:'General Tso Chicken',d:'Fried chicken pieces breaded and tossed in a tangy sauce, served with garlic rice, topped with chives and sesame seeds',p:1349,img:'🥡'}
+],
+'Chowmein':[
+{n:'Veg Chowmein',d:'Stir fried vegetable noodles',p:649,img:'🍜'},
+{n:'Chicken Chowmein',d:'Stir fried chicken noodles',p:799,img:'🍜'}
+],
+'Fries':[
+{n:'Plain Fries',d:'Classic crispy fries',p:399,img:'🍟'},
+{n:'Garlic Mayo Fries',d:'Fries with garlic mayo',p:449,img:'🍟'},
+{n:'Masala Fries',d:'Spiced masala fries',p:449,img:'🍟'},
+{n:'Loaded Fries',d:'Fries loaded with combo sauces, chicken chunks, olives, mushrooms',p:699,img:'🍟'},
+{n:'Olive Special Loaded Fries',d:'Fries loaded with Olive special white sauce, chicken chunks, olives, mushrooms, cheese, baked in oven',p:999,img:'🍟',isNew:true}
+],
+'Desserts':[
+{n:'Brownie with Ice-Cream',d:'Warm chocolate brownie with vanilla ice cream',p:499,img:'🍫'},
+{n:'Molten Lava with Ice-Cream',d:'Warm molten chocolate lava cake with ice cream',p:599,img:'🍫'}
+],
+'Drinks':[
+{n:'Arancia Bevande',d:'Fresh orange beverage',p:449,img:'🍊'},
+{n:'Menta Bevande',d:'Fresh mint beverage',p:399,img:'🍃'},
+{n:'Rum Swizzle',d:'Refreshing rum swizzle mocktail',p:420,img:'🍹'},
+{n:'Cola Next or Pepsi',d:'Cold drink',p:199,img:'🥤'},
+{n:'Fizzup or 7up',d:'Cold drink',p:199,img:'🥤'},
+{n:'Water 500 ml',d:'Mineral water',p:99,img:'💧'}
+]
 };
 
-// ═══ YAARIYAN CAFE MENU ═══
-var YAARIYAN_CAFE={
-  id:7,name:'Yaariyan Cafe',icon:'☕',area:'Johar Town, Lahore',
-  tags:['BBQ','Desi','Cafe','Fast Food'],
-  rating:4.6,reviews:287,time:'25\u201340',delivery:200,freeMin:3000,
-  badge:'hot',bg:'linear-gradient(135deg,#C05C1A,#7A3010)',
-  phone:'03000000000',
-  menu:{
-    'Pizza':[
-      {n:'Supreme',d:'Classic supreme pizza with loaded toppings',p:600,img:'🍕',sizes:['Small','Medium','Large'],sp:[600,1100,1600]},
-      {n:'Chicken Tikka',d:'Spicy chicken tikka pizza',p:400,img:'🍕',sizes:['Small','Medium','Large'],sp:[400,900,1400]},
-      {n:'Malai Boti Pizza',d:'Creamy malai boti topped pizza',p:700,img:'🍕',sizes:['Small','Medium','Large'],sp:[700,1200,1700]},
-      {n:'Chicken Fajita',d:'Chicken fajita with bell peppers and cheese',p:400,img:'🍕',sizes:['Small','Medium','Large'],sp:[400,900,1400]},
-      {n:'Yaariyan Special',d:'Yaariyan signature pizza with special toppings',p:800,img:'🍕',sizes:['Small','Medium','Large'],sp:[800,1300,1900]},
-      {n:'Crown Crust',d:'Stuffed crust crown pizza — Medium and Large only',p:1400,img:'🍕',sizes:['Medium','Large'],sp:[1400,2000]},
-      {n:'Pizza Slider',d:'Mini pizza sliders, perfect snack',p:300,img:'🍕',sizes:['Small','Medium','Large'],sp:[300,500,800]},
-      {n:'Extra Topping',d:'Add extra topping to any pizza',p:80,img:'🍕',sizes:['Small','Medium','Large'],sp:[80,140,200]}
-    ],
-    'Chinese':[
-      {n:'Chinese Rice',d:'Classic Chinese fried rice',p:300,img:'🍚'},
-      {n:'Chilli Dry',d:'Crispy chicken chilli dry',p:1200,img:'🥡'},
-      {n:'Chowmein',d:'Stir-fried Chinese noodles',p:500,img:'🍜'},
-      {n:'Cashew Nut Chicken',d:'Chicken with cashew nuts in savory sauce',p:1300,img:'🥡'},
-      {n:'Manchurian With Rice',d:'Crispy manchurian in red sauce with rice',p:900,img:'🥡'},
-      {n:'Sashlik With Rice',d:'Sashlik chicken with fried rice',p:1200,img:'🥡'},
-      {n:'Masala Rice',d:'Spiced masala fried rice',p:450,img:'🍚'}
-    ],
-    'BBQ':[
-      {n:'Tikka Boti',d:'Tender chicken tikka boti',p:650,img:'🍗',sizes:['Half','Full'],sp:[650,1300]},
-      {n:'Malai Boti',d:'Creamy malai boti skewers',p:900,img:'🍗',sizes:['Half','Full'],sp:[900,1800]},
-      {n:'Chicken Kabab',d:'Seekh kabab made with minced chicken',p:800,img:'🍖',sizes:['Half','Full'],sp:[800,1600]},
-      {n:'Chicken Cheese Kabab',d:'Cheese-stuffed chicken kabab',p:1000,img:'🍖',sizes:['Half','Full'],sp:[1000,2000]},
-      {n:'Beef Kabab',d:'Juicy beef seekh kabab',p:1200,img:'🍖',sizes:['Half','Full'],sp:[1200,2400]},
-      {n:'Kastoori Boti',d:'Special kastoori marinated chicken boti',p:1000,img:'🍗',sizes:['Half','Full'],sp:[1000,2000]},
-      {n:'Sheesh Touk',d:'Lebanese-style sheesh touk chicken',p:1000,img:'🍗',sizes:['Half','Full'],sp:[1000,2000]},
-      {n:'Gril Fish',d:'Grilled whole fish',p:850,img:'🐟',sizes:['Half','Full'],sp:[850,1700]},
-      {n:'Soup',d:'Hot soup',p:220,img:'🍲',sizes:['Half','Full'],sp:[220,800]}
-    ],
-    'Steaks':[
-      {n:'White Mushroom Steak',d:'Chicken steak in white mushroom sauce',p:960,img:'🥩'},
-      {n:'Black Pepper Steak',d:'Chicken steak in rich black pepper sauce',p:960,img:'🥩'},
-      {n:'Picata Steak',d:'Chicken picata steak with caper sauce',p:960,img:'🥩'},
-      {n:'Polo Chicken',d:'Grilled polo-style chicken',p:1080,img:'🥩'},
-      {n:'Rose Marry Steak',d:'Rosemary herb chicken steak',p:1440,img:'🥩'}
-    ],
-    'Karhai':[
-      {n:'Green Karhai',d:'Chicken karhai with green chillies and herbs',p:1000,img:'🍲',sizes:['Half','Full'],sp:[1000,1900]},
-      {n:'Jalfrezi Karhai',d:'Spicy jalfrezi style karhai',p:1200,img:'🍲',sizes:['Half','Full'],sp:[1200,2100]},
-      {n:'White Karhai',d:'Creamy white karhai',p:1100,img:'🍲',sizes:['Half','Full'],sp:[1100,2000]},
-      {n:'Black Pepper Karhai',d:'Bold black pepper chicken karhai',p:1000,img:'🍲',sizes:['Half','Full'],sp:[1000,1800]},
-      {n:'Red Karhai',d:'Spicy red masala karhai',p:900,img:'🍲',sizes:['Half','Full'],sp:[900,1700]},
-      {n:'Chicken Boneless Karhai',d:'Boneless chicken karhai',p:1000,img:'🍲',sizes:['Half','Full'],sp:[1000,1600]},
-      {n:'Achari Handi Boneless',d:'Tangy pickle-spiced boneless handi',p:1000,img:'🍲',sizes:['Half','Full'],sp:[1000,1700]},
-      {n:'Chicken Handi',d:'Classic chicken handi',p:1000,img:'🍲',sizes:['Half','Full'],sp:[1000,1700]}
-    ],
-    'Burgers':[
-      {n:'Patty Burger',d:'Classic beef patty burger',p:360,img:'🍔'},
-      {n:'Grill Burger',d:'Grilled chicken burger',p:420,img:'🍔'},
-      {n:'Zinger Burger',d:'Crispy zinger chicken burger',p:480,img:'🍔'},
-      {n:'Grill Cheese Burger',d:'Grilled chicken burger with cheese',p:540,img:'🍔'},
-      {n:'Butter Milk Burger',d:'Buttermilk-marinated chicken burger',p:720,img:'🍔'},
-      {n:'Beef Smash Burger',d:'Smashed beef patty burger',p:840,img:'🍔'}
-    ],
-    'Wraps and Sandwiches':[
-      {n:'Crispy Wrap',d:'Crispy chicken wrap',p:420,img:'🌯'},
-      {n:'BBQ Wrap',d:'BBQ chicken wrap',p:420,img:'🌯'},
-      {n:'Cheese Wrap',d:'Chicken and cheese wrap',p:480,img:'🌯'},
-      {n:'Grill Sandwich with Fries',d:'Grilled chicken sandwich served with fries',p:480,img:'🥪'},
-      {n:'Cocktail Sandwich (3 Layer)',d:'Triple-layer cocktail sandwich',p:600,img:'🥪'},
-      {n:'Club Sandwich with Cheese',d:'Classic club sandwich with cheese',p:660,img:'🥪'},
-      {n:'Savado Sandwich With Fries',d:'Savado-style sandwich served with fries',p:780,img:'🥪'}
-    ],
-    'Fries and Dips':[
-      {n:'Plain Fries',d:'Classic crispy fries',p:264,img:'🍟'},
-      {n:'Masala Fries',d:'Spiced masala fries',p:300,img:'🍟'},
-      {n:'Garlic Fries',d:'Garlic-seasoned fries',p:420,img:'🍟'},
-      {n:'Crispy Loaded Fries',d:'Fries loaded with crispy toppings',p:660,img:'🍟'},
-      {n:'Loaded Fries',d:'Fully loaded fries with sauces',p:720,img:'🍟'},
-      {n:'Double Loaded Fries',d:'Double-loaded fries with extra toppings',p:1080,img:'🍟'},
-      {n:'Raita',d:'Fresh yogurt raita',p:100,img:'🥣'},
-      {n:'Imli Chatni',d:'Tangy tamarind chutney',p:150,img:'🥣'}
-    ],
-    'Pasta':[
-      {n:'Penne Pasta',d:'Penne pasta in classic sauce',p:780,img:'🍝'},
-      {n:'Alfredo Pasta',d:'Creamy alfredo pasta',p:840,img:'🍝'}
-    ],
-    'Wings and Strips':[
-      {n:'Crispy Wings',d:'Crispy fried chicken wings',p:300,img:'🍗'},
-      {n:'BBQ Wings (6pcs)',d:'BBQ-glazed chicken wings',p:420,img:'🍗'},
-      {n:'Dynamite Wings (6pcs)',d:'Spicy dynamite wings',p:480,img:'🍗'},
-      {n:'Zinger Crispy Piece',d:'Zinger crispy chicken piece',p:240,img:'🍗'},
-      {n:'Chicken Bites',d:'Crispy chicken bites',p:360,img:'🍗'},
-      {n:'Spicy Chicken Bites',d:'Hot and spicy chicken bites',p:480,img:'🍗'},
-      {n:'Peri Bites',d:'Peri peri chicken bites',p:480,img:'🍗'},
-      {n:'Honey Bites',d:'Sweet honey-glazed chicken bites',p:600,img:'🍗'},
-      {n:'Chicken Strips (6pcs)',d:'6 crispy chicken strips',p:720,img:'🍗'},
-      {n:'Chicken Strips (10pcs)',d:'10 crispy chicken strips',p:1080,img:'🍗'},
-      {n:'Fish Strips with Fries',d:'Crispy fish strips served with fries',p:1200,img:'🐟'},
-      {n:'Mozzarella Strips',d:'Cheese mozzarella strips',p:840,img:'🧀'},
-      {n:'Spin Roll (4 Pcs)',d:'4 crispy spin rolls',p:720,img:'🥟'},
-      {n:'Cheese Spin Roll (4 Pcs)',d:'4 cheese-filled spin rolls',p:720,img:'🥟'}
-    ],
-    'Paratha':[
-      {n:'Alu Wala Paratha',d:'Potato-stuffed paratha',p:150,img:'🫓'},
-      {n:'Cheese Paratha',d:'Cheese-filled paratha',p:300,img:'🫓'},
-      {n:'Nuttella Paratha',d:'Nutella-filled sweet paratha',p:300,img:'🫓'},
-      {n:'Saada Paratha',d:'Plain paratha',p:60,img:'🫓'},
-      {n:'Omelette',d:'Classic egg omelette',p:70,img:'🍳'},
-      {n:'Anda Fry',d:'Fried egg',p:60,img:'🍳'},
-      {n:'Qeema Paratha',d:'Mince-stuffed paratha',p:250,img:'🫓'}
-    ],
-    'Tea and Coffee':[
-      {n:'Chai Karak',d:'Strong karak tea',p:180,img:'☕'},
-      {n:'Doodh Patti',d:'Traditional milk tea',p:240,img:'☕'},
-      {n:'Adrak Wali Chai',d:'Ginger tea',p:250,img:'☕'},
-      {n:'Masala Chai',d:'Spiced masala tea',p:300,img:'☕'},
-      {n:'Tandoori Chai',d:'Smoky tandoori chai',p:300,img:'☕'},
-      {n:'Elaichi Chai',d:'Cardamom tea',p:300,img:'☕'},
-      {n:'Kashmiri Chai',d:'Pink Kashmiri chai',p:420,img:'☕'},
-      {n:'Cardamom Tea',d:'Premium cardamom tea',p:420,img:'☕'},
-      {n:'Royal Tea',d:'Special royal blend tea',p:600,img:'☕'},
-      {n:'Gur Wali Chai',d:'Jaggery tea',p:300,img:'☕'},
-      {n:'Malai Chai',d:'Creamy malai tea',p:269,img:'☕'},
-      {n:'Kahwa Lemon Grass',d:'Lemon grass kahwa',p:170,img:'🍵'},
-      {n:'Black Kahwa',d:'Classic black kahwa',p:220,img:'🍵'},
-      {n:'Honey Kahwa',d:'Sweet honey kahwa',p:270,img:'🍵'},
-      {n:'Green Kahwa',d:'Refreshing green kahwa',p:270,img:'🍵'},
-      {n:'Coffee',d:'Hot coffee',p:400,img:'☕'},
-      {n:'Cold Coffee',d:'Chilled cold coffee',p:550,img:'☕'},
-      {n:'Ice Latte Coffee',d:'Iced latte',p:600,img:'☕'},
-      {n:'Spanish Ice Latte',d:'Spanish-style iced latte',p:700,img:'☕'},
-      {n:'Caramel Cold Coffee',d:'Caramel iced coffee',p:600,img:'☕'},
-      {n:'Chocolate Cold Coffee',d:'Chocolate iced coffee',p:600,img:'☕'}
-    ],
-    'Shakes and Drinks':[
-      {n:'Banana Milk Shake',d:'Fresh banana milkshake',p:360,img:'🍌'},
-      {n:'Strawberry Shake',d:'Fresh strawberry shake',p:420,img:'🍓'},
-      {n:'Pineapple Shake',d:'Refreshing pineapple shake',p:480,img:'🍍'},
-      {n:'Mango Shake',d:'Fresh mango shake',p:500,img:'🥭'},
-      {n:'Oreo Dessert Shake',d:'Oreo cookies milkshake',p:500,img:'🥤'},
-      {n:'Nuttella Shake',d:'Nutella milkshake',p:600,img:'🥤'},
-      {n:'Lotus Shake',d:'Lotus biscoff shake',p:600,img:'🥤'},
-      {n:'Peanut Butter Shake',d:'Creamy peanut butter shake',p:600,img:'🥤'},
-      {n:'Kikat Shake',d:'KitKat milkshake',p:700,img:'🥤'},
-      {n:'Blueberry Shake',d:'Fresh blueberry shake',p:500,img:'🫐'},
-      {n:'Mango Ice Cream Shake',d:'Mango with ice cream shake',p:600,img:'🥭'},
-      {n:'Strawberry Ice Cream Shake',d:'Strawberry with ice cream shake',p:600,img:'🍓'},
-      {n:'Vanilla Ice Cream Shake',d:'Vanilla ice cream shake',p:600,img:'🍦'},
-      {n:'Pineapple Ice Cream Shake',d:'Pineapple ice cream shake',p:600,img:'🍍'},
-      {n:'Regular Drink',d:'Regular soft drink',p:145,img:'🥤'},
-      {n:'Can Soft Drink',d:'Canned soft drink',p:240,img:'🥤'},
-      {n:'Cold Drink (1.5 Liter)',d:'1.5 litre cold drink bottle',p:300,img:'🥤'},
-      {n:'Lemonade',d:'Fresh lemonade',p:389,img:'🍋'},
-      {n:'Mini Margarita',d:'Mocktail mini margarita',p:180,img:'🍹'},
-      {n:'Water (0.5 Liter)',d:'Mineral water 500 ml',p:100,img:'💧'},
-      {n:'Yaariyan Signature Drink',d:"Cafe's special signature drink",p:500,img:'🍹'}
-    ],
-    'Desserts':[
-      {n:'Molten Lava',d:'Warm chocolate molten lava cake',p:400,img:'🍫'},
-      {n:'Brownie',d:'Chocolate brownie',p:350,img:'🍫'},
-      {n:'Cookies (Per Piece)',d:'Freshly baked cookie',p:250,img:'🍪'},
-      {n:'Date Pudding with Ice Cream',d:'Date pudding served with ice cream',p:600,img:'🍮'},
-      {n:'Crunchy Truffle Cake',d:'Crunchy chocolate truffle cake',p:500,img:'🎂'}
-    ],
-    'Salads':[
-      {n:'Fresh Salad',d:'Garden fresh salad',p:150,img:'🥗'},
-      {n:'Russian Salad',d:'Creamy Russian salad',p:300,img:'🥗'},
-      {n:'Apple Cabbage Salad',
-       <script>
-'use strict';
-var OWNER_WA='923076064194';
-var RIDER_WA='923286242582';
-var SUPABASE_URL='https://epkvberxatvgjmxquwzi.supabase.co';
-var SUPABASE_ANON_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVwa3ZiZXJ4YXR2Z2pteHF1d3ppIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA2NzE2NTMsImV4cCI6MjA5NjI0NzY1M30.S28vvFMnk2OaXjpITskh2FaGl1ghr7iwS91_Fo_Io2c';
-var sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
-
-var LITTLE_OLIVES={
-  id:1,name:'Little Olives',icon:'🫒',area:'Johar Town, Lahore',
-  tags:['Italian','Pan Asian','Chinese'],
-  rating:4.8,reviews:412,time:'30–45',delivery:200,freeMin:3000,
-  badge:'hot',bg:'linear-gradient(135deg,#2d6e4e,#1a4230)',
-  phone:'03707262929',
-  menu:{
-    'Appetizers':[
-      {n:'Garlic Butter Balls',d:'Soft bread balls topped with garlic, butter, cheese, baked to perfection',p:849,img:'🧄'},
-      {n:'Momos (6 Pcs)',d:'Minced chicken, steamed',p:499,img:'🥟'},
-      {n:'Momos (12 Pcs)',d:'Minced chicken, steamed',p:799,img:'🥟'},
-      {n:'Dynamite Chicken Strips',d:'5 pcs, served with fries',p:749,img:'🍗'},
-      {n:'Crispy Tacos',d:'4 pcs, crispy corn breads with baked chicken and combo sauces',p:799,img:'🌮'}
-    ],
-    'Soups':[
-      {n:'Hot n Sour Soup',d:'Classic hot and sour',p:449,img:'🍲'},
-      {n:'Sweet Corn Soup',d:'Creamy sweet corn',p:449,img:'🍲'},
-      {n:'Cream of Mushroom',d:'Rich creamy mushroom soup',p:599,img:'🍄'},
-      {n:'Cream of Chicken',d:'Creamy chicken soup',p:599,img:'🍲'}
-    ],
-    'Pastas':[
-      {n:'Alfredo Pasta',d:'Penne pasta in creamy cheesy alfredo sauce with olives and mushrooms, served with garlic bread',p:849,img:'🍝'},
-      {n:'Penne Arrabiata',d:'Penne pasta in spicy arrabiata sauce with olives, served with garlic bread',p:849,img:'🍝'},
-      {n:'Penne Alla Bolognese',d:'Penne pasta in red sauce with minced chicken, olives, topped with cheese, served with garlic bread',p:999,img:'🍝',isNew:true},
-      {n:'Parmesan Chicken Pasta',d:'Penne pasta in combination of red and white sauce, topped with 2 crispy fried cheesy chicken steaks, served with garlic breads',p:1749,img:'🍝'}
-    ],
-    'Signature Pizzas':[
-      {n:"Little Olive's Special",d:'Chicken chunks topped with olives, mushrooms, sausages and cheese. Thin crust italiano dough.',p:799,img:'🍕',sizes:['7"','10"','14"'],sp:[799,1499,1999]},
-      {n:'Alfredo Pizza',d:"Chicken chunks, olives, mushrooms, chef's special alfredo sauce, american cheese",p:799,img:'🍕',sizes:['7"','10"','14"'],sp:[799,1499,1999]},
-      {n:"Olive's Supreme",d:'Chicken, olives, mushrooms, bell peppers, tomatoes, onions, cheese',p:799,img:'🍕',sizes:['7"','10"','14"'],sp:[799,1499,1999]}
-    ],
-    'Udons':[
-      {n:'Kishimen Udon',d:'Delicious noodles cooked in a slightly spicy soya based broth, topped with chicken, veggies, corns and boiled egg',p:1099,img:'🍜'},
-      {n:'Dry Pot Udon',d:'Spicy glazy noodles, topped with crispy chicken chunks, boiled eggs, and crispy veggies',p:999,img:'🍜'},
-      {n:'Kitsune Udon',d:'Hand made noodles glazed with Korean spices, chicken chunks, boiled egg, zucchini, carrot',p:899,img:'🍜'},
-      {n:'Sanuki Udon',d:'Noodles in chicken and mushroom broth, topped with chicken steak',p:899,img:'🍜'},
-      {n:'Kagawa Special Udon',d:'Noodles in chicken broth, bologna slice, crispy veg, boiled egg and chicken chunks',p:999,img:'🍜'},
-      {n:'Udon with Spicy Chicken',d:'Noodles with tender spicy chicken, crispy veggies, boiled egg',p:999,img:'🍜'},
-      {n:'Udon with Dumplings',d:'Hand made noodles in sweet n sour broth with chicken dumplings and crispy veggies',p:1049,img:'🍜'}
-    ],
-    'Stuffed Chicken':[
-      {n:'Hawaiian Stuffed Chicken',d:'Crispy fried chicken breast filled with cheese, marinated with special spices, served with fries or mashed potatoes, creamy spinach and pineapple sauce',p:1599,img:'🍗'},
-      {n:'Chicken Dijonnaise',d:'Crispy fried chicken roulades filled with creamy cheesy spinach, topped with special mustard based dijonnaise sauce, with veggies, mashed potatoes or fries and honey mustard sauce',p:1599,img:'🍗'},
-      {n:'Chimichurri Chicken',d:'Chicken breast stuffed with cheese, marinated in delicious herbs, baked to perfection, topped with chimichurri sauce and butter, served with garlic or herbs rice, herb potatoes and sauce',p:1649,img:'🍗'}
-    ],
-    'Chicken Steaks':[
-      {n:'White Mushroom Chicken',d:'Tender juicy chicken breast in tempting white mushroom sauce, served with sauteed veggies and mashed potatoes',p:1399,img:'🥩'},
-      {n:'Mexican Chicken',d:'Juicy chicken breast in tempting spicy mexican sauce, served with sauteed veggies and mashed potatoes',p:1399,img:'🥩'},
-      {n:'Moroccan Chicken',d:'Juicy chicken breast in tempting moroccan sauce, served with sauteed veggies and mashed potatoes',p:1499,img:'🥩'},
-      {n:'Chicken Stroganoff',d:'Juicy chicken breast in black pepper and cream, served with sauteed veggies and mashed potatoes',p:1499,img:'🥩'},
-      {n:'Tarragon Chicken',d:"Juicy chicken breast with chef's special tarragon sauce, served with sauteed veggies and mashed potatoes",p:1499,img:'🥩'},
-      {n:'Tangy Chicken Schnitzel',d:'Deep fried crispy chicken steaks with tangy zesty sauce, served with sauteed veggies, fries or mashed potatoes',p:1849,img:'🥩'}
-    ],
-    'Chinese':[
-      {n:'Kung Pao Chicken',d:'Stir fried chicken with salty sweet and spicy flavours topped with peanuts. Served with veg fried rice',p:999,img:'🥡'},
-      {n:'Chicken Cashew Nuts',d:'Stir fried chicken, crispy cashew nuts cooked in sweet savory sauce with fresh veggies. Served with veg fried rice',p:1049,img:'🥡'},
-      {n:'Mongolian Chicken',d:'Slices of chicken breast stir fried in a savory sauce with crisp green onions, topped with sesame seeds. Served with veg fried rice',p:999,img:'🥡'},
-      {n:'Chicken Chilli Dry',d:'Pan fried chicken coated in savory sauce, tossed with green chillies, topped with julian cut ginger. Served with veg fried rice',p:999,img:'🥡'},
-      {n:'Manchurian',d:'Stir fried chicken in a sizzling red sauce. Served with veg fried rice',p:899,img:'🥡'},
-      {n:'Shashlik',d:'Stir fried chicken, tomato sauce, crispy veggies. Served with veg fried rice',p:899,img:'🥡'},
-      {n:"General Tso's Chicken",d:'Fried chicken pieces breaded and tossed in a tangy sauce, served with garlic rice, topped with chives and sesame seeds',p:1349,img:'🥡'}
-    ],
-    'Chowmein':[
-      {n:'Veg Chowmein',d:'Stir fried vegetable noodles',p:649,img:'🍜'},
-      {n:'Chicken Chowmein',d:'Stir fried chicken noodles',p:799,img:'🍜'}
-    ],
-    'Fries':[
-      {n:'Plain Fries',d:'Classic crispy fries',p:399,img:'🍟'},
-      {n:'Garlic Mayo Fries',d:'Fries with garlic mayo',p:449,img:'🍟'},
-      {n:'Masala Fries',d:'Spiced masala fries',p:449,img:'🍟'},
-      {n:'Loaded Fries',d:'Fries loaded with combo sauces, chicken chunks, olives, mushrooms',p:699,img:'🍟'},
-      {n:"Olive's Special Loaded Fries",d:'Fries loaded with Olive special white sauce, chicken chunks, olives, mushrooms, cheese, baked in oven',p:999,img:'🍟',isNew:true}
-    ],
-    'Desserts':[
-      {n:'Brownie with Ice-Cream',d:'Warm chocolate brownie with vanilla ice cream',p:499,img:'🍫'},
-      {n:'Molten Lava with Ice-Cream',d:'Warm molten chocolate lava cake with ice cream',p:599,img:'🍫'}
-    ],
-    'Drinks':[
-      {n:'Arancia Bevande',d:'Fresh orange beverage',p:449,img:'🍊'},
-      {n:'Menta Bevande',d:'Fresh mint beverage',p:399,img:'🍃'},
-      {n:'Rum Swizzle',d:'Refreshing rum swizzle mocktail',p:420,img:'🍹'},
-      {n:'Cola Next / Pepsi',d:'Cold drink',p:199,img:'🥤'},
-      {n:'Fizzup / 7up',d:'Cold drink',p:199,img:'🥤'},
-      {n:'Water 500 ml',d:'Mineral water',p:99,img:'💧'}
-    ]
-  }
+var YC_MENU={
+'Pizza':[
+{n:'Supreme',d:'Classic supreme pizza with loaded toppings',p:600,img:'🍕',sizes:['Small','Medium','Large'],sp:[600,1100,1600]},
+{n:'Chicken Tikka',d:'Spicy chicken tikka pizza',p:400,img:'🍕',sizes:['Small','Medium','Large'],sp:[400,900,1400]},
+{n:'Malai Boti Pizza',d:'Creamy malai boti topped pizza',p:700,img:'🍕',sizes:['Small','Medium','Large'],sp:[700,1200,1700]},
+{n:'Chicken Fajita',d:'Chicken fajita with bell peppers and cheese',p:400,img:'🍕',sizes:['Small','Medium','Large'],sp:[400,900,1400]},
+{n:'Yaariyan Special',d:'Yaariyan signature pizza with special toppings',p:800,img:'🍕',sizes:['Small','Medium','Large'],sp:[800,1300,1900]},
+{n:'Crown Crust',d:'Stuffed crust crown pizza. Medium and Large only.',p:1400,img:'🍕',sizes:['Medium','Large'],sp:[1400,2000]},
+{n:'Pizza Slider',d:'Mini pizza sliders, perfect snack',p:300,img:'🍕',sizes:['Small','Medium','Large'],sp:[300,500,800]},
+{n:'Extra Topping',d:'Add extra topping to any pizza',p:80,img:'🍕',sizes:['Small','Medium','Large'],sp:[80,140,200]}
+],
+'Chinese':[
+{n:'Chinese Rice',d:'Classic Chinese fried rice',p:300,img:'🍚'},
+{n:'Chilli Dry',d:'Crispy chicken chilli dry',p:1200,img:'🥡'},
+{n:'Chowmein',d:'Stir-fried Chinese noodles',p:500,img:'🍜'},
+{n:'Cashew Nut Chicken',d:'Chicken with cashew nuts in savory sauce',p:1300,img:'🥡'},
+{n:'Manchurian With Rice',d:'Crispy manchurian in red sauce with rice',p:900,img:'🥡'},
+{n:'Sashlik With Rice',d:'Sashlik chicken with fried rice',p:1200,img:'🥡'},
+{n:'Masala Rice',d:'Spiced masala fried rice',p:450,img:'🍚'}
+],
+'BBQ':[
+{n:'Tikka Boti',d:'Tender chicken tikka boti',p:650,img:'🍗',sizes:['Half','Full'],sp:[650,1300]},
+{n:'Malai Boti',d:'Creamy malai boti skewers',p:900,img:'🍗',sizes:['Half','Full'],sp:[900,1800]},
+{n:'Chicken Kabab',d:'Seekh kabab made with minced chicken',p:800,img:'🍖',sizes:['Half','Full'],sp:[800,1600]},
+{n:'Chicken Cheese Kabab',d:'Cheese-stuffed chicken kabab',p:1000,img:'🍖',sizes:['Half','Full'],sp:[1000,2000]},
+{n:'Beef Kabab',d:'Juicy beef seekh kabab',p:1200,img:'🍖',sizes:['Half','Full'],sp:[1200,2400]},
+{n:'Kastoori Boti',d:'Special kastoori marinated chicken boti',p:1000,img:'🍗',sizes:['Half','Full'],sp:[1000,2000]},
+{n:'Sheesh Touk',d:'Lebanese-style sheesh touk chicken',p:1000,img:'🍗',sizes:['Half','Full'],sp:[1000,2000]},
+{n:'Gril Fish',d:'Grilled whole fish',p:850,img:'🐟',sizes:['Half','Full'],sp:[850,1700]},
+{n:'Soup',d:'Hot soup',p:220,img:'🍲',sizes:['Half','Full'],sp:[220,800]}
+],
+'Steaks':[
+{n:'White Mushroom Steak',d:'Chicken steak in white mushroom sauce',p:960,img:'🥩'},
+{n:'Black Pepper Steak',d:'Chicken steak in rich black pepper sauce',p:960,img:'🥩'},
+{n:'Picata Steak',d:'Chicken picata steak with caper sauce',p:960,img:'🥩'},
+{n:'Polo Chicken',d:'Grilled polo-style chicken',p:1080,img:'🥩'},
+{n:'Rose Marry Steak',d:'Rosemary herb chicken steak',p:1440,img:'🥩'}
+],
+'Karhai':[
+{n:'Green Karhai',d:'Chicken karhai with green chillies and herbs',p:1000,img:'🍲',sizes:['Half','Full'],sp:[1000,1900]},
+{n:'Jalfrezi Karhai',d:'Spicy jalfrezi style karhai',p:1200,img:'🍲',sizes:['Half','Full'],sp:[1200,2100]},
+{n:'White Karhai',d:'Creamy white karhai',p:1100,img:'🍲',sizes:['Half','Full'],sp:[1100,2000]},
+{n:'Black Pepper Karhai',d:'Bold black pepper chicken karhai',p:1000,img:'🍲',sizes:['Half','Full'],sp:[1000,1800]},
+{n:'Red Karhai',d:'Spicy red masala karhai',p:900,img:'🍲',sizes:['Half','Full'],sp:[900,1700]},
+{n:'Chicken Boneless Karhai',d:'Boneless chicken karhai',p:1000,img:'🍲',sizes:['Half','Full'],sp:[1000,1600]},
+{n:'Achari Handi Boneless',d:'Tangy pickle-spiced boneless handi',p:1000,img:'🍲',sizes:['Half','Full'],sp:[1000,1700]},
+{n:'Chicken Handi',d:'Classic chicken handi',p:1000,img:'🍲',sizes:['Half','Full'],sp:[1000,1700]}
+],
+'Burgers':[
+{n:'Patty Burger',d:'Classic beef patty burger',p:360,img:'🍔'},
+{n:'Grill Burger',d:'Grilled chicken burger',p:420,img:'🍔'},
+{n:'Zinger Burger',d:'Crispy zinger chicken burger',p:480,img:'🍔'},
+{n:'Grill Cheese Burger',d:'Grilled chicken burger with cheese',p:540,img:'🍔'},
+{n:'Butter Milk Burger',d:'Buttermilk-marinated chicken burger',p:720,img:'🍔'},
+{n:'Beef Smash Burger',d:'Smashed beef patty burger',p:840,img:'🍔'}
+],
+'Wraps and Sandwiches':[
+{n:'Crispy Wrap',d:'Crispy chicken wrap',p:420,img:'🌯'},
+{n:'BBQ Wrap',d:'BBQ chicken wrap',p:420,img:'🌯'},
+{n:'Cheese Wrap',d:'Chicken and cheese wrap',p:480,img:'🌯'},
+{n:'Grill Sandwich with Fries',d:'Grilled chicken sandwich served with fries',p:480,img:'🥪'},
+{n:'Cocktail Sandwich 3 Layer',d:'Triple-layer cocktail sandwich',p:600,img:'🥪'},
+{n:'Club Sandwich with Cheese',d:'Classic club sandwich with cheese',p:660,img:'🥪'},
+{n:'Savado Sandwich With Fries',d:'Savado-style sandwich served with fries',p:780,img:'🥪'}
+],
+'Fries and Dips':[
+{n:'Plain Fries',d:'Classic crispy fries',p:264,img:'🍟'},
+{n:'Masala Fries',d:'Spiced masala fries',p:300,img:'🍟'},
+{n:'Garlic Fries',d:'Garlic-seasoned fries',p:420,img:'🍟'},
+{n:'Crispy Loaded Fries',d:'Fries loaded with crispy toppings',p:660,img:'🍟'},
+{n:'Loaded Fries',d:'Fully loaded fries with sauces',p:720,img:'🍟'},
+{n:'Double Loaded Fries',d:'Double-loaded fries with extra toppings',p:1080,img:'🍟'},
+{n:'Raita',d:'Fresh yogurt raita',p:100,img:'🥣'},
+{n:'Imli Chatni',d:'Tangy tamarind chutney',p:150,img:'🥣'}
+],
+'Pasta':[
+{n:'Penne Pasta',d:'Penne pasta in classic sauce',p:780,img:'🍝'},
+{n:'Alfredo Pasta',d:'Creamy alfredo pasta',p:840,img:'🍝'}
+],
+'Wings and Strips':[
+{n:'Crispy Wings',d:'Crispy fried chicken wings',p:300,img:'🍗'},
+{n:'BBQ Wings 6pcs',d:'BBQ-glazed chicken wings',p:420,img:'🍗'},
+{n:'Dynamite Wings 6pcs',d:'Spicy dynamite wings',p:480,img:'🍗'},
+{n:'Zinger Crispy Piece',d:'Zinger crispy chicken piece',p:240,img:'🍗'},
+{n:'Chicken Bites',d:'Crispy chicken bites',p:360,img:'🍗'},
+{n:'Spicy Chicken Bites',d:'Hot and spicy chicken bites',p:480,img:'🍗'},
+{n:'Peri Bites',d:'Peri peri chicken bites',p:480,img:'🍗'},
+{n:'Honey Bites',d:'Sweet honey-glazed chicken bites',p:600,img:'🍗'},
+{n:'Chicken Strips 6pcs',d:'6 crispy chicken strips',p:720,img:'🍗'},
+{n:'Chicken Strips 10pcs',d:'10 crispy chicken strips',p:1080,img:'🍗'},
+{n:'Fish Strips with Fries',d:'Crispy fish strips served with fries',p:1200,img:'🐟'},
+{n:'Mozzarella Strips',d:'Cheese mozzarella strips',p:840,img:'🧀'},
+{n:'Spin Roll 4 Pcs',d:'4 crispy spin rolls',p:720,img:'🥟'},
+{n:'Cheese Spin Roll 4 Pcs',d:'4 cheese-filled spin rolls',p:720,img:'🥟'}
+],
+'Paratha':[
+{n:'Alu Wala Paratha',d:'Potato-stuffed paratha',p:150,img:'🫓'},
+{n:'Cheese Paratha',d:'Cheese-filled paratha',p:300,img:'🫓'},
+{n:'Nuttella Paratha',d:'Nutella-filled sweet paratha',p:300,img:'🫓'},
+{n:'Saada Paratha',d:'Plain paratha',p:60,img:'🫓'},
+{n:'Omelette',d:'Classic egg omelette',p:70,img:'🍳'},
+{n:'Anda Fry',d:'Fried egg',p:60,img:'🍳'},
+{n:'Qeema Paratha',d:'Mince-stuffed paratha',p:250,img:'🫓'}
+],
+'Tea and Coffee':[
+{n:'Chai Karak',d:'Strong karak tea',p:180,img:'☕'},
+{n:'Doodh Patti',d:'Traditional milk tea',p:240,img:'☕'},
+{n:'Adrak Wali Chai',d:'Ginger tea',p:250,img:'☕'},
+{n:'Masala Chai',d:'Spiced masala tea',p:300,img:'☕'},
+{n:'Tandoori Chai',d:'Smoky tandoori chai',p:300,img:'☕'},
+{n:'Elaichi Chai',d:'Cardamom tea',p:300,img:'☕'},
+{n:'Kashmiri Chai',d:'Pink Kashmiri chai',p:420,img:'☕'},
+{n:'Cardamom Tea',d:'Premium cardamom tea',p:420,img:'☕'},
+{n:'Royal Tea',d:'Special royal blend tea',p:600,img:'☕'},
+{n:'Gur Wali Chai',d:'Jaggery tea',p:300,img:'☕'},
+{n:'Malai Chai',d:'Creamy malai tea',p:269,img:'☕'},
+{n:'Kahwa Lemon Grass',d:'Lemon grass kahwa',p:170,img:'🍵'},
+{n:'Black Kahwa',d:'Classic black kahwa',p:220,img:'🍵'},
+{n:'Honey Kahwa',d:'Sweet honey kahwa',p:270,img:'🍵'},
+{n:'Green Kahwa',d:'Refreshing green kahwa',p:270,img:'🍵'},
+{n:'Coffee',d:'Hot coffee',p:400,img:'☕'},
+{n:'Cold Coffee',d:'Chilled cold coffee',p:550,img:'☕'},
+{n:'Ice Latte Coffee',d:'Iced latte',p:600,img:'☕'},
+{n:'Spanish Ice Latte',d:'Spanish-style iced latte',p:700,img:'☕'},
+{n:'Caramel Cold Coffee',d:'Caramel iced coffee',p:600,img:'☕'},
+{n:'Chocolate Cold Coffee',d:'Chocolate iced coffee',p:600,img:'☕'}
+],
+'Shakes and Drinks':[
+{n:'Banana Milk Shake',d:'Fresh banana milkshake',p:360,img:'🍌'},
+{n:'Strawberry Shake',d:'Fresh strawberry shake',p:420,img:'🍓'},
+{n:'Pineapple Shake',d:'Refreshing pineapple shake',p:480,img:'🍍'},
+{n:'Mango Shake',d:'Fresh mango shake',p:500,img:'🥭'},
+{n:'Oreo Dessert Shake',d:'Oreo cookies milkshake',p:500,img:'🥤'},
+{n:'Nuttella Shake',d:'Nutella milkshake',p:600,img:'🥤'},
+{n:'Lotus Shake',d:'Lotus biscoff shake',p:600,img:'🥤'},
+{n:'Peanut Butter Shake',d:'Creamy peanut butter shake',p:600,img:'🥤'},
+{n:'Kikat Shake',d:'KitKat milkshake',p:700,img:'🥤'},
+{n:'Blueberry Shake',d:'Fresh blueberry shake',p:500,img:'🫐'},
+{n:'Mango Ice Cream Shake',d:'Mango with ice cream shake',p:600,img:'🥭'},
+{n:'Strawberry Ice Cream Shake',d:'Strawberry with ice cream shake',p:600,img:'🍓'},
+{n:'Vanilla Ice Cream Shake',d:'Vanilla ice cream shake',p:600,img:'🍦'},
+{n:'Pineapple Ice Cream Shake',d:'Pineapple ice cream shake',p:600,img:'🍍'},
+{n:'Regular Drink',d:'Regular soft drink',p:145,img:'🥤'},
+{n:'Can Soft Drink',d:'Canned soft drink',p:240,img:'🥤'},
+{n:'Cold Drink 1.5 Liter',d:'1.5 litre cold drink bottle',p:300,img:'🥤'},
+{n:'Lemonade',d:'Fresh lemonade',p:389,img:'🍋'},
+{n:'Mini Margarita',d:'Mocktail mini margarita',p:180,img:'🍹'},
+{n:'Water 0.5 Liter',d:'Mineral water 500 ml',p:100,img:'💧'},
+{n:'Yaariyan Signature Drink',d:'Cafe special signature drink',p:500,img:'🍹'}
+],
+'Desserts':[
+{n:'Molten Lava',d:'Warm chocolate molten lava cake',p:400,img:'🍫'},
+{n:'Brownie',d:'Chocolate brownie',p:350,img:'🍫'},
+{n:'Cookies Per Piece',d:'Freshly baked cookie',p:250,img:'🍪'},
+{n:'Date Pudding with Ice Cream',d:'Date pudding served with ice cream',p:600,img:'🍮'},
+{n:'Crunchy Truffle Cake',d:'Crunchy chocolate truffle cake',p:500,img:'🎂'}
+],
+'Salads':[
+{n:'Fresh Salad',d:'Garden fresh salad',p:150,img:'🥗'},
+{n:'Russian Salad',d:'Creamy Russian salad',p:300,img:'🥗'},
+{n:'Apple Cabbage Salad',d:'Apple and cabbage coleslaw',p:250,img:'🥗'}
+]
 };
 
-var YAARIYAN_CAFE={
-  id:7,name:'Yaariyan Cafe',icon:'☕',area:'Johar Town, Lahore',
-  tags:['BBQ','Desi','Cafe','Fast Food'],
-  rating:4.6,reviews:287,time:'25–40',delivery:200,freeMin:3000,
-  badge:'hot',bg:'linear-gradient(135deg,#C05C1A,#7A3010)',
-  phone:'03000000000',
-  menu:{
-    'Pizza':[
-      {n:'Supreme',d:'Classic supreme pizza with loaded toppings',p:600,img:'🍕',sizes:['Small','Medium','Large'],sp:[600,1100,1600]},
-      {n:'Chicken Tikka',d:'Spicy chicken tikka pizza',p:400,img:'🍕',sizes:['Small','Medium','Large'],sp:[400,900,1400]},
-      {n:'Malai Boti Pizza',d:'Creamy malai boti topped pizza',p:700,img:'🍕',sizes:['Small','Medium','Large'],sp:[700,1200,1700]},
-      {n:'Chicken Fajita',d:'Chicken fajita with bell peppers and cheese',p:400,img:'🍕',sizes:['Small','Medium','Large'],sp:[400,900,1400]},
-      {n:'Yaariyan Special',d:'Yaariyan signature pizza with special toppings',p:800,img:'🍕',sizes:['Small','Medium','Large'],sp:[800,1300,1900]},
-      {n:'Crown Crust',d:'Stuffed crust crown pizza Medium and Large only',p:1400,img:'🍕',sizes:['Medium','Large'],sp:[1400,2000]},
-      {n:'Pizza Slider',d:'Mini pizza sliders, perfect snack',p:300,img:'🍕',sizes:['Small','Medium','Large'],sp:[300,500,800]},
-      {n:'Extra Topping',d:'Add extra topping to any pizza',p:80,img:'🍕',sizes:['Small','Medium','Large'],sp:[80,140,200]}
-    ],
-    'Chinese':[
-      {n:'Chinese Rice',d:'Classic Chinese fried rice',p:300,img:'🍚'},
-      {n:'Chilli Dry',d:'Crispy chicken chilli dry',p:1200,img:'🥡'},
-      {n:'Chowmein',d:'Stir-fried Chinese noodles',p:500,img:'🍜'},
-      {n:'Cashew Nut Chicken',d:'Chicken with cashew nuts in savory sauce',p:1300,img:'🥡'},
-      {n:'Manchurian With Rice',d:'Crispy manchurian in red sauce with rice',p:900,img:'🥡'},
-      {n:'Sashlik With Rice',d:'Sashlik chicken with fried rice',p:1200,img:'🥡'},
-      {n:'Masala Rice',d:'Spiced masala fried rice',p:450,img:'🍚'}
-    ],
-    'BBQ':[
-      {n:'Tikka Boti',d:'Tender chicken tikka boti',p:650,img:'🍗',sizes:['Half','Full'],sp:[650,1300]},
-      {n:'Malai Boti',d:'Creamy malai boti skewers',p:900,img:'🍗',sizes:['Half','Full'],sp:[900,1800]},
-      {n:'Chicken Kabab',d:'Seekh kabab made with minced chicken',p:800,img:'🍖',sizes:['Half','Full'],sp:[800,1600]},
-      {n:'Chicken Cheese Kabab',d:'Cheese-stuffed chicken kabab',p:1000,img:'🍖',sizes:['Half','Full'],sp:[1000,2000]},
-      {n:'Beef Kabab',d:'Juicy beef seekh kabab',p:1200,img:'🍖',sizes:['Half','Full'],sp:[1200,2400]},
-      {n:'Kastoori Boti',d:'Special kastoori marinated chicken boti',p:1000,img:'🍗',sizes:['Half','Full'],sp:[1000,2000]},
-      {n:'Sheesh Touk',d:'Lebanese-style sheesh touk chicken',p:1000,img:'🍗',sizes:['Half','Full'],sp:[1000,2000]},
-      {n:'Gril Fish',d:'Grilled whole fish',p:850,img:'🐟',sizes:['Half','Full'],sp:[850,1700]},
-      {n:'Soup',d:'Hot soup',p:220,img:'🍲',sizes:['Half','Full'],sp:[220,800]}
-    ],
-    'Steaks':[
-      {n:'White Mushroom Steak',d:'Chicken steak in white mushroom sauce',p:960,img:'🥩'},
-      {n:'Black Pepper Steak',d:'Chicken steak in rich black pepper sauce',p:960,img:'🥩'},
-      {n:'Picata Steak',d:'Chicken picata steak with caper sauce',p:960,img:'🥩'},
-      {n:'Polo Chicken',d:'Grilled polo-style chicken',p:1080,img:'🥩'},
-      {n:'Rose Marry Steak',d:'Rosemary herb chicken steak',p:1440,img:'🥩'}
-    ],
-    'Karhai':[
-      {n:'Green Karhai',d:'Chicken karhai with green chillies and herbs',p:1000,img:'🍲',sizes:['Half','Full'],sp:[1000,1900]},
-      {n:'Jalfrezi Karhai',d:'Spicy jalfrezi style karhai',p:1200,img:'🍲',sizes:['Half','Full'],sp:[1200,2100]},
-      {n:'White Karhai',d:'Creamy white karhai',p:1100,img:'🍲',sizes:['Half','Full'],sp:[1100,2000]},
-      {n:'Black Pepper Karhai',d:'Bold black pepper chicken karhai',p:1000,img:'🍲',sizes:['Half','Full'],sp:[1000,1800]},
-      {n:'Red Karhai',d:'Spicy red masala karhai',p:900,img:'🍲',sizes:['Half','Full'],sp:[900,1700]},
-      {n:'Chicken Boneless Karhai',d:'Boneless chicken karhai',p:1000,img:'🍲',sizes:['Half','Full'],sp:[1000,1600]},
-      {n:'Achari Handi Boneless',d:'Tangy pickle-spiced boneless handi',p:1000,img:'🍲',sizes:['Half','Full'],sp:[1000,1700]},
-      {n:'Chicken Handi',d:'Classic chicken handi',p:1000,img:'🍲',sizes:['Half','Full'],sp:[1000,1700]}
-    ],
-    'Burgers':[
-      {n:'Patty Burger',d:'Classic beef patty burger',p:360,img:'🍔'},
-      {n:'Grill Burger',d:'Grilled chicken burger',p:420,img:'🍔'},
-      {n:'Zinger Burger',d:'Crispy zinger chicken burger',p:480,img:'🍔'},
-      {n:'Grill Cheese Burger',d:'Grilled chicken burger with cheese',p:540,img:'🍔'},
-      {n:'Butter Milk Burger',d:'Buttermilk-marinated chicken burger',p:720,img:'🍔'},
-      {n:'Beef Smash Burger',d:'Smashed beef patty burger',p:840,img:'🍔'}
-    ],
-    'Wraps and Sandwiches':[
-      {n:'Crispy Wrap',d:'Crispy chicken wrap',p:420,img:'🌯'},
-      {n:'BBQ Wrap',d:'BBQ chicken wrap',p:420,img:'🌯'},
-      {n:'Cheese Wrap',d:'Chicken and cheese wrap',p:480,img:'🌯'},
-      {n:'Grill Sandwich with Fries',d:'Grilled chicken sandwich served with fries',p:480,img:'🥪'},
-      {n:'Cocktail Sandwich (3 Layer)',d:'Triple-layer cocktail sandwich',p:600,img:'🥪'},
-      {n:'Club Sandwich with Cheese',d:'Classic club sandwich with cheese',p:660,img:'🥪'},
-      {n:'Savado Sandwich With Fries',d:'Savado-style sandwich served with fries',p:780,img:'🥪'}
-    ],
-    'Fries and Dips':[
-      {n:'Plain Fries',d:'Classic crispy fries',p:264,img:'🍟'},
-      {n:'Masala Fries',d:'Spiced masala fries',p:300,img:'🍟'},
-      {n:'Garlic Fries',d:'Garlic-seasoned fries',p:420,img:'🍟'},
-      {n:'Crispy Loaded Fries',d:'Fries loaded with crispy toppings',p:660,img:'🍟'},
-      {n:'Loaded Fries',d:'Fully loaded fries with sauces',p:720,img:'🍟'},
-      {n:'Double Loaded Fries',d:'Double-loaded fries with extra toppings',p:1080,img:'🍟'},
-      {n:'Raita',d:'Fresh yogurt raita',p:100,img:'🥣'},
-      {n:'Imli Chatni',d:'Tangy tamarind chutney',p:150,img:'🥣'}
-    ],
-    'Pasta':[
-      {n:'Penne Pasta',d:'Penne pasta in classic sauce',p:780,img:'🍝'},
-      {n:'Alfredo Pasta',d:'Creamy alfredo pasta',p:840,img:'🍝'}
-    ],
-    'Wings and Strips':[
-      {n:'Crispy Wings',d:'Crispy fried chicken wings',p:300,img:'🍗'},
-      {n:'BBQ Wings (6pcs)',d:'BBQ-glazed chicken wings',p:420,img:'🍗'},
-      {n:'Dynamite Wings (6pcs)',d:'Spicy dynamite wings',p:480,img:'🍗'},
-      {n:'Zinger Crispy Piece',d:'Zinger crispy chicken piece',p:240,img:'🍗'},
-      {n:'Chicken Bites',d:'Crispy chicken bites',p:360,img:'🍗'},
-      {n:'Spicy Chicken Bites',d:'Hot and spicy chicken bites',p:480,img:'🍗'},
-      {n:'Peri Bites',d:'Peri peri chicken bites',p:480,img:'🍗'},
-      {n:'Honey Bites',d:'Sweet honey-glazed chicken bites',p:600,img:'🍗'},
-      {n:'Chicken Strips (6pcs)',d:'6 crispy chicken strips',p:720,img:'🍗'},
-      {n:'Chicken Strips (10pcs)',d:'10 crispy chicken strips',p:1080,img:'🍗'},
-      {n:'Fish Strips with Fries',d:'Crispy fish strips served with fries',p:1200,img:'🐟'},
-      {n:'Mozzarella Strips',d:'Cheese mozzarella strips',p:840,img:'🧀'},
-      {n:'Spin Roll (4 Pcs)',d:'4 crispy spin rolls',p:720,img:'🥟'},
-      {n:'Cheese Spin Roll (4 Pcs)',d:'4 cheese-filled spin rolls',p:720,img:'🥟'}
-    ],
-    'Paratha':[
-      {n:'Alu Wala Paratha',d:'Potato-stuffed paratha',p:150,img:'🫓'},
-      {n:'Cheese Paratha',d:'Cheese-filled paratha',p:300,img:'🫓'},
-      {n:'Nuttella Paratha',d:'Nutella-filled sweet paratha',p:300,img:'🫓'},
-      {n:'Saada Paratha',d:'Plain paratha',p:60,img:'🫓'},
-      {n:'Omelette',d:'Classic egg omelette',p:70,img:'🍳'},
-      {n:'Anda Fry',d:'Fried egg',p:60,img:'🍳'},
-      {n:'Qeema Paratha',d:'Mince-stuffed paratha',p:250,img:'🫓'}
-    ],
-    'Tea and Coffee':[
-      {n:'Chai Karak',d:'Strong karak tea',p:180,img:'☕'},
-      {n:'Doodh Patti',d:'Traditional milk tea',p:240,img:'☕'},
-      {n:'Adrak Wali Chai',d:'Ginger tea',p:250,img:'☕'},
-      {n:'Masala Chai',d:'Spiced masala tea',p:300,img:'☕'},
-      {n:'Tandoori Chai',d:'Smoky tandoori chai',p:300,img:'☕'},
-      {n:'Elaichi Chai',d:'Cardamom tea',p:300,img:'☕'},
-      {n:'Kashmiri Chai',d:'Pink Kashmiri chai',p:420,img:'☕'},
-      {n:'Cardamom Tea',d:'Premium cardamom tea',p:420,img:'☕'},
-      {n:'Royal Tea',d:'Special royal blend tea',p:600,img:'☕'},
-      {n:'Gur Wali Chai',d:'Jaggery tea',p:300,img:'☕'},
-      {n:'Malai Chai',d:'Creamy malai tea',p:269,img:'☕'},
-      {n:'Kahwa Lemon Grass',d:'Lemon grass kahwa',p:170,img:'🍵'},
-      {n:'Black Kahwa',d:'Classic black kahwa',p:220,img:'🍵'},
-      {n:'Honey Kahwa',d:'Sweet honey kahwa',p:270,img:'🍵'},
-      {n:'Green Kahwa',d:'Refreshing green kahwa',p:270,img:'🍵'},
-      {n:'Coffee',d:'Hot coffee',p:400,img:'☕'},
-      {n:'Cold Coffee',d:'Chilled cold coffee',p:550,img:'☕'},
-      {n:'Ice Latte Coffee',d:'Iced latte',p:600,img:'☕'},
-      {n:'Spanish Ice Latte',d:'Spanish-style iced latte',p:700,img:'☕'},
-      {n:'Caramel Cold Coffee',d:'Caramel iced coffee',p:600,img:'☕'},
-      {n:'Chocolate Cold Coffee',d:'Chocolate iced coffee',p:600,img:'☕'}
-    ],
-    'Shakes and Drinks':[
-      {n:'Banana Milk Shake',d:'Fresh banana milkshake',p:360,img:'🍌'},
-      {n:'Strawberry Shake',d:'Fresh strawberry shake',p:420,img:'🍓'},
-      {n:'Pineapple Shake',d:'Refreshing pineapple shake',p:480,img:'🍍'},
-      {n:'Mango Shake',d:'Fresh mango shake',p:500,img:'🥭'},
-      {n:'Oreo Dessert Shake',d:'Oreo cookies milkshake',p:500,img:'🥤'},
-      {n:'Nuttella Shake',d:'Nutella milkshake',p:600,img:'🥤'},
-      {n:'Lotus Shake',d:'Lotus biscoff shake',p:600,img:'🥤'},
-      {n:'Peanut Butter Shake',d:'Creamy peanut butter shake',p:600,img:'🥤'},
-      {n:'Kikat Shake',d:'KitKat milkshake',p:700,img:'🥤'},
-      {n:'Blueberry Shake',d:'Fresh blueberry shake',p:500,img:'🫐'},
-      {n:'Mango Ice Cream Shake',d:'Mango with ice cream shake',p:600,img:'🥭'},
-      {n:'Strawberry Ice Cream Shake',d:'Strawberry with ice cream shake',p:600,img:'🍓'},
-      {n:'Vanilla Ice Cream Shake',d:'Vanilla ice cream shake',p:600,img:'🍦'},
-      {n:'Pineapple Ice Cream Shake',d:'Pineapple ice cream shake',p:600,img:'🍍'},
-      {n:'Regular Drink',d:'Regular soft drink',p:145,img:'🥤'},
-      {n:'Can Soft Drink',d:'Canned soft drink',p:240,img:'🥤'},
-      {n:'Cold Drink (1.5 Liter)',d:'1.5 litre cold drink bottle',p:300,img:'🥤'},
-      {n:'Lemonade',d:'Fresh lemonade',p:389,img:'🍋'},
-      {n:'Mini Margarita',d:'Mocktail mini margarita',p:180,img:'🍹'},
-      {n:'Water (0.5 Liter)',d:'Mineral water 500 ml',p:100,img:'💧'},
-      {n:'Yaariyan Signature Drink',d:"Cafe's special signature drink",p:500,img:'🍹'}
-    ],
-    'Desserts':[
-      {n:'Molten Lava',d:'Warm chocolate molten lava cake',p:400,img:'🍫'},
-      {n:'Brownie',d:'Chocolate brownie',p:350,img:'🍫'},
-      {n:'Cookies (Per Piece)',d:'Freshly baked cookie',p:250,img:'🍪'},
-      {n:'Date Pudding with Ice Cream',d:'Date pudding served with ice cream',p:600,img:'🍮'},
-      {n:'Crunchy Truffle Cake',d:'Crunchy chocolate truffle cake',p:500,img:'🎂'}
-    ],
-    'Salads':[
-      {n:'Fresh Salad',d:'Garden fresh salad',p:150,img:'🥗'},
-      {n:'Russian Salad',d:'Creamy Russian salad',p:300,img:'🥗'},
-      {n:'Apple Cabbage Salad',d:'Apple and cabbage coleslaw',p:250,img:'🥗'}
-    ]
-  }
-};
+var LITTLE_OLIVES={id:1,name:'Little Olives',icon:'🫒',area:'Johar Town, Lahore',tags:['Italian','Pan Asian','Chinese'],rating:4.8,reviews:412,time:'30-45',delivery:200,freeMin:3000,badge:'hot',bg:'linear-gradient(135deg,#2d6e4e,#1a4230)',phone:'03707262929',menu:LO_MENU};
+var YAARIYAN_CAFE={id:7,name:'Yaariyan Cafe',icon:'☕',area:'Johar Town, Lahore',tags:['BBQ','Desi','Cafe','Fast Food'],rating:4.6,reviews:287,time:'25-40',delivery:200,freeMin:3000,badge:'hot',bg:'linear-gradient(135deg,#C05C1A,#7A3010)',phone:'03000000000',menu:YC_MENU};
 
 var COMING_SOON=[
-  {id:2,name:'Karahi House',icon:'🍲',area:'Johar Town, Lahore',tags:['Desi','Karahi','BBQ'],time:'25–35',bg:'linear-gradient(135deg,#8B4513,#654321)'},
-  {id:3,name:'Burger Station',icon:'🍔',area:'Johar Town, Lahore',tags:['Burgers','Fries','Shakes'],time:'20–30',bg:'linear-gradient(135deg,#B8860B,#8B6914)'},
-  {id:4,name:'Naan and Chai',icon:'🫓',area:'Johar Town, Lahore',tags:['Naan','Curry','Chai'],time:'20–35',bg:'linear-gradient(135deg,#CD853F,#A0522D)'},
-  {id:5,name:'Dragon Wok',icon:'🥡',area:'Johar Town, Lahore',tags:['Chinese','Thai','Wok'],time:'30–45',bg:'linear-gradient(135deg,#DC143C,#8B0000)'},
-  {id:6,name:'Desi Dhaba',icon:'🍛',area:'Johar Town, Lahore',tags:['Biryani','Nihari','Desi'],time:'25–40',bg:'linear-gradient(135deg,#4a2c2a,#2d1b1a)'}
+{id:2,name:'Karahi House',icon:'🍲',area:'Johar Town, Lahore',tags:['Desi','Karahi','BBQ'],time:'25-35',bg:'linear-gradient(135deg,#8B4513,#654321)'},
+{id:3,name:'Burger Station',icon:'🍔',area:'Johar Town, Lahore',tags:['Burgers','Fries','Shakes'],time:'20-30',bg:'linear-gradient(135deg,#B8860B,#8B6914)'},
+{id:4,name:'Naan and Chai',icon:'🫓',area:'Johar Town, Lahore',tags:['Naan','Curry','Chai'],time:'20-35',bg:'linear-gradient(135deg,#CD853F,#A0522D)'},
+{id:5,name:'Dragon Wok',icon:'🥡',area:'Johar Town, Lahore',tags:['Chinese','Thai','Wok'],time:'30-45',bg:'linear-gradient(135deg,#DC143C,#8B0000)'},
+{id:6,name:'Desi Dhaba',icon:'🍛',area:'Johar Town, Lahore',tags:['Biryani','Nihari','Desi'],time:'25-40',bg:'linear-gradient(135deg,#4a2c2a,#2d1b1a)'}
 ];
 
 var CATEGORIES=[
-  {icon:'🍕',label:'Pizza'},{icon:'🍝',label:'Pasta'},{icon:'🍜',label:'Udons'},
-  {icon:'🥡',label:'Chinese'},{icon:'🥩',label:'Steaks'},{icon:'🍗',label:'Chicken'},
-  {icon:'🍟',label:'Fries'},{icon:'🍲',label:'Soups'},{icon:'🍫',label:'Desserts'},
-  {icon:'🥤',label:'Drinks'},{icon:'🌮',label:'Appetizers'},{icon:'☕',label:'Tea and Coffee'},
-  {icon:'🍔',label:'Burgers'},{icon:'🍖',label:'BBQ'},{icon:'🥗',label:'Salads'}
+{icon:'🍕',label:'Pizza'},{icon:'🍝',label:'Pasta'},{icon:'🍜',label:'Udons'},
+{icon:'🥡',label:'Chinese'},{icon:'🥩',label:'Steaks'},{icon:'🍗',label:'Chicken'},
+{icon:'🍟',label:'Fries'},{icon:'🍲',label:'Soups'},{icon:'🍫',label:'Desserts'},
+{icon:'🥤',label:'Drinks'},{icon:'🌮',label:'Appetizers'},{icon:'☕',label:'Tea and Coffee'},
+{icon:'🍔',label:'Burgers'},{icon:'🍖',label:'BBQ'},{icon:'🥗',label:'Salads'}
 ];
 
 var FAQS=[
-  {q:'What areas does PlateRun deliver to?',a:'We deliver across all blocks of Johar Town, Lahore, and nearby areas. WhatsApp us at 0307-606-4194 to confirm your area.'},
-  {q:'How long does delivery take?',a:'Average delivery time is 25 to 45 minutes depending on the restaurant. You will receive live updates on WhatsApp.'},
-  {q:'What payment methods do you accept?',a:'We accept Cash on Delivery (COD), JazzCash, and EasyPaisa. Pay when your food arrives.'},
-  {q:'Is there a delivery fee?',a:'Delivery is Rs. 200. Orders above Rs. 3,000 get FREE delivery!'},
-  {q:'How do I track my order?',a:'After placing your order, you will receive a WhatsApp confirmation with your order details. Our rider will contact you when they are on the way.'},
-  {q:'Can I become a PlateRun rider?',a:'Yes! WhatsApp us at 0307-606-4194. Requirements: 18+, own motorcycle, valid license, smartphone.'},
-  {q:"I'm a restaurant owner — how do I join?",a:'WhatsApp us your menu at 0307-606-4194 or email rshazab91@gmail.com. We will set up your page within 24 hours. Zero upfront cost.'}
+{q:'What areas does PlateRun deliver to?',a:'We deliver across all blocks of Johar Town, Lahore, and nearby areas. WhatsApp us at 0307-606-4194 to confirm your area.'},
+{q:'How long does delivery take?',a:'Average delivery time is 25 to 45 minutes depending on the restaurant. You will receive live updates on WhatsApp.'},
+{q:'What payment methods do you accept?',a:'We accept Cash on Delivery, JazzCash, and EasyPaisa. Pay when your food arrives.'},
+{q:'Is there a delivery fee?',a:'Delivery is Rs. 200. Orders above Rs. 3,000 get FREE delivery!'},
+{q:'How do I track my order?',a:'After placing your order, you will receive a WhatsApp confirmation with your order details. Our rider will contact you when on the way.'},
+{q:'Can I become a PlateRun rider?',a:'Yes! WhatsApp us at 0307-606-4194. Requirements: 18+, own motorcycle, valid license, smartphone.'},
+{q:'I am a restaurant owner, how do I join?',a:'WhatsApp us your menu at 0307-606-4194 or email rshazab91@gmail.com. We will set up your page within 24 hours. Zero upfront cost.'}
 ];
 
-// ═══ STATE ═══
 var cart=[];
 var currentRestaurant=LITTLE_OLIVES;
 var user=null;
@@ -1271,719 +969,568 @@ var authMode='login';
 var payMethod='Cash on Delivery';
 var orderHistory=[];
 
-// ═══ INIT ═══
 document.addEventListener('DOMContentLoaded',function(){
-  renderCategories();
-  renderRestaurants();
-  renderFAQs();
-  initReveal();
-  initNavScroll();
-  initTheme();
-  initPromoTimer();
-  initTypingEffect();
-  initScrollProgress();
-  checkSession();
+renderCategories();
+renderRestaurants();
+renderFAQs();
+initReveal();
+initNavScroll();
+initTheme();
+initPromoTimer();
+initTypingEffect();
+initScrollProgress();
+checkSession();
 });
 
-// ═══ SUPABASE SESSION ═══
 function checkSession(){
-  sb.auth.getSession().then(function(result){
-    var session=result.data.session;
-    if(session){loadUserProfile(session.user);}
-  }).catch(function(){
-    user=JSON.parse(localStorage.getItem('pr_user')||'null');
-    orderHistory=JSON.parse(localStorage.getItem('pr_orders')||'[]');
-    if(user)updateUILoggedIn();
-  });
+try{
+sb.auth.getSession().then(function(result){
+if(result.data&&result.data.session){
+loadUserProfile(result.data.session.user);
+}
+});
+}catch(e){
+user=JSON.parse(localStorage.getItem('pr_user')||'null');
+orderHistory=JSON.parse(localStorage.getItem('pr_orders')||'[]');
+if(user)updateUILoggedIn();
+}
 }
 
 function loadUserProfile(authUser){
-  sb.from('profiles').select('*').eq('id',authUser.id).single().then(function(result){
-    if(result.data){
-      user=Object.assign({},authUser,result.data);
-      sb.from('orders').select('*').eq('user_id',authUser.id).order('created_at',{ascending:false}).then(function(r){
-        orderHistory=r.data||[];
-        updateUILoggedIn();
-      });
-    }
-  });
+sb.from('profiles').select('*').eq('id',authUser.id).single().then(function(result){
+if(result.data){
+user=Object.assign({},authUser,result.data);
+sb.from('orders').select('*').eq('user_id',authUser.id).order('created_at',{ascending:false}).then(function(r){
+orderHistory=r.data||[];
+updateUILoggedIn();
+});
+}
+});
 }
 
-// ═══ TYPING EFFECT ═══
 function initTypingEffect(){
-  var phrases=[
-    'From Johar Town's best kitchens to your door in 25 minutes. Italian, Pan Asian, Chinese — whatever you crave, we deliver hot and fresh.',
-    'Order from Little Olives, Yaariyan Cafe and more. Real food, real prices, real delivery.',
-    'Place your order, get a WhatsApp receipt, track your rider. Pay cash on delivery. Simple.'
-  ];
-  var el=document.getElementById('heroSub');
-  if(!el)return;
-  var pi=0,ci=0,deleting=false;
-  function type(){
-    var phrase=phrases[pi];
-    if(!deleting){
-      el.innerHTML=phrase.substring(0,ci)+'<span class="typed-cursor"></span>';
-      ci++;
-      if(ci>phrase.length){setTimeout(function(){deleting=true;type();},3500);return;}
-      setTimeout(type,28);
-    }else{
-      el.innerHTML=phrase.substring(0,ci)+'<span class="typed-cursor"></span>';
-      ci--;
-      if(ci<0){deleting=false;pi=(pi+1)%phrases.length;ci=0;setTimeout(type,500);return;}
-      setTimeout(type,14);
-    }
-  }
-  type();
+var phrases=[
+'From Johar Town best kitchens to your door in 25 minutes. Italian, Pan Asian, Chinese — whatever you crave, we deliver hot and fresh.',
+'Order from Little Olives, Yaariyan Cafe and more. Real food, real prices, real delivery.',
+'Place your order, get a WhatsApp receipt, track your rider. Pay cash on delivery. Simple.'
+];
+var el=document.getElementById('heroSub');
+if(!el)return;
+var pi=0,ci=0,deleting=false;
+function type(){
+try{
+var phrase=phrases[pi];
+if(!deleting){
+el.innerHTML=phrase.substring(0,ci)+'';
+ci++;
+if(ci>phrase.length){setTimeout(function(){deleting=true;type();},3500);return;}
+setTimeout(type,30);
+}else{
+el.innerHTML=phrase.substring(0,ci)+'';
+ci--;
+if(ci<0){deleting=false;pi=(pi+1)%phrases.length;ci=0;setTimeout(type,500);return;}
+setTimeout(type,15);
+}
+}catch(e){}
+}
+type();
 }
 
-// ═══ PROMO TIMER ═══
 function initPromoTimer(){
-  var end=new Date();end.setHours(23,59,59,999);
-  function update(){
-    var now=new Date();
-    var diff=Math.max(0,Math.floor((end-now)/1000));
-    var h=Math.floor(diff/3600);diff%=3600;
-    var m=Math.floor(diff/60);var s=diff%60;
-    var ph=document.getElementById('promoH');
-    var pm=document.getElementById('promoM');
-    var ps=document.getElementById('promoS');
-    if(ph)ph.textContent=String(h).padStart(2,'0');
-    if(pm)pm.textContent=String(m).padStart(2,'0');
-    if(ps)ps.textContent=String(s).padStart(2,'0');
-  }
-  update();setInterval(update,1000);
+var end=new Date();
+end.setHours(23,59,59,999);
+function update(){
+try{
+var now=new Date();
+var diff=Math.max(0,Math.floor((end-now)/1000));
+var h=Math.floor(diff/3600);
+diff=diff%3600;
+var m=Math.floor(diff/60);
+var s=diff%60;
+var ph=document.getElementById('promoH');
+var pm=document.getElementById('promoM');
+var ps=document.getElementById('promoS');
+if(ph)ph.textContent=h<10?'0'+h:String(h);
+if(pm)pm.textContent=m<10?'0'+m:String(m);
+if(ps)ps.textContent=s<10?'0'+s:String(s);
+}catch(e){}
 }
+update();
+setInterval(update,1000);
+}
+
 function closePromo(){
-  document.getElementById('promoBanner').classList.add('hidden');
-  document.getElementById('mainNav').classList.add('promo-hidden');
+var b=document.getElementById('promoBanner');
+var n=document.getElementById('mainNav');
+if(b)b.classList.add('hidden');
+if(n)n.classList.add('promo-hidden');
 }
+
 function copyPromo(){
-  if(navigator.clipboard){navigator.clipboard.writeText('PLATE30');}
-  toast('Promo code PLATE30 copied!');
+try{navigator.clipboard.writeText('PLATE30');}catch(e){}
+toast('Promo code PLATE30 copied!');
 }
 
-// ═══ SCROLL PROGRESS ═══
 function initScrollProgress(){
-  window.addEventListener('scroll',function(){
-    var h=document.documentElement.scrollHeight-window.innerHeight;
-    var p=h>0?(window.scrollY/h)*100:0;
-    var bar=document.getElementById('scrollProgress');
-    if(bar)bar.style.width=p+'%';
-    var stb=document.getElementById('scrollTopBtn');
-    if(stb){
-      if(window.scrollY>600)stb.classList.add('visible');
-      else stb.classList.remove('visible');
-    }
-  });
+window.addEventListener('scroll',function(){
+try{
+var h=document.documentElement.scrollHeight-window.innerHeight;
+var p=h>0?(window.scrollY/h)*100:0;
+var bar=document.getElementById('scrollProgress');
+if(bar)bar.style.width=p+'%';
+var stb=document.getElementById('scrollTopBtn');
+if(stb){
+if(window.scrollY>600)stb.classList.add('visible');
+else stb.classList.remove('visible');
+}
+}catch(e){}
+});
 }
 
-// ═══ CATEGORIES ═══
 function renderCategories(){
-  var el=document.getElementById('catScroll');
-  if(!el)return;
-  el.innerHTML=CATEGORIES.map(function(c){
-    return '<div class="cat-pill" onclick="quickSearch(''+c.label+'')">'+c.icon+' '+c.label+'</div>';
-  }).join('');
+var el=document.getElementById('catScroll');
+if(!el)return;
+var html='';
+for(var i=0;i<categories.length;i++){>'+c.icon+' '+c.label+'';
+}
+el.innerHTML=html;
 }
 
-// ═══ RESTAURANTS ═══
 function renderRestaurants(){
-  var grid=document.getElementById('restGrid');
-  if(!grid)return;
-  var html='';
-
-  // Little Olives
-  var lo=LITTLE_OLIVES;
-  html+='<a class="rest-card" href="#" onclick="event.preventDefault();openMenuFor(1)">'
-    +'<div class="rc-thumb" style="background:'+lo.bg+'">'
-    +'<span style="font-size:64px;position:relative;z-index:1">'+lo.icon+'</span>'
-    +'<div class="rc-thumb-ov"></div>'
-    +'<div class="rc-badge rc-badge-hot">🔥 Open Now</div>'
-    +'<div class="rc-time">⏱ '+lo.time+' min</div></div>'
-    +'<div class="rc-body">'
-    +'<div class="rc-name">'+lo.name+'</div>'
-    +'<div class="rc-area">📍 '+lo.area+'</div>'
-    +'<div class="rc-tags">'+lo.tags.map(function(t){return '<span class="rc-tag">'+t+'</span>';}).join('')+'</div>'
-    +'<div class="rc-foot">'
-    +'<div class="rc-rating">⭐ '+lo.rating+' <span>('+lo.reviews+')</span></div>'
-    +'<div class="rc-meta"><span>🛵 Rs. '+lo.delivery+'</span><span class="rc-free">Free over Rs.3000</span></div>'
-    +'</div></div></a>';
-
-  // Yaariyan Cafe
-  var yc=YAARIYAN_CAFE;
-  html+='<a class="rest-card" href="#" onclick="event.preventDefault();openMenuFor(7)">'
-    +'<div class="rc-thumb" style="background:'+yc.bg+'">'
-    +'<span style="font-size:64px;position:relative;z-index:1">'+yc.icon+'</span>'
-    +'<div class="rc-thumb-ov"></div>'
-    +'<div class="rc-badge rc-badge-hot">🔥 Open Now</div>'
-    +'<div class="rc-time">⏱ '+yc.time+' min</div></div>'
-    +'<div class="rc-body">'
-    +'<div class="rc-name">'+yc.name+'</div>'
-    +'<div class="rc-area">📍 '+yc.area+'</div>'
-    +'<div class="rc-tags">'+yc.tags.map(function(t){return '<span class="rc-tag">'+t+'</span>';}).join('')+'</div>'
-    +'<div class="rc-foot">'
-    +'<div class="rc-rating">⭐ '+yc.rating+' <span>('+yc.reviews+')</span></div>'
-    +'<div class="rc-meta"><span>🛵 Rs. '+yc.delivery+'</span><span class="rc-free">Free over Rs.3000</span></div>'
-    +'</div></div></a>';
-
-  // Coming Soon
-  COMING_SOON.forEach(function(cs){
-    html+='<a class="rest-card" href="#" onclick="event.preventDefault();comingSoon(''+cs.name+'')" style="opacity:0.72">'
-      +'<div class="rc-thumb" style="background:'+cs.bg+'">'
-      +'<span style="font-size:64px;position:relative;z-index:1">'+cs.icon+'</span>'
-      +'<div class="rc-thumb-ov"></div>'
-      +'<div class="rc-badge rc-badge-soon">🔜 Launching Soon</div>'
-      +'<div class="rc-time">⏱ '+cs.time+' min</div></div>'
-      +'<div class="rc-body">'
-      +'<div class="rc-name">'+cs.name+'</div>'
-      +'<div class="rc-area">📍 '+cs.area+'</div>'
-      +'<div class="rc-tags">'+cs.tags.map(function(t){return '<span class="rc-tag">'+t+'</span>';}).join('')+'</div>'
-      +'<div class="rc-foot"><div class="rc-rating" style="color:var(--muted)">Coming soon</div></div>'
-      +'</div></a>';
-  });
-
-  grid.innerHTML=html;
+var grid=document.getElementById('restGrid');
+if(!grid)return;
+var html='';
+var lo=LITTLE_OLIVES;
+html+='';
+html+='';
+html+=''+lo.icon+'';
+html+='';
+html+='🔥 Open Now';
+html+='⏱ '+lo.time+' min';
+html+='';
+html+=''+lo.name+'';
+html+='📍 '+lo.area+'';
+html+='';
+for(var i=0;i'+lo.tags[i]+'';
+html+='';
+html+='';
+html+='⭐ '+lo.rating+' ('+lo.reviews+')';
+html+='🛵 Rs. '+lo.delivery+'Free over Rs.3000';
+html+='';
+var yc=YAARIYAN_CAFE;
+html+='';
+html+='';
+html+=''+yc.icon+'';
+html+='';
+html+='🔥 Open Now';
+html+='⏱ '+yc.time+' min';
+html+='';
+html+=''+yc.name+'';
+html+='📍 '+yc.area+'';
+html+='';
+for(var i=0;i'+yc.tags[i]+'';
+html+='';
+html+='';
+html+='⭐ '+yc.rating+' ('+yc.reviews+')';
+html+='🛵 Rs. '+yc.delivery+'Free over Rs.3000';
+html+='';
+for(var i=0;i';
+html+='';
+html+=''+cs.icon+'';
+html+='';
+html+='🔜 Launching Soon';
+html+='⏱ '+cs.time+' min';
+html+='';
+html+=''+cs.name+'';
+html+='📍 '+cs.area+'';
+html+='';
+for(var j=0;j'+cs.tags[j]+'';
+html+='';
+html+='Coming soon';
+html+='';
 }
+grid.innerHTML=html;
+}
+
 function comingSoon(name){toast('🔜 '+name+' is launching soon! Stay tuned.');}
 
-// ═══ SEARCH ═══
 function doSearch(){
-  var q=document.getElementById('heroSearch').value.trim().toLowerCase();
-  if(!q){document.getElementById('restaurants').scrollIntoView({behavior:'smooth'});return;}
-  var found=[];
-  var restaurants=[LITTLE_OLIVES,YAARIYAN_CAFE];
-  restaurants.forEach(function(r){
-    Object.keys(r.menu).forEach(function(cat){
-      r.menu[cat].forEach(function(item){
-        if(item.n.toLowerCase().indexOf(q)>-1||item.d.toLowerCase().indexOf(q)>-1||cat.toLowerCase().indexOf(q)>-1){
-          found.push({item:item,cat:cat,restaurant:r});
-        }
-      });
-    });
-  });
-  if(found.length>0){
-    var r=found[0].restaurant;
-    openMenuFor(r.id);
-    setTimeout(function(){
-      var tabs=document.querySelectorAll('.mtab');
-      tabs.forEach(function(t){if(t.textContent===found[0].cat){t.click();}});
-    },300);
-    toast('Found '+found.length+' items matching "'+q+'"');
-  }else{
-    toast('No items found for "'+q+'" — try pizza, pasta, udon...');
-  }
+var q=document.getElementById('heroSearch').value.trim().toLowerCase();
+if(!q){document.getElementById('restaurants').scrollIntoView({behavior:'smooth'});return;}
+var found=[];
+var restaurants=[LITTLE_OLIVES,YAARIYAN_CAFE];
+for(var ri=0;ri-1||item.d.toLowerCase().indexOf(q)>-1||cat.toLowerCase().indexOf(q)>-1){
+found.push({item:item,cat:cat,restaurant:r});
 }
-function quickSearch(q){document.getElementById('heroSearch').value=q;doSearch();}
-
-// ═══ FAQs ═══
-function renderFAQs(){
-  var el=document.getElementById('faqGrid');
-  if(!el)return;
-  el.innerHTML=FAQS.map(function(f){
-    return '<div class="faq-item" onclick="this.classList.toggle('open')">'
-      +'<div class="faq-q"><span>'+f.q+'</span><div class="faq-icon">+</div></div>'
-      +'<div class="faq-a"><div class="faq-a-inner">'+f.a+'</div></div>'
-      +'</div>';
-  }).join('');
+}
+}
+}
+if(found.length>0){
+var firstR=found[0].restaurant;
+var firstCat=found[0].cat;
+openMenuFor(firstR.id);
+setTimeout(function(){
+var tabs=document.querySelectorAll('.mtab');
+for(var i=0;i';
+html+=''+f.q+'+';
+html+=''+f.a+'';
+html+='';
+}
+el.innerHTML=html;
 }
 
-// ═══ MENU ═══
 function openMenu(){openMenuFor(currentRestaurant.id);}
+
 function openMenuFor(id){
-  if(id!==1&&id!==7){
-    var cs=COMING_SOON.find(function(c){return c.id===id;});
-    comingSoon(cs?cs.name:'Restaurant');return;
-  }
-  var r=id===7?YAARIYAN_CAFE:LITTLE_OLIVES;
-  currentRestaurant=r;
-  var icon=document.getElementById('menuRestIcon');
-  if(icon){icon.textContent=r.icon;icon.style.background=r.bg;}
-  var nameEl=document.getElementById('menuRestName');
-  if(nameEl)nameEl.textContent=r.name;
-  var metaEl=document.getElementById('menuRestMeta');
-  if(metaEl)metaEl.textContent='⭐ '+r.rating+' · '+r.tags.join(' & ')+' · ⏱ '+r.time+' min · 📞 '+r.phone;
-  var cats=Object.keys(r.menu);
-  var tabsEl=document.getElementById('menuTabs');
-  if(tabsEl){
-    tabsEl.innerHTML=cats.map(function(c,i){
-      return '<button class="mtab'+(i===0?' active':'')+'" onclick="showMenuCat(this,''+c.replace(/'/g,"\'")+'')">'+(c)+'</button>';
-    }).join('');
-  }
-  showMenuCat(null,cats[0]);
-  openOverlay('menuOv');
-  updateCart();
+if(id!==1&&id!==7){
+var cs=null;
+for(var i=0;i'+cats[i]+'';
+}
+tabsEl.innerHTML=th;
+}
+showMenuCat(null,cats[0]);
+openOverlay('menuOv');
+updateCart();
 }
 
 function showMenuCat(btn,cat){
-  if(btn){
-    document.querySelectorAll('.mtab').forEach(function(t){t.classList.remove('active');});
-    btn.classList.add('active');
-  }
-  var items=currentRestaurant.menu[cat]||[];
-  var bodyEl=document.getElementById('menuBody');
-  if(!bodyEl)return;
-  var itemsHtml=items.map(function(it){
-    var newTag=it.isNew?'<span class="new-tag">New</span>':'';
-    var safeName=it.n.replace(/\\/g,'\\\').replace(/'/g,"\'");
-    var sizesHtml='';
-    if(it.sizes){
-      sizesHtml='<div class="mi-sizes">'+it.sizes.map(function(s,i){
-        return '<button class="sz-btn'+(i===0?' picked':'')+'" onclick="pickSize(this,''+safeName+'','+it.sp[i]+')">'+s+' · Rs.'+it.sp[i]+'</button>';
-      }).join('')+'</div>';
-    }
-    return '<div class="menu-item" data-item="'+it.n+'" data-price="'+it.p+'">'
-      +'<div style="font-size:32px;flex-shrink:0">'+it.img+'</div>'
-      +'<div class="mi-info">'
-      +'<div class="mi-name">'+it.n+' '+newTag+'</div>'
-      +'<div class="mi-desc">'+it.d+'</div>'
-      +sizesHtml
-      +'</div>'
-      +'<div class="mi-right">'
-      +'<div class="mi-price">Rs. '+it.p+'</div>'
-      +'<button class="add-btn" onclick="addToCart(''+safeName+'','+it.p+')">+</button>'
-      +'</div></div>';
-  }).join('');
-  bodyEl.innerHTML='<div class="menu-sec-title">'+cat+'</div>'
-    +'<div class="menu-sec-sub">'+items.length+' items</div>'
-    +'<div class="menu-items">'+itemsHtml+'</div>';
-  bodyEl.scrollTop=0;
+if(btn){
+var tabs=document.querySelectorAll('.mtab');
+for(var i=0;iNew':'';
+var sn=it.n.replace(/'/g,''');
+var sz='';
+if(it.sizes){
+sz='';
+for(var j=0;j'+it.sizes[j]+' · Rs.'+it.sp[j]+'';
+}
+sz+='';
+}
+ih+='';
+ih+=''+it.img+'';
+ih+='';
+ih+=''+it.n+' '+newTag+'';
+ih+=''+it.d+'';
+ih+=sz;
+ih+='';
+ih+='';
+ih+='Rs. '+it.p+'';
+ih+='+';
+ih+='';
+}
+bodyEl.innerHTML=''+cat+''+items.length+' items'+ih+'';
+bodyEl.scrollTop=0;
 }
 
 function pickSize(btn,name,price){
-  btn.closest('.mi-sizes').querySelectorAll('.sz-btn').forEach(function(b){b.classList.remove('picked');});
-  btn.classList.add('picked');
-  var item=btn.closest('.menu-item');
-  if(item){
-    item.querySelector('.mi-price').textContent='Rs. '+price;
-    var safeName=name.replace(/\\/g,'\\\').replace(/'/g,"\'");
-    item.querySelector('.add-btn').setAttribute('onclick','addToCart(''+safeName+'','+price+')');
-  }
+var sizes=btn.closest('.mi-sizes');
+if(!sizes)return;
+var btns=sizes.querySelectorAll('.sz-btn');
+for(var i=0;i0){nb.style.display='flex';badge.textContent=count;}
+else{nb.style.display='none';}
+}
 }
 
-function addToCart(name,price){
-  var key=name+'_'+price;
-  var existing=cart.find(function(c){return c.key===key;});
-  if(existing){existing.qty++;}
-  else{cart.push({key:key,name:name,price:price,qty:1});}
-  updateCart();
-  toast('Added '+name);
-  var badge=document.getElementById('navBadge');
-  if(badge){badge.classList.remove('bump');void badge.offsetWidth;badge.classList.add('bump');}
-}
-
-function updateCart(){
-  var count=cart.reduce(function(s,c){return s+c.qty;},0);
-  var total=cart.reduce(function(s,c){return s+c.price*c.qty;},0);
-  var cc=document.getElementById('cartCount');
-  var ct=document.getElementById('cartTotal');
-  if(cc)cc.textContent=count+' items';
-  if(ct)ct.textContent='Rs. '+total.toLocaleString();
-  var nb=document.getElementById('navCartBtn');
-  var badge=document.getElementById('navBadge');
-  if(nb&&badge){
-    if(count>0){nb.style.display='flex';badge.textContent=count;}
-    else{nb.style.display='none';}
-  }
-}
-
-// ═══ CHECKOUT ═══
 function renderCheckoutItems(){
-  var subtotal=cart.reduce(function(s,c){return s+c.price*c.qty;},0);
-  var delFee=subtotal>=currentRestaurant.freeMin?0:currentRestaurant.delivery;
-  var total=subtotal+delFee;
-  var el=document.getElementById('coItems');
-  if(!el)return;
-  var rows=cart.map(function(c){
-    var safeKey=c.key.replace(/\\/g,'\\\').replace(/'/g,"\'");
-    return '<div class="os-row muted" style="align-items:center">'
-      +'<span style="display:flex;align-items:center;gap:6px">'
-      +'<button onclick="updateQty(''+safeKey+'',-1)" style="padding:2px 8px;border-radius:4px;border:1px solid var(--border);background:var(--surface);cursor:pointer;color:var(--ink)">-</button>'
-      +'<b>'+c.qty+'</b>'
-      +'<button onclick="updateQty(''+safeKey+'',1)" style="padding:2px 8px;border-radius:4px;border:1px solid var(--border);background:var(--surface);cursor:pointer;color:var(--ink)">+</button>'
-      +' '+c.name+'</span>'
-      +'<span>Rs. '+(c.price*c.qty).toLocaleString()+'</span></div>';
-  }).join('');
-  var freeHtml=delFee===0?'<span style="color:var(--green);font-weight:700">FREE</span>':'Rs. '+delFee;
-  el.innerHTML=rows
-    +'<div class="os-row muted"><span>Delivery</span><span>'+freeHtml+'</span></div>'
-    +'<div class="os-row"><span>TOTAL</span><span>Rs. '+total.toLocaleString()+'</span></div>';
+var subtotal=0;
+for(var i=0;i=currentRestaurant.freeMin?0:currentRestaurant.delivery;
+var total=subtotal+delFee;
+var el=document.getElementById('coItems');
+if(!el)return;
+var rows='';
+for(var i=0;i-';
+rows+=''+c.qty+'';
+rows+='+';
+rows+=' '+c.name+'';
+rows+='Rs. '+(c.price*c.qty).toLocaleString()+'';
+}
+var freeHtml=delFee===0?'FREE':'Rs. '+delFee;
+rows+='Delivery'+freeHtml+'';
+rows+='TOTALRs. '+total.toLocaleString()+'';
+el.innerHTML=rows;
 }
 
 function updateQty(key,delta){
-  var item=cart.find(function(c){return c.key===key;});
-  if(item){
-    item.qty+=delta;
-    if(item.qty<=0)cart=cart.filter(function(c){return c.key!==key;});
-    updateCart();
-    if(cart.length===0){closeOverlay('coOv');toast('Cart is empty');}
-    else{renderCheckoutItems();}
-  }
+var item=null;
+for(var i=0;i=currentRestaurant.freeMin?0:currentRestaurant.delivery;
+var total=subtotal+delFee;
+var itemsHtml='';
+for(var i=0;ix'+c.qty+'Rs. '+(c.price*c.qty).toLocaleString()+'';
+}
+var waMsg='🍽️ NEW ORDER PlateRun\n';
+waMsg+='Order '+orderId+'\n';
+waMsg+=dateStr+', '+timeStr+'\n\n';
+waMsg+='Customer: '+name+'\n';
+waMsg+='Phone: '+phone+'\n';
+waMsg+='Address: '+addr+'\n\n';
+waMsg+='Items:\n';
+for(var i=0;i';
+html+='PlateRun';
+html+='';
+html+='Delivery to';
+html+=''+name+'📞 '+phone+'🏠 '+addr+'';
+html+='Items from '+currentRestaurant.name+'';
+html+=itemsHtml;
+html+='Delivery'+delText+'';
+html+='TOTALRs. '+total.toLocaleString()+'';
+html+='Payment';
+html+=''+payMethod+'';
+if(payMethod==='Cash on Delivery')html+='Pay the rider when food arrives';
+html+='';
+html+='';
+html+='💬 Send order to PlateRun';
+html+='🏪 Contact Restaurant ('+currentRestaurant.phone+')';
+html+='🏍️ Contact Rider (0328-624-2582)';
+html+='🖨️ Print Receipt';
+html+='';
+html+='PlateRun Johar Town, Lahore📞 0307-606-4194 · ✉️ rshazab91@gmail.comThank you for ordering!';
+inner.innerHTML=html;
+openOverlay('receiptOv');
+launchConfetti();
+cart=[];
+updateCart();
+},400);
+return true;
 }
 
-function goCheckout(){
-  if(cart.length===0){toast('Your cart is empty!');return;}
-  renderCheckoutItems();
-  if(user){
-    var cn=document.getElementById('coName');
-    var cp=document.getElementById('coPhone');
-    var ca=document.getElementById('coAddr');
-    if(cn)cn.value=user.name||'';
-    if(cp)cp.value=user.phone||'';
-    if(ca)ca.value=user.address||'';
-  }
-  closeOverlay('menuOv');
-  openOverlay('coOv');
-}
-
-function setPay(btn,method){
-  document.querySelectorAll('.pay-btn').forEach(function(b){b.classList.remove('active');});
-  btn.classList.add('active');
-  payMethod=method;
-}
-
-// ═══ PLACE ORDER ═══
-function placeOrder(btn){
-  var name=document.getElementById('coName').value.trim();
-  var phone=document.getElementById('coPhone').value.trim();
-  var addr=document.getElementById('coAddr').value.trim();
-  var valid=true;
-  var missing=[];
-  [['coName',name,'Name'],['coPhone',phone,'Phone'],['coAddr',addr,'Address']].forEach(function(arr){
-    var ff=document.getElementById(arr[0]).closest('.form-field');
-    if(!arr[1]){ff.classList.add('error');valid=false;missing.push(arr[2]);}
-    else{ff.classList.remove('error');}
-  });
-  if(!valid){alert('Please fill in: '+missing.join(', '));return false;}
-
-  var orderId='PR-'+String(Math.floor(1000+Math.random()*9000));
-  var now=new Date();
-  var dateStr=now.toLocaleDateString('en-PK',{day:'2-digit',month:'short',year:'numeric'});
-  var timeStr=now.toLocaleTimeString('en-PK',{hour:'2-digit',minute:'2-digit',hour12:true});
-  var subtotal=cart.reduce(function(s,c){return s+c.price*c.qty;},0);
-  var delFee=subtotal>=currentRestaurant.freeMin?0:currentRestaurant.delivery;
-  var total=subtotal+delFee;
-
-  var itemsHtml=cart.map(function(c){
-    return '<div class="receipt-row"><span>'+c.name+' <span class="item-qty">x'+c.qty+'</span></span><span>Rs. '+(c.price*c.qty).toLocaleString()+'</span></div>';
-  }).join('');
-
-  var waMsg='🍽️ *NEW ORDER — PlateRun*\n'
-    +'📋 Order '+orderId+'\n'
-    +'📅 '+dateStr+', '+timeStr+'\n\n'
-    +'👤 *Customer:* '+name+'\n'
-    +'📞 '+phone+'\n'
-    +'🏠 '+addr+'\n\n'
-    +'🛒 *Items:*\n';
-  cart.forEach(function(c){waMsg+='• '+c.name+' x'+c.qty+' = Rs. '+(c.price*c.qty).toLocaleString()+'\n';});
-  waMsg+='\n💰 Subtotal: Rs. '+subtotal.toLocaleString()+'\n'
-    +'🛵 Delivery: '+(delFee===0?'FREE':'Rs. '+delFee)+'\n'
-    +'✅ *TOTAL: Rs. '+total.toLocaleString()+'*\n\n'
-    +'💵 Payment: '+payMethod+'\n'
-    +'🏪 Restaurant: '+currentRestaurant.name+'\n'
-    +'📞 Restaurant: '+currentRestaurant.phone+'\n'
-    +'🏍️ Rider: 0328-624-2582';
-
-  var encodedMsg=encodeURIComponent(waMsg);
-  btn.href='https://wa.me/'+OWNER_WA+'?text='+encodedMsg;
-
-  // Save to Supabase
-  var order={
-    id:orderId,
-    user_id:user?user.id:null,
-    restaurant_id:currentRestaurant.id,
-    restaurant_name:currentRestaurant.name,
-    date:dateStr,time:timeStr,
-    items:JSON.parse(JSON.stringify(cart)),
-    subtotal:subtotal,
-    delivery_fee:delFee,
-    total:total,
-    payment_method:payMethod,
-    customer_name:name,
-    customer_phone:phone,
-    customer_address:addr,
-    created_at:new Date().toISOString()
-  };
-
-  sb.from('orders').insert([order]).then(function(r){if(r.error)console.warn('Order save:',r.error);});
-  if(user){
-    var newCount=(user.orders_count||0)+1;
-    sb.from('profiles').update({orders_count:newCount}).eq('id',user.id).then(function(){});
-    user.orders_count=newCount;
-    orderHistory.unshift(order);
-    updateDashboard();
-  }else{
-    orderHistory.unshift(order);
-    localStorage.setItem('pr_orders',JSON.stringify(orderHistory.slice(0,20)));
-  }
-
-  closeOverlay('coOv');
-
-  setTimeout(function(){
-    var inner=document.getElementById('receiptInner');
-    if(!inner)return;
-    var delText=delFee===0?'FREE':'Rs. '+delFee;
-    inner.innerHTML=
-      '<div class="receipt-header">'
-      +'<div class="receipt-check">✓</div>'
-      +'<div class="receipt-status">Order confirmed!</div>'
-      +'<div class="receipt-orderno">'+orderId+' · '+dateStr+' · '+timeStr+'</div>'
-      +'<div class="rh-logo" style="margin-top:8px">Plate<span>Run</span></div>'
-      +'</div>'
-      +'<div class="receipt-section"><h4>Delivery to</h4>'
-      +'<div class="receipt-info"><strong>'+name+'</strong><br>📞 '+phone+'<br>🏠 '+addr+'</div></div>'
-      +'<div class="receipt-section"><h4>Items from '+currentRestaurant.name+'</h4>'
-      +itemsHtml
-      +'<div class="receipt-row" style="color:var(--muted)"><span>Delivery</span><span>'+delText+'</span></div>'
-      +'<div class="receipt-row total"><span>TOTAL</span><span>Rs. '+total.toLocaleString()+'</span></div></div>'
-      +'<div class="receipt-section"><h4>Payment</h4>'
-      +'<div class="receipt-info"><strong>'+payMethod+'</strong>'+(payMethod==='Cash on Delivery'?'<br>Pay the rider when food arrives':'')+'</div></div>'
-      +'<div class="receipt-actions">'
-      +'<a class="wa-btn" href="https://wa.me/'+OWNER_WA+'?text='+encodedMsg+'" target="_blank" rel="noopener">💬 Send order to PlateRun (WhatsApp)</a>'
-      +'<a class="outline-btn" href="https://wa.me/92'+currentRestaurant.phone.substring(1)+'" target="_blank" rel="noopener">🏪 Contact Restaurant ('+currentRestaurant.phone+')</a>'
-      +'<a class="outline-btn" href="https://wa.me/'+RIDER_WA+'" target="_blank" rel="noopener">🏍️ Contact Rider (0328-624-2582)</a>'
-      +'<button class="print-btn" onclick="window.print()">🖨️ Print / Save Receipt</button>'
-      +'</div>'
-      +'<div class="receipt-footer"><strong>PlateRun</strong> — Johar Town, Lahore<br>📞 0307-606-4194 · ✉️ rshazab91@gmail.com<br>Thank you for ordering! 🍕</div>';
-    openOverlay('receiptOv');
-    launchConfetti();
-    cart=[];
-    updateCart();
-  },400);
-  return true;
-}
-
-// ═══ CONFETTI ═══
 function launchConfetti(){
-  var colors=['#E8340A','#F5600F','#16a34a','#B8820A','#FFD700','#FF69B4'];
-  for(var i=0;i<40;i++){
-    var el=document.createElement('div');
-    el.className='confetti-piece';
-    el.style.left=Math.random()*100+'vw';
-    el.style.top='-10px';
-    el.style.background=colors[Math.floor(Math.random()*colors.length)];
-    el.style.animationDuration=(2+Math.random()*2)+'s';
-    el.style.animationDelay=Math.random()*0.5+'s';
-    el.style.width=(6+Math.random()*6)+'px';
-    el.style.height=(6+Math.random()*6)+'px';
-    el.style.borderRadius=Math.random()>0.5?'50%':'2px';
-    document.body.appendChild(el);
-    setTimeout(function(){if(el.parentNode)el.parentNode.removeChild(el);},4500);
-  }
+var colors=['#E8340A','#F5600F','#16a34a','#B8820A','#FFD700','#FF69B4'];
+for(var i=0;i<40;i++){
+(function(){
+var el=document.createElement('div');
+el.className='confetti-piece';
+el.style.left=Math.random()*100+'vw';
+el.style.top='-10px';
+el.style.background=colors[Math.floor(Math.random()*colors.length)];
+el.style.animationDuration=(2+Math.random()*2)+'s';
+el.style.animationDelay=Math.random()*0.5+'s';
+el.style.width=(6+Math.random()*6)+'px';
+el.style.height=(6+Math.random()*6)+'px';
+el.style.borderRadius=Math.random()>0.5?'50%':'2px';
+document.body.appendChild(el);
+setTimeout(function(){try{document.body.removeChild(el);}catch(e){}},4500);
+})();
+}
 }
 
-// ═══ AUTH ═══
 function openAuth(){openOverlay('authOv');}
+
 function toggleMode(){
-  authMode=authMode==='login'?'signup':'login';
-  var t=document.getElementById('authTitle');
-  var s=document.getElementById('authSub');
-  var b=document.getElementById('authMainBtn');
-  var tg=document.getElementById('authToggle');
-  var se=document.getElementById('signupExtra');
-  if(t)t.textContent=authMode==='login'?'Welcome back 👋':'Create account 🎉';
-  if(s)s.textContent=authMode==='login'?'Sign in — your details are saved for faster checkout.':'Join PlateRun. Your first order gets free delivery!';
-  if(se)se.style.display=authMode==='signup'?'block':'none';
-  if(b)b.textContent=authMode==='login'?'Sign in →':'Create account →';
-  if(tg)tg.innerHTML=authMode==='login'?'New to PlateRun? <a onclick="toggleMode()">Create account</a>':'Already have an account? <a onclick="toggleMode()">Sign in</a>';
+authMode=authMode==='login'?'signup':'login';
+var t=document.getElementById('authTitle');
+var s=document.getElementById('authSub');
+var b=document.getElementById('authMainBtn');
+var tg=document.getElementById('authToggle');
+var se=document.getElementById('signupExtra');
+if(t)t.textContent=authMode==='login'?'Welcome back 👋':'Create account 🎉';
+if(s)s.textContent=authMode==='login'?'Sign in — your details are saved.':'Join PlateRun today!';
+if(se)se.style.display=authMode==='signup'?'block':'none';
+if(b)b.textContent=authMode==='login'?'Sign in →':'Create account →';
+if(tg)tg.innerHTML=authMode==='login'?'New to PlateRun? Create account':'Already have an account? Sign in';
 }
 
 function doAuth(){
-  var email=document.getElementById('fEmail').value.trim();
-  var pass=document.getElementById('fPass').value;
-  var valid=true;
-  if(!email||email.indexOf('@')<0){document.getElementById('fEmail').closest('.form-field').classList.add('error');valid=false;}
-  else{document.getElementById('fEmail').closest('.form-field').classList.remove('error');}
-  if(pass.length<4){document.getElementById('fPass').closest('.form-field').classList.add('error');valid=false;}
-  else{document.getElementById('fPass').closest('.form-field').classList.remove('error');}
-  if(!valid)return;
-
-  var btn=document.getElementById('authMainBtn');
-  var ogText=btn.textContent;
-  btn.textContent='Please wait...';btn.disabled=true;
-
-  if(authMode==='signup'){
-    var first=document.getElementById('fFirst').value.trim();
-    var phone=document.getElementById('fPhone').value.trim();
-    if(!first){document.getElementById('fFirst').closest('.form-field').classList.add('error');btn.textContent=ogText;btn.disabled=false;return;}
-    if(!phone){document.getElementById('fPhone').closest('.form-field').classList.add('error');btn.textContent=ogText;btn.disabled=false;return;}
-    var fullName=first+' '+(document.getElementById('fLast').value.trim()||'');
-    fullName=fullName.trim();
-    var addr=document.getElementById('fAddr').value.trim();
-    sb.auth.signUp({email:email,password:pass}).then(function(result){
-      btn.textContent=ogText;btn.disabled=false;
-      if(result.error){toast('Error: '+result.error.message);return;}
-      if(result.data.user){
-        sb.from('profiles').upsert({id:result.data.user.id,name:fullName,phone:phone,address:addr,orders_count:0}).then(function(){
-          toast('Account created! Welcome to PlateRun!');
-          if(result.data.session)loadUserProfile(result.data.user);
-          closeOverlay('authOv');
-        });
-      }else{
-        toast('Check your email to confirm your account!');
-        closeOverlay('authOv');
-      }
-    });
-  }else{
-    sb.auth.signInWithPassword({email:email,password:pass}).then(function(result){
-      btn.textContent=ogText;btn.disabled=false;
-      if(result.error){toast('Error: '+result.error.message);return;}
-      loadUserProfile(result.data.user);
-      closeOverlay('authOv');
-      toast('Welcome back!');
-    });
-  }
+var emailEl=document.getElementById('fEmail');
+var passEl=document.getElementById('fPass');
+var email=emailEl?emailEl.value.trim():'';
+var pass=passEl?passEl.value:'';
+var valid=true;
+if(!email||email.indexOf('@')<0){if(emailEl)emailEl.closest('.form-field').classList.add('error');valid=false;}
+else{if(emailEl)emailEl.closest('.form-field').classList.remove('error');}
+if(pass.length<4){if(passEl)passEl.closest('.form-field').classList.add('error');valid=false;}
+else{if(passEl)passEl.closest('.form-field').classList.remove('error');}
+if(!valid)return;
+var btn=document.getElementById('authMainBtn');
+var ogText=btn?btn.textContent:'';
+if(btn){btn.textContent='Please wait...';btn.disabled=true;}
+if(authMode==='signup'){
+var firstEl=document.getElementById('fFirst');
+var phoneEl=document.getElementById('fPhone');
+var first=firstEl?firstEl.value.trim():'';
+var phone=phoneEl?phoneEl.value.trim():'';
+if(!first){if(firstEl)firstEl.closest('.form-field').classList.add('error');if(btn){btn.textContent=ogText;btn.disabled=false;}return;}
+if(!phone){if(phoneEl)phoneEl.closest('.form-field').classList.add('error');if(btn){btn.textContent=ogText;btn.disabled=false;}return;}
+var lastEl=document.getElementById('fLast');
+var addrEl=document.getElementById('fAddr');
+var fullName=(first+' '+(lastEl?lastEl.value.trim():'')).trim();
+var addr=addrEl?addrEl.value.trim():'';
+sb.auth.signUp({email:email,password:pass}).then(function(result){
+if(btn){btn.textContent=ogText;btn.disabled=false;}
+if(result.error){toast('Error: '+result.error.message);return;}
+if(result.data&&result.data.user){
+sb.from('profiles').upsert({id:result.data.user.id,name:fullName,phone:phone,address:addr,orders_count:0}).then(function(){
+toast('Account created! Welcome to PlateRun!');
+if(result.data.session)loadUserProfile(result.data.user);
+closeOverlay('authOv');
+});
+}else{
+toast('Check your email to confirm your account!');
+closeOverlay('authOv');
+}
+});
+}else{
+sb.auth.signInWithPassword({email:email,password:pass}).then(function(result){
+if(btn){btn.textContent=ogText;btn.disabled=false;}
+if(result.error){toast('Error: '+result.error.message);return;}
+if(result.data&&result.data.user){
+loadUserProfile(result.data.user);
+closeOverlay('authOv');
+toast('Welcome back!');
+}
+});
+}
 }
 
 function checkPwStrength(v){
-  var bar=document.getElementById('pwBar');
-  if(!bar)return;
-  var s=0;
-  if(v.length>=4)s++;if(v.length>=8)s++;
-  if(/[A-Z]/.test(v)&&/[0-9]/.test(v))s++;
-  if(/[^A-Za-z0-9]/.test(v))s++;
-  var widths=[0,25,50,75,100];
-  var colors=['','#dc2626','#f59e0b','#22c55e','#16a34a'];
-  bar.style.width=widths[s]+'%';
-  bar.style.background=colors[s]||'';
+var bar=document.getElementById('pwBar');
+if(!bar)return;
+var s=0;
+if(v.length>=4)s++;
+if(v.length>=8)s++;
+if(/[A-Z]/.test(v)&&/[0-9]/.test(v))s++;
+if(/[^A-Za-z0-9]/.test(v))s++;
+var ws=[0,25,50,75,100];
+var cs=['','#dc2626','#f59e0b','#22c55e','#16a34a'];
+bar.style.width=ws[s]+'%';
+bar.style.background=cs[s]||'';
 }
 
 function updateUILoggedIn(){
-  var navAuth=document.getElementById('navAuth');
-  if(navAuth&&user){
-    navAuth.textContent='👤 '+user.name.split(' ')[0];
-    navAuth.onclick=function(){openDash();};
-  }
-  updateDashboard();
+var navAuth=document.getElementById('navAuth');
+if(navAuth&&user){
+navAuth.textContent='👤 '+user.name.split(' ')[0];
+navAuth.onclick=function(){openDash();};
+}
+updateDashboard();
 }
 
 function updateDashboard(){
-  if(!user)return;
-  var dAv=document.getElementById('dAv');
-  var dName=document.getElementById('dName');
-  var dEmail=document.getElementById('dEmail');
-  var dPhone=document.getElementById('dPhone');
-  var dAddr=document.getElementById('dAddr');
-  var dsOrders=document.getElementById('dsOrders');
-  var dsSaved=document.getElementById('dsSaved');
-  if(dAv)dAv.textContent=user.name[0].toUpperCase();
-  if(dName)dName.textContent=user.name;
-  if(dEmail)dEmail.textContent=user.email;
-  if(dPhone){var phEl=dPhone.querySelector?dPhone.querySelector('strong'):dPhone;if(phEl)phEl.textContent=user.phone||'Not set';}
-  if(dAddr){var adEl=dAddr.querySelector?dAddr.querySelector('strong'):dAddr;if(adEl)adEl.textContent=user.address||'Not set';}
-  var oc=user.orders_count||user.orders||0;
-  if(dsOrders)dsOrders.textContent=oc;
-  if(dsSaved)dsSaved.textContent='Rs. '+(oc*200).toLocaleString();
-  var ohList=document.getElementById('ohList');
-  if(!ohList)return;
-  if(orderHistory.length===0){ohList.innerHTML='<div style="font-size:12px;color:var(--muted);padding:12px 0">No orders yet 🍕</div>';return;}
-  ohList.innerHTML=orderHistory.slice(0,5).map(function(o){
-    var d=o.created_at?new Date(o.created_at).toLocaleDateString('en-PK',{month:'short',day:'numeric'}):o.date||'';
-    var restName=o.restaurant_name||'Restaurant';
-    return '<div class="oh-item">'
-      +'<div class="oh-icon">🍽️</div>'
-      +'<div class="oh-info">'
-      +'<div class="oh-name">'+o.id+' · '+restName+'</div>'
-      +'<div class="oh-meta">'+d+' · '+(o.items?o.items.length:0)+' items</div>'
-      +'</div>'
-      +'<div class="oh-price">Rs. '+o.total.toLocaleString()+'</div>'
-      +'</div>';
-  }).join('');
+if(!user)return;
+var dAv=document.getElementById('dAv');
+var dName=document.getElementById('dName');
+var dEmail=document.getElementById('dEmail');
+var dPhone=document.getElementById('dPhone');
+var dAddr=document.getElementById('dAddr');
+var dsOrders=document.getElementById('dsOrders');
+var dsSaved=document.getElementById('dsSaved');
+if(dAv)dAv.textContent=user.name[0].toUpperCase();
+if(dName)dName.textContent=user.name;
+if(dEmail)dEmail.textContent=user.email;
+if(dPhone){var phEl=dPhone.querySelector('strong');if(phEl)phEl.textContent=user.phone||'Not set';}
+if(dAddr){var adEl=dAddr.querySelector('strong');if(adEl)adEl.textContent=user.address||'Not set';}
+var oc=user.orders_count||user.orders||0;
+if(dsOrders)dsOrders.textContent=oc;
+if(dsSaved)dsSaved.textContent='Rs. '+(oc*200).toLocaleString();
+var ohList=document.getElementById('ohList');
+if(!ohList)return;
+if(!orderHistory||orderHistory.length===0){
+ohList.innerHTML='No orders yet 🍕';
+return;
+}
+var html='';
+var max=orderHistory.length<5?orderHistory.length:5;
+for(var i=0;i';
+html+=''+d+' · '+itCount+' items';
+html+='';
+html+='Rs. '+o.total.toLocaleString()+'';
+html+='';
+}
+ohList.innerHTML=html;
 }
 
-function openDash(){var d=document.getElementById('dashPanel');if(d)d.classList.add('open');}
-function closeDash(){var d=document.getElementById('dashPanel');if(d)d.classList.remove('open');}
+function openDash(){
+var d=document.getElementById('dashPanel');
+if(d)d.classList.add('open');
+}
+
+function closeDash(){
+var d=document.getElementById('dashPanel');
+if(d)d.classList.remove('open');
+}
 
 function doLogout(){
-  sb.auth.signOut().then(function(){});
-  user=null;
-  orderHistory=[];
-  localStorage.removeItem('pr_user');
-  localStorage.removeItem('pr_orders');
-  closeDash();
-  var navAuth=document.getElementById('navAuth');
-  if(navAuth){navAuth.textContent='👤 Sign in';navAuth.onclick=function(){openAuth();};}
-  toast('Logged out. See you soon!');
+try{sb.auth.signOut().then(function(){});}catch(e){}
+user=null;
+orderHistory=[];
+localStorage.removeItem('pr_user');
+localStorage.removeItem('pr_orders');
+closeDash();
+var navAuth=document.getElementById('navAuth');
+if(navAuth){navAuth.textContent='👤 Sign in';navAuth.onclick=function(){openAuth();};}
+toast('Logged out. See you soon!');
 }
 
-// ═══ OVERLAYS ═══
 function openOverlay(id){
-  var el=document.getElementById(id);
-  if(!el)return;
-  el.classList.add('open');
-  document.body.style.overflow='hidden';
-  history.pushState({overlay:id},'');
+var el=document.getElementById(id);
+if(!el)return;
+el.classList.add('open');
+document.body.style.overflow='hidden';
+try{history.pushState({overlay:id},'');}catch(e){}
 }
+
 function closeOverlay(id){
-  var el=document.getElementById(id);
-  if(!el)return;
-  el.classList.remove('open');
-  document.body.style.overflow='';
+var el=document.getElementById(id);
+if(!el)return;
+el.classList.remove('open');
+document.body.style.overflow='';
 }
-function overlayTap(e,id){if(e.target.classList.contains('overlay'))closeOverlay(id);}
+
+function overlayTap(e,id){
+if(e.target.classList.contains('overlay'))closeOverlay(id);
+}
+
 window.addEventListener('popstate',function(){
-  document.querySelectorAll('.overlay.open').forEach(function(el){el.classList.remove('open');});
-  var dp=document.getElementById('dashPanel');
-  if(dp)dp.classList.remove('open');
-  document.body.style.overflow='';
-});
-
-// ═══ LEGAL ═══
-function showLegal(type){
-  var docs={
-    privacy:'<h2>Privacy Policy</h2><p class="legal-meta">Last updated: May 2025</p><h3>Information We Collect</h3><p>We collect your name, phone number, and delivery address to process orders.</p><h3>How We Use It</h3><p>Your data is used exclusively for order processing and delivery. We never sell your information.</p><h3>Contact</h3><p>Questions? Email rshazab91@gmail.com or WhatsApp 0307-606-4194.</p>',
-    terms:'<h2>Terms of Service</h2><p class="legal-meta">Last updated: May 2025</p><h3>Service</h3><p>PlateRun connects customers with restaurants in Johar Town, Lahore for food delivery.</p><h3>Orders</h3><p>Delivery fee is Rs. 200 (free over Rs. 3,000). All prices include tax.</p><h3>Contact</h3><p>WhatsApp: 0307-606-4194 · Email: rshazab91@gmail.com</p>',
-    refund:'<h2>Refund Policy</h2><p class="legal-meta">Last updated: May 2025</p><h3>When You Can Get a Refund</h3><ul><li>Wrong items delivered</li><li>Missing items</li><li>Quality issues (with photo)</li></ul><h3>How</h3><p>WhatsApp us at 0307-606-4194 with your order number and photos. Refunds processed within 24 to 48 hours.</p>'
-  };
-  var lc=document.getElementById('legalContent');
-  if(lc)lc.innerHTML=(docs[type]||'')+'<button class="m-close" onclick="closeOverlay('legalOv')" style="position:absolute;top:16px;right:16px">✕</button>';
-  openOverlay('legalOv');
+var ols=document.querySelectorAll('.overlay.open');
+for(var i=0;iPrivacy PolicyLast updated: May 2025Information We CollectWe collect your name, phone number, and delivery address to process orders.How We Use ItYour data is used exclusively for order processing and delivery. We never sell your information.ContactEmail rshazab91@gmail.com or WhatsApp 0307-606-4194.',
+terms:'Terms of ServiceLast updated: May 2025ServicePlateRun connects customers with restaurants in Johar Town, Lahore for food delivery.OrdersDelivery fee is Rs. 200 (free over Rs. 3,000). All prices include tax.ContactWhatsApp: 0307-606-4194 · Email: rshazab91@gmail.com',
+refund:'Refund PolicyLast updated: May 2025When You Can Get a RefundWrong items deliveredMissing itemsQuality issues with photo proofHowWhatsApp us at 0307-606-4194 with your order number and photos. Refunds processed within 24 to 48 hours.'
+};
+var lc=document.getElementById('legalContent');
+if(!lc)return;
+lc.innerHTML=(docs[type]||'')+'✕';
+openOverlay('legalOv');
 }
 
-// ═══ THEME ═══
 function initTheme(){
-  var s=localStorage.getItem('pr_theme');
-  if(s){
-    document.documentElement.setAttribute('data-theme',s);
-    var tb=document.getElementById('themeBtn');
-    if(tb)tb.textContent=s==='dark'?'☀️':'🌙';
-  }
+var s=localStorage.getItem('pr_theme');
+if(s){
+document.documentElement.setAttribute('data-theme',s);
+var tb=document.getElementById('themeBtn');
+if(tb)tb.textContent=s==='dark'?'☀️':'🌙';
 }
+}
+
 function toggleTheme(){
-  var c=document.documentElement.getAttribute('data-theme');
-  var n=c==='dark'?'light':'dark';
-  document.documentElement.setAttribute('data-theme',n);
-  var tb=document.getElementById('themeBtn');
-  if(tb)tb.textContent=n==='dark'?'☀️':'🌙';
-  localStorage.setItem('pr_theme',n);
+var c=document.documentElement.getAttribute('data-theme');
+var n=c==='dark'?'light':'dark';
+document.documentElement.setAttribute('data-theme',n);
+var tb=document.getElementById('themeBtn');
+if(tb)tb.textContent=n==='dark'?'☀️':'🌙';
+localStorage.setItem('pr_theme',n);
 }
 
-// ═══ NAV ═══
 function initNavScroll(){
-  window.addEventListener('scroll',function(){
-    var nav=document.getElementById('mainNav');
-    if(nav)nav.classList.toggle('scrolled',window.scrollY>20);
-  });
+window.addEventListener('scroll',function(){
+var nav=document.getElementById('mainNav');
+if(nav)nav.classList.toggle('scrolled',window.scrollY>20);
+});
 }
-function toggleMob(){var d=document.getElementById('mobDrawer');if(d)d.classList.toggle('open');}
-function closeMob(){var d=document.getElementById('mobDrawer');if(d)d.classList.remove('open');}
 
-// ═══ REVEAL ═══
+function toggleMob(){
+var d=document.getElementById('mobDrawer');
+if(d)d.classList.toggle('open');
+}
+
+function closeMob(){
+var d=document.getElementById('mobDrawer');
+if(d)d.classList.remove('open');
+}
+
 function initReveal(){
-  var obs=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
-    });
-  },{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
-  document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
-}
+try{
+var obs=new IntersectionObserver(function(entries){
+for(var i=0;i
 
-// ═══ TOAST ═══
-function toast(msg){
-  var t=document.getElementById('toast');
-  if(!t)return;
-  t.textContent=msg;
-  t.classList.add('show');
-  clearTimeout(t._timer);
-  t._timer=setTimeout(function(){t.classList.remove('show');},3000);
-}
-</script>
+
+```
+
+  
