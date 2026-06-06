@@ -1245,6 +1245,12 @@ function toggleMode() {
   document.getElementById('authNotice').style.display   = 'none';
 }
 
+function resetAuthBtn() {
+  const btn = document.getElementById('authMainBtn');
+  btn.disabled = false;
+  btn.textContent = authMode === 'login' ? 'Sign in →' : 'Create account →';
+}
+
 async function doAuth() {
   const email = document.getElementById('fEmail').value.trim();
   const pass  = document.getElementById('fPass').value;
@@ -1267,15 +1273,24 @@ async function doAuth() {
   btn.disabled = true;
   btn.textContent = '⏳ Please wait…';
 
+  // Hard 12-second timeout — button ALWAYS re-enables
+  const safetyTimer = setTimeout(() => {
+    resetAuthBtn();
+    toast('⚠️ Request timed out. Check your internet and try again.');
+  }, 12000);
+
   try {
     if (authMode === 'signup') {
       await doSignup(email, pass);
     } else {
       await doLogin(email, pass);
     }
+  } catch (err) {
+    console.error('Auth error:', err);
+    toast('❌ Something went wrong: ' + (err.message || 'Please try again'));
   } finally {
-    btn.disabled = false;
-    btn.textContent = authMode === 'login' ? 'Sign in →' : 'Create account →';
+    clearTimeout(safetyTimer);
+    resetAuthBtn();
   }
 }
 
@@ -1322,12 +1337,20 @@ async function doSignup(email, pass) {
 }
 
 async function doLogin(email, pass) {
-  const { error } = await sb.auth.signInWithPassword({ email, password: pass });
+  let result;
+  try {
+    result = await sb.auth.signInWithPassword({ email, password: pass });
+  } catch (e) {
+    throw new Error('Network error — check your internet connection');
+  }
+  const { error } = result;
   if (error) {
     if (error.message.toLowerCase().includes('email not confirmed')) {
       const notice = document.getElementById('authNotice');
-      notice.innerHTML = '📧 Please confirm your email first. Check your inbox for the link from PlateRun.';
+      notice.innerHTML = '📧 Please confirm your email first. Check your inbox for a link from PlateRun.';
       notice.style.display = 'block';
+    } else if (error.message.toLowerCase().includes('invalid login')) {
+      toast('❌ Wrong email or password');
     } else {
       toast('❌ ' + error.message);
     }
